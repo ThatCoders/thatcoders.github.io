@@ -2299,6 +2299,11 @@ figure.highlight pre .javascript .function {
   -ms-transition: all 0.3s;
   transition: all 0.3s;
 }
+@media screen and (min-width: 900px) {
+  .layout > div:first-child {
+    width: 62% !important;
+  }
+}
 @media screen and (max-width: 900px) {
   .layout > div:first-child {
     width: 100% !important;
@@ -2641,7 +2646,7 @@ h1.page-title + .tag-cloud-list {
 }
 @media screen and (min-width: 900px) {
   #aside-content {
-    padding-right: 15px;
+    padding-right: 5%;
   }
 }
 @media screen and (max-width: 900px) {
