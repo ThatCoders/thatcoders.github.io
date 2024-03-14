@@ -1,0 +1,26 @@
+{
+  "author": {
+    "path": "creatorName",
+    "once": true
+  },
+  "avatar": {
+    "default": "https://blog.thatcoder.cn/custom/img/网易云音乐.svg"
+  },
+  "msg": {
+    "path":"content",
+    "markdown":true
+  },
+  "pics": "resourceList[*].externalLink",
+  "time": {
+    "path": "createdTs",
+    "sort": 0,
+    "style": 1,
+    "format": "zh"
+  },
+  "from": {
+    "default": "-- From Memos "
+  },
+  "icon": {
+    "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
+  }
+}

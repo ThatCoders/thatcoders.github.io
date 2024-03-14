@@ -1,0 +1,10 @@
+/*
+ * Copyright (c) 2024.
+ * ZYTimetmpl.css files written in 2024/1/14 上午3:28 are ThatCoder (钟意) for MyBlog projects.
+ * ThatCoder's blog is https://blog.thatcoder.cn
+ * If you are interested in this code or have any questions, you are welcome to visit and discuss it.
+ */
+
+#player > div, #cover, #player > div > div.cover.cover-sm.f-pr > div.mask{
+    border-radius: 16px !important;
+}

@@ -1,0 +1,523 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0" theme-name="Stellar" theme-version="1.25.0">
+  
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>YDLDoc1：流程控制语句 - 那个码农</title>
+
+  
+    <meta name="description" content="# 第四章 流程控制语句提示课程视频教程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1h64y1i78N?p&#x3D;34open in new window在程序中， 程序运行的流程控制决定程序是如何执行的， 主要有三大流程控制语句。顺序控制分支控制循环控制# 一、顺序控制顺序控制就是程序会由上而下，由左及右依次逐行执行，就和我们写文章一样。java中对变量是先定义再使用，以">
+<meta property="og:type" content="website">
+<meta property="og:title" content="流程控制语句">
+<meta property="og:url" content="https://blog.thatcoder.cn/wiki/YDLDoc1/javase/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5.html">
+<meta property="og:site_name" content="那个码农">
+<meta property="og:description" content="# 第四章 流程控制语句提示课程视频教程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1h64y1i78N?p&#x3D;34open in new window在程序中， 程序运行的流程控制决定程序是如何执行的， 主要有三大流程控制语句。顺序控制分支控制循环控制# 一、顺序控制顺序控制就是程序会由上而下，由左及右依次逐行执行，就和我们写文章一样。java中对变量是先定义再使用，以">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/image-20210727162939043-3c0ae504.png">
+<meta property="og:image" content="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/image-20210727163626105-c08e400d.png">
+<meta property="article:published_time" content="2023-12-16T19:23:02.836Z">
+<meta property="article:modified_time" content="2023-12-16T19:23:02.836Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="那个码农">
+<meta property="article:tag" content="码农钟意">
+<meta property="article:tag" content="钟意的博客">
+<meta property="article:tag" content="钟意博客">
+<meta property="article:tag" content="That Coder">
+<meta property="article:tag" content="thatcoder">
+<meta property="article:tag" content="源柒拾柒雅舍">
+<meta property="article:tag" content="源WebGary">
+<meta property="article:tag" content="giligili.work">
+<meta property="article:tag" content="seclusion.work">
+<meta property="article:tag" content="GalGame">
+<meta property="article:tag" content="Hexo Stellar">
+<meta property="article:tag" content="江西木村拓哉">
+<meta property="article:tag" content="江西吴彦祖">
+<meta property="article:tag" content="江西胡歌">
+<meta property="article:tag" content="龙南木村拓哉">
+<meta property="article:tag" content="龙南吴彦祖">
+<meta property="article:tag" content="龙南胡歌">
+<meta property="article:tag" content="九江职业技术学院">
+<meta property="article:tag" content="南昌交通学院">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/image-20210727162939043-3c0ae504.png">
+  
+  
+  
+  <meta name="keywords" content="那个码农,码农钟意,钟意的博客,钟意博客,That Coder,thatcoder,源柒拾柒雅舍,源WebGary,giligili.work,seclusion.work,GalGame,Hexo Stellar,江西木村拓哉,江西吴彦祖,江西胡歌,龙南木村拓哉,龙南吴彦祖,龙南胡歌,九江职业技术学院,南昌交通学院">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="那个码农" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel="stylesheet" href="https://upyun.thatcdn.cn/public/font/lxgw/result.css" /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYDark.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+
+<div class="l_body content tech" id="start" layout="wiki" ><aside class="l_left"><div class="sidebar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/custom/img/ydl.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/YDLDoc1/javase/nio/nio.html"><div class="main" ff="title">YDLDoc1</div><div class="sub normal cap">关于YDLDoc的笔记</div><div class="sub hover cap" style="opacity:0"> 不对之处请指出</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" class="icon search-icon" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/YDLDoc1/" placeholder="在 /wiki/YDLDoc1/ 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item active" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc multi" id="data-toc" collapse="auto"><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/nio/nio.html#start"><span class="toc-text">nio</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html"><span class="toc-text">java正则表达式</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E5%8F%98%E9%87%8F%E5%92%8C%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%8F%98%E9%87%8F%E5%92%8C%E6%A0%87%E8%AF%86%E7%AC%A6.html"><span class="toc-text">变量和标识符</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E5%8F%8D%E5%B0%84/%E5%8F%8D%E5%B0%84.html"><span class="toc-text">反射</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B.html"><span class="toc-text">多线程</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E5%B8%B8%E7%94%A8api/%E5%B8%B8%E7%94%A8api.html"><span class="toc-text">常用api</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6.html"><span class="toc-text">异常机制</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/IO%E6%B5%81/IO%E6%B5%81.html"><span class="toc-text">IO流</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%9E%9A%E4%B8%BE/%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%9E%9A%E4%B8%BE.html"><span class="toc-text">泛型和枚举</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E6%95%B0%E7%BB%84%E5%92%8C%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84%E5%92%8C%E7%AE%97%E6%B3%95.html"><span class="toc-text">数组和算法</span></a></div><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/YDLDoc1/javase/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5.html"><span class="toc-text">流程控制语句</span><svg t="1705415018387" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14793" width="200" height="200"><path d="M256 896a42.666667 42.666667 0 0 1-20.906667-5.546667A42.666667 42.666667 0 0 1 213.333333 853.333333V227.413333A97.28 97.28 0 0 1 307.2 128h409.6A97.28 97.28 0 0 1 810.666667 227.413333V853.333333a42.666667 42.666667 0 0 1-21.333334 36.693334 42.666667 42.666667 0 0 1-42.666666 0l-241.92-136.96-227.413334 136.533333A42.666667 42.666667 0 0 1 256 896z" p-id="14794"></path></svg></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%A1%BA%E5%BA%8F%E6%8E%A7%E5%88%B6"><span class="toc-text"> 一、顺序控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81-%E6%9D%A1%E4%BB%B6-%E5%88%86%E6%94%AF%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text"> 二、（条件）分支控制语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81%E5%8D%95%E5%88%86%E6%94%AF"><span class="toc-text"> 1、单分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81%E5%8F%8C%E5%88%86%E6%94%AF"><span class="toc-text"> 2、双分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3%E3%80%81%E5%A4%9A%E5%88%86%E6%94%AF"><span class="toc-text"> 3、多分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_4%E3%80%81%E5%B5%8C%E5%A5%97%E5%88%86%E6%94%AF"><span class="toc-text"> 4、嵌套分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_5%E3%80%81switch%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84"><span class="toc-text"> 5、switch分支结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%BE%AA%E7%8E%AF"><span class="toc-text"> 三、循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81for%E5%BE%AA%E7%8E%AF"><span class="toc-text"> 1、for循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81%E5%B5%8C%E5%A5%97for%E5%BE%AA%E7%8E%AF"><span class="toc-text"> 2、嵌套for循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-%E6%89%93%E5%8D%B0%E9%95%BF%E6%96%B9%E5%BD%A2"><span class="toc-text"> （1）打印长方形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_2-%E6%89%93%E5%8D%B0%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8"><span class="toc-text"> （2）打印九九乘法表：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3%E3%80%81while-%E5%92%8C-do-while"><span class="toc-text"> 3、while 和 do while</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BD%9C%E4%B8%9A"><span class="toc-text"> 四、作业</span></a></li></ol></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E6%A0%91/%E6%A0%91.html"><span class="toc-text">树</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80.html"><span class="toc-text">计算机基础</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/web/bom/bom.html"><span class="toc-text">bom</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.html"><span class="toc-text">集合框架</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/web/css/css.html"><span class="toc-text">css</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.html"><span class="toc-text">网络编程</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/web/html/html.html"><span class="toc-text">html</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/web/js/js.html"><span class="toc-text">js</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/%E5%85%B6%E4%BB%96/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.html"><span class="toc-text">linux操作系统</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/web/jsp/jsp.html"><span class="toc-text">jsp</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/JDBC/JDBC.html"><span class="toc-text">JDBC</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/mysql%E5%85%A5%E9%97%A8/mysql%E5%85%A5%E9%97%A8.html"><span class="toc-text">mysql入门</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/mysql%E8%BF%9B%E9%98%B6/mysql%E8%BF%9B%E9%98%B6.html"><span class="toc-text">mysql进阶</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/git%E5%85%A5%E9%97%A8.html"><span class="toc-text">git入门</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/YDLDoc1/javase/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.html"><span class="toc-text">面向对象</span></a></div></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-laptop-code"></i></a><a class="social" href="https://music.163.com/#/user/home?id=134968139" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-music"></i></a><a class="social" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-champagne-glasses"></i></a><a class="social" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-comments-dollar"></i></a><a class="social" href="javaScript:hud.toast('🌙 夜间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeM" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javaScript:hud.toast('☀ 日间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeL" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javaScript:hud.toast('💻 跟随系统');" rel="noopener noreferrer"><img class="lazy" id="ThemeAI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="bread-nav fs12"><div class="left"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/YDLDoc1/javase/nio/nio.html">YDLDoc1</a></div>
+<div id="post-meta"><span class="author">更新于：</span><time datetime="2023-12-16T19:23:02.836Z">2023-12-17</time></span></div></div>
+</div>
+<article class="md-text content"><h1 class="article-title"><span>流程控制语句</span></h1><div class="theme-hope-content"><h1 id="第四章-流程控制语句" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#第四章-流程控制语句">#</a> 第四章 流程控制语句</h1><div class="hint-container tip"><p class="hint-container-title">提示</p><p>课程视频教程链接：<a href="https://www.bilibili.com/video/BV1h64y1i78N?p=34" rel="noopener noreferrer" target="_blank">https://www.bilibili.com/video/BV1h64y1i78N?p=34<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p></div><p>在程序中， 程序运行的流程控制决定程序是如何执行的， 主要有三大流程控制语句。</p><ol><li>顺序控制</li><li>分支控制</li><li>循环控制</li></ol><h2 id="一、顺序控制" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#一、顺序控制">#</a> 一、顺序控制</h2><p>顺序控制就是程序会由上而下，由左及右依次逐行执行，就和我们写文章一样。</p><p>java中对变量是<code>先定义再使用</code>，以下这种写法在java中是万万不能通过的，但是有的语言可以：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">num2</span> <span class="hljs-operator">=</span> num1 + <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">num1</span> <span class="hljs-operator">=</span> <span class="hljs-number">23</span>;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="二、-条件-分支控制语句" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#二、-条件-分支控制语句">#</a> 二、（条件）分支控制语句</h2><p>条件是什么，选择了不同的条件就会有不同的结果：</p><ul><li>打游戏，有一个npc吐血了就还是不就，可能接下来的主线剧情就会发生变化。</li><li>高考完，成绩不理想选择复读还是独一个差一点的学校你的人生就不一样。分支控制语句做的就是这样的事情。</li></ul><p>分支控制语句能让程序有选择的的执行相应的代码，分支控制有三种形式：</p><ul><li>单分支 if</li><li>双分支 if ... else...</li><li>多分支 if ... else if ... else</li></ul><h3 id="_1、单分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、单分支">#</a> 1、单分支</h3><p>举一个列子吧：</p><p>酒驾的定义：驾驶人员每100毫升血液酒精含量大于或等于20毫克，并每100毫升血液酒精含量小于80毫克为饮酒后驾车。每100毫升血液酒精含量大于或等于80毫克为醉酒驾车。</p><p>思路：</p><ul><li>路口站着一个警察叔叔，让你不断的吹气，我们用scanner来代替。</li><li>把你的酒精含量存入一个变量值中。</li><li>如果大于20ml，带走，其他人通行。</li></ul><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 超级明确的告诉你，这一行你超就行了，不用知道为什么</span><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestIf</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// 超级明确的告诉你，这一行你超就行了，不用知道为什么</span><br>        <span class="hljs-comment">// 知道能让你在黑窗口输入数字就行了</span><br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">alcohol</span>  <span class="hljs-operator">=</span> scanner.nextInt();<br><br>        <span class="hljs-keyword">if</span> (alcohol &amp;gt;= <span class="hljs-number">20</span>)&#123;<br>            System.out.println(<span class="hljs-string">&quot;被警察叔叔带走了...&quot;</span>);<br>        &#125;<br>        System.out.println(<span class="hljs-string">&quot;继续开车...&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2、双分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、双分支">#</a> 2、双分支</h3><p>说实话，其实上边的例子多少有一些不严谨，我们使用双分支改造一下：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestIf</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">alcohol</span>  <span class="hljs-operator">=</span> scanner.nextInt();<br><br>        <span class="hljs-keyword">if</span> (alcohol &amp;gt;= <span class="hljs-number">20</span>)&#123;<br>            System.out.println(<span class="hljs-string">&quot;被警察叔叔带走了...&quot;</span>);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            System.out.println(<span class="hljs-string">&quot;继续开车...&quot;</span>);<br>        &#125;   <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3、多分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3、多分支">#</a> 3、多分支</h3><p>到了警局里，对抓来的人进行重新校验：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestIf</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">alcohol</span>  <span class="hljs-operator">=</span> scanner.nextInt();<br><br>        <span class="hljs-keyword">if</span> (alcohol &amp;gt;= <span class="hljs-number">80</span>)&#123;<br>            System.out.println(<span class="hljs-string">&quot;兄弟，你这是醉驾...&quot;</span>);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(alcohol &amp;gt;= <span class="hljs-number">20</span>)&#123;<br>            System.out.println(<span class="hljs-string">&quot;兄弟，你这是酒驾...&quot;</span>);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            System.out.println(<span class="hljs-string">&quot;兄弟，抓错了&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>【小问题：】</p><p>alcohol &gt;= 20能放在alcohol &gt;= 80 之前吗？</p><h3 id="_4、嵌套分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_4、嵌套分支">#</a> 4、嵌套分支</h3><p>在一个分支结构中又完整的嵌套了另一个完整的分支结构， 里面的分支的结构称为内层分支外面的分支结构称为外层分支。</p><p>嵌套分支会影响代码的可读性，建议最好不要超过 3 层，你套十层神仙也看不懂了。</p><p>动物园的门票分淡季旺季，淡季20元，旺季30元，其中（1，代表淡季，2，代表旺季）</p><ul><li><p>儿童（0~7）免费</p></li><li><p>学生（8~22）岁半价</p></li><li><p>成人（23~60）不打折</p></li><li><p>老人（&gt;60岁）打三折</p></li></ul><p>写出程序来：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ydlclass;<br><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestIf</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;请输入季节（1，代表淡季，2，代表旺季）：&quot;</span>);<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">season</span>  <span class="hljs-operator">=</span> scanner.nextInt();<br><br>        <span class="hljs-type">double</span> <span class="hljs-variable">ticketPrice1</span> <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;<br>        <span class="hljs-type">double</span> <span class="hljs-variable">ticketPrice2</span> <span class="hljs-operator">=</span> <span class="hljs-number">30</span>;<br><br>        <span class="hljs-keyword">if</span> (season == <span class="hljs-number">1</span>)&#123;<br>            System.out.println(<span class="hljs-string">&quot;请输入年龄：&quot;</span>);<br>            <span class="hljs-type">int</span> <span class="hljs-variable">age</span>  <span class="hljs-operator">=</span> scanner.nextInt();<br>            <span class="hljs-keyword">if</span>(age &amp;gt; <span class="hljs-number">0</span> &amp;amp;&amp;amp; age &amp;lt;<span class="hljs-number">8</span>)&#123;<br>                System.out.println(<span class="hljs-string">&quot;您的票价是：免费&quot;</span>);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (age &amp;gt;= <span class="hljs-number">8</span> &amp;amp;&amp;amp; age &amp;lt;=<span class="hljs-number">22</span>)&#123;<br>                System.out.println(<span class="hljs-string">&quot;您的票价是：&quot;</span> + (ticketPrice1 * <span class="hljs-number">0.5</span>));<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (age &amp;gt;= <span class="hljs-number">23</span> &amp;amp;&amp;amp; age &amp;lt;=<span class="hljs-number">60</span>)&#123;<br>                System.out.println(<span class="hljs-string">&quot;您的票价是：&quot;</span> + ticketPrice1);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(age &amp;gt;<span class="hljs-number">60</span> &amp;amp;&amp;amp; age &amp;lt;=<span class="hljs-number">120</span>)&#123;<br>                System.out.println(<span class="hljs-string">&quot;您的票价是：&quot;</span> + (ticketPrice1 * <span class="hljs-number">0.3</span>));<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                System.out.println(<span class="hljs-string">&quot;您输入的年龄不合法&quot;</span>);<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(season == <span class="hljs-number">2</span>)&#123;<br>            System.out.println(<span class="hljs-string">&quot;请输入年龄：&quot;</span>);<br>            <span class="hljs-type">int</span> <span class="hljs-variable">age</span>  <span class="hljs-operator">=</span> scanner.nextInt();<br>            <span class="hljs-keyword">if</span>(age &amp;gt; <span class="hljs-number">0</span> &amp;amp;&amp;amp; age &amp;lt;<span class="hljs-number">8</span>)&#123;<br>                System.out.println(<span class="hljs-string">&quot;您的票价是：免费&quot;</span>);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (age &amp;gt;= <span class="hljs-number">8</span> &amp;amp;&amp;amp; age &amp;lt;=<span class="hljs-number">22</span>)&#123;<br>                System.out.println(<span class="hljs-string">&quot;您的票价是：&quot;</span> + (ticketPrice2 * <span class="hljs-number">0.5</span>));<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (age &amp;gt;= <span class="hljs-number">23</span> &amp;amp;&amp;amp; age &amp;lt;=<span class="hljs-number">60</span>)&#123;<br>                System.out.println(<span class="hljs-string">&quot;您的票价是：&quot;</span> + ticketPrice2);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(age &amp;gt;<span class="hljs-number">60</span> &amp;amp;&amp;amp; age &amp;lt;=<span class="hljs-number">120</span>)&#123;<br>                System.out.println(<span class="hljs-string">&quot;您的票价是：&quot;</span> + (ticketPrice2 * <span class="hljs-number">0.3</span>));<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                System.out.println(<span class="hljs-string">&quot;您输入的年龄不合法&quot;</span>);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>【作业】：</p><p>把这个票价系统自己亲自打出来。</p><h3 id="_5、switch分支结构" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_5、switch分支结构">#</a> 5、switch分支结构</h3><p>switch和if的功能十分相像，特别是多分支这一块。但是他的判断都是等值判断：</p><p>你楠哥我作息规律：</p><ul><li>周一：和亦菲约会</li><li>周二：和志玲约会</li><li>周三：和诗诗约会</li><li>周四：和井空约会</li><li>周五：和热巴约会</li><li>其他时间：参加各种party</li></ul><p>完成代码：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TestIf</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;今天星期几：&quot;</span>);<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">week</span>  <span class="hljs-operator">=</span> scanner.nextInt();<br><br>        <span class="hljs-keyword">switch</span> (week)&#123;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>                System.out.println(<span class="hljs-string">&quot;我和亦菲约会&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>                System.out.println(<span class="hljs-string">&quot;我和志玲约会&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br>                System.out.println(<span class="hljs-string">&quot;我和诗诗约会&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:<br>                System.out.println(<span class="hljs-string">&quot;我和井空约会&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:<br>                System.out.println(<span class="hljs-string">&quot;我和热巴约会&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">default</span>:<br>                System.out.println(<span class="hljs-string">&quot;参加各种party&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>以下是switch的执行流程图：</p><figure><img class="lazy" alt="image-20210727162939043" loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/image-20210727162939043-3c0ae504.png" tabindex="0"/><figcaption>image-20210727162939043</figcaption></figure><ul><li>switch和if有点像，但凡switch能解决的问题，if也能解决。</li><li>switch后不能是long型，但可以 byte shor int 也可以是String 。</li><li>switch的default只能有一个。</li><li>switch不加break会继续进入下一个判断。</li></ul><blockquote><p>switch 和 if 的比较</p></blockquote><ul><li>如果判断的具体数值不多， 而且符合 byte、 short 、 int、 char, enum[枚举], String 这 6 种类型。 虽然两个语句都可 以使用， 建议使用 swtich 语句。</li><li>其他情况： 对区间判断， 对结果为 boolean 类型判断， 使用 if， if 的使用范围更广 。</li></ul><p>【作业】</p><p>把你的一周的活动写出来。自己写、自己写、自己写。</p><h2 id="三、循环" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#三、循环">#</a> 三、循环</h2><p>小例子：打印十个楠哥牛X</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>那打印100个呢？</p><h3 id="_1、for循环" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、for循环">#</a> 1、for循环</h3><p>使用for循环的代码：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &amp;lt; <span class="hljs-number">10</span>; i++) &#123;<br>    System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>基本语法：</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">for(搞一个变量; 变量是不是满足某个条件; 让变量变一变)&#123;<br>    满足条件后执行的代码<br>&#125;<br><br>for( 开始挠痒痒; 是不是还痒;  比刚才好了一点  )&#123;<br>   继续挠痒痒：   <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><p>执行流程图如下：</p></blockquote><figure><img class="lazy" alt="image-20210727163626105" loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/image-20210727163626105-c08e400d.png" tabindex="0"/><figcaption>image-20210727163626105</figcaption></figure><p>我们对楠哥牛X做一个变形：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (;i &amp;lt; <span class="hljs-number">10</span>;) &#123;<br>    System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>    i++;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们会发现，结果依然正确：</p><p>在变形：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (;;) &#123;<br>    <span class="hljs-keyword">if</span>(i &amp;lt; <span class="hljs-number">10</span>)&#123;<br>        System.out.println(i);<br>        System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>    &#125;<br>    i++;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们会发现，进入的死循环，出不去了，因为在for的层面已经不判断了：</p><p>所以我们可以选择合适的时机让循环退出去：</p><p>这里就会用到一个关键字：break</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (;;) &#123;<br>    <span class="hljs-keyword">if</span>(i &amp;lt; <span class="hljs-number">10</span>)&#123;<br>        System.out.println(i);<br>        System.out.println(<span class="hljs-string">&quot;楠哥牛X&quot;</span>);<br>        i++;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们发现又可以了，给大家介绍这个变种，是为了让大家理解本质：</p><ul><li>循环本事是一个无限的行为，</li><li>我们有时需要让循环一直持续下去：比如QQ服务器，他要一直等你发消息。</li><li>更多的时候我们需要一个合适的时机退出循环，其实定义变量，条件判断，变量累加，都是为了找到这个时机。</li></ul><p>【break和continue】</p><p>continue：跳出本次循环，继续执行下一个循环。</p><p>break: 跳出全部循环</p><p>【作业】</p><p>1、打印1到10 十个数字的平方。 0 1 4 .... 100</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &amp;lt;= <span class="hljs-number">10</span>; i++) &#123;<br>    System.out.print(i * i + <span class="hljs-string">&quot; &quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2、打印 10 到 1 的数字的平方。 100 81 .... 0</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>; i &amp;gt;= <span class="hljs-number">0</span>; i--) &#123;<br>    System.out.print(i * i + <span class="hljs-string">&quot; &quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>再聊一聊作用域：</p><p>这段代码，行不行？定义了两个<code>i</code>。</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &amp;lt;= <span class="hljs-number">10</span>; i++) &#123;<br>    System.out.print(i * i + <span class="hljs-string">&quot; &quot;</span>);<br>&#125;<br><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>; i &amp;gt;= <span class="hljs-number">0</span>; i--) &#123;<br>    System.out.print(i * i + <span class="hljs-string">&quot; &quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这段代码，又行不行？定义了两个<code>i</code>。</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-keyword">for</span> (; i &amp;lt;= <span class="hljs-number">10</span>; i++) &#123;<br>    System.out.print(i * i + <span class="hljs-string">&quot; &quot;</span>);<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br><span class="hljs-keyword">for</span> (; i &amp;gt;= <span class="hljs-number">0</span>; i--) &#123;<br>    System.out.print(i * i + <span class="hljs-string">&quot; &quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>第二种是不行的，如果将<code>i</code>定义在了方法里，作用域是方法，而定义在了<code>fo</code>r循环中，作用域只是for循环这个代码块，出了代码块就不能用了。</p><p>【作业】</p><p>1、打印所有水仙花数</p><p>所谓“水仙花数”是指一个三位数，其各位数字立方和等于该数本身。例如：153是一个“水仙花数”，因为153=1的三次方+5的三次方+3的三次方。</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ShuiXianHua</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">int</span> a, b, c;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>; i &amp;lt;= <span class="hljs-number">999</span>; i++) &#123;<br>            a = i / <span class="hljs-number">100</span>;<br>            b = i / <span class="hljs-number">10</span> % <span class="hljs-number">10</span>;<br>            c = i % <span class="hljs-number">10</span>;<br>            <span class="hljs-keyword">if</span> (i == (a * a * a + b * b * b + c * c * c))<br>                System.out.println(i);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2、嵌套for循环" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、嵌套for循环">#</a> 2、嵌套for循环</h3><p>和if语句一样，for循环也是可以嵌套的：</p><h4 id="_1-打印长方形" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-打印长方形">#</a> （1）打印长方形</h4><p>我们可以尝试打印以下的内容：</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">*********<br>*********<br>*********<br>*********<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>有个要求，每次只能输出一个<code>*</code></p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &amp;lt; <span class="hljs-number">4</span>; i++) &#123;<br>    System.out.println(<span class="hljs-string">&quot;*********&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>不能用之中方法。</p><p>正确思路是：</p><p>1、循环打一行 10个*</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &amp;lt; <span class="hljs-number">10</span>; i++) &#123;<br>    System.out.print(<span class="hljs-string">&quot;*&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2、循环打4行，就是把刚才的循环的行为重复四次，注意每一次都要换一行。</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &amp;lt; <span class="hljs-number">10</span>; i++) &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &amp;lt; <span class="hljs-number">10</span>; i++) &#123;<br>        System.out.print(<span class="hljs-string">&quot;*&quot;</span>);<br>    &#125;<br>    System.out.println();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>上难度：</strong></p><h4 id="_2-打印九九乘法表" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-打印九九乘法表">#</a> （2）打印九九乘法表：</h4><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs text">1*1=1 <br>2*1=2 2*2=4 <br>3*1=3 3*2=6 3*3=9 <br>4*1=4 4*2=8 4*3=12 4*4=16 <br>5*1=5 5*2=10 5*3=15 5*4=20 5*5=25 <br>6*1=6 6*2=12 6*3=18 6*4=24 6*5=30 6*6=36 <br>7*1=7 7*2=14 7*3=21 7*4=28 7*5=35 7*6=42 7*7=49 <br>8*1=8 8*2=16 8*3=24 8*4=32 8*5=40 8*6=48 8*7=56 8*8=64 <br>9*1=9 9*2=18 9*3=27 9*4=36 9*5=45 9*6=54 9*7=63 9*8=72 9*9=81<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>先找规律：</p><ol><li>两个乘数都是 1到9，共有九行九列。</li><li>第一行有一个，第二行有两个。</li><li>第一个乘数都是小于等于第二个乘数。</li></ol><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 每一个的第一个乘数就是行号</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&amp;lt;=<span class="hljs-number">9</span>; i++)&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>; j&amp;lt;=<span class="hljs-number">9</span>; j++)&#123;<br>            <span class="hljs-keyword">if</span>(i &amp;gt;= j)&#123;<br>                System.out.print(i+<span class="hljs-string">&quot;*&quot;</span>+j+<span class="hljs-string">&quot;=&quot;</span>+(i*j)+<span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>        &#125;<br>        System.out.println();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>【作业】</p><p>1、打印直角三角形</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">*<br>**<br>***<br>****<br>*****<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><p>打标签</p></blockquote><p>for循环可已打标签，使用break + 标签名可以 退出 被打标签的循环</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java">flag:<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &amp;lt; <span class="hljs-number">2</span>; i++) &#123;    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &amp;lt; <span class="hljs-number">2</span>; j++) &#123;        <br>        <span class="hljs-keyword">if</span>( j &amp;gt; <span class="hljs-number">0</span> )&#123;            <br>            <span class="hljs-keyword">break</span> flag;       <br>        &#125;        <br>        System.out.println(<span class="hljs-string">&quot;====&quot;</span>+j);    <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3、while-和-do-while" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3、while-和-do-while">#</a> 3、while 和 do while</h3><p>基本的语法：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 定义 条件变量</span><br><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-comment">// 进入的条件</span><br><span class="hljs-keyword">while</span>( i &amp;lt; <span class="hljs-number">5</span>)&#123;<br>    ......<br>    <span class="hljs-comment">// 变量改变,变量的改变是为了满足退出条件</span><br>    i++;<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-keyword">do</span>&#123;<br>    ......<br>    <span class="hljs-comment">// 变量改变,变量的改变是为了满足退出条件</span><br>    i++; <br>&#125;<span class="hljs-keyword">while</span>(i &amp;lt; <span class="hljs-number">7</span>) &#123;<br>    ......<br><br>&#125;  <br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><p>区别</p></blockquote><ul><li><p>do while无论如何都要先执行以下，然后才去判断</p></li><li><p>while 满足条件才能进入</p></li></ul><h2 id="四、作业" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#四、作业">#</a> 四、作业</h2><p>猜数字小游戏，先随机输入一个数字，之后让另一个人输入，如果大了就告诉他大了，小了就告诉他小了，知道一样：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ydlclass;<br><br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GuessNumber</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        System.out.println(<span class="hljs-string">&quot;请输入一个数字：&quot;</span>);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">realNumber</span> <span class="hljs-operator">=</span> scanner.nextInt();<br><br>        System.out.println(<span class="hljs-string">&quot;请你猜猜这个数字是几？&quot;</span>);<br>        <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)&#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">number</span> <span class="hljs-operator">=</span> scanner.nextInt();<br>            <span class="hljs-keyword">if</span>(number &amp;gt; realNumber)&#123;<br>                System.out.println(<span class="hljs-string">&quot;你输入的数字大了。&quot;</span>);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (number &amp;lt; realNumber)&#123;<br>                System.out.println(<span class="hljs-string">&quot;你输入的数字小了。&quot;</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                System.out.println(<span class="hljs-string">&quot;恭喜你，猜对了！&quot;</span>);<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>思考：怎么用for来实现呢？</p></div></article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/YDLDoc1/javase/%E6%95%B0%E7%BB%84%E5%92%8C%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84%E5%92%8C%E7%AE%97%E6%B3%95.html">数组和算法</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/YDLDoc1/javase/%E6%A0%91/%E6%A0%91.html">树</a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">站点</span><a target="_blank" rel="noopener" href="https://status.thatcoder.cn/status/public/">公共服务</a><a target="_blank" rel="noopener" href="https://ai.thatcoder.cn/">ChatGPT</a><a target="_blank" rel="noopener" href="https://alist.thatcoder.cn/">文件资源</a><a target="_blank" rel="noopener" href="https://docs.thatapi.cn/">公共接口</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/links/">友人帐</a><a href="/links/#comments">留言板</a><a href="/animes/">在追番</a><a href="/cinemas/">还追剧</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/#tab_1-1/">本站动态</a><a target="_blank" rel="noopener" href="https://muselink.cc/naive">联系博主</a><a target="_blank" rel="noopener" href="https://github.com/ThatCoders">GitHub</a><a target="_blank" rel="noopener" href="https://gitee.com/thatcoder">Gitee</a></div></div><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0">Stellar 1.25.0</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">vercel</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 | 本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span> 
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg t="1705412886951" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8331" width="200" height="200"><path d="M638.72 970.666667h-256c-118.186667 0-198.272-25.002667-251.946667-78.72S52.053333 758.186667 52.053333 640V384c0-118.186667 25.002667-198.272 78.72-251.946667S264.533333 53.333333 382.72 53.333333h256c118.186667 0 198.272 25.002667 251.946667 78.72S969.386667 265.813333 969.386667 384v256c0 118.186667-25.002667 198.272-78.72 251.946667S756.906667 970.666667 638.72 970.666667z m-256-853.333334c-100.096 0-165.802667 19.2-206.72 59.946667S116.053333 283.904 116.053333 384v256c0 100.096 19.072 165.802667 59.946667 206.72S282.624 906.666667 382.72 906.666667h256c100.096 0 165.802667-19.072 206.72-59.946667S905.386667 740.096 905.386667 640V384c0-100.096-19.072-165.802667-59.946667-206.72S738.816 117.333333 638.72 117.333333z" p-id="8332"></path><path d="M638.72 970.666667a32 32 0 0 1-32-32V85.333333a32 32 0 0 1 32-32 32 32 0 0 1 32 32v853.333334a32 32 0 0 1-32 32zM340.053333 653.226667a31.914667 31.914667 0 0 1-22.613333-9.386667 32 32 0 0 1 0-45.269333L404.053333 512 317.44 425.386667a32 32 0 0 1 0-45.226667 32 32 0 0 1 45.226667 0l109.226666 109.226667a32 32 0 0 1 0 45.269333L362.666667 643.84a31.914667 31.914667 0 0 1-22.613334 9.386667z" p-id="8333"></path></svg>
+  </button>
+</div>
+<div class="main-mask" onclick="sidebar.toggle()"></div></div></div><div class="scripts">
+<script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.25.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"post, page, docs","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js","memos":"/js/plugins/memos.js","marked":"/js/plugins/marked.js","timetmpl":"/js/plugins/timetmpl.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js","distance":"16px","duration":800,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.copycode = Object.assign({"enable":false,"js":"/js/plugins/copycode.js","default_text":"Copy","success_text":"Copied","toast":"复制成功"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script type="module" defer="defer">
+    import { init } from 'https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js';
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css');
+    stellar.loadScript('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js', {defer:true, type:"module"}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+        init(Object.assign({"js":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js","css":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"custom":{"css":"/custom/css/ZYWaline.css"},"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_chuckle.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_pick_nose.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_not_care.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+        el: '#waline_container',
+        path: path,
+        
+          imageUploader: function(file) {
+            let headers = new Headers();
+            headers.set('Accept', 'application/json');
+            
+              headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+            
+            let formData = new FormData();
+            formData.append('file', file);
+            return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+              method: 'POST',
+              body: formData,
+              headers: headers
+              }).then((resp) => resp.json())
+                .then((resp) => resp.data.links.url)
+          },
+        
+      }));
+    });
+  }
+  stellar.loadCSS('/custom/css/ZYWaline.css');
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>

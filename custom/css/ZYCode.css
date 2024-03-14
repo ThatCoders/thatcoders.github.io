@@ -1,0 +1,502 @@
+:root {
+    --code-autor: '© 钟意博客🌙';
+    --code-tip: "优雅借鉴";
+}
+
+/*语法高亮*/
+.hljs {
+    position: relative;
+    display: block;
+    overflow-x: hidden;
+    /*背景跟随Stellar*/
+    background: var(--block);
+    color: #9c67a1;
+    padding: 30px 5px 2px 5px;
+    box-shadow: 0 10px 30px 0px rgb(0 0 0 / 40%)
+}
+
+.hljs::before {
+    content: attr(code-msg);
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    overflow: visible;
+    width: 12px;
+    height: 12px;
+    border-radius: 16px;
+    box-shadow: 20px 0 #a9a6a1, 40px 0 #999;
+    -webkit-box-shadow: 20px 0 #999, 40px 0 #999;
+    background-color: #999;
+    white-space: nowrap;
+    text-indent: 75px;
+    font-size: 16px;
+    line-height: 12px;
+    font-weight: 700;
+    color: #999;
+    transition: 1s;
+}
+
+.highlight:hover .hljs::before {
+    color: #dc9015;
+    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+    -webkit-box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+    background-color: #fc625d;
+    transition: 1s;
+}
+
+.hljs-ln {
+    display: inline-block;
+    overflow-x: auto;
+    padding-bottom: 5px
+}
+
+.hljs-ln td {
+    padding: 0;
+    background-color: var(--block)
+}
+
+.hljs-ln::-webkit-scrollbar {
+    height: 10px;
+    border-radius: 5px;
+    background: #333;
+}
+
+.hljs-ln::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 5px;
+}
+
+.hljs-ln::-webkit-scrollbar-thumb:hover {
+    background: #ddd;
+}
+
+.hljs table tbody tr {
+    border: none
+}
+
+.hljs .hljs-ln-line {
+    padding: 1px 10px;
+    border: none
+}
+
+td.hljs-ln-line.hljs-ln-numbers {
+    border-right: 1px solid #666;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.hljs-symbol,
+.hljs-name {
+    color: #c78300
+}
+
+.hljs-link {
+    color: #569cd6;
+    text-decoration: underline
+}
+
+.hljs-built_in,
+.hljs-type {
+    color: #4ec9b0
+}
+
+.hljs-number,
+.hljs-class {
+    color: #2094f3
+}
+
+.hljs-string,
+.hljs-meta-string {
+    color: #4caf50
+}
+
+.hljs-regexp,
+.hljs-template-tag {
+    color: #9a5334
+}
+
+.hljs-subst,
+.hljs-function,
+.hljs-title,
+.hljs-params,
+.hljs-formula {
+    color: #c78300
+}
+
+.hljs-property {
+    color: #9c67a1;
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: #57a64a;
+    font-style: italic
+}
+
+.hljs-doctag {
+    color: #608b4e
+}
+
+.hljs-meta,
+.hljs-meta-keyword,
+.hljs-tag {
+    color: #9b9b9b
+}
+
+.hljs-variable,
+.hljs-template-variable {
+    color: #bd63c5
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-builtin-name {
+    color: #d34141
+}
+
+.hljs-section {
+    color: gold
+}
+
+.hljs-emphasis {
+    font-style: italic
+}
+
+.hljs-strong {
+    font-weight: bold
+}
+
+.hljs-bullet,
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+    color: #c78300
+}
+
+.hljs-addition {
+    background-color: #00ff1121;
+    display: inline-block;
+    width: 100%
+}
+
+.hljs-deletion {
+    background-color: #ff000e21;
+    display: inline-block;
+    width: 100%
+}
+
+.hljs.language-html::before,
+.hljs.language-xml::before {
+    content: "HTML/XML"
+}
+
+.hljs.language-javascript::before {
+    content: "JavaScript"
+}
+
+.hljs.language-c::before {
+    content: "C"
+}
+
+.hljs.language-cpp::before {
+    content: "C++"
+}
+
+.hljs.language-java::before {
+    content: "Java"
+}
+
+.hljs.language-asp::before {
+    content: "ASP"
+}
+
+.hljs.language-actionscript::before {
+    content: "ActionScript/Flash/Flex"
+}
+
+.hljs.language-bash::before {
+    content: "Bash"
+}
+
+.hljs.language-css::before {
+    content: "CSS"
+}
+
+.hljs.language-asp::before {
+    content: "ASP"
+}
+
+.hljs.language-cs::before,
+.hljs.language-csharp::before {
+    content: "C#"
+}
+
+.hljs.language-d::before {
+    content: "D"
+}
+
+.hljs.language-golang::before,
+.hljs.language-go::before {
+    content: "Go"
+}
+
+.hljs.language-json::before {
+    content: "JSON"
+}
+
+.hljs.language-lua::before {
+    content: "Lua"
+}
+
+.hljs.language-less::before {
+    content: "LESS"
+}
+
+.hljs.language-md::before,
+.hljs.language-markdown::before,
+.hljs.language-mkdown::before,
+.hljs.language-mkd::before {
+    content: "Markdown"
+}
+
+.hljs.language-mm::before,
+.hljs.language-objc::before,
+.hljs.language-obj-c::before,
+.hljs.language-objective-c::before {
+    content: "Objective-C"
+}
+
+.hljs.language-php::before {
+    content: "PHP"
+}
+
+.hljs.language-perl::before,
+.hljs.language-pl::before,
+.hljs.language-pm::before {
+    content: "Perl"
+}
+
+.hljs.language-python::before,
+.hljs.language-py::before,
+.hljs.language-gyp::before,
+.hljs.language-ipython::before {
+    content: "Python"
+}
+
+.hljs.language-r::before {
+    content: "R"
+}
+
+.hljs.language-ruby::before,
+.hljs.language-rb::before,
+.hljs.language-gemspec::before,
+.hljs.language-podspec::before,
+.hljs.language-thor::before,
+.hljs.language-irb::before {
+    content: "Ruby"
+}
+
+.hljs.language-sql::before {
+    content: "SQL"
+}
+
+.hljs.language-sh::before,
+.hljs.language-shell::before,
+.hljs.language-Session::before,
+.hljs.language-shellsession::before,
+.hljs.language-console::before {
+    content: "Shell"
+}
+
+.hljs.language-swift::before {
+    content: "Swift"
+}
+
+.hljs.language-vb::before {
+    content: "VB/VBScript"
+}
+
+.hljs.language-yaml::before {
+    content: "YAML"
+}
+
+/*stellar主题补偿*/
+.md-text pre > .hljs {
+    padding-top: 2rem !important;
+}
+.md-text .highlight .gutter {
+    display: block !important;
+    padding-top: 2rem !important;
+    max-height: calc(9 * 1rem) !important;
+    overflow: hidden;
+}
+
+.md-text pre {
+    padding: 0 !important;
+}
+
+code {
+    background-image: linear-gradient(90deg, rgba(60, 10, 30, .04) 3%, transparent 0), linear-gradient(1turn, rgba(60, 10, 30, .04) 3%, transparent 0) !important;
+    background-size: 20px 20px !important;
+    background-position: 50% !important;
+}
+
+figure::after {
+    content: attr(code-info);
+    text-align: right;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: monospace;
+    float: right;
+    margin-top: 3px;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    color: #999
+}
+
+figcaption span {
+    border-radius: 0px 0px 12px 12px !important;
+}
+
+/* 以下为功能按钮 */
+.highlight {
+    position: relative;
+    z-index: 1;
+}
+
+.highlight .code .more-btn {
+    position: absolute;
+    top: 0;
+    padding: 4px 0.5rem;
+    opacity: 0;
+    font-weight: 700;
+    color: var(--theme);
+    cursor: pointer;
+    /*transition: opacity 0.6s;*/
+}
+.highlight:hover .code .more-btn {
+    opacity: 0.75;
+    transition: opacity 0.6s;
+}
+
+/* 复制代码按钮 */
+.highlight .code .copy-btn {
+    color: #aa69ec;
+    right: 0;
+    transition: 0.6s;
+}
+.highlight:hover .code .copy-btn {
+    right: 0;
+    transition: 0.2s;
+}
+.highlight .code .copy-btn.success {
+    color: #3DC550 !important;
+    opacity: 0.75;
+}
+/* 全屏代码按钮 */
+.highlight .code .full-btn {
+    color: #d34141;
+    right: 10px;
+    transition: 0.4s;
+}
+.highlight:hover .code .full-btn {
+    right: 25px;
+    transition: right 0.4s;
+}
+
+/* 下载代码按钮 */
+.highlight .code .down-btn {
+    color: #4368a8;
+    right: 26px;
+    transition: right 0.15s;
+}
+.highlight .code .down-btn.success {
+    color: #3DC550 !important;
+}
+.highlight:hover .code .down-btn {
+    right: 50px;
+    transition: right 0.5s;
+}
+
+/* 按钮悬浮样式 */
+.highlight .code .more-btn:hover {
+    /*color: var(--text-code);*/
+    opacity: 1;
+    transition: right 0.15s;
+}
+
+
+/* 描述 */
+.md-text .highlight figcaption span {
+    font-size: small;
+}
+
+/* 折叠 */
+code.hljs {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    /*-webkit-line-clamp: 6;*/
+    padding: 1rem 1rem 0 1rem; /* chino建议 */
+}
+
+.hljsOpen {
+    -webkit-line-clamp: 99999 !important;
+}
+
+.CodeCloseDiv {
+    color: #999;
+    background: var(--block);
+    display: flex;
+    justify-content: center;
+    margin-top: inherit;
+    margin-bottom: -18px;
+}
+
+.CodeClose {
+    color: #999;
+    margin-top: 3px;
+    background: var(--block);
+}
+
+.highlight button:hover,
+.highlight table:hover + button {
+    color: var(--swiper-theme-color);
+    opacity: 0.75;
+}
+
+/*代码标识前置*/
+td.code:before {
+    right: 0 !important;
+    transition: 0.65s;
+    z-index: 999;
+}
+
+.highlight:hover td.code:before {
+    right: 75px !important;
+    transition: right 0.6s;
+}
+
+    /*背景补偿*/
+.md-text .highlight:hover {
+    box-shadow: 0 0 6px 6px var(--block-hover);
+    z-index: 12;
+    transition: 0.6s;
+}
+
+.md-text .highlight {
+    transition: 1s;
+}
+
+#start > div > article > figure.highlight:hover > figcaption > span {
+    background: #020202e3;
+    color: #EDB65B;
+    font-weight: bolder;
+    transition: 0.6s;
+}
+#start > div > article > figure.highlight > figcaption > span {
+    margin-left: 3em;
+}

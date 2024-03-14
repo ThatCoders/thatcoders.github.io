@@ -1,0 +1,442 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0" theme-name="Stellar" theme-version="1.25.0">
+  
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>微信读书自动阅读 - 那个码农</title>
+
+  
+    <meta name="description" content="实现微信读书自动阅读, 增加阅读时长, 打卡阅读天数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信读书自动阅读">
+<meta property="og:url" content="https://blog.thatcoder.cn/Tencent-WxRead-Daily/">
+<meta property="og:site_name" content="那个码农">
+<meta property="og:description" content="实现微信读书自动阅读, 增加阅读时长, 打卡阅读天数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-14T12:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-18T15:28:08.045Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="Tencent">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <meta name="keywords" content="Tencent">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="那个码农" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel="stylesheet" href="https://upyun.thatcdn.cn/public/font/lxgw/result.css" /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYDark.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+
+<div class="l_body content tech" id="start" layout="post" ><aside class="l_left"><div class="sidebar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">那个码农</div><div class="sub normal cap"><i class="fa-solid fa-chess-queen"></i> 钟意的博客</div><div class="sub hover cap" style="opacity:0"> ThatCoder's Blog 钟意博客</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" class="icon search-icon" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc single" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90"><span class="toc-text">机制分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-text">稳定性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81"><span class="toc-text">实现代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E4%BA%8B%E9%A1%B9"><span class="toc-text">准备事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C"><span class="toc-text">运行</span></a></li></ol></li></ol></div></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-laptop-code"></i></a><a class="social" href="https://music.163.com/#/user/home?id=134968139" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-music"></i></a><a class="social" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-champagne-glasses"></i></a><a class="social" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-comments-dollar"></i></a><a class="social" href="javaScript:hud.toast('🌙 夜间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeM" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javaScript:hud.toast('☀ 日间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeL" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javaScript:hud.toast('💻 跟随系统');" rel="noopener noreferrer"><img class="lazy" id="ThemeAI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="bread-nav fs12"><div class="left"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%A0%86%E6%A0%88/">堆栈</a></div>
+<div id="post-meta"><span class="author">本文由 <a href="/author/ThatCoder/">钟意</a> 发布于：</span><span class="created"><time datetime="2023-09-14T12:00:00.000Z">2023-09-14</time></span><span class="updated">，更新于：<time datetime="2023-09-18T15:28:08.045Z">2023-09-18</time></span></div></div>
+</div>
+<article class="md-text content "><h1 class="article-title"><span>微信读书自动阅读</span></h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文章实现需要服务器, 无可视化界面亦可。<br>使用的Cookie获取上一篇文章有介绍, 顺手写了这篇。</p>
+<p>每日一问: 我为什么要实现这个功能???</p>
+<div class="tag-plugin link dis-select"><a class="link-card plain" title="微信读书Cookie续活" href="https://blog.thatcoder.cn/Tencent-WxRead-Cookies/" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill="icon"><div class="left"><span class="title">微信读书Cookie续活</span><span class="cap link fs12">https://blog.thatcoder.cn/Tencent-WxRead-Cookies/</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg"></div></div></a></div>
+
+<h2 id="机制分析"><a href="#机制分析" class="headerlink" title="机制分析"></a>机制分析</h2><p>网页版状态下阅读, 每分钟左右会有一个read请求, 通过回执可以判断是否阅读成功。<br>具体参数我不想耗费时间去逆向, 但是可以通过模拟浏览阅读页面来等待read响应进行read重播,进而轻易实现自动阅读。</p>
+<h2 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h2><p>服务器测试了24小时, 阅读时间也是相应增加24。</p>
+<p>有趣的是, 经测试, 每次程序运行5min, 增加的时长可能是 5min、6min、8min、11min、13min 甚至是 21min。<br>但是总时长是稳定的, 也就是说会回归一天能拉满的时间24h。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>虽说是浏览器模拟事件, 到了python的表演时间, 但是我采用了JS去写, 辅佐包是 <a target="_blank" rel="noopener" href="https://playwright.dev/">Playwright</a> 。<br>总体是一次有趣的尝试。</p>
+<h3 id="准备事项"><a href="#准备事项" class="headerlink" title="准备事项"></a>准备事项</h3><p>开始吧, 安装 Playwright</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 先创建一个文件夹</span><br><span class="hljs-built_in">mkdir</span> /server/auto/wxread &amp;&amp; <span class="hljs-built_in">cd</span> /server/auto/wxread<br><br><span class="hljs-comment"># 安装 playwright</span><br>npm install playwright<br>npx playwright install<br><span class="hljs-comment"># 下面这个可能需要点时间</span><br><span class="hljs-comment"># 因为有浏览器的下载</span><br>npx playwright install-deps<br><br><span class="hljs-comment"># 当然少不了 axios</span><br>npm install axios<br><br><span class="hljs-comment"># 好的, 一切准备就绪, 创建代码吧</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight js"><figcaption><span>wxread.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> &#123; firefox &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;playwright&#x27;</span>);<br><span class="hljs-keyword">const</span> axios = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;axios&#x27;</span>);<br><br><span class="hljs-comment">// 获取命令行参数</span><br><span class="hljs-keyword">const</span> args = process.<span class="hljs-property">argv</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>);<br><span class="hljs-keyword">const</span> params = &#123;&#125;;<br>args.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">arg</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> [key, value] = arg.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;=&#x27;</span>);<br>    <span class="hljs-keyword">if</span> (key &amp;&amp; value) &#123;<br>        params[key] = value;<br>    &#125;<br>&#125;);<br><br><span class="hljs-keyword">const</span> url1 = <span class="hljs-string">&#x27;https://weread.qq.com/web/reader/8f5329e0813ab7d1eg012feake4d32d5015e4da3b7fbb1fa&#x27;</span>;<br><span class="hljs-keyword">const</span> url2 = <span class="hljs-string">&#x27;https://weread.qq.com/web/book/read&#x27;</span>;<br><span class="hljs-keyword">let</span> capturedResponse = <span class="hljs-literal">null</span>;<br><span class="hljs-keyword">let</span> browser = <span class="hljs-literal">null</span>;<br><br><span class="hljs-keyword">const</span> scrollInterval = <span class="hljs-number">10000</span>; <span class="hljs-comment">// 上下滑动间隔时间 单位毫秒</span><br><span class="hljs-keyword">const</span> totalTime = <span class="hljs-number">400000</span>; <span class="hljs-comment">// 单次阅读时间 单位毫秒</span><br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">getXHR</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Success: 启动 Playwright 浏览器&quot;</span>);<br>    browser = <span class="hljs-keyword">await</span> firefox.<span class="hljs-title function_">launch</span>(&#123;<br>        <span class="hljs-attr">headless</span>: <span class="hljs-literal">true</span>,<br>    &#125;);<br>    <span class="hljs-keyword">const</span> page = <span class="hljs-keyword">await</span> browser.<span class="hljs-title function_">newPage</span>();<br>    <span class="hljs-keyword">await</span> page.<span class="hljs-title function_">setExtraHTTPHeaders</span>(&#123;<br>        <span class="hljs-attr">cookie</span>: (<span class="hljs-keyword">await</span> axios.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;https://sijnzx.laf.thatcoder.cn/tencent-weread-refcookie?key=&quot;</span>+params[<span class="hljs-string">&#x27;key&#x27;</span>])).<span class="hljs-property">data</span>[<span class="hljs-string">&quot;data&quot;</span>][<span class="hljs-string">&quot;cookies&quot;</span>]<br>    &#125;);<br>    <span class="hljs-keyword">await</span> page.<span class="hljs-title function_">goto</span>(url1, &#123;<br>        <span class="hljs-attr">waitUntil</span>: <span class="hljs-string">&#x27;networkidle&#x27;</span>,<br>    &#125;);<br><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Success: 打开内容页面&quot;</span>);<br>    page.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;response&#x27;</span>, <span class="hljs-keyword">async</span> (response) =&gt; &#123;<br>        <span class="hljs-keyword">if</span> (response.<span class="hljs-title function_">url</span>() === url2) &#123;<br>            <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.<span class="hljs-title function_">json</span>();<br>            <span class="hljs-keyword">if</span> (data[<span class="hljs-string">&#x27;succ&#x27;</span>] === <span class="hljs-number">1</span>) &#123;<br>                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Success: 目标URL响应成功&quot;</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Error: 目标URL响应失败&quot;</span>);<br>            &#125;<br>            capturedResponse = data[<span class="hljs-string">&#x27;succ&#x27;</span>] === <span class="hljs-number">1</span> ? response : <span class="hljs-literal">null</span>;<br>            <span class="hljs-keyword">await</span> <span class="hljs-title function_">repeatXHR</span>(<span class="hljs-number">100</span>);<br>            <span class="hljs-comment">// 不要关闭浏览器</span><br>        &#125;<br>    &#125;);<br><br><span class="hljs-comment">// 定期上下滑动</span><br>    <span class="hljs-keyword">let</span> scrollCount = <span class="hljs-number">0</span>; <span class="hljs-comment">// 计数器</span><br>    <span class="hljs-keyword">let</span> scrollDirection = <span class="hljs-number">1</span>; <span class="hljs-comment">// 1表示向下滑动，-1表示向上滑动</span><br><br>    <span class="hljs-built_in">setInterval</span>(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>        <span class="hljs-keyword">await</span> page.evaluate(<span class="hljs-function">(<span class="hljs-params">scrollDirection</span>) =&gt;</span> &#123;<br>            <span class="hljs-keyword">const</span> windowHeight = <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>;<br>            <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">scrollBy</span>(<span class="hljs-number">0</span>, scrollDirection * windowHeight); <span class="hljs-comment">// 向上或向下滑动一个屏幕高度</span><br>        &#125;, scrollDirection);<br><br>        scrollCount++;<br><br>        <span class="hljs-comment">// 如果达到了五次滑动，切换方向并重置计数器</span><br>        <span class="hljs-keyword">if</span> (scrollCount === <span class="hljs-number">5</span>) &#123;<br>            scrollDirection *= -<span class="hljs-number">1</span>; <span class="hljs-comment">// 切换方向</span><br>            scrollCount = <span class="hljs-number">0</span>; <span class="hljs-comment">// 重置计数器</span><br>        &#125;<br>    &#125;, scrollInterval);<br><br><br>    <span class="hljs-comment">// 设置浏览器关闭定时器</span><br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Success: 关闭浏览器&quot;</span>);<br>        <span class="hljs-keyword">await</span> browser.<span class="hljs-title function_">close</span>();<br>    &#125;, totalTime);<br>&#125;;<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">repeatXHR</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params">count</span>) =&gt; &#123;<br>    <span class="hljs-keyword">if</span> (!capturedResponse) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Failed: 没有捕获到响应，无法重放&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">const</span> request = capturedResponse.<span class="hljs-title function_">request</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; count; i++) &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">axios</span>(&#123;<br>                <span class="hljs-attr">method</span>: request.<span class="hljs-title function_">method</span>(),<br>                <span class="hljs-attr">url</span>: request.<span class="hljs-title function_">url</span>(),<br>                <span class="hljs-attr">headers</span>: request.<span class="hljs-title function_">headers</span>(),<br>                <span class="hljs-attr">params</span>: request.<span class="hljs-property">params</span>,<br>                <span class="hljs-attr">data</span>: request.<span class="hljs-title function_">postData</span>(),<br>            &#125;);<br>            <span class="hljs-keyword">if</span> (response.<span class="hljs-property">data</span>.<span class="hljs-property">succ</span> !== <span class="hljs-number">1</span>) &#123;<br>                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Failed: 重放响应 <span class="hljs-subst">$&#123;i + <span class="hljs-number">1</span>&#125;</span>: 失败, succ!==1`</span>);<br>                <span class="hljs-keyword">return</span>;<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">`Failed: 重放响应 <span class="hljs-subst">$&#123;i + <span class="hljs-number">1</span>&#125;</span>: 失败, <span class="hljs-subst">$&#123;error.message&#125;</span>`</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Success: 重放响应 <span class="hljs-subst">$&#123;count&#125;</span> 次完毕`</span>)<br>&#125;;<br><br>(<span class="hljs-keyword">async</span> () =&gt; &#123;<br>    <span class="hljs-keyword">await</span> <span class="hljs-title function_">getXHR</span>();<br>&#125;)();<br></code></pre></td></tr></table></figure>
+
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>代码会启动一个无头浏览器, 所以没有可视化也不需要担心。<br>个人测试24小时, 无任何问题, 使用的内存为300MB左右, CPU占用率为0.1%左右。<br>对了, 带上key参数是我接口的鉴权, 也就是上一篇文章的参数(个人有所修改)。<br>你实现了上一篇文章的获取可以使用你的接口。保证<code>cookie</code>是有效的即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">node wxread.js key=xxxx<br><br><span class="hljs-comment"># 成功运行大概输出如下</span><br><span class="hljs-comment">#    Success: 启动 Playwright 浏览器</span><br><span class="hljs-comment">#    Success: 打开内容页面</span><br><span class="hljs-comment">#    Success: 目标URL响应成功</span><br><span class="hljs-comment">#    Success: 重放响应 100 次完毕</span><br><span class="hljs-comment">#    Success: 目标URL响应成功</span><br><span class="hljs-comment">#    Success: 重放响应 100 次完毕</span><br><span class="hljs-comment">#    Success: 浏览器关闭 (400秒后)</span><br></code></pre></td></tr></table></figure>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文为 <a href="/author/ThatCoder/">钟意</a> 撰写, 采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议, 转载请注明出处。</p>
+</div>
+    </section>
+    
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://blog.thatcoder.cn/Tencent-WxRead-Daily/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.thatcoder.cn/Tencent-WxRead-Daily/&title=微信读书自动阅读 - 那个码农&pics=https://upyun.thatcdn.cn/myself/typora/202309151542253.jpg&summary=实现微信读书自动阅读, 增加阅读时长, 打卡阅读天数"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=微信读书自动阅读 - 那个码农&amp;body=https://blog.thatcoder.cn/Tencent-WxRead-Daily/"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="visibility:hidden;height:0">
+          <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://blog.thatcoder.cn/Tencent-WxRead-Daily/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/stellar-1.18.5-to-latest/">Stellar 1.18.5 迁移到 latest</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/Tencent-WxRead-Cookies/">微信读书Cookies续活</a></div></section></div>
+
+  <script>
+    let tianliGPT_postSelector = 'article.content';
+    let tianliGPT_key = '3f1580e1f333af0c7413';
+    let tianliGPT_typingAnimate = 'true';
+    var tianli_name = 'GPT';
+    var tianli_text = '小意总结';
+    var tianli_icon_url = 'https://upyun.thatcdn.cn/public/img/icon/AI.png';
+  </script>
+  <script defer src="https://upyun.thatcdn.cn/public/web/tianLiChat/AbstractAI@0.13_tianli_gpt.js"></script>
+
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">站点</span><a target="_blank" rel="noopener" href="https://status.thatcoder.cn/status/public/">公共服务</a><a target="_blank" rel="noopener" href="https://ai.thatcoder.cn/">ChatGPT</a><a target="_blank" rel="noopener" href="https://alist.thatcoder.cn/">文件资源</a><a target="_blank" rel="noopener" href="https://docs.thatapi.cn/">公共接口</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/links/">友人帐</a><a href="/links/#comments">留言板</a><a href="/animes/">在追番</a><a href="/cinemas/">还追剧</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/#tab_1-1/">本站动态</a><a target="_blank" rel="noopener" href="https://muselink.cc/naive">联系博主</a><a target="_blank" rel="noopener" href="https://github.com/ThatCoders">GitHub</a><a target="_blank" rel="noopener" href="https://gitee.com/thatcoder">Gitee</a></div></div><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0">Stellar 1.25.0</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">vercel</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 | 本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span> 
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg t="1705412886951" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8331" width="200" height="200"><path d="M638.72 970.666667h-256c-118.186667 0-198.272-25.002667-251.946667-78.72S52.053333 758.186667 52.053333 640V384c0-118.186667 25.002667-198.272 78.72-251.946667S264.533333 53.333333 382.72 53.333333h256c118.186667 0 198.272 25.002667 251.946667 78.72S969.386667 265.813333 969.386667 384v256c0 118.186667-25.002667 198.272-78.72 251.946667S756.906667 970.666667 638.72 970.666667z m-256-853.333334c-100.096 0-165.802667 19.2-206.72 59.946667S116.053333 283.904 116.053333 384v256c0 100.096 19.072 165.802667 59.946667 206.72S282.624 906.666667 382.72 906.666667h256c100.096 0 165.802667-19.072 206.72-59.946667S905.386667 740.096 905.386667 640V384c0-100.096-19.072-165.802667-59.946667-206.72S738.816 117.333333 638.72 117.333333z" p-id="8332"></path><path d="M638.72 970.666667a32 32 0 0 1-32-32V85.333333a32 32 0 0 1 32-32 32 32 0 0 1 32 32v853.333334a32 32 0 0 1-32 32zM340.053333 653.226667a31.914667 31.914667 0 0 1-22.613333-9.386667 32 32 0 0 1 0-45.269333L404.053333 512 317.44 425.386667a32 32 0 0 1 0-45.226667 32 32 0 0 1 45.226667 0l109.226666 109.226667a32 32 0 0 1 0 45.269333L362.666667 643.84a31.914667 31.914667 0 0 1-22.613334 9.386667z" p-id="8333"></path></svg>
+  </button>
+</div>
+<div class="main-mask" onclick="sidebar.toggle()"></div></div></div><div class="scripts">
+<script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.25.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"post, page, docs","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js","memos":"/js/plugins/memos.js","marked":"/js/plugins/marked.js","timetmpl":"/js/plugins/timetmpl.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js","distance":"16px","duration":800,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.copycode = Object.assign({"enable":false,"js":"/js/plugins/copycode.js","default_text":"Copy","success_text":"Copied","toast":"复制成功"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script type="module" defer="defer">
+    import { init } from 'https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js';
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css');
+    stellar.loadScript('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js', {defer:true, type:"module"}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+        init(Object.assign({"js":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js","css":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"custom":{"css":"/custom/css/ZYWaline.css"},"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_chuckle.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_pick_nose.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_not_care.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+        el: '#waline_container',
+        path: path,
+        
+          imageUploader: function(file) {
+            let headers = new Headers();
+            headers.set('Accept', 'application/json');
+            
+              headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+            
+            let formData = new FormData();
+            formData.append('file', file);
+            return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+              method: 'POST',
+              body: formData,
+              headers: headers
+              }).then((resp) => resp.json())
+                .then((resp) => resp.data.links.url)
+          },
+        
+      }));
+    });
+  }
+  stellar.loadCSS('/custom/css/ZYWaline.css');
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>

@@ -1,0 +1,456 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0" theme-name="Stellar" theme-version="1.25.0">
+  
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>Waline评论与Lsky兰空图床 - 那个码农</title>
+
+  
+    <meta name="description" content="主题的图片上传在我这有点毛病, 改造过程中兰空API的跨域问题也随之而来, 很淦...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Waline评论与Lsky兰空图床">
+<meta property="og:url" content="https://blog.thatcoder.cn/Waline%E4%B8%8ELsky%E5%85%B0%E7%A9%BA%E5%9B%BE%E5%BA%8A/">
+<meta property="og:site_name" content="那个码农">
+<meta property="og:description" content="主题的图片上传在我这有点毛病, 改造过程中兰空API的跨域问题也随之而来, 很淦...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_lovely.png">
+<meta property="og:image" content="https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_doge.png">
+<meta property="og:image" content="https://upyun.thatcdn.cn/myself/typora/202302052035850.png">
+<meta property="article:published_time" content="2023-02-04T20:29:25.000Z">
+<meta property="article:modified_time" content="2023-12-30T20:26:32.020Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="Stellar">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_lovely.png">
+  
+  
+  
+  <meta name="keywords" content="Stellar">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="那个码农" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel="stylesheet" href="https://upyun.thatcdn.cn/public/font/lxgw/result.css" /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYDark.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+<div class="l_cover post"><div class="cover"><div class="lazy img bg" data-bg="https://upyun.thatcdn.cn/myself/typora/202302050517919.jpg"></div></div></div>
+
+<div class="l_body content tech" id="start" layout="post" ><aside class="l_left"><div class="sidebar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">那个码农</div><div class="sub normal cap"><i class="fa-solid fa-chess-queen"></i> 钟意的博客</div><div class="sub hover cap" style="opacity:0"> ThatCoder's Blog 钟意博客</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" class="icon search-icon" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc single" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%85%B0%E7%A9%BAToken"><span class="toc-text">获取兰空Token</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BALskyPro"><span class="toc-text">搭建LskyPro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96Token"><span class="toc-text">获取Token</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAwaline"><span class="toc-text">搭建waline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo%E5%90%AF%E7%94%A8waline"><span class="toc-text">hexo启用waline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89js"><span class="toc-text">自定义js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-text">结语</span></a></li></ol></div></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-laptop-code"></i></a><a class="social" href="https://music.163.com/#/user/home?id=134968139" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-music"></i></a><a class="social" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-champagne-glasses"></i></a><a class="social" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-comments-dollar"></i></a><a class="social" href="javaScript:hud.toast('🌙 夜间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeM" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javaScript:hud.toast('☀ 日间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeL" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javaScript:hud.toast('💻 跟随系统');" rel="noopener noreferrer"><img class="lazy" id="ThemeAI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="bread-nav fs12"><div class="left"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%A0%86%E6%A0%88/">堆栈</a></div>
+<div id="post-meta"><span class="author">本文由 <a href="/author/ThatCoder/">钟意</a> 发布于：</span><span class="created"><time datetime="2023-02-04T20:29:25.000Z">2023-02-05</time></span><span class="updated">，更新于：<time datetime="2023-12-30T20:26:32.020Z">2023-12-31</time></span></div></div>
+</div>
+<article class="md-text content "><h1 class="article-title"><span>Waline评论与Lsky兰空图床</span></h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>giscus改为waline后不能上传图片, 配置好后还是会弹图片大于128KB, 可能我哪里搞错了吧.<br>查阅waline源码有一个<a target="_blank" rel="noopener" href="https://github.com/walinejs/waline/blob/main/packages/client/src/config/default.ts#L20-L30">defaultUpdateImage</a><br>限制图片文件大小128KB, 但自定义后还是会走到这里判断.<br>遂自己改造了一下, 并记录一路碰到的许多问题.</p>
+<blockquote>
+<p>2023.02.06 破案了, 感谢<a target="_blank" rel="noopener" href="https://www.shifeiti.com/">是非题</a>提醒主题后续将主题参数 url 改成 api,<br>详见<a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/commit/5f733646cc05b9f30088e3586707c4ae36e39b62">2023.1.12的commit</a>.<br>好细节!<span class="tag-plugin emoji"><img no-lazy="" class="inline lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_lovely.png"/></span><br>这个故事告诉我们要及时拉取.<br>所以我把Stellar的提交历史放到了<a href="/notes/%E5%85%B3%E6%B3%A8/Stellar%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95.html">便签关注</a> </p>
+<span class="tag-plugin emoji"><img no-lazy="" class="inline lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_doge.png"/></span>
+</blockquote>
+<h2 id="获取兰空Token"><a href="#获取兰空Token" class="headerlink" title="获取兰空Token"></a>获取兰空Token</h2><h3 id="搭建LskyPro"><a href="#搭建LskyPro" class="headerlink" title="搭建LskyPro"></a>搭建LskyPro</h3><div class="tag-plugin link dis-select"><a class="link-card plain" title="兰空搭建" href="/Lsky兰空图床搭建/" cardlink autofill="icon"><div class="left"><span class="title">兰空搭建</span><span class="cap link fs12">https://blog.thatcoder.cn/Lsky%E5%85%B0%E7%A9%BA%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg"></div></div></a></div>
+
+<h3 id="获取Token"><a href="#获取Token" class="headerlink" title="获取Token"></a>获取Token</h3><p>一个Post请求就可以获取Token, 但前端的一切都是公开的, 意味着你的Token一定暴露.<br>所以建一个专门用来当博客评论图床的账号, 给少点鉴权限.</p>
+<figure class="highlight markdown"><figcaption><span>Post请求</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">https://你的部署地址/api/v1/tokens<br></code></pre></td></tr></table></figure>
+
+<p>你可以使用<a target="_blank" rel="noopener" href="https://v7.apipost.cn/apis#/apis/run">ApiPost网页版</a></p>
+<details class="tag-plugin colorful folding" ><summary><span>ApiPost网页版请求方法</span></summary><div class="body"><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/202302052035850.png" alt="成功响应" fancybox="true"/></div><div class="image-meta"><span class="image-caption center">成功响应</span></div></div>填装body参数 `email` `password`</div></details>
+
+<p>请求成功得到一个类似 <code>3|xxxxxxxxxxxxxxxxxxxxxx</code> 的响应参数, 前面的竖杠和数字不要漏了.</p>
+<h2 id="搭建waline"><a href="#搭建waline" class="headerlink" title="搭建waline"></a>搭建waline</h2><p>这个不用服务器, vercel一步到位, 详情参考官方教程.</p>
+<div class="tag-plugin link dis-select"><a class="link-card plain" title="waline之vercel部署" href="https://waline.js.org/guide/get-started/#vercel-%E9%83%A8%E7%BD%B2-%E6%9C%8D%E5%8A%A1%E7%AB%AF" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill="icon"><div class="left"><span class="title">waline之vercel部署</span><span class="cap link fs12">https://waline.js.org/guide/get-started/#vercel-%E9%83%A8%E7%BD%B2-%E6%9C%8D%E5%8A%A1%E7%AB%AF</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg"></div></div></a></div>
+
+<h2 id="hexo启用waline"><a href="#hexo启用waline" class="headerlink" title="hexo启用waline"></a>hexo启用waline</h2><p>不同主题不一样, 如果主题没适配waline可以自己在生成文章的地方适当位置添加一个div给上唯一id, 等下会用到.<br>这里给Stellar主题评论启用waline</p>
+<figure class="highlight yaml"><figcaption><span>根目录/_config.stellar.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># 评论 twikoo服务</span><br><span class="hljs-attr">comments:</span><br>  <span class="hljs-attr">service:</span> <span class="hljs-string">waline</span><br>  <span class="hljs-attr">waline:</span><br>    <span class="hljs-attr">serverURL:</span> <span class="hljs-string">https://你部署的地址/</span> <span class="hljs-comment"># waline 地址</span><br>    <span class="hljs-attr">locale:</span><br>      <span class="hljs-attr">placeholder:</span> <span class="hljs-string">&quot;&quot;</span> <span class="hljs-comment"># 输入框内提示文字</span><br>    <span class="hljs-comment"># Custom emoji</span><br>    <span class="hljs-attr">emoji:</span> <br>      <span class="hljs-bullet">-</span> <span class="hljs-string">https://unpkg.com/@waline/emojis@1.1.0/bilibili</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">https://unpkg.com/@waline/emojis@1.1.0/qq</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">https://fastly.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs</span><br>    <span class="hljs-attr">imageUploader:</span> <br>      <span class="hljs-comment"># 适配了兰空图床V1、V2版本</span><br>      <span class="hljs-comment"># 以兰空图床V1为例，下列填写内容为：</span><br>      <span class="hljs-attr">fileName:</span> <span class="hljs-string">file</span><br>      <span class="hljs-attr">tokenName:</span> <span class="hljs-string">Authorization</span><br>      <span class="hljs-attr">api:</span> <span class="hljs-string">https://你的兰空地址/api/v1/upload</span><br>      <span class="hljs-attr">token:</span> <span class="hljs-string">Bearer</span> <span class="hljs-number">1</span><span class="hljs-string">|xxxxxxx你的token</span><br>      <span class="hljs-attr">resp:</span> <span class="hljs-string">data.links.url</span><br></code></pre></td></tr></table></figure>
+
+<p>Stellar主题用户配置完要是可以上传文件就不用往下看了.</p>
+<h2 id="自定义js"><a href="#自定义js" class="headerlink" title="自定义js"></a>自定义js</h2><p><strong>路径:</strong> themes&#x2F;stellar&#x2F;layout&#x2F;_partial&#x2F;plugins&#x2F;comments&#x2F;waline&#x2F;script.ejs<br>我的这个文件肯定是加载了, 但到上传图片时会限制128KB, 按理用了imageUploader就不应该还是走的数据库存储base64策略, 唉<br>自己动手吧.<br>以下代码参考waline官网和xaoxuu, 所以不同主题也适用(不同的是看你代码放哪里, 要是主题不是js模板引擎即ejs结尾,<br>就改成js代码)</p>
+<figure class="highlight js"><figcaption><span>路径在上面</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;script type=<span class="hljs-string">&quot;module&quot;</span>&gt;<br><span class="hljs-keyword">import</span> &#123; init &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;/custom/package/waline/dist/waline.mjs&#x27;</span>;  <span class="hljs-comment">//md 我这里用CDN还是会提示大于128KB, 所以直接引入了</span><br><span class="hljs-keyword">const</span> el = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;waline_container&quot;</span>);   <span class="hljs-comment">//这里是你的评论div#id</span><br><span class="hljs-keyword">var</span> idPath = el.<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&#x27;comment_id&#x27;</span>);<br><span class="hljs-keyword">if</span> (!idPath) &#123;<br>  idPath = <span class="hljs-built_in">decodeURI</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">pathname</span>);   <span class="hljs-comment">// 给评论div加上唯一标识, 不如评论乱串文章.</span><br>&#125;<br><span class="hljs-keyword">const</span> waline = <span class="hljs-title function_">init</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#waline_container&#x27;</span>,    <span class="hljs-comment">//这里是你的评论div#id</span><br>  <span class="hljs-attr">search</span>: <span class="hljs-literal">false</span>,  <span class="hljs-comment">//关闭表情查找 不大好用</span><br>  <span class="hljs-comment">// 设置 emoji 为微博与哔哩哔哩</span><br>  <span class="hljs-attr">emoji</span>: [<br>    <span class="hljs-string">&#x27;https://unpkg.com/@waline/emojis@1.1.0/bilibili&#x27;</span>,<br>    <span class="hljs-string">&#x27;https://unpkg.com/@waline/emojis@1.1.0/qq&#x27;</span>,<br>    <span class="hljs-string">&#x27;https://fastly.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs&#x27;</span><br>  ],<br>  <span class="hljs-attr">reaction</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 开启反应</span><br>  <span class="hljs-attr">comment</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 评论数统计</span><br>  <span class="hljs-comment">// pageview: true, // 浏览量统计</span><br>  <span class="hljs-attr">serverURL</span>: <span class="hljs-string">&#x27;https://你的waline地址&#x27;</span>,    <span class="hljs-comment">// 记得改自己的waline地址</span><br>  <span class="hljs-attr">path</span>: idPath,<br>  <span class="hljs-attr">imageUploader</span>: <span class="hljs-function">(<span class="hljs-params">file</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">let</span> formData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormData</span>();<br>    <span class="hljs-keyword">let</span> headers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Headers</span>();<br>    formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&#x27;file&#x27;</span>, file);<br>    headers.<span class="hljs-title function_">append</span>(<span class="hljs-string">&quot;Access-Control-Allow-Headers&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>);<br>    headers.<span class="hljs-title function_">append</span>(<span class="hljs-string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="hljs-string">&quot;*&quot;</span>);<br>    headers.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;Authorization&#x27;</span>, <span class="hljs-string">&#x27;Bearer 1|xxxxxxx你的兰空tokens&#x27;</span>);   <span class="hljs-comment">// 记得改自己的token</span><br>    headers.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;Accept&#x27;</span>, <span class="hljs-string">&#x27;application/json&#x27;</span>);<br>    <span class="hljs-comment">// headers.set(&quot;Content-Type&quot;,&quot;multipart/form-data&quot;);</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://你的兰空地址/api/v1/upload&#x27;</span>, &#123;    <span class="hljs-comment">// 记得改自己的兰空</span><br>      <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>      <span class="hljs-attr">headers</span>: headers,<br>      <span class="hljs-attr">body</span>: formData,<br>      <span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;cors&#x27;</span>,<br>    &#125;)<br>      .<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">resp</span>) =&gt;</span> resp.<span class="hljs-title function_">json</span>())<br>      .<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">resp</span>) =&gt;</span> resp.<span class="hljs-property">data</span>.<span class="hljs-property">links</span>.<span class="hljs-property">url</span>);<br>  &#125;,<br>&#125;);<br><br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>至此结束了, 要是也碰到奇葩的fetch跨域问题, 不妨试试下面的文章.</p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文为 <a href="/author/ThatCoder/">钟意</a> 撰写, 采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议, 转载请注明出处。</p>
+</div>
+    </section>
+    
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://blog.thatcoder.cn/Waline%E4%B8%8ELsky%E5%85%B0%E7%A9%BA%E5%9B%BE%E5%BA%8A/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.thatcoder.cn/Waline%E4%B8%8ELsky%E5%85%B0%E7%A9%BA%E5%9B%BE%E5%BA%8A/&title=Waline评论与Lsky兰空图床 - 那个码农&pics=https://upyun.thatcdn.cn/myself/typora/202302050455642.jpg&summary=主题的图片上传在我这有点毛病, 改造过程中兰空API的跨域问题也随之而来, 很淦..."><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=Waline评论与Lsky兰空图床 - 那个码农&amp;body=https://blog.thatcoder.cn/Waline%E4%B8%8ELsky%E5%85%B0%E7%A9%BA%E5%9B%BE%E5%BA%8A/"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="visibility:hidden;height:0">
+          <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://blog.thatcoder.cn/Waline%E4%B8%8ELsky%E5%85%B0%E7%A9%BA%E5%9B%BE%E5%BA%8A/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/CrossOrigin/">浅谈跨域-就你小子不让我跨域</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/Lsky%E5%85%B0%E7%A9%BA%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/">Lsky兰空图床搭建</a></div></section></div>
+
+  <script>
+    let tianliGPT_postSelector = 'article.content';
+    let tianliGPT_key = '3f1580e1f333af0c7413';
+    let tianliGPT_typingAnimate = 'true';
+    var tianli_name = 'GPT';
+    var tianli_text = '小意总结';
+    var tianli_icon_url = 'https://upyun.thatcdn.cn/public/img/icon/AI.png';
+  </script>
+  <script defer src="https://upyun.thatcdn.cn/public/web/tianLiChat/AbstractAI@0.13_tianli_gpt.js"></script>
+
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">站点</span><a target="_blank" rel="noopener" href="https://status.thatcoder.cn/status/public/">公共服务</a><a target="_blank" rel="noopener" href="https://ai.thatcoder.cn/">ChatGPT</a><a target="_blank" rel="noopener" href="https://alist.thatcoder.cn/">文件资源</a><a target="_blank" rel="noopener" href="https://docs.thatapi.cn/">公共接口</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/links/">友人帐</a><a href="/links/#comments">留言板</a><a href="/animes/">在追番</a><a href="/cinemas/">还追剧</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/#tab_1-1/">本站动态</a><a target="_blank" rel="noopener" href="https://muselink.cc/naive">联系博主</a><a target="_blank" rel="noopener" href="https://github.com/ThatCoders">GitHub</a><a target="_blank" rel="noopener" href="https://gitee.com/thatcoder">Gitee</a></div></div><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0">Stellar 1.25.0</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">vercel</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 | 本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span> 
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg t="1705412886951" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8331" width="200" height="200"><path d="M638.72 970.666667h-256c-118.186667 0-198.272-25.002667-251.946667-78.72S52.053333 758.186667 52.053333 640V384c0-118.186667 25.002667-198.272 78.72-251.946667S264.533333 53.333333 382.72 53.333333h256c118.186667 0 198.272 25.002667 251.946667 78.72S969.386667 265.813333 969.386667 384v256c0 118.186667-25.002667 198.272-78.72 251.946667S756.906667 970.666667 638.72 970.666667z m-256-853.333334c-100.096 0-165.802667 19.2-206.72 59.946667S116.053333 283.904 116.053333 384v256c0 100.096 19.072 165.802667 59.946667 206.72S282.624 906.666667 382.72 906.666667h256c100.096 0 165.802667-19.072 206.72-59.946667S905.386667 740.096 905.386667 640V384c0-100.096-19.072-165.802667-59.946667-206.72S738.816 117.333333 638.72 117.333333z" p-id="8332"></path><path d="M638.72 970.666667a32 32 0 0 1-32-32V85.333333a32 32 0 0 1 32-32 32 32 0 0 1 32 32v853.333334a32 32 0 0 1-32 32zM340.053333 653.226667a31.914667 31.914667 0 0 1-22.613333-9.386667 32 32 0 0 1 0-45.269333L404.053333 512 317.44 425.386667a32 32 0 0 1 0-45.226667 32 32 0 0 1 45.226667 0l109.226666 109.226667a32 32 0 0 1 0 45.269333L362.666667 643.84a31.914667 31.914667 0 0 1-22.613334 9.386667z" p-id="8333"></path></svg>
+  </button>
+</div>
+<div class="main-mask" onclick="sidebar.toggle()"></div></div></div><div class="scripts">
+<script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.25.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"post, page, docs","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js","memos":"/js/plugins/memos.js","marked":"/js/plugins/marked.js","timetmpl":"/js/plugins/timetmpl.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js","distance":"16px","duration":800,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.copycode = Object.assign({"enable":false,"js":"/js/plugins/copycode.js","default_text":"Copy","success_text":"Copied","toast":"复制成功"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script type="module" defer="defer">
+    import { init } from 'https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js';
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css');
+    stellar.loadScript('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js', {defer:true, type:"module"}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+        init(Object.assign({"js":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js","css":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"custom":{"css":"/custom/css/ZYWaline.css"},"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_chuckle.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_pick_nose.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_not_care.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+        el: '#waline_container',
+        path: path,
+        
+          imageUploader: function(file) {
+            let headers = new Headers();
+            headers.set('Accept', 'application/json');
+            
+              headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+            
+            let formData = new FormData();
+            formData.append('file', file);
+            return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+              method: 'POST',
+              body: formData,
+              headers: headers
+              }).then((resp) => resp.json())
+                .then((resp) => resp.data.links.url)
+          },
+        
+      }));
+    });
+  }
+  stellar.loadCSS('/custom/css/ZYWaline.css');
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>

@@ -1,0 +1,459 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0" theme-name="Stellar" theme-version="1.25.0">
+  
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>Stellar代码块个人向美化 - 那个码农</title>
+
+  
+    <meta name="description" content="本来Stellar简洁的风格被我改的花里胡哨的, 唉xaoxuu见打.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stellar代码块个人向美化">
+<meta property="og:url" content="https://blog.thatcoder.cn/Stellar%E4%BB%A3%E7%A0%81%E5%9D%97%E4%B8%AA%E4%BA%BA%E5%90%91%E7%BE%8E%E5%8C%96/">
+<meta property="og:site_name" content="那个码农">
+<meta property="og:description" content="本来Stellar简洁的风格被我改的花里胡哨的, 唉xaoxuu见打.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-03T08:42:02.000Z">
+<meta property="article:modified_time" content="2023-12-30T20:17:08.302Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="Stellar">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <meta name="keywords" content="Stellar">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="那个码农" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel="stylesheet" href="https://upyun.thatcdn.cn/public/font/lxgw/result.css" /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYDark.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+
+<div class="l_body content tech" id="start" layout="post" ><aside class="l_left"><div class="sidebar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">那个码农</div><div class="sub normal cap"><i class="fa-solid fa-chess-queen"></i> 钟意的博客</div><div class="sub hover cap" style="opacity:0"> ThatCoder's Blog 钟意博客</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" class="icon search-icon" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc single" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E6%A0%B7%E5%BC%8F"><span class="toc-text">代码块样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0"><span class="toc-text">执行函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E5%87%BD%E6%95%B0"><span class="toc-text">引入函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E6%A0%B7%E5%BC%8F"><span class="toc-text">引入样式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-text">结语</span></a></li></ol></div></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-laptop-code"></i></a><a class="social" href="https://music.163.com/#/user/home?id=134968139" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-music"></i></a><a class="social" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-champagne-glasses"></i></a><a class="social" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-comments-dollar"></i></a><a class="social" href="javaScript:hud.toast('🌙 夜间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeM" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javaScript:hud.toast('☀ 日间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeL" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javaScript:hud.toast('💻 跟随系统');" rel="noopener noreferrer"><img class="lazy" id="ThemeAI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="bread-nav fs12"><div class="left"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%A0%86%E6%A0%88/">堆栈</a></div>
+<div id="post-meta"><span class="author">本文由 <a href="/author/ThatCoder/">钟意</a> 发布于：</span><span class="created"><time datetime="2023-02-03T08:42:02.000Z">2023-02-03</time></span><span class="updated">，更新于：<time datetime="2023-12-30T20:17:08.302Z">2023-12-31</time></span></div></div>
+</div>
+<article class="md-text content "><h1 class="article-title"><span>Stellar代码块个人向美化</span></h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>增加主题控制后代码块样式有些唐突, 遂改之.</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>不改变主题代码情况下思路的主旋律按以下走:</p>
+<ol>
+<li>代码块随主题颜色变更</li>
+<li>增加复制代码功能 (来源<a target="_blank" rel="noopener" href="https://www.whbbit.cn/">whbbit</a>)</li>
+<li>增加代码过长折叠</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>下面直接成品, 有需求自定义修改</p>
+<h3 id="代码块样式"><a href="#代码块样式" class="headerlink" title="代码块样式"></a>代码块样式</h3><figure class="highlight css"><figcaption><span>ZYCode.css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-pseudo">:root</span>&#123;<br>    <span class="hljs-attr">--code-autor</span>: <span class="hljs-string">&#x27;© 钟意博客🌙&#x27;</span>;<br>    <span class="hljs-attr">--code-tip</span>: <span class="hljs-string">&quot;优雅借鉴&quot;</span>;<br>&#125; <br><br> <span class="hljs-comment">/*语法高亮*/</span><br> <span class="hljs-selector-class">.hljs</span> &#123;<br>     <span class="hljs-attribute">position</span>: relative;<br>     <span class="hljs-attribute">display</span>: block;<br>     <span class="hljs-attribute">overflow-x</span>: hidden;<br>     <span class="hljs-comment">/*背景跟随Stellar*/</span><br>     <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--block);<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#9c67a1</span>;<br>     <span class="hljs-attribute">padding</span>: <span class="hljs-number">30px</span> <span class="hljs-number">5px</span> <span class="hljs-number">2px</span> <span class="hljs-number">5px</span>;<br>     <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">10px</span> <span class="hljs-number">30px</span> <span class="hljs-number">0px</span> <span class="hljs-built_in">rgb</span>(<span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> / <span class="hljs-number">40%</span>)<br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-built_in">var</span>(--code-tip);<br>     <span class="hljs-attribute">position</span>: absolute;<br>     <span class="hljs-attribute">left</span>: <span class="hljs-number">15px</span>;<br>     <span class="hljs-attribute">top</span>: <span class="hljs-number">10px</span>;<br>     <span class="hljs-attribute">overflow</span>: visible;<br>     <span class="hljs-attribute">width</span>: <span class="hljs-number">12px</span>;<br>     <span class="hljs-attribute">height</span>: <span class="hljs-number">12px</span>;<br>     <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">16px</span>;<br>     <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">20px</span> <span class="hljs-number">0</span> <span class="hljs-number">#a9a6a1</span>, <span class="hljs-number">40px</span> <span class="hljs-number">0</span> <span class="hljs-number">#999</span>;<br>     -webkit-<span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">20px</span> <span class="hljs-number">0</span> <span class="hljs-number">#999</span>, <span class="hljs-number">40px</span> <span class="hljs-number">0</span> <span class="hljs-number">#999</span>;<br>     <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#999</span>;<br>     <span class="hljs-attribute">white-space</span>: nowrap;<br>     <span class="hljs-attribute">text-indent</span>: <span class="hljs-number">75px</span>;<br>     <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;<br>     <span class="hljs-attribute">line-height</span>: <span class="hljs-number">12px</span>;<br>     <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#999</span><br> &#125;<br><br> <span class="hljs-selector-class">.highlight</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#35cd4b</span>;<br>     <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">20px</span> <span class="hljs-number">0</span> <span class="hljs-number">#fdbc40</span>, <span class="hljs-number">40px</span> <span class="hljs-number">0</span> <span class="hljs-number">#35cd4b</span>;<br>     -webkit-<span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">20px</span> <span class="hljs-number">0</span> <span class="hljs-number">#fdbc40</span>, <span class="hljs-number">40px</span> <span class="hljs-number">0</span> <span class="hljs-number">#35cd4b</span>;<br>     <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fc625d</span>;<br> &#125;<br><br> <span class="hljs-selector-class">.hljs-ln</span> &#123;<br>     <span class="hljs-attribute">display</span>: inline-block;<br>     <span class="hljs-attribute">overflow-x</span>: auto;<br>     <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">5px</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-ln</span> <span class="hljs-selector-tag">td</span> &#123;<br>     <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<br>     <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--block)<br> &#125;<br><br> <span class="hljs-selector-class">.hljs-ln</span>::-webkit-scrollbar &#123;<br>     <span class="hljs-attribute">height</span>: <span class="hljs-number">10px</span>;<br>     <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;<br>     <span class="hljs-attribute">background</span>: <span class="hljs-number">#333</span>;<br> &#125;<br><br> <span class="hljs-selector-class">.hljs-ln</span>::-webkit-scrollbar-thumb &#123;<br>     <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#bbb</span>;<br>     <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;<br> &#125;<br><br> <span class="hljs-selector-class">.hljs-ln</span>::-webkit-scrollbar-thumb:hover &#123;<br>     <span class="hljs-attribute">background</span>: <span class="hljs-number">#ddd</span>;<br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span> <span class="hljs-selector-tag">table</span> <span class="hljs-selector-tag">tbody</span> <span class="hljs-selector-tag">tr</span> &#123;<br>     <span class="hljs-attribute">border</span>: none<br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span> <span class="hljs-selector-class">.hljs-ln-line</span> &#123;<br>     <span class="hljs-attribute">padding</span>: <span class="hljs-number">1px</span> <span class="hljs-number">10px</span>;<br>     <span class="hljs-attribute">border</span>: none<br> &#125;<br><br> <span class="hljs-selector-tag">td</span><span class="hljs-selector-class">.hljs-ln-line</span><span class="hljs-selector-class">.hljs-ln-numbers</span> &#123;<br>     <span class="hljs-attribute">border-right</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#666</span>;<br> &#125;<br><br> <span class="hljs-selector-class">.hljs-keyword</span>,<br> <span class="hljs-selector-class">.hljs-literal</span>,<br> <span class="hljs-selector-class">.hljs-symbol</span>,<br> <span class="hljs-selector-class">.hljs-name</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#c78300</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-link</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#569cd6</span>;<br>     <span class="hljs-attribute">text-decoration</span>: underline<br> &#125;<br><br> <span class="hljs-selector-class">.hljs-built_in</span>,<br> <span class="hljs-selector-class">.hljs-type</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#4ec9b0</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-number</span>,<br> <span class="hljs-selector-class">.hljs-class</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#2094f3</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-string</span>,<br> <span class="hljs-selector-class">.hljs-meta-string</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#4caf50</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-regexp</span>,<br> <span class="hljs-selector-class">.hljs-template-tag</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#9a5334</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-subst</span>,<br> <span class="hljs-selector-class">.hljs-function</span>,<br> <span class="hljs-selector-class">.hljs-title</span>,<br> <span class="hljs-selector-class">.hljs-params</span>,<br> <span class="hljs-selector-class">.hljs-formula</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#c78300</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-property</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#9c67a1</span>;<br> &#125;<br><br> <span class="hljs-selector-class">.hljs-comment</span>,<br> <span class="hljs-selector-class">.hljs-quote</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#57a64a</span>;<br>     <span class="hljs-attribute">font-style</span>: italic<br> &#125;<br><br> <span class="hljs-selector-class">.hljs-doctag</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#608b4e</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-meta</span>,<br> <span class="hljs-selector-class">.hljs-meta-keyword</span>,<br> <span class="hljs-selector-class">.hljs-tag</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#9b9b9b</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-variable</span>,<br> <span class="hljs-selector-class">.hljs-template-variable</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#bd63c5</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-attr</span>,<br> <span class="hljs-selector-class">.hljs-attribute</span>,<br> <span class="hljs-selector-class">.hljs-builtin-name</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#d34141</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-section</span> &#123;<br>     <span class="hljs-attribute">color</span>: gold<br> &#125;<br><br> <span class="hljs-selector-class">.hljs-emphasis</span> &#123;<br>     <span class="hljs-attribute">font-style</span>: italic<br> &#125;<br><br> <span class="hljs-selector-class">.hljs-strong</span> &#123;<br>     <span class="hljs-attribute">font-weight</span>: bold<br> &#125;<br><br> <span class="hljs-selector-class">.hljs-bullet</span>,<br> <span class="hljs-selector-class">.hljs-selector-tag</span>,<br> <span class="hljs-selector-class">.hljs-selector-id</span>,<br> <span class="hljs-selector-class">.hljs-selector-class</span>,<br> <span class="hljs-selector-class">.hljs-selector-attr</span>,<br> <span class="hljs-selector-class">.hljs-selector-pseudo</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#c78300</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-addition</span> &#123;<br>     <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#144212</span>;<br>     <span class="hljs-attribute">display</span>: inline-block;<br>     <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs-deletion</span> &#123;<br>     <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#600</span>;<br>     <span class="hljs-attribute">display</span>: inline-block;<br>     <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-html</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-xml</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;HTML/XML&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-javascript</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;JavaScript&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-c</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;C&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-cpp</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;C++&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-java</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Java&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-asp</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;ASP&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-actionscript</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;ActionScript/Flash/Flex&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-bash</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Bash&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-css</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;CSS&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-asp</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;ASP&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-cs</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-csharp</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;C#&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-d</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;D&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-golang</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-go</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Go&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-json</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;JSON&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-lua</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Lua&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-less</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;LESS&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-md</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-markdown</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-mkdown</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-mkd</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Markdown&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-mm</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-objc</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-obj-c</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-objective-c</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Objective-C&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-php</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;PHP&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-perl</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-pl</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-pm</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Perl&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-python</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-py</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-gyp</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-ipython</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Python&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-r</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;R&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-ruby</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-rb</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-gemspec</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-podspec</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-thor</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-irb</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Ruby&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-sql</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;SQL&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-sh</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-shell</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-Session</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-shellsession</span><span class="hljs-selector-pseudo">::before</span>,<br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-console</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Shell&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-swift</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Swift&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-vb</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;VB/VBScript&quot;</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljs</span><span class="hljs-selector-class">.language-yaml</span><span class="hljs-selector-pseudo">::before</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;YAML&quot;</span><br> &#125;<br><br> <span class="hljs-comment">/*stellar主题补偿*/</span><br> <span class="hljs-selector-class">.md-text</span> pre&gt;<span class="hljs-selector-class">.hljs</span> &#123;<br>     <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">2rem</span> <span class="hljs-meta">!important</span>;<br> &#125;<br><br> <span class="hljs-selector-class">.md-text</span> pre &#123;<br>     <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;<br> &#125;<br><br> <span class="hljs-selector-tag">code</span> &#123;<br>     <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">90deg</span>, <span class="hljs-built_in">rgba</span>(<span class="hljs-number">60</span>, <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, .<span class="hljs-number">04</span>) <span class="hljs-number">3%</span>, transparent <span class="hljs-number">0</span>), <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">1turn</span>, <span class="hljs-built_in">rgba</span>(<span class="hljs-number">60</span>, <span class="hljs-number">10</span>, <span class="hljs-number">30</span>, .<span class="hljs-number">04</span>) <span class="hljs-number">3%</span>, transparent <span class="hljs-number">0</span>) <span class="hljs-meta">!important</span>;<br>     <span class="hljs-attribute">background-size</span>: <span class="hljs-number">20px</span> <span class="hljs-number">20px</span> <span class="hljs-meta">!important</span>;<br>     <span class="hljs-attribute">background-position</span>: <span class="hljs-number">50%</span> <span class="hljs-meta">!important</span>;<br> &#125;<br><br> <span class="hljs-selector-tag">figure</span><span class="hljs-selector-pseudo">::after</span> &#123;<br>     <span class="hljs-attribute">content</span>: <span class="hljs-built_in">var</span>(--code-autor);<br>     <span class="hljs-attribute">text-align</span>: right;<br>     <span class="hljs-attribute">font-size</span>: <span class="hljs-number">10px</span>;<br>     <span class="hljs-attribute">float</span>: right;<br>     <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">3px</span>;<br>     <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">15px</span>;<br>     <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">8px</span>;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#999</span><br> &#125;<br><br> <span class="hljs-selector-tag">figcaption</span> <span class="hljs-selector-tag">span</span> &#123;<br>     <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0px</span> <span class="hljs-number">0px</span> <span class="hljs-number">12px</span> <span class="hljs-number">12px</span> <span class="hljs-meta">!important</span>;<br> &#125;<br><br><br> <span class="hljs-comment">/* 复制代码按钮 */</span><br> <span class="hljs-selector-class">.highlight</span> &#123;<br>     <span class="hljs-attribute">position</span>: relative;<br> &#125;<br><br> <span class="hljs-selector-class">.highlight</span> <span class="hljs-selector-class">.code</span> <span class="hljs-selector-class">.copy-btn</span> &#123;<br>     <span class="hljs-attribute">position</span>: absolute;<br>     <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;<br>     <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;<br>     <span class="hljs-attribute">padding</span>: <span class="hljs-number">4px</span> <span class="hljs-number">0.5rem</span>;<br>     <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.25</span>;<br>     <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--theme);<br>     <span class="hljs-attribute">cursor</span>: pointer;<br>     transination: opacity <span class="hljs-number">0.3s</span>;<br> &#125;<br><br> <span class="hljs-selector-class">.highlight</span> <span class="hljs-selector-class">.code</span> <span class="hljs-selector-class">.copy-btn</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--text-code);<br>     <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.75</span>;<br> &#125;<br><br> <span class="hljs-selector-class">.highlight</span> <span class="hljs-selector-class">.code</span> <span class="hljs-selector-class">.copy-btn</span><span class="hljs-selector-class">.success</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--swiper-theme-color);<br>     <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.75</span>;<br> &#125;<br><br> <span class="hljs-comment">/* 描述 */</span><br> <span class="hljs-selector-class">.md-text</span> <span class="hljs-selector-class">.highlight</span> <span class="hljs-selector-tag">figcaption</span> <span class="hljs-selector-tag">span</span> &#123;<br>     <span class="hljs-attribute">font-size</span>: small;<br> &#125;<br><br> <span class="hljs-comment">/* 折叠 */</span><br> <span class="hljs-selector-tag">code</span><span class="hljs-selector-class">.hljs</span> &#123;<br>     <span class="hljs-attribute">display</span>: -webkit-box;<br>     <span class="hljs-attribute">overflow</span>: hidden;<br>     <span class="hljs-attribute">text-overflow</span>: ellipsis;<br>     -webkit-box-orient: vertical;<br>     <span class="hljs-comment">/*-webkit-line-clamp: 6;*/</span><br>     <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span> <span class="hljs-number">1rem</span> <span class="hljs-number">0</span> <span class="hljs-number">1rem</span>; <span class="hljs-comment">/* chino建议 */</span><br> &#125;<br><br> <span class="hljs-selector-class">.hljsOpen</span> &#123;<br>     -webkit-line-clamp: <span class="hljs-number">99999</span> <span class="hljs-meta">!important</span>;<br> &#125;<br> <span class="hljs-selector-class">.CodeCloseDiv</span> &#123;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#999</span>;<br>    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--block);<br>    <span class="hljs-attribute">display</span>: flex;<br>    <span class="hljs-attribute">justify-content</span>: center;<br>    <span class="hljs-attribute">margin-top</span>: inherit;<br>    <span class="hljs-attribute">margin-bottom</span>: -<span class="hljs-number">18px</span>;<br> &#125;<br> <span class="hljs-selector-class">.CodeClose</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-number">#999</span>;<br>     <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">3px</span>;<br>     <span class="hljs-attribute">background</span>: <span class="hljs-built_in">var</span>(--block);<br> &#125;<br><br> <span class="hljs-selector-class">.highlight</span> <span class="hljs-selector-tag">button</span><span class="hljs-selector-pseudo">:hover</span>,<br> <span class="hljs-selector-class">.highlight</span> <span class="hljs-selector-tag">table</span><span class="hljs-selector-pseudo">:hover</span>+<span class="hljs-selector-tag">button</span> &#123;<br>     <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--swiper-theme-color);<br>     <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.75</span>;<br> &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="执行函数"><a href="#执行函数" class="headerlink" title="执行函数"></a>执行函数</h3><blockquote>
+<p>原作者<a target="_blank" rel="noopener" href="https://www.whbbit.cn/2023/01/31/stellar%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD/">复制代码</a><br>会因为tabs这种标签的display:none而与代码语言重合, 已修复(也不算修复, 我把它写死了)</p>
+</blockquote>
+<figure class="highlight js"><figcaption><span>ZYCode.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 这四个常量是复制,复制成功,展开,收缩</span><br><span class="hljs-comment">// 我使用的是 https://fontawesome.com/ 图标, 不用可以改为文字.</span><br><span class="hljs-keyword">const</span> copyText = <span class="hljs-string">&#x27;&lt;i class=&quot;fa-regular fa-copy&quot;  style=&quot;color: #aa69ec;&quot;&gt;&lt;/i&gt;&#x27;</span>;<br><span class="hljs-keyword">const</span> copySuccess = <span class="hljs-string">&#x27;&lt;i class=&quot;fa-regular fa-circle-check&quot;  style=&quot;color: limegreen;&quot;&gt;&lt;/i&gt;&#x27;</span>;<br><span class="hljs-keyword">const</span> openText = <span class="hljs-string">&#x27;&lt;i class=&quot;fa-solid fa-angles-down  fa-beat-fade&quot;&gt;&lt;/i&gt;&#x27;</span>;<br><span class="hljs-keyword">const</span> closeText = <span class="hljs-string">&#x27;&lt;i class=&quot;fa-solid fa-angles-up  fa-beat-fade&quot;&gt;&lt;/i&gt;&#x27;</span>;<br><br><span class="hljs-keyword">const</span> codeElements = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;td.code&#x27;</span>);<br><br>codeElements.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">code, index</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> preCode = code.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;pre&#x27;</span>);<br><br>    <span class="hljs-comment">// 设置id和样式</span><br>    preCode.<span class="hljs-property">id</span> = <span class="hljs-string">`ZYCode<span class="hljs-subst">$&#123;index+<span class="hljs-number">1</span>&#125;</span>`</span>;<br>    preCode.<span class="hljs-property">style</span>.<span class="hljs-property">webkitLineClamp</span> = <span class="hljs-string">&#x27;6&#x27;</span>;<br><br>    <span class="hljs-comment">// 添加展开/收起按钮</span><br>    <span class="hljs-keyword">if</span> (preCode.<span class="hljs-property">innerHTML</span>.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;&lt;br&gt;&#x27;</span>).<span class="hljs-property">length</span> &gt; <span class="hljs-number">6</span>) &#123;<br>        <span class="hljs-keyword">const</span> codeCopyDiv = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);<br>        codeCopyDiv.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;CodeCloseDiv&#x27;</span>);<br>        code.<span class="hljs-property">parentNode</span>.<span class="hljs-property">parentNode</span>.<span class="hljs-property">parentNode</span>.<span class="hljs-property">parentNode</span>.<span class="hljs-title function_">appendChild</span>(codeCopyDiv);<br><br>        <span class="hljs-keyword">const</span> codeCopyOver = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;button&#x27;</span>);<br>        codeCopyOver.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;CodeClose&#x27;</span>);<br>        codeCopyOver.<span class="hljs-property">innerHTML</span> = openText;<br><br>        <span class="hljs-keyword">const</span> parent = code.<span class="hljs-property">parentNode</span>.<span class="hljs-property">parentNode</span>.<span class="hljs-property">parentNode</span>.<span class="hljs-property">parentNode</span>;<br>        <span class="hljs-keyword">const</span> description = parent.<span class="hljs-property">childNodes</span>.<span class="hljs-property">length</span> === <span class="hljs-number">3</span> ? parent.<span class="hljs-property">children</span>[<span class="hljs-number">2</span>] : parent.<span class="hljs-property">children</span>[<span class="hljs-number">1</span>];<br>        description.<span class="hljs-title function_">appendChild</span>(codeCopyOver);<br><br>        codeCopyOver.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>            <span class="hljs-keyword">if</span> (codeCopyOver.<span class="hljs-property">innerHTML</span> === openText) &#123;<br>                <span class="hljs-keyword">const</span> scrollTop = <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">scrollTop</span>;<br>                <span class="hljs-keyword">const</span> codeHeight = code.<span class="hljs-property">clientHeight</span>;<br><br>                <span class="hljs-keyword">if</span> (scrollTop &lt; codeHeight) &#123;<br>                    <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">scrollTop</span> += codeHeight - scrollTop;<br>                &#125;<br><br>                preCode.<span class="hljs-property">style</span>.<span class="hljs-property">webkitLineClamp</span> = <span class="hljs-string">&#x27;99999&#x27;</span>;<br>                codeCopyOver.<span class="hljs-property">innerHTML</span> = closeText;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                preCode.<span class="hljs-property">style</span>.<span class="hljs-property">webkitLineClamp</span> = <span class="hljs-string">&#x27;6&#x27;</span>;<br>                codeCopyOver.<span class="hljs-property">innerHTML</span> = openText;<br>            &#125;<br>        &#125;);<br>    &#125;<br><br>    <span class="hljs-comment">// 添加复制按钮</span><br>    <span class="hljs-keyword">const</span> codeCopyBtn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);<br>    codeCopyBtn.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;copy-btn&#x27;</span>);<br>    codeCopyBtn.<span class="hljs-property">innerHTML</span> = copyText;<br>    code.<span class="hljs-title function_">appendChild</span>(codeCopyBtn);<br><br>    <span class="hljs-comment">// 添加复制功能</span><br>    codeCopyBtn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-keyword">async</span> () =&gt; &#123;<br>        <span class="hljs-keyword">const</span> currentCodeElement = code.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;pre&#x27;</span>)?.<span class="hljs-property">innerText</span>;<br>        <span class="hljs-keyword">await</span> <span class="hljs-title function_">copyCode</span>(currentCodeElement);<br><br>        codeCopyBtn.<span class="hljs-property">innerHTML</span> = copySuccess;<br>        codeCopyBtn.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;success&#x27;</span>);<br><br>        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>            codeCopyBtn.<span class="hljs-property">innerHTML</span> = copyText;<br>            codeCopyBtn.<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&#x27;success&#x27;</span>);<br>        &#125;, <span class="hljs-number">3000</span>);<br>    &#125;);<br>&#125;);<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">copyCode</span>(<span class="hljs-params">currentCode</span>) &#123;<br>    <span class="hljs-keyword">if</span> (navigator.<span class="hljs-property">clipboard</span>) &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-keyword">await</span> navigator.<span class="hljs-property">clipboard</span>.<span class="hljs-title function_">writeText</span>(currentCode);<br>        &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);<br>        &#125;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;当前浏览器不支持此API&#x27;</span>);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="引入函数"><a href="#引入函数" class="headerlink" title="引入函数"></a>引入函数</h3><figure class="highlight yaml"><figcaption><span>根目录/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># 自定义引入css,js</span><br><span class="hljs-attr">inject:</span><br>  <span class="hljs-attr">script:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">&lt;script</span> <span class="hljs-string">type=&quot;text/javascript&quot;</span> <span class="hljs-string">src=&quot;/custom/js/ZYCode.js&quot;&gt;&lt;/script&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="引入样式"><a href="#引入样式" class="headerlink" title="引入样式"></a>引入样式</h3><figure class="highlight yaml"><figcaption><span>根目录/_config.stellar.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">style:</span><br>  <span class="hljs-attr">codeblock:</span><br>    <span class="hljs-attr">highlightjs_theme:</span> <span class="hljs-string">/custom/css/ZYCode.css</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>你备份了吗?</p>
+
+<div class="article-footer fs14">
+    <section id="references">
+      <div class="header"><span>参考资料</span></div>
+      <div class="body">
+        <ul>
+        <li class="post-title">
+          <p><a target="_blank" rel="noopener" href="https://www.whbbit.cn/2023/01/31/stellar%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD/">给Stellar主题添加代码块复制功能</a></p>
+
+        </li>
+        </ul>
+      </div>
+    </section>
+    
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文为 <a href="/author/ThatCoder/">钟意</a> 撰写, 采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议, 转载请注明出处。</p>
+</div>
+    </section>
+    
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://blog.thatcoder.cn/Stellar%E4%BB%A3%E7%A0%81%E5%9D%97%E4%B8%AA%E4%BA%BA%E5%90%91%E7%BE%8E%E5%8C%96/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.thatcoder.cn/Stellar%E4%BB%A3%E7%A0%81%E5%9D%97%E4%B8%AA%E4%BA%BA%E5%90%91%E7%BE%8E%E5%8C%96/&title=Stellar代码块个人向美化 - 那个码农&pics=https://upyun.thatcdn.cn/myself/typora/202302031859859.jpg&summary=本来Stellar简洁的风格被我改的花里胡哨的, 唉xaoxuu见打."><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=Stellar代码块个人向美化 - 那个码农&amp;body=https://blog.thatcoder.cn/Stellar%E4%BB%A3%E7%A0%81%E5%9D%97%E4%B8%AA%E4%BA%BA%E5%90%91%E7%BE%8E%E5%8C%96/"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="visibility:hidden;height:0">
+          <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://blog.thatcoder.cn/Stellar%E4%BB%A3%E7%A0%81%E5%9D%97%E4%B8%AA%E4%BA%BA%E5%90%91%E7%BE%8E%E5%8C%96/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/Lsky%E5%85%B0%E7%A9%BA%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/">Lsky兰空图床搭建</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/Stellar%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E4%B8%AA%E4%BA%BA%E5%90%91%E7%BE%8E%E5%8C%96/">Stellar文章目录个人向美化</a></div></section></div>
+
+  <script>
+    let tianliGPT_postSelector = 'article.content';
+    let tianliGPT_key = '3f1580e1f333af0c7413';
+    let tianliGPT_typingAnimate = 'true';
+    var tianli_name = 'GPT';
+    var tianli_text = '小意总结';
+    var tianli_icon_url = 'https://upyun.thatcdn.cn/public/img/icon/AI.png';
+  </script>
+  <script defer src="https://upyun.thatcdn.cn/public/web/tianLiChat/AbstractAI@0.13_tianli_gpt.js"></script>
+
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">站点</span><a target="_blank" rel="noopener" href="https://status.thatcoder.cn/status/public/">公共服务</a><a target="_blank" rel="noopener" href="https://ai.thatcoder.cn/">ChatGPT</a><a target="_blank" rel="noopener" href="https://alist.thatcoder.cn/">文件资源</a><a target="_blank" rel="noopener" href="https://docs.thatapi.cn/">公共接口</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/links/">友人帐</a><a href="/links/#comments">留言板</a><a href="/animes/">在追番</a><a href="/cinemas/">还追剧</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/#tab_1-1/">本站动态</a><a target="_blank" rel="noopener" href="https://muselink.cc/naive">联系博主</a><a target="_blank" rel="noopener" href="https://github.com/ThatCoders">GitHub</a><a target="_blank" rel="noopener" href="https://gitee.com/thatcoder">Gitee</a></div></div><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0">Stellar 1.25.0</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">vercel</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 | 本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span> 
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg t="1705412886951" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8331" width="200" height="200"><path d="M638.72 970.666667h-256c-118.186667 0-198.272-25.002667-251.946667-78.72S52.053333 758.186667 52.053333 640V384c0-118.186667 25.002667-198.272 78.72-251.946667S264.533333 53.333333 382.72 53.333333h256c118.186667 0 198.272 25.002667 251.946667 78.72S969.386667 265.813333 969.386667 384v256c0 118.186667-25.002667 198.272-78.72 251.946667S756.906667 970.666667 638.72 970.666667z m-256-853.333334c-100.096 0-165.802667 19.2-206.72 59.946667S116.053333 283.904 116.053333 384v256c0 100.096 19.072 165.802667 59.946667 206.72S282.624 906.666667 382.72 906.666667h256c100.096 0 165.802667-19.072 206.72-59.946667S905.386667 740.096 905.386667 640V384c0-100.096-19.072-165.802667-59.946667-206.72S738.816 117.333333 638.72 117.333333z" p-id="8332"></path><path d="M638.72 970.666667a32 32 0 0 1-32-32V85.333333a32 32 0 0 1 32-32 32 32 0 0 1 32 32v853.333334a32 32 0 0 1-32 32zM340.053333 653.226667a31.914667 31.914667 0 0 1-22.613333-9.386667 32 32 0 0 1 0-45.269333L404.053333 512 317.44 425.386667a32 32 0 0 1 0-45.226667 32 32 0 0 1 45.226667 0l109.226666 109.226667a32 32 0 0 1 0 45.269333L362.666667 643.84a31.914667 31.914667 0 0 1-22.613334 9.386667z" p-id="8333"></path></svg>
+  </button>
+</div>
+<div class="main-mask" onclick="sidebar.toggle()"></div></div></div><div class="scripts">
+<script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.25.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"post, page, docs","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js","memos":"/js/plugins/memos.js","marked":"/js/plugins/marked.js","timetmpl":"/js/plugins/timetmpl.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js","distance":"16px","duration":800,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.copycode = Object.assign({"enable":false,"js":"/js/plugins/copycode.js","default_text":"Copy","success_text":"Copied","toast":"复制成功"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script type="module" defer="defer">
+    import { init } from 'https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js';
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css');
+    stellar.loadScript('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js', {defer:true, type:"module"}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+        init(Object.assign({"js":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js","css":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"custom":{"css":"/custom/css/ZYWaline.css"},"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_chuckle.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_pick_nose.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_not_care.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+        el: '#waline_container',
+        path: path,
+        
+          imageUploader: function(file) {
+            let headers = new Headers();
+            headers.set('Accept', 'application/json');
+            
+              headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+            
+            let formData = new FormData();
+            formData.append('file', file);
+            return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+              method: 'POST',
+              body: formData,
+              headers: headers
+              }).then((resp) => resp.json())
+                .then((resp) => resp.data.links.url)
+          },
+        
+      }));
+    });
+  }
+  stellar.loadCSS('/custom/css/ZYWaline.css');
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>

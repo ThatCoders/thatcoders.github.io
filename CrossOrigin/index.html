@@ -1,0 +1,615 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0" theme-name="Stellar" theme-version="1.25.0">
+  
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>浅谈跨域-就你小子不让我跨域 - 那个码农</title>
+
+  
+    <meta name="description" content="针对跨域问题浅谈, 以及前后端与服务端解决方案.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈跨域-就你小子不让我跨域">
+<meta property="og:url" content="https://blog.thatcoder.cn/CrossOrigin/">
+<meta property="og:site_name" content="那个码农">
+<meta property="og:description" content="针对跨域问题浅谈, 以及前后端与服务端解决方案.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bu.dusays.com/2022/10/24/63567d3e092ff.png">
+<meta property="og:image" content="https://bu.dusays.com/2022/10/24/63567d3e0ab55.png">
+<meta property="og:image" content="https://bu.dusays.com/2022/10/24/63567d3e092ff.png">
+<meta property="og:image" content="https://bu.dusays.com/2022/10/24/63567d3e0ab55.png">
+<meta property="og:image" content="https://bu.dusays.com/2022/10/24/63567d3e092ff.png">
+<meta property="og:image" content="https://bu.dusays.com/2022/10/24/63567d3e0ab55.png">
+<meta property="article:published_time" content="2023-02-05T13:23:43.000Z">
+<meta property="article:modified_time" content="2023-12-30T20:17:08.311Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="跨域">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bu.dusays.com/2022/10/24/63567d3e092ff.png">
+  
+  
+  
+  <meta name="keywords" content="跨域">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="那个码农" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel="stylesheet" href="https://upyun.thatcdn.cn/public/font/lxgw/result.css" /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYDark.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+
+<div class="l_body content tech" id="start" layout="post" ><aside class="l_left"><div class="sidebar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">那个码农</div><div class="sub normal cap"><i class="fa-solid fa-chess-queen"></i> 钟意的博客</div><div class="sub hover cap" style="opacity:0"> ThatCoder's Blog 钟意博客</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" class="icon search-icon" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item active" title="博客" href="/"><span>博客</span></a><a class="nav-item" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc single" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%95%E4%B8%BA%E8%B7%A8%E5%9F%9F"><span class="toc-text">何为跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BD%95%E5%88%B6%E5%AE%9A%E8%B7%A8%E5%9F%9F"><span class="toc-text">为何制定跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94"><span class="toc-text">了解请求与响应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF"><span class="toc-text">前端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A5%96%E4%BC%A0JSONP"><span class="toc-text">祖传JSONP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-text">前端配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF"><span class="toc-text">后端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java"><span class="toc-text">java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node"><span class="toc-text">Node</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx"><span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-1"><span class="toc-text">Node</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch%E8%B7%A8%E5%9F%9F"><span class="toc-text">fetch跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#get%E8%AF%B7%E6%B1%82"><span class="toc-text">get请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FG%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81"><span class="toc-text">FG前端代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-text">服务端</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post%E8%AF%B7%E6%B1%82"><span class="toc-text">post请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FP%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81"><span class="toc-text">FP前端代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#put%E8%AF%B7%E6%B1%82"><span class="toc-text">put请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B4%E9%83%A8%E8%A1%A5%E5%85%85"><span class="toc-text">头部补充</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7%E6%96%B9%E6%A1%88"><span class="toc-text">奇技淫巧方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E4%B8%BB%E5%9F%9F%E4%B8%8D%E5%90%8C%E5%AD%90%E5%9F%9F"><span class="toc-text">同主域不同子域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E4%B8%BB%E5%9F%9F"><span class="toc-text">不同主域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80"><span class="toc-text">方案一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C"><span class="toc-text">方案二</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#postMessage"><span class="toc-text">postMessage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebSocket"><span class="toc-text">WebSocket</span></a></li></ol></li></ol></div></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-laptop-code"></i></a><a class="social" href="https://music.163.com/#/user/home?id=134968139" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-music"></i></a><a class="social" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-champagne-glasses"></i></a><a class="social" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-comments-dollar"></i></a><a class="social" href="javaScript:hud.toast('🌙 夜间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeM" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javaScript:hud.toast('☀ 日间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeL" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javaScript:hud.toast('💻 跟随系统');" rel="noopener noreferrer"><img class="lazy" id="ThemeAI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="bread-nav fs12"><div class="left"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%A0%86%E6%A0%88/">堆栈</a></div>
+<div id="post-meta"><span class="author">本文由 <a href="/author/ThatCoder/">钟意</a> 发布于：</span><span class="created"><time datetime="2023-02-05T13:23:43.000Z">2023-02-05</time></span><span class="updated">，更新于：<time datetime="2023-12-30T20:17:08.311Z">2023-12-31</time></span></div></div>
+</div>
+<article class="md-text content "><h1 class="article-title"><span>浅谈跨域-就你小子不让我跨域</span></h1><h2 id="何为跨域"><a href="#何为跨域" class="headerlink" title="何为跨域"></a>何为跨域</h2><p><strong>全称:</strong> “跨来源资源共享” “Cross-origin resource sharing”</p>
+<p><strong>跨域范畴:</strong></p>
+<ol>
+<li>不同主域名</li>
+<li>不同二级域名</li>
+<li>不同端口</li>
+<li>http和https协议不同</li>
+<li>域名访问和直接访问其解析IP</li>
+</ol>
+<p><strong>造成影响:</strong></p>
+<ol>
+<li>Cookie、LocalStorage和IndexDB无法获取</li>
+<li>DOM无法获得</li>
+<li>AJAX请求不能发送</li>
+<li>…</li>
+</ol>
+<h2 id="为何制定跨域"><a href="#为何制定跨域" class="headerlink" title="为何制定跨域"></a>为何制定跨域</h2><p>W3C的搞事佬制定的标准, 出发点当然是安全问题.<br>不妨思考一下古老钓鱼网站的行为, 与我的抽象代码.</p>
+<div class="tag-plugin timeline"><div class="timenode" index="0"><div class="header"><p>第一步</p></div><div class="body fs14"><p>通过个人通信方式把人骗到钓鱼网站</p></div></div><div class="timenode" index="1"><div class="header"><p>第二步</p></div><div class="body fs14"><p>钓鱼网站已经嵌入了目标官方网站</p></div></div><div class="timenode" index="2"><div class="header"><p>第三步</p></div><div class="body fs14"><p>(营销语气) 注意看, 这个男人叫王小帅, 他在钓鱼网站上输入了账号密码.</p></div></div><div class="timenode" index="3"><div class="header"><p>第四步</p></div><div class="body fs14"><p>获取嵌入的官网的DOM节点获取账号密码.</p></div></div></div>
+
+<figure class="highlight html"><figcaption><span>抽象钓鱼代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs html">...<br><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;diaoyu&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;www.xxbank.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br>...<br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-keyword">const</span> iframe = <span class="hljs-variable language_">window</span>.<span class="hljs-property">frames</span>[<span class="hljs-string">&#x27;diaoyu&#x27;</span>]</span><br><span class="language-javascript">    <span class="hljs-keyword">const</span> count = iframe.<span class="hljs-property">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;count&#x27;</span>)</span><br><span class="language-javascript">    <span class="hljs-keyword">const</span> pwd = iframe.<span class="hljs-property">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;password&#x27;</span>)</span><br><span class="language-javascript">    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;账号:$&#123;count&#125;, 密码:$&#123;pwd&#125;&quot;</span>)</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><blockquote>
+<p>CORS需要浏览器和服务器同时支持。所有浏览器都支持该功能，IE浏览器不能低于IE10。<br>浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息，有时还会多出一次附加的请求。<br><strong>因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。</strong></p>
+</blockquote>
+<h3 id="了解请求与响应"><a href="#了解请求与响应" class="headerlink" title="了解请求与响应"></a>了解请求与响应</h3><ol>
+<li>简单请求：<ol>
+<li>请求method是get、head或者post</li>
+<li>除了用户代理自动设置的一些头部，开发工程师手动设置的头部是如下头部之一： Accept, Accept-Language, Content-Language,<br>Content-Type, Last-Event-ID, DPR, Save-Data, Viewport-Width, Width</li>
+<li>content-type是application&#x2F;x-www-form-urlencoded、 multipart&#x2F;form-data或者text&#x2F;plain</li>
+<li>没有事件注册到XMLHttpRequestUpload上</li>
+<li>在请求时没有使用ReadableStream</li>
+</ol>
+</li>
+</ol>
+<p>简单请求主要是解决<code>Access-Control-Allow-Origin</code>是否包含在通行域</p>
+<figure class="highlight yaml"><figcaption><span>简单响应</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">//指定允许其他域名访问</span><br><span class="hljs-string">&#x27;Access-Control-Allow-Origin:http://172.20.0.206&#x27;</span><span class="hljs-string">//一般用法（*，指定域，动态设置），3是因为*不允许携带认证头和cookies</span><br><span class="hljs-string">//是否允许后续请求携带认证信息（cookies）,该值只能是true,否则不返回</span><br><span class="hljs-string">&#x27;Access-Control-Allow-Credentials:true&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>复杂请求：没错，不满足上面的，都是我啦！<br>浏览器会先发送option（预检）请求,<br>option请求多了2个字段 <code>Access-Control-Request-Method</code>, <code>Access-Control-Request-Headers</code></li>
+</ol>
+<figure class="highlight yaml"><figcaption><span>复杂响应</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">//指定允许其他域名访问</span><br><span class="hljs-string">&#x27;Access-Control-Allow-Origin:http://172.20.0.206&#x27;</span><span class="hljs-string">//一般用法（*，指定域，动态设置），3是因为*不允许携带认证头和cookies</span><br><span class="hljs-string">//是否允许后续请求携带认证信息（cookies）,该值只能是true,否则不返回</span><br><span class="hljs-string">&#x27;Access-Control-Allow-Credentials:true&#x27;</span><br><span class="hljs-string">//预检结果缓存时间,也就是上面说到的缓存啦</span><br><span class="hljs-string">&#x27;Access-Control-Max-Age: 1800&#x27;</span><br><span class="hljs-string">//允许的请求类型</span><br><span class="hljs-string">&#x27;Access-Control-Allow-Methods:GET,POST,PUT,POST&#x27;</span><br><span class="hljs-string">//允许的请求头字段</span><br><span class="hljs-string">&#x27;Access-Control-Allow-Headers:x-requested-with,content-type&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<div class="tag-plugin quot"><h2 class="content" id="前端" type="icon"><a href="#前端" class="headerlink" title="前端"></a><img class="icon prefix lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://bu.dusays.com/2022/10/24/63567d3e092ff.png" />前端<img class="icon suffix lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://bu.dusays.com/2022/10/24/63567d3e0ab55.png" /></h2></div>
+
+<h3 id="祖传JSONP"><a href="#祖传JSONP" class="headerlink" title="祖传JSONP"></a>祖传JSONP</h3><p>同源策略是根据脚本(js)的来源判断是否限制, jsonp是通过 <code>&lt;script&gt;</code> 标签冒充同源.<br>缺点是只能发送<code>get</code>请求(聊胜于无?)</p>
+<ul>
+<li>原生JS<br>原生JS跨域问题示例代码</li>
+</ul>
+<figure class="highlight js"><figcaption><span>原生JS</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> script = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;script&#x27;</span>);<br>  script.<span class="hljs-property">type</span> = <span class="hljs-string">&#x27;text/javascript&#x27;</span>;<br><br>  <span class="hljs-comment">// 传参一个回调函数名给后端，方便后端返回时执行这个在前端定义的回调函数</span><br>  script.<span class="hljs-property">src</span> = <span class="hljs-string">&#x27;http://www.domain2.com:8080/login?user=admin&amp;callback=handleCallback&#x27;</span>;<br>  <span class="hljs-variable language_">document</span>.<span class="hljs-property">head</span>.<span class="hljs-title function_">appendChild</span>(script);<br><br>  <span class="hljs-comment">// 回调执行函数</span><br>  <span class="hljs-keyword">function</span> <span class="hljs-title function_">handleCallback</span>(<span class="hljs-params">res</span>) &#123;<br>      <span class="hljs-title function_">alert</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(res));<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>JQ<br>JQ跨域问题示例代码</li>
+</ul>
+<figure class="highlight js"><figcaption><span>Ajax</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">$.<span class="hljs-title function_">ajax</span>(&#123;<br>  <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;http://www.domain2.com:8080/login&#x27;</span>,<br>  <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;get&#x27;</span>,<br>  <span class="hljs-attr">dataType</span>: <span class="hljs-string">&#x27;jsonp&#x27;</span>,  <span class="hljs-comment">// 请求方式为jsonp</span><br>  <span class="hljs-attr">jsonpCallback</span>: <span class="hljs-string">&quot;handleCallback&quot;</span>,  <span class="hljs-comment">// 自定义回调函数名</span><br>  <span class="hljs-attr">data</span>: &#123;&#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Vue<br>Vue Axios跨域问题示例代码</li>
+</ul>
+<figure class="highlight js"><figcaption><span>Axios</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">this</span>.<span class="hljs-property">$http</span> = axios;<br><span class="hljs-variable language_">this</span>.<span class="hljs-property">$http</span>.<span class="hljs-title function_">jsonp</span>(<span class="hljs-string">&#x27;http://www.domain2.com:8080/login&#x27;</span>, &#123;<br>  <span class="hljs-attr">params</span>: &#123;&#125;,<br>  <span class="hljs-attr">jsonp</span>: <span class="hljs-string">&#x27;handleCallback&#x27;</span><br>  &#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(res);<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Node.js<br>NodeJS跨域问题示例代码</li>
+</ul>
+<figure class="highlight js"><figcaption><span>Node</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> querystring = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;querystring&#x27;</span>);<br><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><span class="hljs-keyword">var</span> server = http.<span class="hljs-title function_">createServer</span>();<br>server.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;request&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) &#123;<br>  <span class="hljs-keyword">var</span> params = querystring.<span class="hljs-title function_">parse</span>(req.<span class="hljs-property">url</span>.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;?&#x27;</span>)[<span class="hljs-number">1</span>]);<br>  <span class="hljs-keyword">var</span> fn = params.<span class="hljs-property">callback</span>;<br>  <span class="hljs-comment">// jsonp返回设置</span><br>  res.<span class="hljs-title function_">writeHead</span>(<span class="hljs-number">200</span>, &#123; <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;text/javascript&#x27;</span> &#125;);<br>  res.<span class="hljs-title function_">write</span>(fn + <span class="hljs-string">&#x27;(&#x27;</span> + <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(params) + <span class="hljs-string">&#x27;)&#x27;</span>);<br>  res.<span class="hljs-title function_">end</span>();<br>&#125;);<br>server.<span class="hljs-title function_">listen</span>(<span class="hljs-string">&#x27;8080&#x27;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Server is running at port 8080...&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="前端配置"><a href="#前端配置" class="headerlink" title="前端配置"></a>前端配置</h3><ul>
+<li>原生Ajax<br>原生Ajax跨域问题示例代码</li>
+</ul>
+<figure class="highlight js"><figcaption><span>Ajax</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">XMLHttpRequest</span>(); <span class="hljs-comment">// IE8/9需用window.XDomainRequest兼容</span><br><br><span class="hljs-comment">// 前端设置是否带cookie</span><br>xhr.<span class="hljs-property">withCredentials</span> = <span class="hljs-literal">true</span>;<br><br>xhr.<span class="hljs-title function_">open</span>(<span class="hljs-string">&#x27;post&#x27;</span>, <span class="hljs-string">&#x27;http://www.domain2.com:8080/login&#x27;</span>, <span class="hljs-literal">true</span>);<br>xhr.<span class="hljs-title function_">setRequestHeader</span>(<span class="hljs-string">&#x27;Content-Type&#x27;</span>, <span class="hljs-string">&#x27;application/x-www-form-urlencoded&#x27;</span>);<br>xhr.<span class="hljs-title function_">send</span>(<span class="hljs-string">&#x27;user=admin&#x27;</span>);<br><br>xhr.<span class="hljs-property">onreadystatechange</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">if</span> (xhr.<span class="hljs-property">readyState</span> == <span class="hljs-number">4</span> &amp;&amp; xhr.<span class="hljs-property">status</span> == <span class="hljs-number">200</span>) &#123;<br>        <span class="hljs-title function_">alert</span>(xhr.<span class="hljs-property">responseText</span>);<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>jQ Ajax<br>JQ Ajax跨域问题配置示例代码</li>
+</ul>
+<figure class="highlight js"><figcaption><span>JQAjax</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">$.<span class="hljs-title function_">ajax</span>(&#123;<br>...<br><span class="hljs-attr">xhrFields</span>: &#123;<br>    <span class="hljs-attr">withCredentials</span>: <span class="hljs-literal">true</span>    <span class="hljs-comment">// 前端设置是否带cookie</span><br>&#125;,<br><span class="hljs-attr">crossDomain</span>: <span class="hljs-literal">true</span>,   <span class="hljs-comment">// 会让请求头中包含跨域的额外信息，但不会含cookie</span><br>...<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Vue配置<br>Vue跨域跨域问题axios,vue-resource配置示例代码<ul>
+<li>axios设置：<br><code>axios.defaults.withCredentials = true</code></li>
+<li>vue-resource设置：<br><code>Vue.http.options.credentials = true</code></li>
+</ul>
+</li>
+</ul>
+<div class="tag-plugin quot"><h2 class="content" id="后端" type="icon"><a href="#后端" class="headerlink" title="后端"></a><img class="icon prefix lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://bu.dusays.com/2022/10/24/63567d3e092ff.png" />后端<img class="icon suffix lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://bu.dusays.com/2022/10/24/63567d3e0ab55.png" /></h2></div>
+
+<h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><ul>
+<li>方案一: <strong>WebCrosConfig</strong><br>java跨域问题addCorsMappings方案示例代码</li>
+</ul>
+<figure class="highlight java"><figcaption><span>配置类</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">WebCrosConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WebMvcConfigurer</span> &#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addCorsMappings</span><span class="hljs-params">(CorsRegistry registry)</span> &#123;<br>        registry.addMapping(<span class="hljs-string">&quot;/**&quot;</span>)<br>                .allowedOriginPatterns(<span class="hljs-string">&quot;*&quot;</span>)<br>                .allowedMethods(<span class="hljs-string">&quot;GET&quot;</span>,<span class="hljs-string">&quot;HEAD&quot;</span>,<span class="hljs-string">&quot;POST&quot;</span>,<span class="hljs-string">&quot;PUT&quot;</span>,<span class="hljs-string">&quot;DELETE&quot;</span>,<span class="hljs-string">&quot;OPTIONS&quot;</span>)<br>                .allowCredentials(<span class="hljs-literal">true</span>)<br>                .maxAge(<span class="hljs-number">3600</span>)<br>                .allowedHeaders(<span class="hljs-string">&quot;*&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>方案二: <strong>CrosFilter</strong><br>java跨域问题CrosFilter方案示例代码<br>友人南山客补充方案</li>
+</ul>
+<figure class="highlight java"><figcaption><span>CrosFilter</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * @author 南山客 友情赞助代码</span><br><span class="hljs-comment"> * @email nansker@163.com</span><br><span class="hljs-comment"> * @create 2022/10/10 17:31</span><br><span class="hljs-comment"> * @description</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-keyword">package</span> cn.nansk.takeout.config;<br><br><span class="hljs-keyword">import</span> cn.nansk.takeout.common.JacksonObjectMapper;<br><span class="hljs-keyword">import</span> lombok.extern.slf4j.Slf4j;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> org.springframework.http.converter.HttpMessageConverter;<br><span class="hljs-keyword">import</span> org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;<br><span class="hljs-keyword">import</span> org.springframework.web.cors.CorsConfiguration;<br><span class="hljs-keyword">import</span> org.springframework.web.cors.UrlBasedCorsConfigurationSource;<br><span class="hljs-keyword">import</span> org.springframework.web.filter.CorsFilter;<br><span class="hljs-keyword">import</span> org.springframework.web.servlet.config.annotation.CorsRegistry;<br><span class="hljs-keyword">import</span> org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;<br><span class="hljs-keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">WebConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WebMvcConfigurer</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addResourceHandlers</span><span class="hljs-params">(ResourceHandlerRegistry registry)</span> &#123;<br>        log.info(<span class="hljs-string">&quot;开始进行静态资源映射...&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-comment">// <span class="hljs-doctag">FIXME:</span> 2022/11/2 跨域问题没有得到解决</span><br>    <span class="hljs-comment">//解决跨域问题</span><br>    <span class="hljs-comment">//@Override</span><br>    <span class="hljs-comment">//public void addCorsMappings(CorsRegistry registry)&#123;</span><br>    <span class="hljs-comment">//    registry.addMapping(&quot;/**&quot;)</span><br>    <span class="hljs-comment">//            .allowedOriginPatterns(&quot;*&quot;)</span><br>    <span class="hljs-comment">//            .allowedMethods(&quot;GET&quot;,&quot;HEAD&quot;,&quot;POST&quot;,&quot;PUT&quot;,&quot;DELETE&quot;,&quot;OPTIONS&quot;)</span><br>    <span class="hljs-comment">//            .allowCredentials(true)</span><br>    <span class="hljs-comment">//            .maxAge(3600)</span><br>    <span class="hljs-comment">//            .allowedHeaders(&quot;*&quot;);</span><br>    <span class="hljs-comment">//&#125;</span><br><br>    <span class="hljs-comment">/***</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@author</span> Nansker</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@date</span> 2023/2/17 23:17</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> org.springframework.web.filter.CorsFilter</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@description</span> 允许跨域调用过滤器</span><br><span class="hljs-comment">     * 这里不能使用Override addCorsMappings()方法解决跨域问题，具体原因未知</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> CorsFilter <span class="hljs-title function_">corsFilter</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">CorsConfiguration</span> <span class="hljs-variable">config</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CorsConfiguration</span>();<br>        <span class="hljs-comment">//允许白名单域名进行跨域调用</span><br>        config.addAllowedOrigin(<span class="hljs-string">&quot;*&quot;</span>);<br>        <span class="hljs-comment">//允许跨越发送cookie</span><br>        config.setAllowCredentials(<span class="hljs-literal">true</span>);<br>        <span class="hljs-comment">//放行全部原始头信息</span><br>        config.addAllowedHeader(<span class="hljs-string">&quot;*&quot;</span>);<br>        <span class="hljs-comment">//允许所有请求方法跨域调用</span><br>        config.addAllowedMethod(<span class="hljs-string">&quot;*&quot;</span>);<br>        <span class="hljs-type">UrlBasedCorsConfigurationSource</span> <span class="hljs-variable">source</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UrlBasedCorsConfigurationSource</span>();<br>        source.registerCorsConfiguration(<span class="hljs-string">&quot;/**&quot;</span>, config);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CorsFilter</span>(source);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><figure class="highlight js"><figcaption><span>配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><span class="hljs-keyword">var</span> server = http.<span class="hljs-title function_">createServer</span>();<br><span class="hljs-keyword">var</span> qs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;querystring&#x27;</span>);<br><br>server.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;request&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) &#123;<br>    <span class="hljs-keyword">var</span> postData = <span class="hljs-string">&#x27;&#x27;</span>;<br>    <span class="hljs-comment">// 数据块接收中</span><br>    req.<span class="hljs-title function_">addListener</span>(<span class="hljs-string">&#x27;data&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">chunk</span>) &#123;<br>        postData += chunk;<br>    &#125;);<br>    <span class="hljs-comment">// 数据接收完毕</span><br>    req.<span class="hljs-title function_">addListener</span>(<span class="hljs-string">&#x27;end&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>        postData = qs.<span class="hljs-title function_">parse</span>(postData);<br><br>        <span class="hljs-comment">// 跨域后台设置</span><br>        res.<span class="hljs-title function_">writeHead</span>(<span class="hljs-number">200</span>, &#123;<br>            <span class="hljs-string">&#x27;Access-Control-Allow-Credentials&#x27;</span>: <span class="hljs-string">&#x27;true&#x27;</span>,     <span class="hljs-comment">// 后端允许发送Cookie</span><br>            <span class="hljs-string">&#x27;Access-Control-Allow-Origin&#x27;</span>: <span class="hljs-string">&#x27;http://www.domain1.com&#x27;</span>,    <span class="hljs-comment">// 允许访问的域（协议+域名+端口）</span><br>            <span class="hljs-comment">/* </span><br><span class="hljs-comment">             * 此处设置的cookie还是domain2的而非domain1，因为后端也不能跨域写cookie(nginx反向代&#123;过&#125;&#123;滤&#125;理可以实现)，</span><br><span class="hljs-comment">             * 但只要domain2中写入一次cookie认证，后面的跨域接口都能从domain2中获取cookie，从而实现所有的接口都能跨域访问</span><br><span class="hljs-comment">             */</span><br>            <span class="hljs-string">&#x27;Set-Cookie&#x27;</span>: <span class="hljs-string">&#x27;l=a123456;Path=/;Domain=www.domain2.com;HttpOnly&#x27;</span>  <span class="hljs-comment">// HttpOnly的作用是让js无法读取cookie</span><br>        &#125;);<br><br>        res.<span class="hljs-title function_">write</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(postData));<br>        res.<span class="hljs-title function_">end</span>();<br>    &#125;);<br>&#125;);<br>server.<span class="hljs-title function_">listen</span>(<span class="hljs-string">&#x27;8080&#x27;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Server is running at port 8080...&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<div class="tag-plugin quot"><h2 class="content" id="服务器" type="icon"><a href="#服务器" class="headerlink" title="服务器"></a><img class="icon prefix lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://bu.dusays.com/2022/10/24/63567d3e092ff.png" />服务器<img class="icon suffix lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://bu.dusays.com/2022/10/24/63567d3e0ab55.png" /></h2></div>
+
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><p>通过Nginx配置一个代理服务器域名与domain1相同，端口不同）做跳板机，反向代理访问domain2接口，并且可以顺便修改cookie中domain信息，方便当前域cookie写入，实现跨域访问。</p>
+<figure class="highlight yaml"><figcaption><span>站点配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment">#proxy服务器</span><br><span class="hljs-string">server</span> &#123;<br>    <span class="hljs-string">listen</span>       <span class="hljs-number">81</span><span class="hljs-string">;</span><br>    <span class="hljs-string">server_name</span>  <span class="hljs-string">www.domain1.com;</span><br><br>    <span class="hljs-string">location</span> <span class="hljs-string">/</span> &#123;<br>        <span class="hljs-string">proxy_pass</span>   <span class="hljs-string">http://www.domain2.com:8080;</span>  <span class="hljs-comment">#反向代理</span><br>        <span class="hljs-string">proxy_cookie_domain</span> <span class="hljs-string">www.domain2.com</span> <span class="hljs-string">www.domain1.com;</span> <span class="hljs-comment">#修改cookie里域名</span><br>        <span class="hljs-string">index</span>  <span class="hljs-string">index.html</span> <span class="hljs-string">index.htm;</span><br><br>        <span class="hljs-comment"># 当用webpack-dev-server等中间件代理接口访问nignx时，此时无浏览器参与，故没有同源限制，下面的跨域配置可不启用</span><br>        <span class="hljs-string">add_header</span> <span class="hljs-string">Access-Control-Allow-Origin</span> <span class="hljs-string">http://www.domain1.com;</span>  <span class="hljs-comment">#当前端只跨域不带cookie时，可为*</span><br>        <span class="hljs-string">add_header</span> <span class="hljs-string">Access-Control-Allow-Credentials</span> <span class="hljs-literal">true</span><span class="hljs-string">;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Node-1"><a href="#Node-1" class="headerlink" title="Node"></a>Node</h3><p>node中间件实现跨域代理，原理大致与nginx相同，都是通过启一个代理服务器，实现数据的转发，也可以通过设置cookieDomainRewrite参数修改响应头中cookie中域名，实现当前域的cookie写入，方便接口登录认证。</p>
+<h2 id="fetch跨域"><a href="#fetch跨域" class="headerlink" title="fetch跨域"></a>fetch跨域</h2><h3 id="get请求"><a href="#get请求" class="headerlink" title="get请求"></a>get请求</h3><h4 id="FG前端代码"><a href="#FG前端代码" class="headerlink" title="FG前端代码"></a>FG前端代码</h4><figure class="highlight js"><figcaption><span>前端get</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;http://localhost:6888/test_get&#x27;</span>,&#123;<br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;GET&#x27;</span>,<br>    <span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;cors&#x27;</span>,<br>&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">json</span>();<br>&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">json</span> =&gt;</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;获取的结果&#x27;</span>, json.<span class="hljs-property">data</span>);<br>    <span class="hljs-keyword">return</span> json;<br>&#125;).<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;请求错误&#x27;</span>, err);<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h4 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h4><figure class="highlight yaml"><figcaption><span>服务端配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">c.Header(&quot;Access-Control-Allow-Origin&quot;,</span> <span class="hljs-string">&quot;*&quot;</span><span class="hljs-string">)</span><br><span class="hljs-string">c.Header(&quot;Access-Control-Allow-Methods&quot;,</span> <span class="hljs-string">&quot;GET, POST&quot;</span><span class="hljs-string">)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="post请求"><a href="#post请求" class="headerlink" title="post请求"></a>post请求</h3><h4 id="FP前端代码"><a href="#FP前端代码" class="headerlink" title="FP前端代码"></a>FP前端代码</h4><figure class="highlight js"><figcaption><span>前端post</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;http://localhost:6888/test_post&#x27;</span>,&#123;<br>    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>    <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(&#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;zaozuo&#x27;</span>&#125;),<br>    <span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;cors&#x27;</span>,<br>&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">json</span>();<br>&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">json</span> =&gt;</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;获取的结果&#x27;</span>, json.<span class="hljs-property">data</span>);<br>    <span class="hljs-keyword">return</span> json;<br>&#125;).<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;请求错误&#x27;</span>, err);<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>后端代码同get相同</p>
+<h3 id="put请求"><a href="#put请求" class="headerlink" title="put请求"></a>put请求</h3><p>把post请求模式改成put即可, 其它一致.<br>不同于get、post请求的地方是请求有个预检查（OPTIONS请求），然后再发put请求；上面的头部信息都是options请求相关的，put请求跟平时普通http请求一样。</p>
+<h3 id="头部补充"><a href="#头部补充" class="headerlink" title="头部补充"></a>头部补充</h3><ul>
+<li>request跨域头部介绍<ul>
+<li>Access-Control-Allow-Origin：可以允许哪些客户端来访问，指可以是*，也可以是某个域名或者用逗号隔开的域名列表。</li>
+<li>Access-Control-Expose-Headers： 浏览器可以访问的一些头部。</li>
+<li>Access-Control-Max-Age：预检查结果可以缓存的问题</li>
+<li>Access-Control-Allow-Methods：指定客户端发请求可以使用的方法</li>
+<li>Access-Control-Allow-Headers：指定客户端发请求可以使用的头部。</li>
+<li>Access-Control-Allow-Credentials: 指定客户端是否可以携带cookie等认证信息(<br>前端fetch设置withCredentials：true进行发送cookie),如果是简单请求等跨域得确保此response头设置为true。</li>
+</ul>
+</li>
+<li>response头部<ul>
+<li>Access-Control-Allow-Origin：可以允许哪些客户端来访问，指可以是*，也可以是某个域名或者用逗号隔开的域名列表。</li>
+<li>Access-Control-Expose-Headers： 浏览器可以访问的一些头部。</li>
+<li>Access-Control-Max-Age：预检查结果可以缓存的问题</li>
+<li>Access-Control-Allow-Methods：指定客户端发请求可以使用的方法</li>
+<li>Access-Control-Allow-Headers：指定客户端发请求可以使用的头部。</li>
+<li>Access-Control-Allow-Credentials: 指定客户端是否可以携带cookie等认证信息(<br>前端fetch设置withCredentials：true进行发送cookie),如果是简单请求等跨域得确保此response头设置为true。</li>
+</ul>
+</li>
+</ul>
+<h2 id="奇技淫巧方案"><a href="#奇技淫巧方案" class="headerlink" title="奇技淫巧方案"></a>奇技淫巧方案</h2><h3 id="同主域不同子域"><a href="#同主域不同子域" class="headerlink" title="同主域不同子域"></a>同主域不同子域</h3><p>实现原理：两个页面都通过js强制设置document.domain为基础主域，就实现了同域。</p>
+<ul>
+<li>父窗口</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">&lt;iframe id=&quot;iframe&quot; src=&quot;http://child.domain.com/b.html&quot;&gt;&lt;/iframe&gt;<br>&lt;script&gt;<br>    document.domain = &#x27;domain.com&#x27;;<br>    var user = &#x27;admin&#x27;;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>子窗口</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">&lt;script&gt;<br>    document.domain = &#x27;domain.com&#x27;;<br>    // 获取父窗口中变量<br>    alert(&#x27;get js data from parent ---&gt; &#x27; + window.parent.user);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="不同主域"><a href="#不同主域" class="headerlink" title="不同主域"></a>不同主域</h3><h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h4><p>实现原理：a欲与b跨域相互通信，通过中间页c来实现。三个页面，不同域之间利用iframe的location.hash传值，相同域之间直接js访问来通信。<br>具体实现：A域：a.html -&gt; B域：b.html -&gt; A域：c.html，a与b不同域只能通过hash值单向通信，b与c也不同域也只能单向通信，但c与a同域，所以c可通过parent.parent访问a页面所有对象。</p>
+<figure class="highlight html"><figcaption><span>a.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;iframe&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://www.domain2.com/b.html&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display:none;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> iframe = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;iframe&#x27;</span>);</span><br><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-comment">// 向b.html传hash值</span></span><br><span class="language-javascript">    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">        iframe.<span class="hljs-property">src</span> = iframe.<span class="hljs-property">src</span> + <span class="hljs-string">&#x27;#user=admin&#x27;</span>;</span><br><span class="language-javascript">    &#125;, <span class="hljs-number">1000</span>);</span><br><span class="language-javascript">    </span><br><span class="language-javascript">    <span class="hljs-comment">// 开放给同域c.html的回调方法</span></span><br><span class="language-javascript">    <span class="hljs-keyword">function</span> <span class="hljs-title function_">onCallback</span>(<span class="hljs-params">res</span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;data from c.html ---&gt; &#x27;</span> + res);</span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight html"><figcaption><span>b.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;iframe&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://www.domain1.com/c.html&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display:none;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> iframe = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;iframe&#x27;</span>);</span><br><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-comment">// 监听a.html传来的hash值，再传给c.html</span></span><br><span class="language-javascript">    <span class="hljs-variable language_">window</span>.<span class="hljs-property">onhashchange</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">        iframe.<span class="hljs-property">src</span> = iframe.<span class="hljs-property">src</span> + location.<span class="hljs-property">hash</span>;</span><br><span class="language-javascript">    &#125;;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight html"><figcaption><span>c.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-comment">// 监听b.html传来的hash值</span></span><br><span class="language-javascript">    <span class="hljs-variable language_">window</span>.<span class="hljs-property">onhashchange</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-comment">// 再通过操作同域a.html的js回调，将结果传回</span></span><br><span class="language-javascript">        <span class="hljs-variable language_">window</span>.<span class="hljs-property">parent</span>.<span class="hljs-property">parent</span>.<span class="hljs-title function_">onCallback</span>(<span class="hljs-string">&#x27;hello: &#x27;</span> + location.<span class="hljs-property">hash</span>.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&#x27;#user=&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>));</span><br><span class="language-javascript">    &#125;;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h4><p>window.name属性的独特之处：name值在不同页面（甚至不同域名）加载后依旧存在，并且可以支持非常长的name值（2MB）.<br>代理b.html的数据通过iframe的src属性由外域转向本地域，跨域数据即由iframe的window.name从外域传递到本地域。这个就巧妙地绕过了浏览器的跨域访问限制，但同时它又是安全操作。</p>
+<ul>
+<li>doamin1&#x2F;a.html</li>
+<li>doamin1&#x2F;proxy.html</li>
+<li>domain2&#x2F;b.html</li>
+</ul>
+<figure class="highlight html"><figcaption><span>a.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs html">var proxy = function(url, callback) &#123;<br>    var state = 0;<br>    var iframe = document.createElement(&#x27;iframe&#x27;);<br><br>    // 加载跨域页面<br>    iframe.src = url;<br><br>    // onload事件会触发2次，第1次加载跨域页，并留存数据于window.name<br>    iframe.onload = function() &#123;<br>        if (state === 1) &#123;<br>            // 第2次onload(同域proxy页)成功后，读取同域window.name中数据<br>            callback(iframe.contentWindow.name);<br>            destoryFrame();<br><br>        &#125; else if (state === 0) &#123;<br>            // 第1次onload(跨域页)成功后，切换到同域代&#123;过&#125;&#123;滤&#125;理页面<br>            iframe.contentWindow.location = &#x27;http://www.domain1.com/proxy.html&#x27;;<br>            state = 1;<br>        &#125;<br>    &#125;;<br><br>    document.body.appendChild(iframe);<br><br>    // 获取数据以后销毁这个iframe，释放内存；这也保证了安全（不被其他域frame js访问）<br>    function destoryFrame() &#123;<br>        iframe.contentWindow.document.write(&#x27;&#x27;);<br>        iframe.contentWindow.close();<br>        document.body.removeChild(iframe);<br>    &#125;<br>&#125;;<br><br>// 请求跨域b页面数据<br>proxy(&#x27;http://www.domain2.com/b.html&#x27;, function(data)&#123;<br>    alert(data);<br>&#125;); <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight html"><figcaption><span>proxy.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">中间代理页，与a.html同域，内容为空即可。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight html"><figcaption><span>b.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-variable language_">window</span>.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;This is domain2 data!&#x27;</span>;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h3><p>postMessage是HTML5 XMLHttpRequest Level 2中的API，且是为数不多可以跨域操作的window属性之一，它可用于解决以下方面的问题：</p>
+<ol>
+<li>页面和其打开的新窗口的数据传递</li>
+<li>多窗口之间消息传递</li>
+<li>页面与嵌套的 iframe 消息传递</li>
+<li>上面三个场景的跨域数据传递</li>
+</ol>
+<p>用法：postMessage(data,origin)方法接受两个参数：</p>
+<ul>
+<li>data：html5规范支持任意基本类型或可复制的对象，但部分浏览器只支持字符串，所以传参时最好用JSON.stringify()序列化。</li>
+<li>origin：协议+主机+端口号，也可以设置为”*“，表示可以传递给任意窗口，如果要指定和当前窗口同源的话设置为”&#x2F;“。</li>
+</ul>
+<figure class="highlight html"><figcaption><span>a.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;iframe&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://www.domain2.com/b.html&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display:none;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">       </span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> iframe = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;iframe&#x27;</span>);</span><br><span class="language-javascript">    iframe.<span class="hljs-property">onload</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> data = &#123;</span><br><span class="language-javascript">            <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;aym&#x27;</span></span><br><span class="language-javascript">        &#125;;</span><br><span class="language-javascript">        <span class="hljs-comment">// 向domain2传送跨域数据</span></span><br><span class="language-javascript">        iframe.<span class="hljs-property">contentWindow</span>.<span class="hljs-title function_">postMessage</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data), <span class="hljs-string">&#x27;http://www.domain2.com&#x27;</span>);</span><br><span class="language-javascript">    &#125;;</span><br><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-comment">// 接受domain2返回数据</span></span><br><span class="language-javascript">    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;data from domain2 ---&gt; &#x27;</span> + e.<span class="hljs-property">data</span>);</span><br><span class="language-javascript">    &#125;, <span class="hljs-literal">false</span>);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight html"><figcaption><span>b.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-comment">// 接收domain1的数据</span></span><br><span class="language-javascript">    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;data from domain1 ---&gt; &#x27;</span> + e.<span class="hljs-property">data</span>);</span><br><span class="language-javascript"></span><br><span class="language-javascript">        <span class="hljs-keyword">var</span> data = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(e.<span class="hljs-property">data</span>);</span><br><span class="language-javascript">        <span class="hljs-keyword">if</span> (data) &#123;</span><br><span class="language-javascript">            data.<span class="hljs-property">number</span> = <span class="hljs-number">16</span>;</span><br><span class="language-javascript"></span><br><span class="language-javascript">            <span class="hljs-comment">// 处理后再发回domain1</span></span><br><span class="language-javascript">            <span class="hljs-variable language_">window</span>.<span class="hljs-property">parent</span>.<span class="hljs-title function_">postMessage</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(data), <span class="hljs-string">&#x27;http://www.domain1.com&#x27;</span>);</span><br><span class="language-javascript">        &#125;</span><br><span class="language-javascript">    &#125;, <span class="hljs-literal">false</span>);</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h3><p>WebSocket protocol是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯，是server push技术的一种很好的实现。<br>原生WebSocket API使用起来不太方便，我们使用Socket.io，它很好地封装了webSocket接口，提供了更简单、灵活的接口，也对不支持webSocket的浏览器提供了向下兼容。</p>
+<figure class="highlight html"><figcaption><span>前端代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>user input：<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./socket.io.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">var</span> socket = <span class="hljs-title function_">io</span>(<span class="hljs-string">&#x27;http://www.domain2.com:8080&#x27;</span>);</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-comment">// 连接成功处理</span></span><br><span class="language-javascript">socket.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;connect&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-comment">// 监听服务端消息</span></span><br><span class="language-javascript">    socket.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">msg</span>) &#123;</span><br><span class="language-javascript">        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;data from server: ---&gt; &#x27;</span> + msg); </span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-comment">// 监听服务端关闭</span></span><br><span class="language-javascript">    socket.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;disconnect&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123; </span><br><span class="language-javascript">        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Server socket has closed.&#x27;</span>); </span><br><span class="language-javascript">    &#125;);</span><br><span class="language-javascript">&#125;);</span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&#x27;input&#x27;</span>)[<span class="hljs-number">0</span>].<span class="hljs-property">onblur</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    socket.<span class="hljs-title function_">send</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">value</span>);</span><br><span class="language-javascript">&#125;;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><figcaption><span>Node-socket后台</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><span class="hljs-keyword">var</span> socket = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;socket.io&#x27;</span>);<br><br><span class="hljs-comment">// 启http服务</span><br><span class="hljs-keyword">var</span> server = http.<span class="hljs-title function_">createServer</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) &#123;<br>    res.<span class="hljs-title function_">writeHead</span>(<span class="hljs-number">200</span>, &#123;<br>        <span class="hljs-string">&#x27;Content-type&#x27;</span>: <span class="hljs-string">&#x27;text/html&#x27;</span><br>    &#125;);<br>    res.<span class="hljs-title function_">end</span>();<br>&#125;);<br><br>server.<span class="hljs-title function_">listen</span>(<span class="hljs-string">&#x27;8080&#x27;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Server is running at port 8080...&#x27;</span>);<br><br><span class="hljs-comment">// 监听socket连接</span><br>socket.<span class="hljs-title function_">listen</span>(server).<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;connection&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">client</span>) &#123;<br>    <span class="hljs-comment">// 接收信息</span><br>    client.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">msg</span>) &#123;<br>        client.<span class="hljs-title function_">send</span>(<span class="hljs-string">&#x27;hello：&#x27;</span> + msg);<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;data from client: ---&gt; &#x27;</span> + msg);<br>    &#125;);<br><br>    <span class="hljs-comment">// 断开处理</span><br>    client.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;disconnect&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Client socket has closed.&#x27;</span>); <br>    &#125;);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文为 <a href="/author/ThatCoder/">钟意</a> 撰写, 采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议, 转载请注明出处。</p>
+</div>
+    </section>
+    
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://blog.thatcoder.cn/CrossOrigin/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.thatcoder.cn/CrossOrigin/&title=浅谈跨域-就你小子不让我跨域 - 那个码农&summary=针对跨域问题浅谈, 以及前后端与服务端解决方案."><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=浅谈跨域-就你小子不让我跨域 - 那个码农&amp;body=https://blog.thatcoder.cn/CrossOrigin/"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+        <div class="qrcode" id="qrcode-wechat" style="visibility:hidden;height:0">
+          <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://blog.thatcoder.cn/CrossOrigin/"/>
+        </div>
+        
+      </div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/daily/Deep%20Sea/">观《深海》的奇妙联想</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/Waline%E4%B8%8ELsky%E5%85%B0%E7%A9%BA%E5%9B%BE%E5%BA%8A/">Waline评论与Lsky兰空图床</a></div></section></div>
+
+  <script>
+    let tianliGPT_postSelector = 'article.content';
+    let tianliGPT_key = '3f1580e1f333af0c7413';
+    let tianliGPT_typingAnimate = 'true';
+    var tianli_name = 'GPT';
+    var tianli_text = '小意总结';
+    var tianli_icon_url = 'https://upyun.thatcdn.cn/public/img/icon/AI.png';
+  </script>
+  <script defer src="https://upyun.thatcdn.cn/public/web/tianLiChat/AbstractAI@0.13_tianli_gpt.js"></script>
+
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">站点</span><a target="_blank" rel="noopener" href="https://status.thatcoder.cn/status/public/">公共服务</a><a target="_blank" rel="noopener" href="https://ai.thatcoder.cn/">ChatGPT</a><a target="_blank" rel="noopener" href="https://alist.thatcoder.cn/">文件资源</a><a target="_blank" rel="noopener" href="https://docs.thatapi.cn/">公共接口</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/links/">友人帐</a><a href="/links/#comments">留言板</a><a href="/animes/">在追番</a><a href="/cinemas/">还追剧</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/#tab_1-1/">本站动态</a><a target="_blank" rel="noopener" href="https://muselink.cc/naive">联系博主</a><a target="_blank" rel="noopener" href="https://github.com/ThatCoders">GitHub</a><a target="_blank" rel="noopener" href="https://gitee.com/thatcoder">Gitee</a></div></div><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0">Stellar 1.25.0</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">vercel</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 | 本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span> 
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg t="1705412886951" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8331" width="200" height="200"><path d="M638.72 970.666667h-256c-118.186667 0-198.272-25.002667-251.946667-78.72S52.053333 758.186667 52.053333 640V384c0-118.186667 25.002667-198.272 78.72-251.946667S264.533333 53.333333 382.72 53.333333h256c118.186667 0 198.272 25.002667 251.946667 78.72S969.386667 265.813333 969.386667 384v256c0 118.186667-25.002667 198.272-78.72 251.946667S756.906667 970.666667 638.72 970.666667z m-256-853.333334c-100.096 0-165.802667 19.2-206.72 59.946667S116.053333 283.904 116.053333 384v256c0 100.096 19.072 165.802667 59.946667 206.72S282.624 906.666667 382.72 906.666667h256c100.096 0 165.802667-19.072 206.72-59.946667S905.386667 740.096 905.386667 640V384c0-100.096-19.072-165.802667-59.946667-206.72S738.816 117.333333 638.72 117.333333z" p-id="8332"></path><path d="M638.72 970.666667a32 32 0 0 1-32-32V85.333333a32 32 0 0 1 32-32 32 32 0 0 1 32 32v853.333334a32 32 0 0 1-32 32zM340.053333 653.226667a31.914667 31.914667 0 0 1-22.613333-9.386667 32 32 0 0 1 0-45.269333L404.053333 512 317.44 425.386667a32 32 0 0 1 0-45.226667 32 32 0 0 1 45.226667 0l109.226666 109.226667a32 32 0 0 1 0 45.269333L362.666667 643.84a31.914667 31.914667 0 0 1-22.613334 9.386667z" p-id="8333"></path></svg>
+  </button>
+</div>
+<div class="main-mask" onclick="sidebar.toggle()"></div></div></div><div class="scripts">
+<script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.25.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"post, page, docs","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js","memos":"/js/plugins/memos.js","marked":"/js/plugins/marked.js","timetmpl":"/js/plugins/timetmpl.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js","distance":"16px","duration":800,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.copycode = Object.assign({"enable":false,"js":"/js/plugins/copycode.js","default_text":"Copy","success_text":"Copied","toast":"复制成功"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script type="module" defer="defer">
+    import { init } from 'https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js';
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css');
+    stellar.loadScript('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js', {defer:true, type:"module"}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+        init(Object.assign({"js":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js","css":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"custom":{"css":"/custom/css/ZYWaline.css"},"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_chuckle.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_pick_nose.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_not_care.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+        el: '#waline_container',
+        path: path,
+        
+          imageUploader: function(file) {
+            let headers = new Headers();
+            headers.set('Accept', 'application/json');
+            
+              headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+            
+            let formData = new FormData();
+            formData.append('file', file);
+            return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+              method: 'POST',
+              body: formData,
+              headers: headers
+              }).then((resp) => resp.json())
+                .then((resp) => resp.data.links.url)
+          },
+        
+      }));
+    });
+  }
+  stellar.loadCSS('/custom/css/ZYWaline.css');
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>

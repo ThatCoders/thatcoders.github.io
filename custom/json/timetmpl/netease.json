@@ -1,0 +1,36 @@
+{
+  "api": "https://netease.thatapi.cn/user/event?uid=134968139&limit=10",
+  "root": {
+    "path": "events[:9]"
+  },
+  "author": {
+    "path": "user.nickname",
+    "once": true
+  },
+  "avatar": {
+    "path": "user.avatarUrl",
+    "once": true
+  },
+  "msg": "json.msg",
+  "music": {
+    "path": "json.song.id",
+    "type": "netease"
+  },
+  "tags": {
+    "path": "bottomActivityInfos[*].name",
+    "exclude": ["黑胶"]
+  },
+  "pics": "pics[*].originUrl",
+  "time": {
+    "path": "showTime",
+    "sort": 0,
+    "style": 1,
+    "format": "zh"
+  },
+  "from": {
+    "default": "-- From 网易云音乐 "
+  },
+  "icon": {
+    "default": "https://blog.thatcoder.cn/custom/img/网易云音乐.svg"
+  }
+}

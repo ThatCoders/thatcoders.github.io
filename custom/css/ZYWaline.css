@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) 2024.
+ * ZYWaline.css files written in 2024/1/11 上午5:56 are ThatCoder (钟意) for MyBlog projects.
+ * ThatCoder's blog is https://blog.thatcoder.cn
+ * If you are interested in this code or have any questions, you are welcome to visit and discuss it.
+ */
+
+/* 修改waline样式 */
+/* 修改评论框外观 */
+.wl-panel {
+    border-radius: 4px !important;
+}
+
+:root {
+    --waline-bgcolor-light: transparent !important;
+    --waline-theme-color: #4b3425 !important;
+    --waline-active-color: #9c8877 !important;
+}
+
+.wl-btn {
+    border-radius: 0.3em !important;
+}
+
+/* 添加miku的gif为输入区域背景 https://upyun.thatcdn.cn/myself/typora/202401110554319.gif */
+#wl-edit {
+    background: url("https://upyun.thatcdn.cn/myself/typora/202401130552200.gif") 90px no-repeat !important;
+    background-size: contain !important;
+    background-position: right bottom !important;
+    /*filter: sepia(1) invert(0.5);*/
+}
+
+#wl-edit:focus {
+    background: url("https://upyun.thatcdn.cn/myself/typora/202401110554319.gif") 130px 130px no-repeat;
+    background-position-y: 78px !important;
+    transition: all 0.25s ease-in-out 0s;
+}

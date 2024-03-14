@@ -1,0 +1,538 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0" theme-name="Stellar" theme-version="1.25.0">
+  
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>Laf：Laf 简介 - 那个码农</title>
+
+  
+    <meta name="description" content="👀 laf 是什么 laf 是云开发平台，可以快速的开发应用 laf 是一个开源的 BaaS 开发平台（Backend as a Service) laf 是一个开箱即用的 serverless 开发平台 laf 是一个集「函数计算」、「数据库」、「对象存储」等于一身的一站式开发平台 laf 可以是开源版的腾讯云开发、开源版的 Google Firebase、开源版的 UniCloud  laf">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Laf 简介">
+<meta property="og:url" content="https://blog.thatcoder.cn/wiki/Laf/start/start.html">
+<meta property="og:site_name" content="那个码农">
+<meta property="og:description" content="👀 laf 是什么 laf 是云开发平台，可以快速的开发应用 laf 是一个开源的 BaaS 开发平台（Backend as a Service) laf 是一个开箱即用的 serverless 开发平台 laf 是一个集「函数计算」、「数据库」、「对象存储」等于一身的一站式开发平台 laf 可以是开源版的腾讯云开发、开源版的 Google Firebase、开源版的 UniCloud  laf">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-16T18:27:16.017Z">
+<meta property="article:modified_time" content="2023-12-16T18:27:16.017Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="那个码农">
+<meta property="article:tag" content="码农钟意">
+<meta property="article:tag" content="钟意的博客">
+<meta property="article:tag" content="钟意博客">
+<meta property="article:tag" content="That Coder">
+<meta property="article:tag" content="thatcoder">
+<meta property="article:tag" content="源柒拾柒雅舍">
+<meta property="article:tag" content="源WebGary">
+<meta property="article:tag" content="giligili.work">
+<meta property="article:tag" content="seclusion.work">
+<meta property="article:tag" content="GalGame">
+<meta property="article:tag" content="Hexo Stellar">
+<meta property="article:tag" content="江西木村拓哉">
+<meta property="article:tag" content="江西吴彦祖">
+<meta property="article:tag" content="江西胡歌">
+<meta property="article:tag" content="龙南木村拓哉">
+<meta property="article:tag" content="龙南吴彦祖">
+<meta property="article:tag" content="龙南胡歌">
+<meta property="article:tag" content="九江职业技术学院">
+<meta property="article:tag" content="南昌交通学院">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="那个码农,码农钟意,钟意的博客,钟意博客,That Coder,thatcoder,源柒拾柒雅舍,源WebGary,giligili.work,seclusion.work,GalGame,Hexo Stellar,江西木村拓哉,江西吴彦祖,江西胡歌,龙南木村拓哉,龙南吴彦祖,龙南胡歌,九江职业技术学院,南昌交通学院">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="那个码农" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel="stylesheet" href="https://upyun.thatcdn.cn/public/font/lxgw/result.css" /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYDark.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+
+<div class="l_body content tech" id="start" layout="wiki" ><aside class="l_left"><div class="sidebar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/custom/img/laf.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/Laf/start/laf-k8s-start.html"><div class="main" ff="title">Laf</div><div class="sub normal cap">关于Laf的笔记</div><div class="sub hover cap" style="opacity:0"> 不对之处请指出</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" class="icon search-icon" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/Laf/" placeholder="在 /wiki/Laf/ 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item active" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc multi" id="data-toc" collapse="auto"><div class="widget-body fs14"><div class="doc-tree"><a class="doc-tree-link" href="/wiki/Laf/start/laf-k8s-start.html#start"><span class="toc-text">Laf 部署之 k8s</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/Laf/start/laf-https-start.html"><span class="toc-text">Laf 部署之 开启HTTPS/SSL</span></a></div><div class="doc-tree"><a class="doc-tree-link" href="/wiki/Laf/start/laf-docker-compose-start.html"><span class="toc-text">Laf 部署之 docker-compose</span></a></div><div class="doc-tree active"><a class="doc-tree-link active" href="/wiki/Laf/start/start.html"><span class="toc-text">Laf 简介</span><svg t="1705415018387" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14793" width="200" height="200"><path d="M256 896a42.666667 42.666667 0 0 1-20.906667-5.546667A42.666667 42.666667 0 0 1 213.333333 853.333333V227.413333A97.28 97.28 0 0 1 307.2 128h409.6A97.28 97.28 0 0 1 810.666667 227.413333V853.333333a42.666667 42.666667 0 0 1-21.333334 36.693334 42.666667 42.666667 0 0 1-42.666666 0l-241.92-136.96-227.413334 136.533333A42.666667 42.666667 0 0 1 256 896z" p-id="14794"></path></svg></a><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%80-laf-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">👀 laf 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%89-laf-%E6%9C%89%E4%BB%80%E4%B9%88"><span class="toc-text">🎉 laf 有什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB-%E8%B0%81%E9%80%82%E5%90%88%E4%BD%BF%E7%94%A8-laf"><span class="toc-text">👨‍💻 谁适合使用 laf ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A5-laf-%E8%83%BD%E7%94%A8%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-text">💥 laf 能用来做什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%98%EF%B8%8F-%E7%A4%BE%E7%BE%A4"><span class="toc-text">🏘️ 社群</span></a></li></ol></div></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-laptop-code"></i></a><a class="social" href="https://music.163.com/#/user/home?id=134968139" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-music"></i></a><a class="social" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-champagne-glasses"></i></a><a class="social" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><i class="fa-solid fa-comments-dollar"></i></a><a class="social" href="javaScript:hud.toast('🌙 夜间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeM" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javaScript:hud.toast('☀ 日间模式');" rel="noopener noreferrer"><img class="lazy" id="ThemeL" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javaScript:hud.toast('💻 跟随系统');" rel="noopener noreferrer"><img class="lazy" id="ThemeAI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="bread-nav fs12"><div class="left"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/Laf/start/laf-k8s-start.html">Laf</a></div>
+<div id="post-meta"><span class="author">更新于：</span><time datetime="2023-12-16T18:27:16.017Z">2023-12-17</time></span></div></div>
+</div>
+<article class="md-text content"><h1 class="article-title"><span>Laf 简介</span></h1><h2 id="👀-laf-是什么"><a href="#👀-laf-是什么" class="headerlink" title="👀 laf 是什么"></a>👀 <code>laf</code> 是什么</h2><ul>
+<li><code>laf</code> 是云开发平台，可以快速的开发应用</li>
+<li><code>laf</code> 是一个开源的 BaaS 开发平台（Backend as a Service)</li>
+<li><code>laf</code> 是一个开箱即用的 serverless 开发平台</li>
+<li><code>laf</code> 是一个集「函数计算」、「数据库」、「对象存储」等于一身的一站式开发平台</li>
+<li><code>laf</code> 可以是开源版的腾讯云开发、开源版的 Google Firebase、开源版的 UniCloud</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/labring/laf"><code>laf</code></a> 让每个开发团队都可以随时拥有一个自己的云开发平台！</p>
+<h2 id="🎉-laf-有什么"><a href="#🎉-laf-有什么" class="headerlink" title="🎉 laf 有什么"></a>🎉 <code>laf</code> 有什么</h2><ul>
+<li>多应用管理，新建、启停应用，无需折腾服务器，一分钟上线应用</li>
+<li>云函数，<code>laf</code> 提供的函数计算服务，可以快速的实现后端业务</li>
+<li>云数据库，为应用开发提供开箱即用的数据库服务</li>
+<li>云存储，为应用开发提供专业的文件对象存储服务，兼容 S3 和其他存储服务接口</li>
+<li>WebIDE，在线写代码，完善的类型提示、代码自动完成，像写博客一样写函数，随手发布上线！</li>
+<li>静态托管，支持静态网站的托管，可以快速的上线静态网站，无需折腾 nginx</li>
+<li>Client Db，支持客户端使用 <a target="_blank" rel="noopener" href="https://github.com/labring/laf/tree/main/packages/client-sdk">laf-client-sdk</a><br>“直连”数据库，通过访问策略控制访问权限，极大程度提升应用开发效率</li>
+<li>WebSocket，应用支持长连接，业务无死角</li>
+</ul>
+<h2 id="👨‍💻-谁适合使用-laf"><a href="#👨‍💻-谁适合使用-laf" class="headerlink" title="👨‍💻 谁适合使用 laf ?"></a>👨‍💻 谁适合使用 <code>laf</code> ?</h2><ol>
+<li><p>前端开发者 + <code>laf</code> &#x3D; 全栈开发者，前端秒变全栈，成为真正的大前端</p>
+<ul>
+<li><code>laf</code> 为前端提供了 <a target="_blank" rel="noopener" href="https://github.com/labring/laf/tree/main/packages/client-sdk">laf-client-sdk</a>，适用于任何 js<br>运行环境</li>
+<li><code>laf</code> 云函数使用 js&#x2F;ts 开发，前后端代码无隔裂，无门槛快速上手</li>
+<li><code>laf</code> 提供了静态网站托管，可将前端构建的网页直接同步部署上来，无需再配置服务器、nginx、域名等</li>
+<li><code>laf</code> 后续会提供多种客户端的 SDK（Flutter&#x2F;Android&#x2F;iOS 等），为所有客户端开发者提供后端开发服务和一致的开发体验</li>
+</ul>
+</li>
+<li><p>后端开发者，可以从琐事中解放出来，专注于业务本身，提升开发效率</p>
+<ul>
+<li><code>laf</code> 可以节约服务器运维、多环境部署和管理精力</li>
+<li><code>laf</code> 可以让你告别配置、调试 nginx</li>
+<li><code>laf</code> 可以让你告别「为每个项目手动部署数据库、安全顾虑等重复性工作」</li>
+<li><code>laf</code> 可以让你告别「修改一次、发布半天」的重复繁琐的迭代体验</li>
+<li><code>laf</code> 可以让你随时随地在 Web 上查看函数的运行日志，不必再连接服务器，费神费眼翻找</li>
+<li><code>laf</code> 可以让你「像写博客一样写一个函数」，招之即来，挥之即去，随手发布！</li>
+</ul>
+</li>
+<li><p>云开发用户，若你是微信云开发用户，你不仅可以获得更强大、快速的开发体验，还不被微信云开发平台锁定</p>
+<ul>
+<li>你可以为客户提供源码交付，为客户私有部署一套 <code>laf</code> + 你的云开发应用，而使用闭源的云开发服务，无法交付可独立运行的源码</li>
+<li>你可以根据未来的需要，随时将自己的产品部署到自己的服务器上，<code>laf</code> 是开源免费的</li>
+<li>你甚至可以修改、订制自己的云开发平台，<code>laf</code> 是开源的、高度可扩展的</li>
+</ul>
+</li>
+<li><p>Node.js 开发者，<code>laf</code> 是使用 Node.js 开发的，你可以把 <code>laf</code> 当成一个更方便的 Node.js 开发平台 or 框架</p>
+<ul>
+<li>你可以在线编写、调试函数，不用重启服务，一键发布即可用</li>
+<li>你可以在线查看、检索函数调用日志</li>
+<li>你可以不必折腾数据库、对象存储、nginx，随时随地让你的应用上线</li>
+<li>你可以随手将一段 Node.js 代码上云，比如一段爬虫，一段监控代码，像写博客一样写 Node！</li>
+</ul>
+</li>
+<li><p>独立开发者、初创创业团队，节约成本，快速开始，专注业务</p>
+<ul>
+<li>减少启动项目开发的流程，快速启动，缩短产品验证周期</li>
+<li>极大程度提高迭代速度，随时应对变化，随时发布</li>
+<li>专注于产品业务本身，快速推出最小可用产品 (MVP)，快速进行产品、市场验证</li>
+<li>一个人 + <code>laf</code> &#x3D; 团队</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>life is short, you need laf:)</p>
+</blockquote>
+<h2 id="💥-laf-能用来做什么"><a href="#💥-laf-能用来做什么" class="headerlink" title="💥 laf 能用来做什么"></a>💥 laf 能用来做什么</h2><blockquote>
+<p><code>laf</code> 是应用的后端开发平台，理论上可以做任何应用！</p>
+</blockquote>
+<ol>
+<li><p>使用 laf 快速开发微信小程序&#x2F;公众号：电商、社交、工具、教育、金融、游戏、短视频、社区、企业等应用！</p>
+<ul>
+<li>微信小程序强要求 https 访问，可直接使用 <a target="_blank" rel="noopener" href="https://laf.run/">laf.run</a> 创建应用，为小程序提供 https 的接口服务</li>
+<li>可将应用的 h5 页面和管理端 (admin) 直接部署到可由 <code>laf</code> 静态托管</li>
+<li>将 h5 直接托管到 <code>laf</code> 上，将分配的专用域名配置到公众号即可在线访问</li>
+<li>使用云函数实现微信授权、支付等业务</li>
+<li>使用云存储存储视频、头像等用户数据</li>
+</ul>
+</li>
+<li><p>开发 Android or iOS 应用</p>
+<ul>
+<li>使用云函数、云数据库、云存储进行业务处理</li>
+<li>应用的后端管理 (admin) 直接部署到可由 <code>laf</code> 静态托管</li>
+<li>可使用云函数实现微信授权、支付、热更新等业务</li>
+</ul>
+</li>
+<li><p>部署个人博客、企业官网</p>
+<ul>
+<li>将 vuepress &#x2F; hexo &#x2F; hugo 等静态生成的博客，一键部署到 <code>laf</code><br>静态托管上，见 <a target="_blank" rel="noopener" href="https://github.com/labring/laf/tree/main/cli">laf-cli</a></li>
+<li>可使用云函数来处理用户留言、评论、访问统计等业务</li>
+<li>可使用云函数扩展博客的其它能力，如课程、投票、提问等</li>
+<li>可使用云存储存储视频、图片</li>
+<li>可使用云函数做爬虫、推送等功能</li>
+</ul>
+</li>
+<li><p>企业信息化建设：企业私有部署一套 <code>laf</code> 云开发平台</p>
+<ul>
+<li>快速开发企业内部信息化系统，可快速上线、修改、迭代，降成本</li>
+<li>支持多应用、多账户，不同部门、不同系统，即可隔离，亦可连通</li>
+<li>可借助 <code>laf</code> 社区生态，直接使用现存的 <code>laf</code> 应用，开箱即用，降成本</li>
+<li><code>laf</code> 开源免费，没有技术锁定的顾虑，可自由订制和使用</li>
+</ul>
+</li>
+<li><p>个人开发者的「手边云」</p>
+<ul>
+<li><code>laf</code> 让开发者随手写的一段代码，瞬间具备随手上云的能力</li>
+<li>就像在你手机的备忘录随手敲下一段文字，自动同步到云端，且可被全网访问和执行</li>
+<li><code>laf</code> 是每个开发者的“烂笔头”，像记事一样写个函数</li>
+<li><code>laf</code> 是每个开发者的“私人助理”，比如随时可以写一个定时发送短信、邮件通知的函数</li>
+</ul>
+</li>
+<li><p>其它</p>
+<ul>
+<li>有用户把 <code>laf</code> 云存储当网盘使用</li>
+<li>有用户把 <code>laf</code> 应用当成一个日志服务器，收集客户端日志数据，使用云函数做分析统计</li>
+<li>有用户用 <code>laf</code> 来跑爬虫，抓取三方新闻和咨讯等内容</li>
+<li>有用户使用 <code>laf</code> 云函数做 webhook，监听 Git 仓库提交消息，推送到钉钉、企业微信群</li>
+<li>有用户使用 <code>laf</code> 云函数做拨测，定时检查线上服务的健康状态</li>
+<li>…</li>
+</ul>
+</li>
+</ol>
+<h2 id="🏘️-社群"><a href="#🏘️-社群" class="headerlink" title="🏘️ 社群"></a>🏘️ 社群</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://forum.laf.run/">论坛</a></li>
+<li><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yangchuansheng/imghosting3@main/uPic/2022-04-22-14-21-MRJH9o.png">微信群</a></li>
+<li>QQ 群：<code>603059673</code></li>
+<li>官方公众号：<code>laf-dev</code></li>
+</ul>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/Laf/start/laf-docker-compose-start.html">Laf 部署之 docker-compose</a></div><div class="item" id="next"></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">站点</span><a target="_blank" rel="noopener" href="https://status.thatcoder.cn/status/public/">公共服务</a><a target="_blank" rel="noopener" href="https://ai.thatcoder.cn/">ChatGPT</a><a target="_blank" rel="noopener" href="https://alist.thatcoder.cn/">文件资源</a><a target="_blank" rel="noopener" href="https://docs.thatapi.cn/">公共接口</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/links/">友人帐</a><a href="/links/#comments">留言板</a><a href="/animes/">在追番</a><a href="/cinemas/">还追剧</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/#tab_1-1/">本站动态</a><a target="_blank" rel="noopener" href="https://muselink.cc/naive">联系博主</a><a target="_blank" rel="noopener" href="https://github.com/ThatCoders">GitHub</a><a target="_blank" rel="noopener" href="https://gitee.com/thatcoder">Gitee</a></div></div><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0">Stellar 1.25.0</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">vercel</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 | 本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span> 
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg t="1705412886951" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8331" width="200" height="200"><path d="M638.72 970.666667h-256c-118.186667 0-198.272-25.002667-251.946667-78.72S52.053333 758.186667 52.053333 640V384c0-118.186667 25.002667-198.272 78.72-251.946667S264.533333 53.333333 382.72 53.333333h256c118.186667 0 198.272 25.002667 251.946667 78.72S969.386667 265.813333 969.386667 384v256c0 118.186667-25.002667 198.272-78.72 251.946667S756.906667 970.666667 638.72 970.666667z m-256-853.333334c-100.096 0-165.802667 19.2-206.72 59.946667S116.053333 283.904 116.053333 384v256c0 100.096 19.072 165.802667 59.946667 206.72S282.624 906.666667 382.72 906.666667h256c100.096 0 165.802667-19.072 206.72-59.946667S905.386667 740.096 905.386667 640V384c0-100.096-19.072-165.802667-59.946667-206.72S738.816 117.333333 638.72 117.333333z" p-id="8332"></path><path d="M638.72 970.666667a32 32 0 0 1-32-32V85.333333a32 32 0 0 1 32-32 32 32 0 0 1 32 32v853.333334a32 32 0 0 1-32 32zM340.053333 653.226667a31.914667 31.914667 0 0 1-22.613333-9.386667 32 32 0 0 1 0-45.269333L404.053333 512 317.44 425.386667a32 32 0 0 1 0-45.226667 32 32 0 0 1 45.226667 0l109.226666 109.226667a32 32 0 0 1 0 45.269333L362.666667 643.84a31.914667 31.914667 0 0 1-22.613334 9.386667z" p-id="8333"></path></svg>
+  </button>
+</div>
+<div class="main-mask" onclick="sidebar.toggle()"></div></div></div><div class="scripts">
+<script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.25.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.25.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"post, page, docs","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js","memos":"/js/plugins/memos.js","marked":"/js/plugins/marked.js","timetmpl":"/js/plugins/timetmpl.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@10.3/swiper-bundle.min.css","js":"https://unpkg.com/swiper@10.3/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js","distance":"16px","duration":800,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.copycode = Object.assign({"enable":false,"js":"/js/plugins/copycode.js","default_text":"Copy","success_text":"Copied","toast":"复制成功"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script type="module" defer="defer">
+    import { init } from 'https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js';
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css');
+    stellar.loadScript('https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js', {defer:true, type:"module"}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+        init(Object.assign({"js":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.js","css":"https://upyun.thatcdn.cn/public/web/waline/v3/client/dist/waline.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"custom":{"css":"/custom/css/ZYWaline.css"},"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_chuckle.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_pick_nose.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_not_care.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+        el: '#waline_container',
+        path: path,
+        
+          imageUploader: function(file) {
+            let headers = new Headers();
+            headers.set('Accept', 'application/json');
+            
+              headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+            
+            let formData = new FormData();
+            formData.append('file', file);
+            return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+              method: 'POST',
+              body: formData,
+              headers: headers
+              }).then((resp) => resp.json())
+                .then((resp) => resp.data.links.url)
+          },
+        
+      }));
+    });
+  }
+  stellar.loadCSS('/custom/css/ZYWaline.css');
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>
