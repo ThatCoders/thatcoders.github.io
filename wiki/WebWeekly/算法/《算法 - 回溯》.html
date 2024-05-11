@@ -176,7 +176,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>给定一个只包含数字的字符串，用以表示一个 IP 地址，返回所有可能从 s 获得的 <strong>有效 IP 地址</strong> 。你可以按任何顺序返回答案。</p>
 <p><strong>有效 IP 地址</strong> 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 ‘.’ 分隔。</p>
-<p>例如：”0.1.2.201” 和 “192.168.1.1” 是 有效 IP 地址，但是 “0.011.255.245”、”192.168.1.312” 和 “<a href="mailto:&#49;&#57;&#50;&#x2e;&#49;&#x36;&#56;&#64;&#49;&#x2e;&#x31;">&#49;&#57;&#50;&#x2e;&#49;&#x36;&#56;&#64;&#49;&#x2e;&#x31;</a>“ 是 <strong>无效 IP 地址</strong>。</p>
+<p>例如：”0.1.2.201” 和 “192.168.1.1” 是 有效 IP 地址，但是 “0.011.255.245”、”192.168.1.312” 和 “<a href="mailto:&#49;&#x39;&#x32;&#x2e;&#49;&#x36;&#x38;&#x40;&#49;&#46;&#x31;">&#49;&#x39;&#x32;&#x2e;&#49;&#x36;&#x38;&#x40;&#49;&#46;&#x31;</a>“ 是 <strong>无效 IP 地址</strong>。</p>
 </blockquote>
 <p>首先肯定一个一个字符读取，问题就在于，一个字符串可能表示多种可能的 IP，比如 <code>25525511135</code> 可以表示为 <code>255.255.11.135</code> 或 <code>255.255.111.35</code>，原因在于，<code>11.135</code> 和 <code>111.35</code> 都是合法的表示，所以我们必须用回溯法解决问题，只是回溯过程中，会根据读取数据动态判定增加哪些新分支，以及哪些分支是非法的。</p>
 <p>比如读取到 <code>[1,1,1,3,5]</code> 时，由于 <code>11</code> 和 <code>111</code> 都是合法的，因为这个位置的数字只要在 <code>0~255</code> 之间即可，而 <code>1113</code> 超过这个范围，所以被忽略，所以从这个场景中分叉出两条路：</p>
@@ -289,7 +289,7 @@ var _hmt = _hmt || [];
     </section>
     </div>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%20-%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E3%80%8B.html">《算法 - 滑动窗口》</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%E9%A2%98%20-%20%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2%E3%80%8B.html">《算法题 - 最小覆盖子串》</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%20-%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E3%80%8B.html">《算法 - 滑动窗口》</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%E9%A2%98%20-%20%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F%E3%80%8B.html">《算法题 - 地下城游戏》</a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
