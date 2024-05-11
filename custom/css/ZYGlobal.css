@@ -25,6 +25,54 @@ body:before {
 .widget-wrapper.timeline .tag-plugin.timeline .timenode .body{
     margin-left: 1rem;
 }
+.md-text.content h2 a.headerlink:before {
+    content: 'H2';
+    padding: 0.2rem;
+    color: var(--text-p1);
+}
+.md-text.content h3 a.headerlink:before {
+    content: 'H3';
+    padding: 0.18rem;
+    margin-right: 0.26rem;
+    color: var(--text-p1);
+}
+.md-text.content h4 a.headerlink:before {
+    content: 'H4';
+    padding: 0.16rem;
+    margin-right: 0.32rem;
+    color: var(--text-p1);
+}
+.md-text.content h5 a.headerlink:before {
+    content: 'H5';
+    padding: 0.14rem;
+    margin-right: 0.38rem;
+    color: var(--text-p1);
+}
+.md-text.content h6 a.headerlink:before {
+    content: 'H6';
+    padding: 0.12rem;
+    margin-right: 0.44rem;
+    color: var(--text-p1);
+}
+.md-text.content a.headerlink {
+    background: none;
+}
+
+.widget-wrapper.toc .toc a.active:before {
+    content: '🌸' !important;
+    width: 4px;
+    background: none;
+    left: -0.8rem;
+}
+.widget-wrapper.toc .toc a{
+    margin-left: 0.8rem;
+}
+.widget-wrapper.toc .toc a.toc-link.active {
+    margin-left: 0.9rem;
+}
+.widget-wrapper.toc .widget-body:before {
+    margin-left: 0.5rem;
+}
 
 /*@font-face{*/
 /*    font-family: "LXGW";*/

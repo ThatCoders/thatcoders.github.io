@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.thatcoder.cn/OnlyOffice-Vue-Spring/</loc>
+    
+    <lastmod>2024-05-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.thatcoder.cn/notes/</loc>
     
     <lastmod>2024-05-11</lastmod>
@@ -5310,14 +5319,14 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Linux/</loc>
+    <loc>https://blog.thatcoder.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2024-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>https://blog.thatcoder.cn/tags/Linux/</loc>
     <lastmod>2024-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5331,13 +5340,6 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2024-05-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.thatcoder.cn/tags/Memos/</loc>
     <lastmod>2024-05-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -5345,7 +5347,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Tencent/</loc>
+    <loc>https://blog.thatcoder.cn/tags/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2024-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5353,6 +5355,13 @@
   
   <url>
     <loc>https://blog.thatcoder.cn/tags/Stellar/</loc>
+    <lastmod>2024-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/Tencent/</loc>
     <lastmod>2024-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5373,14 +5382,14 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Game/</loc>
+    <loc>https://blog.thatcoder.cn/tags/GalGame/</loc>
     <lastmod>2024-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/GalGame/</loc>
+    <loc>https://blog.thatcoder.cn/tags/Game/</loc>
     <lastmod>2024-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
