@@ -28,18 +28,18 @@ var ThemeChange = (theme, init = false) => {
     if (theme === 'light' || (theme === 'auto' && !OSTheme.matches)) {
         // document.querySelector("html").id = "ZYLight";
         document.documentElement.setAttribute('data-theme', init? 'light':'auto');
-        getSwitch(7).style.filter = 'grayscale(0%)';
-        getSwitch(6).style.filter = 'grayscale(100%)';
+        getSwitch(5).style.filter = 'grayscale(0%)';
+        getSwitch(4).style.filter = 'grayscale(100%)';
     } else {
         document.documentElement.setAttribute('data-theme', init?'dark':'light');
-        getSwitch(6).style.filter = 'grayscale(0%)';
-        getSwitch(7).style.filter = 'grayscale(100%)';
+        getSwitch(4).style.filter = 'grayscale(0%)';
+        getSwitch(5).style.filter = 'grayscale(100%)';
     }
     if (theme === 'auto') {
         document.documentElement.setAttribute('data-theme', init?OSTheme.matches?'dark':'light':'dark');
-        getSwitch(8).style.filter = 'grayscale(0%)';
+        getSwitch(6).style.filter = 'grayscale(0%)';
     } else {
-        getSwitch(8).style.filter = 'grayscale(100%)';
+        getSwitch(6).style.filter = 'grayscale(100%)';
     }
     init ? console.log("钟意祝你有个美好的一天!") : switchTheme();
 }
@@ -48,5 +48,6 @@ var ThemeChange = (theme, init = false) => {
  */
 ThemeChange(window.localStorage.getItem('Stellar.theme'), true);
 getSwitch(1).style.filter = 'grayscale(0%)';
-getSwitch(5).style.filter = 'grayscale(0%)';
+getSwitch(2).style.filter = 'grayscale(0%)';
+getSwitch(3).style.filter = 'grayscale(0%)';
 

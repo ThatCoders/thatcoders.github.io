@@ -21,6 +21,11 @@ body:before {
     touch-action: none;
 }
 
+/*右侧时间线堵塞*/
+.widget-wrapper.timeline .tag-plugin.timeline .timenode .body{
+    margin-left: 1rem;
+}
+
 /*@font-face{*/
 /*    font-family: "LXGW";*/
 /*    src: url("/custom/font/LXGWB.ttf");*/
