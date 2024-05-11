@@ -11,14 +11,30 @@
     border-radius: 4px !important;
 }
 
-:root {
-    --waline-bgcolor-light: transparent !important;
-    --waline-theme-color: #4b3425 !important;
-    --waline-active-color: #9c8877 !important;
+/*:root {*/
+/*    --waline-bgcolor-light: transparent !important;*/
+/*    --waline-theme-color: #4b3425 !important;*/
+/*    --waline-active-color: #9c8877 !important;*/
+/*    --waline-bg-color: var(--alpha20) !important;*/
+/*    --waline-color: var(--text-p1) !important;*/
+/*}*/
+.wl-header input{
+    background: var(--alpha20) !important;
 }
-
+.wl-panel {
+    background: none !important;
+}
+.wl-card .wl-meta>span {
+    background: var(--alpha20) !important;
+}
+.wl-content, .wl-meta, .wl-quote{
+    color: var(--text-p1) !important;
+}
 .wl-btn {
     border-radius: 0.3em !important;
+}
+.wl-emoji-popup.display{
+    background: var(--card) !important;
 }
 
 /* 添加miku的gif为输入区域背景 https://upyun.thatcdn.cn/myself/typora/202401110554319.gif */
