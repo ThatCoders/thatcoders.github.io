@@ -1,10 +1,15 @@
 /*鼠标样式*/
 body {
     cursor: url('https://upyun.thatcdn.cn/public/cur/yiwei/S1.cur'), auto;
+    scrollbar-color: #bbbbbbc2 #00000000;
 }
 
 a, [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
     cursor: url('https://upyun.thatcdn.cn/public/cur/yiwei/S2.cur'), auto !important
+}
+
+html{
+    scrollbar-color: #bbbbbbc2 #00000000;
 }
 
 /*背景笼罩层*/
