@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.thatcoder.cn/bug/vue-reverse-proxy-unlimited-refresh/</loc>
+    
+    <lastmod>2024-05-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.thatcoder.cn/OnlyOffice-Vue-Spring/</loc>
     
     <lastmod>2024-05-12</lastmod>
@@ -5319,20 +5328,6 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Memos/</loc>
-    <lastmod>2024-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/%E8%B7%A8%E5%9F%9F/</loc>
-    <lastmod>2024-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.thatcoder.cn/tags/Linux/</loc>
     <lastmod>2024-05-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -5340,7 +5335,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://blog.thatcoder.cn/tags/Memos/</loc>
     <lastmod>2024-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5354,7 +5349,21 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Stellar/</loc>
+    <loc>https://blog.thatcoder.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2024-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/%E8%B7%A8%E5%9F%9F/</loc>
+    <lastmod>2024-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/%E4%B8%9A%E5%8A%A1/</loc>
     <lastmod>2024-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5362,6 +5371,13 @@
   
   <url>
     <loc>https://blog.thatcoder.cn/tags/Tencent/</loc>
+    <lastmod>2024-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/Stellar/</loc>
     <lastmod>2024-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5397,6 +5413,13 @@
   
   <url>
     <loc>https://blog.thatcoder.cn/tags/%E9%82%AE%E4%BB%B6/</loc>
+    <lastmod>2024-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/BUG/</loc>
     <lastmod>2024-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
