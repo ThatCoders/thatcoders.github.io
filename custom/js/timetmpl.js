@@ -12,6 +12,7 @@ const Time_template = {
     },
     requestAPI: function (url, callback, timeout) {
         let retryTimes = 5;
+
         function request() {
             return new Promise((resolve, reject) => {
                 let status = 0; // 0 等待 1 完成 2 超时
@@ -60,8 +61,8 @@ const Time_template = {
             load.classList.add('loading-wrap')
             load.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg>'
             el.append(load)
-        }else {
-            el.querySelectorAll('.loading-wrap svg').forEach(function(svgElement) {
+        } else {
+            el.querySelectorAll('.loading-wrap svg').forEach(function (svgElement) {
                 svgElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>`
                 svgElement.parentElement.classList.add('error')
             });
@@ -70,34 +71,40 @@ const Time_template = {
     },
     layoutDiv: function (cfg) {
         const el = cfg.el;
-        console.log(cfg.data.api)
         el.childNodes[0].remove()   // 配置即用即删
         this.requestAPI(cfg.data.api, function (data) {
             el.querySelector('.loading-wrap').remove();
-            let config = TmplConfig.tmpl.includes(cfg.type) ? TmplConfig[cfg.type] : cfg.data;
-            console.log(cfg.type, config, data)
+            let config =
+                TmplConfig.tmpl.includes(cfg.type) ?
+                    TmplConfig[cfg.type] :
+                    (TmplConfig.tmpl.includes(cfg.data.type) ? TmplConfig[cfg.data.type] : cfg.data);
+            console.log(cfg, config, data)
             const identifier = cfg.id;
-            customNum[identifier] = identifier in customNum ? customNum[identifier] : {'num': cfg.num, 'now': 0, 'data': []}
+            customNum[identifier] = Object.keys(customNum).includes(identifier) ? customNum[identifier] : {
+                'num': cfg.num,
+                'now': 0,
+                'data': []
+            }
             let configObjects = Matcher.forMain(data, config)
             customNum[identifier]['data'] = customNum[identifier]['data'].concat(configObjects);    //  聚合压栈
             customNum[identifier]['now']++
             if (customNum[identifier]['now'] === customNum[identifier]['num']) {   // 聚合已满出栈
                 configObjects = customNum[identifier]['data'];
-                console.log("聚合已满出栈", customNum)
-                configObjects = Matcher.commandSort(configObjects, config)  // 时间序列化
+                console.log("聚合已满出栈"+identifier, configObjects)
+                configObjects = Matcher.commandSort(configObjects, config)  // 时间序列化 TODO: 优化默认排序算法
                 for (const configObject of configObjects) {
                     el.append(TempStyle.getTimeNode(configObject));
                 }
                 // $(el).append(TempStyle.getFloatStyle())
                 delete customNum[identifier]  // 防止赛博诈尸
             }
-            }, function () {
+        }, function () {
             Time_template.waitStyle(false, cfg.el)
         });
     },
 }
 
-function timetmpl () {
+function timetmpl() {
 // 获取 timetmpl 集合
     const els = document.getElementsByClassName('timetmpl');
     for (let i = 0; i < els.length; i++) {
@@ -197,7 +204,7 @@ const formatChineseDate = (date) => {
 };
 
 const UIGen = {
-    genConfig:  (tag = 'div') => {
+    genConfig: (tag = 'div') => {
         return {
             tag: tag, // 标签名
             classList: [],  // class列表
@@ -219,7 +226,7 @@ const UIGen = {
         // stellar{ color, open:false } content{ title, body }
         folding: (genConfig) => {
             return `
-                <details class="tag-plugin colorful folding" color="${genConfig.stellar.color}" ${genConfig.stellar.open ? "open": null}>
+                <details class="tag-plugin colorful folding" color="${genConfig.stellar.color}" ${genConfig.stellar.open ? "open" : null}>
                     <summary>
                         <span>${genConfig.content.title}</span>
                     </summary>
@@ -231,7 +238,9 @@ const UIGen = {
         // 瀑布流画廊
         // content[src1,src2]
         gallery: (genConfig) => {
-            const getCell = (imgUrl) => {return `<div class="flow-cell"><img class="lazy entered loaded" src="${imgUrl}" data-src="${imgUrl}" data-ll-status="loaded"><div class="image-meta"></div></div>`}
+            const getCell = (imgUrl) => {
+                return `<div class="flow-cell"><img class="lazy entered loaded" src="${imgUrl}" data-src="${imgUrl}" data-ll-status="loaded"><div class="image-meta"></div></div>`
+            }
             let gallery = genConfig.content.map(item => getCell(item)).join('');
             return `<div class="tag-plugin gallery fancybox flow-box" size="mix" ratio="square" style="${genConfig.content.length === 2 ? 'column-count: 2;' : ''}">${gallery}</div>`
         }
@@ -262,11 +271,12 @@ const TempStyle = {
     getQuote: (data) => {
         const quote = data['quote'];
         if (Matcher.safeIsNull(quote)) return '';
-        else if ('extra' in quote){
-            const avatar = quote['extra']['avatar'], author = quote['extra']['author'], content = quote['extra']['content']
-            if (Matcher.safeIsNull(content)){
+        else if ('extra' in quote) {
+            const avatar = quote['extra']['avatar'], author = quote['extra']['author'],
+                content = quote['extra']['content']
+            if (Matcher.safeIsNull(content)) {
                 return ''
-            }else if (Matcher.safeIsNull(author)){
+            } else if (Matcher.safeIsNull(author)) {
                 return `<blockquote style="font-size: smaller;">${content.replace(/\n/g, "<br>")}</blockquote>`
             }
             return `<blockquote style="font-size: smaller;">
@@ -276,7 +286,7 @@ const TempStyle = {
                         </div>
                         ${content.replace(/\n/g, "<br>")}
                     </blockquote>`
-        }else if (!('extra' in quote)) return quote === null ? '' : `<blockquote style="font-size: smaller;">${quote.replace(/\n/g, "<br>")}</blockquote>`;
+        } else if (!('extra' in quote)) return quote === null ? '' : `<blockquote style="font-size: smaller;">${quote.replace(/\n/g, "<br>")}</blockquote>`;
         else return ''
     },
     getPics: (data) => {
@@ -300,7 +310,7 @@ const TempStyle = {
         let footerCenter = `<div class="flex center timetmpl_mobile"></div>`
         let footerRight = `<div class="flex right">${TempStyle.getFromAndIcon(data)}</div>`
         const footer = `<div class="footer" style="display: flex;justify-content: space-between;align-items: center;"><div>${footerLeft}</div><div>${footerCenter}</div><div>${footerRight}</div></div>`
-        return footer==='<div class="footer" style="display: flex;justify-content: space-between;"></div>' ? '' : footer
+        return footer === '<div class="footer" style="display: flex;justify-content: space-between;"></div>' ? '' : footer
     },
     getTitle: (data) => Matcher.safeIsNull(data['title']) ? '' : `<div class="tag-plugin quot"><p class="content" type="icon">${data['title']}</p></div>`,
     // TODO: 想添加可选右侧悬浮小图标
@@ -346,7 +356,7 @@ const TempStyle = {
     getTimeNode: (configObject) => {
         const cell = document.createElement('div')
         cell.classList.add("timenode")
-        cell.setAttribute("index",Date.now().toString())
+        cell.setAttribute("index", Date.now().toString())
         const content =
             `<div class="header">
                 <div class="user-info" style="display: flex; align-items: center;height: 30px;">
@@ -381,13 +391,14 @@ const Matcher = {
     forMain: function (origin, config) {
         let data = Object.assign(origin)
         data = "root" in config ? this.main(data, config.root) : data
-        delete config.api;delete config.root;
+        delete config.api;
+        delete config.root;
         let configs = []
         for (let i = 0; i < data.length; i++) {
             let configItem = {}
             let exit = false
             for (let key of Object.keys(config)) {
-                if ('once' in config && i > 0){
+                if ('once' in config && i > 0) {
                     configItem[key] = configs[0][key]
                     continue
                 }
@@ -399,7 +410,7 @@ const Matcher = {
                 }
                 configItem[key] = match;
             }
-            if (exit){
+            if (exit) {
                 continue
             }
             configs.push(configItem)
@@ -413,38 +424,38 @@ const Matcher = {
      * @param configItem 已解析数据
      * @returns {any} 结果数据
      */
-    main: function (data, config, configItem)  {
+    main: function (data, config, configItem) {
         config = typeof config === "string" ? {path: config} : config
-        if ('default' in config){
+        if ('default' in config) {
             return config.default
         }
-        if ('extra' in config){
+        if ('extra' in config) {
             return this.commandExtra(data, config.extra)
         }
-        if ('path' in config){
+        if ('path' in config) {
             const paths = (typeof config === "string" ? config : config.path).split('.')
             for (let i = 0; i < paths.length; i++) {
                 data = this.read(data, paths[i])
             }
         }
-        if ('exclude' in config && !this.commandExclude(data, config.exclude)){
-            return { command: 'command-exclude-true' }
+        if ('exclude' in config && !this.commandExclude(data, config.exclude)) {
+            return {command: 'command-exclude-true'}
         }
-        if ('include' in config && this.commandExclude(data, config.include)){
-            return { command: 'command-include-false' }
+        if ('include' in config && this.commandExclude(data, config.include)) {
+            return {command: 'command-include-false'}
         }
-        if ('replace' in config){
+        if ('replace' in config) {
             const isArray = Array.isArray(config.replace)
             const replace = isArray ? (config.replace.length > 1 ? config.replace[1] : '') : ''
-            data = this.commandReplace(data, isArray ? config.replace[0]: config.replace, replace)
+            data = this.commandReplace(data, isArray ? config.replace[0] : config.replace, replace)
         }
-        if ('prefix' in config){
+        if ('prefix' in config) {
             data = this.commandFix(data, config.prefix, configItem)
         }
-        if ('suffix' in config){
+        if ('suffix' in config) {
             data = this.commandFix(data, config.suffix, configItem, false)
         }
-        if ('markdown' in config && config.markdown === true){
+        if ('markdown' in config && config.markdown === true) {
             data = this.commandMarkdown(data)
         }
         return data
@@ -455,34 +466,33 @@ const Matcher = {
      * @param path {string} 字符串路径或数组选择器 e.g.( originUrl, pics[2:] )
      * @returns {*|null} 处理后数据
      */
-    read: function(data, path) {
+    read: function (data, path) {
         const arrayRegex = /\[([^\]]*)]$/  // /\[([^\]]+)]$/;
         const match = path.match(arrayRegex);
         // 根据条件取数组集合
         if (match) {
-            path = path.substring(0,path.search(/\[/))
+            path = path.substring(0, path.search(/\[/))
             const params = match[1].split(':');
             if (params.length === 2) {
                 const [start, end] = [[''].includes(params[0]) ? 0 : Number(params[0]), [''].includes(params[1]) ? -1 : Number(params[1])]
-                return this.readArray(data, { data, path, start, end });
-            }else if (params.length === 1) {
-                if ( ['*','all',''].includes(params[0]) ){
-                    return this.readArray(data, { data, path, start: '*' });
-                }else {
-                    return this.readArray(data, { data, path, index: Number(params[0]) });
+                return this.readArray(data, {data, path, start, end});
+            } else if (params.length === 1) {
+                if (['*', 'all', ''].includes(params[0])) {
+                    return this.readArray(data, {data, path, start: '*'});
+                } else {
+                    return this.readArray(data, {data, path, index: Number(params[0])});
                 }
-            }
-            else {
+            } else {
                 return data
             }
-        }else {
+        } else {
             // 集合得遍历取json集合
-            if (Array.isArray(data)){
+            if (Array.isArray(data)) {
                 for (let i = 0; i < data.length; i++) {
                     data[i] = Array.isArray(data[i]) ? this.read(data[i], path) : this.readJson(data[i], path)
                 }
                 return data
-            }else {
+            } else {
                 return this.readJson(data, path)
             }
         }
@@ -493,7 +503,7 @@ const Matcher = {
      * @param path 字符串路径或数组选择器 e.g.( originUrl, pics[2:] )
      * @returns {*|null} 处理后数据
      */
-    readJson: function(data, path) {
+    readJson: function (data, path) {
         data = this.safeToJson(data);
         return data && data[path] !== undefined ? data[path] : null;
     },
@@ -503,12 +513,12 @@ const Matcher = {
      * @param params {{path: string, index?: number, start?: number|'*', end?: number}}
      * @returns {*|null} 处理后数据
      */
-    readArray: function(data, params) {
+    readArray: function (data, params) {
         data = this.read(data, params.path)
-        if ('start' in params){
+        if ('start' in params) {
             return params.start === '*' ? data : this.safeSliceArray(data, params.start, params.end)
-        }else {
-            return this.safeSliceArray(data, params.index, params.index+1)
+        } else {
+            return this.safeSliceArray(data, params.index, params.index + 1)
         }
     },
     /**
@@ -582,7 +592,7 @@ const Matcher = {
         if (Array.isArray(data)) {
             return data.map(item => this.commandFix(item, fix, isPrefix));
         } else if (typeof data === 'string' || typeof data === 'number') {
-            return isPrefix ? '' + fix + data : '' +  data + fix;
+            return isPrefix ? '' + fix + data : '' + data + fix;
         } else {
             return data;
         }
@@ -607,26 +617,26 @@ const Matcher = {
         const origin = Object.assign(data)
         const isArray = Array.isArray(origin)
         const extra = this.forMain(isArray ? origin : [origin], config)
-        return  {"extra": isArray ? extra : extra[0]}
+        return {"extra": isArray ? extra : extra[0]}
     },
     commandCheck: function (data) {
         const exitArray = [
             'command-exclude-true',
             'command-include-false'
         ]
-        if (typeof data === 'object'  && !this.safeIsNull(data)  && 'command' in data ){
+        if (typeof data === 'object' && !this.safeIsNull(data) && 'command' in data) {
             return exitArray.includes(data.command)
-        }else {
+        } else {
             return false
         }
     },
     commandSort: function (data, config) {
-        if ("time" in config && "sort"){    // 时间序列化
+        if ("time" in config && "sort") {    // 时间序列化
             const sort = !("sort" in config["time"] && config["time"]["sort"] === 1);
             data.sort((a, b) => {
                 const timestampA = convertToMilliseconds(Number(a['time']));
                 const timestampB = convertToMilliseconds(Number(b['time']));
-                return sort?timestampB - timestampA:timestampA - timestampB;
+                return sort ? timestampB - timestampA : timestampA - timestampB;
             });
         }
         return data
@@ -644,12 +654,16 @@ const Matcher = {
         return null;
     },
     safeSliceArray: function (item, start, end) {
-        if (item === null || item === [] || start >= item.length) {return null;}
-        if (end >= item.length ) {end = -1;}
+        if (item === null || item === [] || start >= item.length) {
+            return null;
+        }
+        if (end >= item.length) {
+            end = -1;
+        }
         const slicedItem = item.slice(start, end);
         return slicedItem.length === 0 ? null : slicedItem;
     },
-    safeIsNull: function (_obj){
+    safeIsNull: function (_obj) {
         const _type = Object.prototype.toString.call(_obj).slice(8, -1).toLowerCase();
         const isEmpty = () => {
             switch (_type) {
@@ -673,26 +687,28 @@ const Matcher = {
 const TmplConfig = {
     tmpl: ['memos', 'netease'],
     memos: {
+        "root": {
+            "path": "memos[*]"
+        },
         "author": {
-            "path": "creatorName",
-            "once": true
+            "default": "钟意"
         },
         "avatar": {
-            "default": "https://blog.thatcoder.cn/custom/img/author.jpg"
+            "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
         },
         "msg": {
-            "path":"content",
-            "markdown":true
+            "path": "content",
+            "markdown": true
         },
-        "pics": "resourceList[*].externalLink",
+        "pics": "resources[*].externalLink",
         "time": {
-            "path": "createdTs",
+            "path": "createTime",
             "sort": 0,
             "style": 1,
             "format": "zh"
         },
         "from": {
-            "default": "-- From Memos "
+            "default": "Memos "
         },
         "icon": {
             "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
@@ -747,33 +763,6 @@ const TmplConfig = {
         },
         "icon": {
             "default": "https://blog.thatcoder.cn/custom/img/网易云音乐.svg"
-        }
-    },
-    memos: {
-        "author": {
-            "path": "creatorName",
-            "once": true
-        },
-        "avatar": {
-            "default": "https://blog.thatcoder.cn/custom/img/author.jpg"
-        },
-        "msg": {
-            "path":"content",
-            "markdown":true,
-            "replace": [/#[\d\u4e00-\u9fa5a-zA-Z\d]+(?:[\s\n]|$)/g]
-        },
-        "pics": "resourceList[*].externalLink",
-        "time": {
-            "path": "createdTs",
-            "sort": 0,
-            "style": 1,
-            "format": "zh"
-        },
-        "from": {
-            "default": "Memos"
-        },
-        "icon": {
-            "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
         }
     },
 }

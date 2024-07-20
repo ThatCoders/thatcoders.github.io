@@ -1,18 +1,20 @@
 {
+  "root": {
+    "path": "memos[*]"
+  },
   "author": {
-    "path": "creatorName",
-    "once": true
+    "default": "钟意"
   },
   "avatar": {
-    "default": "https://blog.thatcoder.cn/custom/img/网易云音乐.svg"
+    "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
   },
   "msg": {
     "path":"content",
     "markdown":true
   },
-  "pics": "resourceList[*].externalLink",
+  "pics": "resources[*].externalLink",
   "time": {
-    "path": "createdTs",
+    "path": "createTime",
     "sort": 0,
     "style": 1,
     "format": "zh"

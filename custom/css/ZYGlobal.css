@@ -81,6 +81,10 @@ body:before {
     margin-left: 0.5rem;
 }
 
+.tag-plugin.tabs .nav-tabs {
+    overflow: auto visible !important;
+}
+
 /*@font-face{*/
 /*    font-family: "LXGW";*/
 /*    src: url("/custom/font/LXGWB.ttf");*/

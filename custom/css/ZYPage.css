@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2024.
+ * ZYShare.css files written in 2024/5/13 下午11:32 are ThatCoder (钟意) for MyBlog projects.
+ * ThatCoder's blog is https://blog.thatcoder.cn
+ * If you are interested in this code or have any questions, you are welcome to visit and discuss it.
+ */
+
+/* 分享页面 */
+.l_body.tc-body {
+    grid-template-columns: none;
+}
+
+.l_main.tc-page-more .post-list.post {
+    column-gap: 1.25rem;
+}
+
+.l_main.tc-page-card-2 .post-list.post > a {
+    column-count: 2;
+}
+
+.l_main.tc-page-card-3 .post-list.post > a {
+    column-count: 3;
+}
+
+.l_main.tc-page-more .post-list.post > a {
+    break-inside: avoid;
+}
+
+.l_main.tc-page-more .post-list.post > a:first-child {
+    break-inside: avoid;
+    margin-top: 0;
+}
+
+.l_main.tc-page-more .post-list.post > a > article > h2{
+    font-size: .8rem !important;
+}
+.l_main.tc-page-more .post-list.post > a > article > div.excerpt{
+    font-size: .7rem !important;
+    display: none;
+}

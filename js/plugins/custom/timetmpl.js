@@ -70,7 +70,6 @@ const Time_template = {
     },
     layoutDiv: function (cfg) {
         const el = cfg.el;
-        console.log(cfg.data.api)
         el.childNodes[0].remove()   // 配置即用即删
         this.requestAPI(cfg.data.api, function (data) {
             el.querySelector('.loading-wrap').remove();
@@ -100,6 +99,7 @@ const Time_template = {
 function timetmpl () {
 // 获取 timetmpl 集合
     const els = document.getElementsByClassName('timetmpl');
+    log('timetmpl集合', els)
     for (let i = 0; i < els.length; i++) {
         let el = els[i];
         const elNodes = Array.from(el.childNodes);  // 聚合原始数据（解绑）
@@ -112,6 +112,7 @@ function timetmpl () {
             obj.type = elNodes[j].firstChild.textContent;   // node命名为模板名称
             obj.num = elNodes.length;   // node数量为聚合数量
             obj.data = JSON.parse(elNodes[j].lastChild.textContent.replace(/`/g, ''));  // 配置数据
+            console.log('timetmpl对象', obj)
             Time_template.layoutDiv(obj);   // 开始进栈
         }
     }
@@ -591,26 +592,28 @@ const Matcher = {
 const TmplConfig = {
     tmpl: ['memos', 'netease'],
     memos: {
+        "root": {
+            "path": "memos[*]"
+        },
         "author": {
-            "path": "creatorName",
-            "once": true
+            "default": "钟意"
         },
         "avatar": {
-            "default": "https://blog.thatcoder.cn/custom/img/网易云音乐.svg"
+            "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
         },
         "msg": {
             "path":"content",
             "markdown":true
         },
-        "pics": "resourceList[*].externalLink",
+        "pics": "resources[*].externalLink",
         "time": {
-            "path": "createdTs",
+            "path": "createTime",
             "sort": 0,
             "style": 1,
             "format": "zh"
         },
         "from": {
-            "default": "-- From Memos "
+            "default": "Memos "
         },
         "icon": {
             "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
