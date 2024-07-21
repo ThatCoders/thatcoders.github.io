@@ -540,7 +540,8 @@ const Matcher = {
         }
     },
     commandSort: function (data, config) {
-        if ("time" in config && "sort"){    // 时间序列化
+        if ("time" in data[0] && config['num'] > 1) {// 时间序列化
+            console.log("排序")  // 时间序列化
             const sort = !("sort" in config["time"] && config["time"]["sort"] === 1);
             data.sort((a, b) => {
                 const timestampA = convertToMilliseconds(Number(a['time']));

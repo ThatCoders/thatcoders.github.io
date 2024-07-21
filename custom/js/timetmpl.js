@@ -78,7 +78,6 @@ const Time_template = {
                 TmplConfig.tmpl.includes(cfg.type) ?
                     TmplConfig[cfg.type] :
                     (TmplConfig.tmpl.includes(cfg.data.type) ? TmplConfig[cfg.data.type] : cfg.data);
-            console.log(cfg, config, data)
             const identifier = cfg.id;
             customNum[identifier] = Object.keys(customNum).includes(identifier) ? customNum[identifier] : {
                 'num': cfg.num,
@@ -91,7 +90,7 @@ const Time_template = {
             if (customNum[identifier]['now'] === customNum[identifier]['num']) {   // 聚合已满出栈
                 configObjects = customNum[identifier]['data'];
                 console.log("聚合已满出栈"+identifier, configObjects)
-                configObjects = Matcher.commandSort(configObjects, config)  // 时间序列化 TODO: 优化默认排序算法
+                configObjects = Matcher.commandSort(configObjects, config, customNum[identifier])  // 时间序列化 TODO: 优化默认排序算法
                 for (const configObject of configObjects) {
                     el.append(TempStyle.getTimeNode(configObject));
                 }
@@ -171,18 +170,55 @@ const parseTime = (time) => {
 
 /**
  * 时间戳同谐
- * @param timestamp
+ * @param {string|number} timestamp
  * @returns {number}
  */
 const convertToMilliseconds = (timestamp) => {
-    if (/^\d{13}$/.test(timestamp)) {
+    // 定义支持的时间格式
+    const formats = [
+        /^\d{13}$/, // 13位时间戳
+        /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/, // ISO 8601 格式
+        /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/ // 常规日期时间格式
+    ];
+
+    let date;
+
+    // 如果是13位时间戳，直接返回
+    if (formats[0].test(timestamp)) {
         return parseInt(timestamp);
     }
+
+    // 如果是数字，填充到13位
     if (typeof timestamp === 'number') {
         timestamp = timestamp.toString().padEnd(13, '0');
+    } else if (typeof timestamp === 'string') {
+        // 尝试匹配支持的时间格式
+        for (const format of formats) {
+            if (format.test(timestamp)) {
+                if (format === formats[1]) { // ISO 8601 格式
+                    date = new Date(timestamp);
+                } else if (format === formats[2]) { // 常规日期时间格式
+                    date = new Date(timestamp.replace(' ', 'T') + 'Z'); // 转为ISO格式
+                }
+                break;
+            }
+        }
+
+        // 如果未匹配到任何格式，则尝试其他解析方式
+        if (!date) {
+            date = new Date(timestamp);
+        }
     } else {
-        timestamp = new Date(timestamp).getTime().toString().padEnd(13, '0');
+        date = new Date(timestamp);
     }
+
+    // 确保date是有效的
+    if (!isNaN(date.getTime())) {
+        timestamp = date.getTime().toString().padEnd(13, '0');
+    } else {
+        throw new Error('Invalid date format');
+    }
+
     return parseInt(timestamp);
 };
 
@@ -630,12 +666,12 @@ const Matcher = {
             return false
         }
     },
-    commandSort: function (data, config) {
-        if ("time" in config && "sort") {    // 时间序列化
+    commandSort: function (data, config, identifier={}) {
+        if ((Object.keys(data[0]).includes('time') && Object.keys(config).includes('sort')) || identifier?.num > 1) {// 时间序列化
             const sort = !("sort" in config["time"] && config["time"]["sort"] === 1);
             data.sort((a, b) => {
-                const timestampA = convertToMilliseconds(Number(a['time']));
-                const timestampB = convertToMilliseconds(Number(b['time']));
+                const timestampA = convertToMilliseconds(a['time']);
+                const timestampB = convertToMilliseconds(b['time']);
                 return sort ? timestampB - timestampA : timestampA - timestampB;
             });
         }
