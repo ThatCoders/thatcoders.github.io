@@ -5373,7 +5373,28 @@
   </url>
   
   <url>
+    <loc>https://blog.thatcoder.cn/tags/Linux/</loc>
+    <lastmod>2024-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.thatcoder.cn/tags/Memos/</loc>
+    <lastmod>2024-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <lastmod>2024-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2024-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5401,27 +5422,6 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Linux/</loc>
-    <lastmod>2024-08-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2024-08-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2024-08-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.thatcoder.cn/tags/Tencent/</loc>
     <lastmod>2024-08-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -5436,14 +5436,14 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Vercel/</loc>
+    <loc>https://blog.thatcoder.cn/tags/Window/</loc>
     <lastmod>2024-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Window/</loc>
+    <loc>https://blog.thatcoder.cn/tags/Vercel/</loc>
     <lastmod>2024-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5471,7 +5471,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/BUG/</loc>
+    <loc>https://blog.thatcoder.cn/tags/%E5%BD%B1%E5%89%A7/</loc>
     <lastmod>2024-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5485,7 +5485,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/%E5%BD%B1%E5%89%A7/</loc>
+    <loc>https://blog.thatcoder.cn/tags/BUG/</loc>
     <lastmod>2024-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
