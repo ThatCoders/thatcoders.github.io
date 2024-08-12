@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://blog.thatcoder.cn//Design-Observer/</loc>
+    <loc>https://blog.thatcoder.cn//hi-res/Sakamoto-Ry%C5%ABichi/</loc>
+    <lastmod>2024-08-12</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.thatcoder.cn//design/Design-Observer/</loc>
     <lastmod>2024-08-11</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//Design-Chain-of-Responsibility/</loc>
+    <loc>https://blog.thatcoder.cn//design/Design-Chain-of-Responsibility/</loc>
     <lastmod>2024-08-11</lastmod>
   </url>
   <url>
