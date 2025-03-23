@@ -89,7 +89,7 @@ const Time_template = {
             customNum[identifier]['now']++
             if (customNum[identifier]['now'] === customNum[identifier]['num']) {   // 聚合已满出栈
                 configObjects = customNum[identifier]['data'];
-                console.log("聚合已满出栈"+identifier, configObjects)
+                console.log("聚合已满出栈"  +  identifier, configObjects)
                 configObjects = Matcher.commandSort(configObjects, config, customNum[identifier])  // 时间序列化 TODO: 优化默认排序算法
                 for (const configObject of configObjects) {
                     el.append(TempStyle.getTimeNode(configObject));
@@ -666,7 +666,7 @@ const Matcher = {
             return false
         }
     },
-    commandSort: function (data, config, identifier={}) {
+    commandSort: function (data, config, identifier  =  {}) {
         if ((Object.keys(data[0]).includes('time') && Object.keys(config).includes('sort')) || identifier?.num > 1) {// 时间序列化
             const sort = !("sort" in config["time"] && config["time"]["sort"] === 1);
             data.sort((a, b) => {
@@ -721,7 +721,36 @@ const Matcher = {
 
 // 数据配置模板
 const TmplConfig = {
-    tmpl: ['memos', 'netease'],
+    tmpl: ['memos', 'netease', 'web'],
+    web: {
+        "root": {
+              "path": "memos[*]"
+        },
+        "author": {
+              "default": "钟意"
+        },
+        "avatar": {
+              "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
+        },
+        "msg": {
+              "path":  "content",
+              "markdown":  true,
+              "include": ["#维护"]
+        },
+        "pics": "resources[*].externalLink",
+        "time": {
+              "path": "createTime",
+              "sort": 0,
+              "style": 1,
+              "format": "zh"
+        },
+        "from": {
+              "default": "-- From Memos "
+        },
+        "icon": {
+              "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
+        }
+    },
     memos: {
         "root": {
             "path": "memos[*]"
@@ -734,7 +763,8 @@ const TmplConfig = {
         },
         "msg": {
             "path": "content",
-            "markdown": true
+            "markdown": true,
+            "exclude": ["#维护"]
         },
         "pics": "resources[*].externalLink",
         "time": {

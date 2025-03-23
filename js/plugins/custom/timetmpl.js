@@ -591,7 +591,7 @@ const Matcher = {
 
 // 数据配置模板
 const TmplConfig = {
-    tmpl: ['memos', 'netease'],
+    tmpl: ['memos', 'netease', 'web'],
     memos: {
         "root": {
             "path": "memos[*]"
@@ -620,6 +620,35 @@ const TmplConfig = {
             "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
         }
     },
+    web: {
+        "root": {
+          "path": "memos[*]"
+        },
+        "author": {
+          "default": "钟意"
+        },
+        "avatar": {
+          "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
+        },
+        "msg": {
+          "path":"content",
+          "markdown":true,
+          "include": ["#维护"]
+        },
+        "pics": "resources[*].externalLink",
+        "time": {
+          "path": "createTime",
+          "sort": 0,
+          "style": 1,
+          "format": "zh"
+        },
+        "from": {
+          "default": "-- From Memos "
+        },
+        "icon": {
+          "default": "https://blog.thatcoder.cn/custom/img/flomo.svg"
+        }
+      },
     netease: {
         "root": {
             "path": "events[]"
