@@ -1,17 +1,14 @@
-
-<!DOCTYPE html><html lang="zh-CN">
-
-<head>
+<!DOCTYPE html><html lang="zh-CN"><head>
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.30.2" theme-name="Stellar" theme-version="1.30.2">
   
   <meta name="generator" content="Hexo 7.1.1">
-  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <meta http-equiv="x-dns-prefetch-control" content="on">
   
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="HandheldFriendly" content="True" >
+  <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
@@ -20,12 +17,12 @@
   <title>MySql：查无此人 - 那个码农</title>
 
   
-    <meta name="description" content="基本单字段查询SELECT first_name FROM user; 多字段查询SELECT first_name,gender,class_id... FROM user; 全字段查询 不可定义顺序 且性能不友好  SELECT * FROM user; 条件条件运算符 &lt; &gt; &#x3D; !&#x3D; &lt;&gt;(官方推荐的不等于) &gt;&#x3D; &lt;&amp;#x">
+    <meta name="description" content="基本单字段查询SELECT first_name FROM user; 多字段查询SELECT first_name,gender,class_id... FROM user; 全字段查询 不可定义顺序 且性能不友好  SELECT * FROM user; 条件条件运算符 < > = != <>(官方推荐的不等于) >= <&amp;#x">
 <meta property="og:type" content="website">
 <meta property="og:title" content="查无此人">
 <meta property="og:url" content="https://blog.thatcoder.cn/wiki/MySql/basics/select.html">
 <meta property="og:site_name" content="那个码农">
-<meta property="og:description" content="基本单字段查询SELECT first_name FROM user; 多字段查询SELECT first_name,gender,class_id... FROM user; 全字段查询 不可定义顺序 且性能不友好  SELECT * FROM user; 条件条件运算符 &lt; &gt; &#x3D; !&#x3D; &lt;&gt;(官方推荐的不等于) &gt;&#x3D; &lt;&amp;#x">
+<meta property="og:description" content="基本单字段查询SELECT first_name FROM user; 多字段查询SELECT first_name,gender,class_id... FROM user; 全字段查询 不可定义顺序 且性能不友好  SELECT * FROM user; 条件条件运算符 < > = != <>(官方推荐的不等于) >= <&amp;#x">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://upyun.thatcdn.cn/myself/typora/202209172237495.png!typora">
 <meta property="og:image" content="https://upyun.thatcdn.cn/myself/typora/202209150122181.png!typora">
@@ -92,10 +89,10 @@
 
   
 
-  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel="stylesheet" href="https://upyun.thatcdn.cn/public/font/lxgw/result.css" /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="https://upyun.thatcdn.cn/public/font/lxgw/result.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css"><meta itemprop="name" content="钟意博客"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
 <script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -120,10 +117,10 @@ var _hmt = _hmt || [];
 
 
 
-<div class="l_body s:aa content tech " id="start" layout="wiki" type="tech" ><aside class="l_left"><div class="leftbar-container">
+<div class="l_body s:aa content tech " id="start" layout="wiki" type="tech"><aside class="l_left"><div class="leftbar-container">
 
 
-<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/custom/img/databases.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/MySql/basics/usually.html"><div class="main" ff="title">MySql</div><div class="sub normal cap">关于MySql的笔记</div><div class="sub hover cap" style="opacity:0"> 不对之处请指出</div></a></div></header>
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy="" class="icon lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/custom/img/databases.png"></div><a class="title" href="/wiki/MySql/basics/select.html"><div class="main" ff="title">MySql</div><div class="sub normal cap">关于MySql的笔记</div><div class="sub hover cap" style="opacity:0"> 不对之处请指出</div></a></div></header>
 
 <div class="nav-area">
 <div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/MySql/" placeholder="在 MySql 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
@@ -133,13 +130,13 @@ var _hmt = _hmt || [];
 </div>
 <div class="widgets">
 
-<widget class="widget-wrapper post-list"><div class="widget-body fs14"><a class="link" href="/wiki/MySql/basics/usually.html#start"><span class="toc-text">只寻常道</span></a><a class="link active" href="/wiki/MySql/basics/select.html"><span class="toc-text">查无此人</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-body fs14"><a class="link active" href="/wiki/MySql/basics/select.html#start"><span class="toc-text">查无此人</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"></path><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"></path></svg></a><a class="link" href="/wiki/MySql/basics/usually.html"><span class="toc-text">只寻常道</span></a></div></widget>
 
-<widget class="widget-wrapper post-card"><div class="widget-header dis-select"><span class="name">更多：开发</span></div><div class="widget-body"><a class="item wiki" href="/wiki/YDLDoc3/springcloud/SpringCloud/SpringCloud.html"><span class="title">元动力摘录 - JAVA阶段三</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc2/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/maven%E5%85%A5%E9%97%A8/maven%E5%85%A5%E9%97%A8.html"><span class="title">元动力摘录 - JAVA阶段二</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9B%BE%E6%96%87/%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9B%BE%E6%96%87.html"><span class="title">艿艿若依Boot - 开发指南</span><span class="excerpt">关于艿艿若依Boot的文档</span></a><a class="item wiki" href="/wiki/YDLDoc1/javase/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html"><span class="title">元动力摘录 - JAVA阶段一</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/IDE%20%E8%B0%83%E8%AF%95/IDE%20%E8%B0%83%E8%AF%95.html"><span class="title">艿艿若依Cloud - 开发指南</span><span class="excerpt">关于艿艿若依Cloud的文档</span></a><a class="item wiki" href="/wiki/Laf/start/start.html"><span class="title">Laf - 开箱即用的 serverless</span><span class="excerpt">钟意关于Laf的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc4/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA.html"><span class="title">元动力摘录 - JAVA项目阶段</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/SpringCloud/start.html"><span class="title">SpringCloud - JAVA系分布式微服务架构</span><span class="excerpt">钟意关于SpringCloud的笔记</span></a></div></widget>
+<widget class="widget-wrapper post-card"><div class="widget-header dis-select"><span class="name">更多：开发</span></div><div class="widget-body"><a class="item wiki" href="/wiki/YDLDoc1/web/css/css.html"><span class="title">元动力摘录 - JAVA阶段一</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc2/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/maven%E5%85%A5%E9%97%A8/maven%E5%85%A5%E9%97%A8.html"><span class="title">元动力摘录 - JAVA阶段二</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/IDE%20%E8%B0%83%E8%AF%95/IDE%20%E8%B0%83%E8%AF%95.html"><span class="title">艿艿若依Cloud - 开发指南</span><span class="excerpt">关于艿艿若依Cloud的文档</span></a><a class="item wiki" href="/wiki/YDLDoc3/ELK%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8.html"><span class="title">元动力摘录 - JAVA阶段三</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc4/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/%E5%B7%A5%E4%BD%9C%E6%B5%81/%E5%B7%A5%E4%BD%9C%E6%B5%81.html"><span class="title">元动力摘录 - JAVA项目阶段</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5.html"><span class="title">艿艿若依Boot - 开发指南</span><span class="excerpt">关于艿艿若依Boot的文档</span></a><a class="item wiki" href="/wiki/Laf/start/start.html"><span class="title">Laf - 开箱即用的 serverless</span><span class="excerpt">钟意关于Laf的笔记</span></a><a class="item wiki" href="/wiki/SpringCloud/start.html"><span class="title">SpringCloud - JAVA系分布式微服务架构</span><span class="excerpt">钟意关于SpringCloud的笔记</span></a></div></widget>
 
 <widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/share/game/%E5%B0%8F%E5%B0%8F%E6%A2%A6%E9%AD%87.html"><span class="title"><strong>share</strong><span class="dot"></span>小小梦魇</span></a><a class="item title" href="/share/code/start-sky.html"><span class="title"><strong>share</strong><span class="dot"></span>Clash</span></a><a class="item title" href="/notes/"><span class="title"><strong>便签</strong><span class="dot"></span>钟意的便签</span></a><a class="item title" href="/notes/develop/"><span class="title"><strong>开发速查</strong><span class="dot"></span>开发助手</span></a><a class="item title" href="/notes/follow/stellar.html"><span class="title"><strong>便签</strong><span class="dot"></span>Stellar提交记录</span></a><a class="item title" href="/notes/develop/linux/ubuntu.html"><span class="title"><strong>开发速查</strong><span class="dot"></span>Ubuntu命令</span></a></div></widget>
 </div>
-<footer class="footer dis-select"><div class="social-wrap"><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" height="32px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/bilibili-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" height="32px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/wechat-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" height="32px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/github-banner.jpg"/></a><a class="social" href="javascript:ThemeChange('dark');" rel="noopener noreferrer"><img class="lazy" id="ThemeM" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javascript:ThemeChange('light');" rel="noopener noreferrer"><img class="lazy" id="ThemeL" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javascript:ThemeChange('auto');" rel="noopener noreferrer"><img class="lazy" id="ThemeAI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" height="32px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/bilibili-banner.jpg"></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" height="32px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/wechat-banner.jpg"></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" height="32px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/github-banner.jpg"></a><a class="social" href="javascript:ThemeChange('dark');" rel="noopener noreferrer"><img class="lazy" id="ThemeM" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"></a><a class="social" href="javascript:ThemeChange('light');" rel="noopener noreferrer"><img class="lazy" id="ThemeL" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"></a><a class="social" href="javascript:ThemeChange('auto');" rel="noopener noreferrer"><img class="lazy" id="ThemeAI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/AI.png"></a></div></footer>
 </div></aside><div class="l_main" id="main">
 
 
@@ -149,7 +146,7 @@ var _hmt = _hmt || [];
 <div class="article banner top">
     <div class="content">
       <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
-<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/MySql/basics/usually.html">MySql</a></div>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/MySql/basics/select.html">MySql</a></div>
 <div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2023-12-16T15:22:39.863Z">2023-12-16</time></span></div></div></div>
       
     <div class="bottom only-title">
@@ -168,7 +165,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p><code>SELECT * FROM user;</code></p>
 <h2 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h2><h3 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h3><blockquote>
-<p>&lt; &gt; &#x3D; !&#x3D; <strong>&lt;&gt;(官方推荐的不等于)</strong> &gt;&#x3D; &lt;&#x3D;</p>
+<p>&lt; &gt; = != <strong>&lt;&gt;(官方推荐的不等于)</strong> &gt;= &lt;=</p>
 </blockquote>
 <p><code>SELECT name_id FROM user WHERE age&gt;=18;</code>    年龄大于等于18</p>
 <p><code>SELECT name_id FROM user WHERE age&lt;&gt;18;</code>    年龄不等于18</p>
@@ -181,12 +178,12 @@ var _hmt = _hmt || [];
 <li>like : 模糊匹配 %任意字符可零 _单个字符</li>
 <li>between and : 查询区间范围 包含区间值</li>
 <li>in : 查询等于列表的值 不支持模糊匹配</li>
-<li>&lt;&#x3D;&gt; : 安全等于</li>
-<li>is null : 不能判断 age&#x3D;null 只能 age IS NULL 或者 age &lt;&#x3D;&gt; null</li>
+<li>&lt;=&gt; : 安全等于</li>
+<li>is null : 不能判断 age=null 只能 age IS NULL 或者 age &lt;=&gt; null</li>
 <li>is not null</li>
 </ul>
 </blockquote>
-<p><code>SELECT name_id FROM user WHERE full_name LIKE &#39;_柒%&#39;;</code>    全名第二个字是柒,其它随意</p>
+<p><code>SELECT name_id FROM user WHERE full_name LIKE '_柒%';</code>    全名第二个字是柒,其它随意</p>
 <p><code>SELECT name_id FROM user WHERE age BETWEEN 18 AND 65;</code>    年龄18-65</p>
 <p><code>SELECT name_id FROM user WHERE age IN (18,20,22);</code>    年龄18,20,22</p>
 <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><blockquote>
@@ -226,14 +223,14 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><p><strong>例: 查询每个街道对应的区市省</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT p.name 省,ci.name 市,co.name 县,t.name 街道<br>FROM town t,country co,city ci,province p <br>WHERE t.country_id = co.country_id <br>AND co.city_id = ci.city_id <br>AND ci.province_id = p.province_id LIMIT 20;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT p.name 省,ci.name 市,co.name 县,t.name 街道<br>FROM town t,country co,city ci,province p <br>WHERE t.country_id = co.country_id <br>AND co.city_id = ci.city_id <br>AND ci.province_id = p.province_id LIMIT 20;<br></code></pre></td></tr></tbody></table></figure>
 
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/202209150122181.png!typora" alt="image-20220915012218116"></p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/202209171732232.png!typora" alt="image-20220917173224113"></p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/202209171743999.png!typora" alt="image-20220917174310923"><br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/202209171743138.png!typora" alt="image-20220917174350065"></p>
 <h3 id="非等值连接"><a href="#非等值连接" class="headerlink" title="非等值连接"></a>非等值连接</h3><blockquote>
 <p><strong>和等值连接基本一致,条件非等而已,条件取一定关系</strong></p>
-<p>连接规则由等号以外的运算符组成。&gt;,&#x3D;,&lt;,,&gt;&#x3D;,&lt;&#x3D;,&lt;&gt;,!&#x3D;,between等</p>
+<p>连接规则由等号以外的运算符组成。&gt;,=,&lt;,,&gt;=,&lt;=,&lt;&gt;,!=,between等</p>
 </blockquote>
 <h4 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h4><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/202209171100266.png!typora" alt="image-20220917110058189"></p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/202209171101037.png!typora" alt="image-20220917110139950"></p>
@@ -246,7 +243,7 @@ var _hmt = _hmt || [];
 <h2 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h2><blockquote>
 <p><strong>用于查询主表中有 从表中没有的记录</strong></p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select 查询列表 <br>from 表1 别名<br>[连接类型]<br>join 表2 别名<br>on 连接条件<br>[where筛选条件]<br>[group by. 分组]<br>[having筛选条件]<br>[order by排序列表]<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select 查询列表 <br>from 表1 别名<br>[连接类型]<br>join 表2 别名<br>on 连接条件<br>[where筛选条件]<br>[group by. 分组]<br>[having筛选条件]<br>[order by排序列表]<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="左外连接"><a href="#左外连接" class="headerlink" title="左外连接"></a>左外连接</h3><blockquote>
 <p><strong>以左边的表为主，查询的数据包括左边表所有的数据以及左右表有交集的数据</strong></p>
@@ -266,25 +263,25 @@ var _hmt = _hmt || [];
 <p><strong><code>full [outer]可省</code></strong></p>
 <p><strong>或者 union 左右 达到全外连接</strong></p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">(SELECT * FROM user1 t1) UNION (SELECT * FROM user1_copy t2); -- 注:union会对相同的结果进行去重<br>(SELECT * FROM user1 t1) UNION ALL (SELECT * FROM user1_copy t2); -- 注:union all则查询的是两边全部的数据，不会对数据进行去重<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">(SELECT * FROM user1 t1) UNION (SELECT * FROM user1_copy t2); -- 注:union会对相同的结果进行去重<br>(SELECT * FROM user1 t1) UNION ALL (SELECT * FROM user1_copy t2); -- 注:union all则查询的是两边全部的数据，不会对数据进行去重<br></code></pre></td></tr></tbody></table></figure>
 
 <h2 id="自连接-1"><a href="#自连接-1" class="headerlink" title="自连接"></a>自连接</h2><blockquote>
 <p><strong>连接操作不仅可以在两个表之间进行，也可以是一个表与其自己进行连接，成为表的自身连接，也就是所谓的自连接。</strong></p>
 <p>**自连接查询其实等同于连接查询，需要两张表，只不过它的左表（父表）和右表（子表）都是自己。做自连接查询的时候，是自己和自己连接，分别给父表和子表取两个不同的别名，然后附上连接条件。<br>**</p>
 </blockquote>
 <h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/202209172356031.png!typora" alt="image-20220917235628971"></p>
-<h4 id="普通查询"><a href="#普通查询" class="headerlink" title="普通查询"></a>普通查询</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT a.*,b.name<br>FROM SUBJECT a , SUBJECT b<br>WHERE a.`pno`=b.`cno`;<br></code></pre></td></tr></table></figure>
+<h4 id="普通查询"><a href="#普通查询" class="headerlink" title="普通查询"></a>普通查询</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT a.*,b.name<br>FROM SUBJECT a , SUBJECT b<br>WHERE a.`pno`=b.`cno`;<br></code></pre></td></tr></tbody></table></figure>
 
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/202209172358641.png!typora" alt="image-20220917235859586"></p>
 <p><strong>显然没有先行课的被忽略掉了,因此我们可以用左关联结合自连接来查询，便于观察。</strong></p>
-<h4 id="自查询"><a href="#自查询" class="headerlink" title="自查询"></a>自查询</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT a.*,b.name<br>FROM SUBJECT a LEFT JOIN SUBJECT b<br>ON a.`pno`=b.`cno`;<br></code></pre></td></tr></table></figure>
+<h4 id="自查询"><a href="#自查询" class="headerlink" title="自查询"></a>自查询</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT a.*,b.name<br>FROM SUBJECT a LEFT JOIN SUBJECT b<br>ON a.`pno`=b.`cno`;<br></code></pre></td></tr></tbody></table></figure>
 
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/202209180000874.png!typora" alt="image-20220918000033802"></p>
 <h2 id="交叉连接"><a href="#交叉连接" class="headerlink" title="交叉连接"></a>交叉连接</h2><blockquote>
 <p><strong>就是用99标准的语法实现的笛卡尔乘积</strong></p>
 <p><code>cross</code></p>
 </blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> b.<span class="hljs-operator">*</span> ,bo.<span class="hljs-operator">*</span><br><span class="hljs-keyword">FROM</span> beauty b<br><span class="hljs-keyword">CROSS</span> <span class="hljs-keyword">JOIN</span> boys bo<br><span class="hljs-keyword">ON</span> bo.id<span class="hljs-operator">=</span>b.boyfriend_id;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> b.<span class="hljs-operator">*</span> ,bo.<span class="hljs-operator">*</span><br><span class="hljs-keyword">FROM</span> beauty b<br><span class="hljs-keyword">CROSS</span> <span class="hljs-keyword">JOIN</span> boys bo<br><span class="hljs-keyword">ON</span> bo.id<span class="hljs-operator">=</span>b.boyfriend_id;<br></code></pre></td></tr></tbody></table></figure>
 
 <h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><h2 id="on-和-where条件的区别如下"><a href="#on-和-where条件的区别如下" class="headerlink" title="on 和 where条件的区别如下"></a>on 和 where条件的区别如下</h2><ol>
 <li>on条件是在生成临时表时使用的条件，它不管on中的条件是否为真，都会返回左边表中的记录。</li>
@@ -298,15 +295,15 @@ var _hmt = _hmt || [];
 </article>
 <div class="article-footer"></div>
 
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/MySql/basics/usually.html">只寻常道</a></div><div class="item" id="next"></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/MySql/basics/usually.html">只寻常道</a></div></section></div>
 
 
   <div class="related-wrap md-text" id="comments">
-    <section class='header cmt-title cap theme'>
+    <section class="header cmt-title cap theme">
       <p>快来参与讨论吧~</p>
 
     </section>
-    <section class='body cmt-body waline'>
+    <section class="body cmt-body waline">
       
 
 <div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
@@ -316,21 +313,21 @@ var _hmt = _hmt || [];
 
 
 
-<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">站点</span><a target="_blank" rel="noopener" href="https://status.thatcoder.cn/status/public/">公共服务</a><a target="_blank" rel="noopener" href="https://ai.thatcoder.cn/">ChatGPT</a><a target="_blank" rel="noopener" href="https://alist.thatcoder.cn/">文件资源</a><a target="_blank" rel="noopener" href="https://docs.thatapi.cn/">公共接口</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/links/">友人帐</a><a href="/links/#comments">留言板</a><a href="/animes/">在追番</a><a href="/cinemas/">还追剧</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/#tab_1-1/">本站动态</a><a target="_blank" rel="noopener" href="https://muselink.cc/naive">联系博主</a><a target="_blank" rel="noopener" href="https://github.com/ThatCoders">GitHub</a><a target="_blank" rel="noopener" href="https://gitee.com/thatcoder">Gitee</a></div></div><div class="text"><p style="text-align:center" >
+<footer class="page-footer footnote"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs15">博客</span><a href="/">近期</a><a href="/categories/">分类</a><a href="/tags/">标签</a><a href="/archives/">归档</a></div><div class="sitemap-group"><span class="fs15">站点</span><a target="_blank" rel="noopener" href="https://status.thatcoder.cn/status/public/">公共服务</a><a target="_blank" rel="noopener" href="https://ai.thatcoder.cn/">ChatGPT</a><a target="_blank" rel="noopener" href="https://alist.thatcoder.cn/">文件资源</a><a target="_blank" rel="noopener" href="https://docs.thatapi.cn/">公共接口</a></div><div class="sitemap-group"><span class="fs15">社交</span><a href="/links/">友人帐</a><a href="/links/#comments">留言板</a><a href="/animes/">在追番</a><a href="/cinemas/">还追剧</a></div><div class="sitemap-group"><span class="fs15">更多</span><a href="/about/#tab_1-1/">本站动态</a><a target="_blank" rel="noopener" href="https://muselink.cc/naive">联系博主</a><a target="_blank" rel="noopener" href="https://github.com/ThatCoders">GitHub</a><a target="_blank" rel="noopener" href="https://gitee.com/thatcoder">Gitee</a></div></div><div class="text"><p style="text-align:center">
 本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.30.2">Stellar 1.30.2</a> 主题创建。
 <br>
-由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
 <br>
 由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://vercel.com/">vercel</a> 提供托管服务
 <br>
 <a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
 <br>
 <!--不蒜子计数器-->
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <!--添加一个访问量-->
 <span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 | 本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span> 
-<div id="siteruntime"></div>
-</p>
+</p><div id="siteruntime"></div>
+<p></p>
 <script>
 function siteTime(){
     window.setTimeout("siteTime()", 1000);
@@ -364,15 +361,15 @@ siteTime();
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC"><span class="toc-text">基本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%AD%97%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="toc-text">单字段查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%AD%97%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="toc-text">多字段查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%AD%97%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="toc-text">全字段查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6"><span class="toc-text">条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">条件运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%9D%A1%E4%BB%B6"><span class="toc-text">模糊条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%B8%AA%E6%8E%92%E5%BA%8F"><span class="toc-text">单个排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA%E6%8E%92%E5%BA%8F"><span class="toc-text">多个排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2"><span class="toc-text">连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="toc-text">内连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5"><span class="toc-text">等值连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-text">简单使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%8F%96%E5%88%AB%E5%90%8D"><span class="toc-text">表取别名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5"><span class="toc-text">非等值连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-1"><span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E8%BF%9E%E6%8E%A5"><span class="toc-text">自连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-2"><span class="toc-text">案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="toc-text">外连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="toc-text">左外连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%B3%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="toc-text">右外连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E8%BF%9E%E6%8E%A5"><span class="toc-text">全连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E8%BF%9E%E6%8E%A5-1"><span class="toc-text">自连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-text">实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E6%9F%A5%E8%AF%A2"><span class="toc-text">普通查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E6%9F%A5%E8%AF%A2"><span class="toc-text">自查询</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E8%BF%9E%E6%8E%A5"><span class="toc-text">交叉连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#on-%E5%92%8C-where%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%8C%BA%E5%88%AB%E5%A6%82%E4%B8%8B"><span class="toc-text">on 和 where条件的区别如下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5%E5%88%97%E5%90%8D%E7%9B%B8%E5%90%8C"><span class="toc-text">等值连接列名相同</span></a></li></ol></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC"><span class="toc-text">基本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%AD%97%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="toc-text">单字段查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%AD%97%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="toc-text">多字段查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%AD%97%E6%AE%B5%E6%9F%A5%E8%AF%A2"><span class="toc-text">全字段查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6"><span class="toc-text">条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">条件运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%9D%A1%E4%BB%B6"><span class="toc-text">模糊条件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%B8%AA%E6%8E%92%E5%BA%8F"><span class="toc-text">单个排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA%E6%8E%92%E5%BA%8F"><span class="toc-text">多个排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2"><span class="toc-text">连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E8%BF%9E%E6%8E%A5"><span class="toc-text">内连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5"><span class="toc-text">等值连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-text">简单使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%8F%96%E5%88%AB%E5%90%8D"><span class="toc-text">表取别名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5"><span class="toc-text">非等值连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-1"><span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E8%BF%9E%E6%8E%A5"><span class="toc-text">自连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-2"><span class="toc-text">案例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="toc-text">外连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A6%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="toc-text">左外连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%B3%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="toc-text">右外连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E8%BF%9E%E6%8E%A5"><span class="toc-text">全连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E8%BF%9E%E6%8E%A5-1"><span class="toc-text">自连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-text">实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E6%9F%A5%E8%AF%A2"><span class="toc-text">普通查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E6%9F%A5%E8%AF%A2"><span class="toc-text">自查询</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E8%BF%9E%E6%8E%A5"><span class="toc-text">交叉连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#on-%E5%92%8C-where%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%8C%BA%E5%88%AB%E5%A6%82%E4%B8%8B"><span class="toc-text">on 和 where条件的区别如下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5%E5%88%97%E5%90%8D%E7%9B%B8%E5%90%8C"><span class="toc-text">等值连接列名相同</span></a></li></ol></div><div class="widget-footer">
 
-<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
-</div></aside><div class='float-panel blur'>
-  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"></path><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"></path></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"></path><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"></path></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class="float-panel blur">
+  <button type="button" style="display:none" class="laptop-only rightbar-toggle mobile" onclick="sidebar.rightbar()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg>
   </button>
-  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  <button type="button" style="display:none" class="mobile-only leftbar-toggle mobile" onclick="sidebar.leftbar()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"></path><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"></path></g></svg>
   </button>
 </div>
 </div><div class="scripts">
@@ -684,7 +681,7 @@ siteTime();
 
 
 <!-- required -->
-<script src="/js/main.js?v=1.30.2" defer></script>
+<script src="/js/main.js?v=1.30.2" defer=""></script>
 
 <script type="text/javascript">
   const applyTheme = (theme) => {
@@ -797,7 +794,7 @@ siteTime();
 
 
 
-<script defer>
+<script defer="">
   window.addEventListener('DOMContentLoaded', (event) => {
     ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"}}`));
     for (let id of Object.keys(ctx.services)) {
@@ -933,7 +930,7 @@ siteTime();
     hoverDelay: 25
   };
 </script>
-<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script defer="" src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script defer="" src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
 <script>
   // https://www.npmjs.com/package/vanilla-lazyload
   // Set the options globally
@@ -1017,4 +1014,38 @@ siteTime();
 
 <!-- inject -->
 <script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
-</div></body></html>
+</div>
+
+    <link rel="stylesheet" href="https://ai.tianli0.top/static/public/postChatUser_summary.min.css">
+    <script>
+        let tianliGPT_key = 'S-1JPGL6X0UZPIJ6S6';
+        let tianliGPT_postSelector = '#main > article';
+        let tianliGPT_Title = '文章摘要';
+        let tianliGPT_postURL = '/^https?://[^/]+/[0-9]{4}/[0-9]{2}/[0-9]{2}/';
+        let tianliGPT_blacklist = '';
+        let tianliGPT_wordLimit = '1000';
+        let tianliGPT_typingAnimate = true;
+        let tianliGPT_theme = 'default';
+        var postChatConfig = {
+          backgroundColor: "#3e86f6",
+          bottom: "16px",
+          left: "16px",
+          fill: "#FFFFFF",
+          width: "44px",
+          frameWidth: "375px",
+          frameHeight: "600px",
+          defaultInput: true,
+          upLoadWeb: true,
+          showInviteLink: true,
+          userTitle: "PostChat",
+          userDesc: "如果你对网站的内容有任何疑问，可以来问我哦～",
+          addButton: true,
+          beginningText: "这篇文章介绍了",
+          userIcon: "https://ai.tianli0.top/static/img/PostChat.webp",
+          userMode: "magic",
+          defaultChatQuestions: ["你好","你是谁"],
+          defaultSearchQuestions: ["视频压缩","设计"]
+        };
+    </script>
+    <script data-postchat_key="S-1JPGL6X0UZPIJ6S6" src="https://ai.tianli0.top/static/public/postChatUser_summary.min.js"></script>
+  </body></html>
