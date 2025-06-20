@@ -6854,7 +6854,9 @@ details.toc[open] >div.body section .header+.doc_tree {
 .widget-wrapper.toc[collapse='auto'] .toc a.toc-link.active+ol {
   display: block;
 }
-.widget-wrapper.toc[collapse='auto']:hover a.toc-link+ol {
+.widget-wrapper.toc[collapse='auto'] .widget-header,
+.widget-wrapper.toc[collapse='auto'] .widget-header:hover ~ .widget-body .toc-item a.toc-link+ol,
+.widget-wrapper.toc[collapse='auto'] .widget-body:hover .toc-item a.toc-link+ol {
   display: block;
 }
 .widget-wrapper.toc[collapse='true'] ol:has(> .toc-item a.active) {
