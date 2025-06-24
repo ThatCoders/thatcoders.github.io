@@ -6,7 +6,7 @@
   <link href="https://blog.thatcoder.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.thatcoder.cn/"/>
-  <updated>2025-06-24T05:47:04.732Z</updated>
+  <updated>2025-06-24T09:25:43.067Z</updated>
   <id>https://blog.thatcoder.cn/</id>
   
   <author>
@@ -17,16 +17,16 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>博客多平台负载均衡</title>
+    <title>博客多平台负载均衡方案</title>
     <link href="https://blog.thatcoder.cn/Blog-Load-Balance/"/>
     <id>https://blog.thatcoder.cn/Blog-Load-Balance/</id>
-    <published>2025-06-19T16:00:00.000Z</published>
-    <updated>2025-06-24T05:47:04.732Z</updated>
+    <published>2025-06-21T02:00:00.000Z</published>
+    <updated>2025-06-24T09:25:43.067Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>博客之前在Vercel托管，域名CNAME的是Vercel的加速源，尽管如此，依然有些不理想的情况：</p><ul><li>域名介于两个网络之间，偶尔墙内不能访问，偶尔墙外不能访问</li><li>博客依赖的其余接口服务速度慢，有时甚至会超时</li><li>博客访问量有所增长，Vercel的免费额度100G已耗尽</li></ul><p>因此，前天决定搭建博客的多平台负载均衡，以提高博客的 <strong>可用性</strong> 与 <strong>可持续白嫖性</strong>。</p><h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>博客的多平台负载均衡方案如下：</p><ul><li>统一域名：<code>blog.thatcoder.cn</code></li><li>部署平台：Vercel、Netlify、Cloudflare</li><li>负载均衡：Nginx</li><li>跳板主机：微型香港VPS</li></ul>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>折中式 博客多平台负载均衡方案</p></blockquote><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此前博客在 Vercel 托管，域名是腾讯云 CNAME 到 Vercel 的加速源，但是最近发现这个方案有如下问题：</p><ol><li>神秘力量：有时网络只位于墙内或墙外，单向访问</li><li>额度耗尽：Vercel 的免费额度是 100G&#x2F;月，这个月博客居然把额度耗尽</li><li>容灾能力：受单平台限制没有灾害转移能力，包括不限于对网络问题、额度问题的处理</li></ol><p>基于以上问题，前天计划周末进行多平台负载均衡，增强博客的稳定性与白嫖性。虽然不能完美解决，但已经得到很大改善。</p><p>而且该方案可复用于无状态、一致性的项目，如：博客、文档、SPA、只读类接口、静态加速等等。毕竟额度不够，平台账号数量来凑。</p><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote><p>考虑到该方案的可能缺陷，如统计数据、SEO易混乱、部分平台行为不一致、首次 TLS 握手稍慢等等，未来将在此处记录出现的问题与解决方案。</p></blockquote><div class="tag-plugin timeline"><div class="timenode" index="0"><div class="header">2025-06-21</div><div class="body fs14"><p>使用多平台负载均衡方案</p></div></div></div><h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><h3 id="准备过程"><a href="#准备过程" class="headerlink" title="准备过程"></a>准备过程</h3><ul><li>服务器：可以是微型服务器，只用来运行负载均衡程序。最好是香港服务器防止国内网络问题。</li><li>域名：可以是任何域名，但需要解析到服务器的 IP 地址。</li><li>负载均衡程序：可以是任何具备负载均衡程序，如 Nginx、OpenResty 等。</li><li>多平台账号：Vercel、Netlify、Cloudflare 等。</li></ul><h3 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h3><ol><li>部署博客在Vercel等多平台，不需要配置DOMAIN，用默认的域名即可。<ul><li>Hexo等框架通常生成一个静态的 public 文件夹，上传到 Git 仓库中在 Vercel、GitHub Pages、Cloudflare Pages、Netlify 等引用仓库部署。（后续推送会自动触发更新）</li><li>需要的话服务器本身也可以托管一份</li></ul></li><li>域名解析到服务器的IP地址</li><li>服务器安装负载均衡程序，自行搜索《Linux安装Nginx》之类的教程。</li><li>签发证书，新建站点，并配置规则。(配置完无需维护，除非部署平台有增减)</li></ol><h3 id="详细教程"><a href="#详细教程" class="headerlink" title="详细教程"></a>详细教程</h3><div class="tag-plugin link dis-select"><a class="link-card plain" title="" href="https://blog.thatcoder.cn/wiki/LoadBalance/deploy/config.html" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill="title,icon"><div class="left"><span class="title">https://blog.thatcoder.cn/wiki/LoadBalance/deploy/config.html</span><span class="cap link footnote">https://blog.thatcoder.cn/wiki/LoadBalance/deploy/config.html</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg"></div></div></a></div><h3 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h3><blockquote><p>因为对于服务器新手配置可能过于宽泛与繁琐，录制了视频作为参考。</p></blockquote><iframe src="//player.bilibili.com/player.html?bvid=BV1FdN2zFEoP" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><h3 id="网站测速"><a href="#网站测速" class="headerlink" title="网站测速"></a>网站测速</h3><div class="tag-plugin tabs"id="tab_1"><div class="nav-tabs"><div class="tab active"><a href="#tab_1-1">国内</a></div><div class="tab"><a href="#tab_1-2">海外</a></div></div><div class="tab-content"><div class="tab-pane active" id="tab_1-1"><div class="tag-plugin image"><div class="image-bg"><img src="https://upyun.thatcdn.cn/myself/typora/BLOG-CDN-CN.png" alt="博客国内访问效果" data-fancybox="true"/></div><div class="image-meta"><span class="image-caption center">博客国内访问效果</span></div></div></div><div class="tab-pane" id="tab_1-2"><div class="tag-plugin image"><div class="image-bg"><img src="https://upyun.thatcdn.cn/myself/typora/BLOG-CDN-FEIGN.png" alt="博客海外访问效果" data-fancybox="true"/></div><div class="image-meta"><span class="image-caption center">博客海外访问效果</span></div></div></div></div></div><h3 id="必应索引"><a href="#必应索引" class="headerlink" title="必应索引"></a>必应索引</h3><p>测试了必应站点地图索引与网站扫描与往常一致。</p><h2 id="局限性与解决思路"><a href="#局限性与解决思路" class="headerlink" title="局限性与解决思路"></a>局限性与解决思路</h2><h3 id="需要自建服务器"><a href="#需要自建服务器" class="headerlink" title="需要自建服务器"></a>需要自建服务器</h3><p>维护成本高于单纯用平台白嫖部署，但可以选择轻量 VPS(1H&#x2F;1G 足矣)。</p><h3 id="不具备主动健康检查"><a href="#不具备主动健康检查" class="headerlink" title="不具备主动健康检查"></a>不具备主动健康检查</h3><p>负载均衡程序本身不具备主动健康检查功能，无法动态剔除故障节点，只能故障转移。可通过 max_fails + 定时 reload 替代；未来可引入 Lua 脚本来实现。</p><h3 id="SEO问题"><a href="#SEO问题" class="headerlink" title="SEO问题"></a>SEO问题</h3><p>多副本可能被搜索引擎识别为重复，可通过添加 <a href="https://developers.google.cn/search/docs/crawling-indexing/consolidate-duplicate-urls?hl=zh-cn">canonical标签</a>、站点地图等指向源站。（Stellar已实现）</p><h3 id="部分平台行为不一致"><a href="#部分平台行为不一致" class="headerlink" title="部分平台行为不一致"></a>部分平台行为不一致</h3><p>如平台对404错误处理不一致，可添加自定义 404 页面。（Stellar已实现）</p>]]></content>
     
     
-    <summary type="html">在保证免费托管的前提下，实现高可用、自动负载、安全跳转、统一域名...</summary>
+    <summary type="html">多平台负载均衡，增强博客的可用性与可持续白嫖性。</summary>
     
     
     
@@ -34,8 +34,6 @@
     
     
     <category term="部署" scheme="https://blog.thatcoder.cn/tags/%E9%83%A8%E7%BD%B2/"/>
-    
-    <category term="博客" scheme="https://blog.thatcoder.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

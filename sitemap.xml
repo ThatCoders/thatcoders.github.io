@@ -5537,28 +5537,7 @@
 
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Memos/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.thatcoder.cn/tags/%E9%83%A8%E7%BD%B2/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5572,7 +5551,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/%E8%B7%A8%E5%9F%9F/</loc>
+    <loc>https://blog.thatcoder.cn/tags/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5586,7 +5565,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Tencent/</loc>
+    <loc>https://blog.thatcoder.cn/tags/Memos/</loc>
     <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5594,6 +5573,20 @@
   
   <url>
     <loc>https://blog.thatcoder.cn/tags/%E4%B8%9A%E5%8A%A1/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/Tencent/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/%E8%B7%A8%E5%9F%9F/</loc>
     <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5621,70 +5614,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Game/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.thatcoder.cn/tags/%E6%8D%A3%E8%85%BE/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/GalGame/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/BUG/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/%E9%82%AE%E4%BB%B6/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/AI/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/RAG/</loc>
-    <lastmod>2025-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/Coze/</loc>
     <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5712,7 +5642,35 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/%E9%9F%B3%E4%B9%90/</loc>
+    <loc>https://blog.thatcoder.cn/tags/Game/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/GalGame/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/AI/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/RAG/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/%E9%82%AE%E4%BB%B6/</loc>
     <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -5720,6 +5678,41 @@
   
   <url>
     <loc>https://blog.thatcoder.cn/tags/%E5%BD%B1%E5%89%A7/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/BUG/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/Coze/</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/%E9%9F%B3%E4%B9%90/</loc>
     <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
