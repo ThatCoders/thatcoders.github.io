@@ -6,7 +6,7 @@
   <link href="https://blog.thatcoder.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.thatcoder.cn/"/>
-  <updated>2025-06-17T04:43:55.376Z</updated>
+  <updated>2025-06-24T05:47:04.732Z</updated>
   <id>https://blog.thatcoder.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客多平台负载均衡</title>
+    <link href="https://blog.thatcoder.cn/Blog-Load-Balance/"/>
+    <id>https://blog.thatcoder.cn/Blog-Load-Balance/</id>
+    <published>2025-06-19T16:00:00.000Z</published>
+    <updated>2025-06-24T05:47:04.732Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>博客之前在Vercel托管，域名CNAME的是Vercel的加速源，尽管如此，依然有些不理想的情况：</p><ul><li>域名介于两个网络之间，偶尔墙内不能访问，偶尔墙外不能访问</li><li>博客依赖的其余接口服务速度慢，有时甚至会超时</li><li>博客访问量有所增长，Vercel的免费额度100G已耗尽</li></ul><p>因此，前天决定搭建博客的多平台负载均衡，以提高博客的 <strong>可用性</strong> 与 <strong>可持续白嫖性</strong>。</p><h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>博客的多平台负载均衡方案如下：</p><ul><li>统一域名：<code>blog.thatcoder.cn</code></li><li>部署平台：Vercel、Netlify、Cloudflare</li><li>负载均衡：Nginx</li><li>跳板主机：微型香港VPS</li></ul>]]></content>
+    
+    
+    <summary type="html">在保证免费托管的前提下，实现高可用、自动负载、安全跳转、统一域名...</summary>
+    
+    
+    
+    <category term="堆栈" scheme="https://blog.thatcoder.cn/categories/%E5%A0%86%E6%A0%88/"/>
+    
+    
+    <category term="部署" scheme="https://blog.thatcoder.cn/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="博客" scheme="https://blog.thatcoder.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>浅谈RAG</title>
@@ -417,27 +440,6 @@
     
     
     <summary type="html">备份一下Linux挂载磁盘方法, 盘要满了 淦</summary>
-    
-    
-    
-    <category term="堆栈" scheme="https://blog.thatcoder.cn/categories/%E5%A0%86%E6%A0%88/"/>
-    
-    
-    <category term="Linux" scheme="https://blog.thatcoder.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WSL 使用 Window 网络代理</title>
-    <link href="https://blog.thatcoder.cn/WSL%E4%BD%BF%E7%94%A8Window%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/"/>
-    <id>https://blog.thatcoder.cn/WSL%E4%BD%BF%E7%94%A8Window%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/</id>
-    <published>2023-08-29T16:00:00.000Z</published>
-    <updated>2023-08-29T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="互通端口"><a href="#互通端口" class="headerlink" title="互通端口"></a>互通端口</h2><ul><li><p>开启Window与WSL的互通</p><figure class="highlight bash"><figcaption><span>管理员模式</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">New-NetFirewallRule -DisplayName <span class="hljs-string">&quot;WSL&quot;</span> -Direction Inbound -InterfaceAlias <span class="hljs-string">&quot;vEthernet (WSL (Hyper-V firewall))&quot;</span> -Action Allow<br></code></pre></td></tr></table></figure></li><li><p>开启WSL与Clash的互通</p><figure class="highlight bash"><figcaption><span>管理员模式</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">New-NetFirewallRule -DisplayName <span class="hljs-string">&quot;WSL-Proxy&quot;</span> -Direction Inbound -Protocol TCP -LocalPort 7890 -Action Allow<br></code></pre></td></tr></table></figure></li></ul><h2 id="开启Clash"><a href="#开启Clash" class="headerlink" title="开启Clash"></a>开启Clash</h2><ul><li>略过安装</li><li>在Clash的第一个菜单开启允许局域网代理，让子网都能走Clash代理</li></ul><h2 id="配置WSL"><a href="#配置WSL" class="headerlink" title="配置WSL"></a>配置WSL</h2><ul><li><p>打开WSL，输入以下命令编辑配置</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim ~/.bashrc<br></code></pre></td></tr></table></figure></li><li><p>在文件末尾添加以下内容，检查一下你的WSL里面是否是172.23.16.1对应Windows的IP地址</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># clash</span><br><span class="hljs-built_in">export</span> http_proxy=<span class="hljs-string">&quot;http://172.23.16.1:7890&quot;</span><br><span class="hljs-built_in">export</span> https_proxy=<span class="hljs-string">&quot;http://172.23.16.1:7890&quot;</span><br><span class="hljs-comment"># clash end</span><br></code></pre></td></tr></table></figure></li><li><p>保存并退出，刷新</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></td></tr></table></figure></li><li><p>验证是否生效</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -v -L https://www.youtube.com<br></code></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    
-    <summary type="html">WSL WSL2 使用 Window 的代理科学上网</summary>
     
     
     
