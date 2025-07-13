@@ -85,6 +85,8 @@ body:before {
     overflow: auto visible !important;
 }
 
+/*字体定义*/
+
 /*@font-face{*/
 /*    font-family: "LXGW";*/
 /*    src: url("/custom/font/LXGWB.ttf");*/
@@ -92,3 +94,22 @@ body:before {
 /*    font-style: normal;*/
 /*    font-display: swap;*/
 /*}*/
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('https://public.thatcdn.cn/font/jetBrains_mono/origin/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/** {*/
+/*    font-family: KingHwaOldSong, system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif !important;*/
+/*}*/
+
+/* 设置所有标题使用老宋体 */
+.page-footer, h1, h2, h3, h4, h5, h6 {
+    font-family: KingHwaOldSong, "JetBrains Mono", system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif !important;
+}
+
+

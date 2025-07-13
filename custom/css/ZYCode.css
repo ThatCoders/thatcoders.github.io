@@ -348,7 +348,7 @@ figure::after {
     text-align: right;
     font-size: 10px;
     font-weight: bold;
-    font-family: monospace;
+    font-family: "JetBrains Mono", KingHwaOldSong, monospace;
     float: right;
     margin-top: 3px;
     padding-right: 15px;

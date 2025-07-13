@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.31.0" theme-name="Stellar" theme-version="1.31.0">
-  <link rel="canonical" href="https://blog.thatcoder.cn/WSL使用Window网络代理/">
+  <link rel="canonical" href="https://blog.thatcoder.cn//WSL使用Window网络代理/">
   
-  <meta name="generator" content="Hexo 7.1.1">
+  <meta name="generator" content="Hexo 7.3.0">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   
   <meta name="renderer" content="webkit">
@@ -57,7 +57,7 @@
 
   
 
-  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel="stylesheet" href="https://upyun.thatcdn.cn/public/font/lxgw/result.css" /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel='stylesheet' href='https://public.thatcdn.cn/font/old_song/result.css' /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
 <script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
@@ -134,7 +134,7 @@ var _hmt = _hmt || [];
 </ul>
 <h2 id="配置WSL"><a href="#配置WSL" class="headerlink" title="配置WSL"></a>配置WSL</h2><ul>
 <li><p>打开WSL，输入以下命令编辑配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim ~/.bashrc<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> vim ~/.bashrc<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>在文件末尾添加以下内容，检查一下你的WSL里面是否是172.23.16.1对应Windows的IP地址</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># clash</span><br><span class="hljs-built_in">export</span> http_proxy=<span class="hljs-string">&quot;http://172.23.16.1:7890&quot;</span><br><span class="hljs-built_in">export</span> https_proxy=<span class="hljs-string">&quot;http://172.23.16.1:7890&quot;</span><br><span class="hljs-comment"># clash end</span><br></code></pre></td></tr></table></figure>
