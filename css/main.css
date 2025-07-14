@@ -1499,7 +1499,6 @@ pre:not([class]):has(>code) {
   margin: var(--gap-p) 0;
   border-radius: 16px;
   overflow: hidden;
-  background: var(--block);
   line-height: 1.5;
   font-family: "JetBrains Mono", Menlo, Monaco, Consolas, system-ui, "Courier New", monospace, sans-serif;
   box-sizing: border-box;
@@ -7673,10 +7672,6 @@ details.toc[open] >div.body section .header+.doc_tree {
   background: none;
   padding: 0;
   margin: 0;
-}
-.widget-wrapper.timeline .tag-plugin.timeline .timenode .body .highlight,
-.widget-wrapper.timeline .tag-plugin.timeline .timenode .body pre:not([class]):has(>code) {
-  background: var(--bg-a50);
 }
 .widget-wrapper.timeline .tag-plugin.timeline[data-api] .body .footer {
   background: none;
