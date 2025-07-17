@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>那个码农</title>
+  <title>钟意博客</title>
   
-  <subtitle>钟意的博客 | ThatCoder&#39;s Blog 钟意博客</subtitle>
+  <subtitle>感谢你的阅读 | ThatCoder&#39;s Blog 钟意博客 那个码农</subtitle>
   <link href="https://blog.thatcoder.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.thatcoder.cn/"/>
