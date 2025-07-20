@@ -105,10 +105,11 @@ body:before {
 
 *:not(i) {
     font-family: "JetBrains Mono", KingHwaOldSong, system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif !important;
+    letter-spacing: 0.028em !important;
+    /*word-spacing: 0.04em !important;*/
 }
 /* 设置所有标题使用老宋体 */
 .page-footer, h1, h2, h3, h4, h5, h6 {
     font-family: KingHwaOldSong, "JetBrains Mono", system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif !important;
 }
-
 

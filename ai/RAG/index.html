@@ -17,24 +17,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>浅谈RAG - 那个码农</title>
+  <title>浅谈RAG - 钟意博客</title>
 
   
     <meta name="description" content="权衡LLM的发散性与其准确性之后的产物">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈RAG">
 <meta property="og:url" content="https://blog.thatcoder.cn/ai/RAG/">
-<meta property="og:site_name" content="那个码农">
+<meta property="og:site_name" content="钟意博客">
 <meta property="og:description" content="权衡LLM的发散性与其准确性之后的产物">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp">
+<meta property="og:image" content="https://blog.thatcoder.cn/favicon.ico">
 <meta property="article:published_time" content="2025-06-15T02:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-17T04:43:54.000Z">
+<meta property="article:modified_time" content="2025-07-19T11:53:21.198Z">
 <meta property="article:author" content="钟意">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="RAG">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp">
+<meta name="twitter:image" content="https://blog.thatcoder.cn/favicon.ico">
   
   
 
@@ -42,14 +42,14 @@
 
   <!-- feed -->
   
-    <link rel="alternate" href="/atom.xml" title="那个码农" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="钟意博客" type="application/atom+xml">
   
 
   <link rel="stylesheet" href="/css/main.css?v=1.31.0">
 
 
   
-    <link rel="shortcut icon" href="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp">
+    <link rel="shortcut icon" href="/favicon.ico">
   
 
   
@@ -58,7 +58,7 @@
 
   
 
-  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel='stylesheet' href='https://public.thatcdn.cn/font/old_song/result.css' /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel='stylesheet' href='https://public.thatcdn.cn/font/old_song/result.css' /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="author" content="钟意"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
 <script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
@@ -87,7 +87,7 @@ var _hmt = _hmt || [];
 <div class="l_body s:aa content tech " id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
 
 
-<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">那个码农</div><div class="sub normal cap">钟意的博客</div><div class="sub hover cap" style="opacity:0"> ThatCoder's Blog 钟意博客</div></a></div></header>
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/favicon.ico" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">钟意博客</div><div class="sub normal cap">感谢你的阅读</div><div class="sub hover cap" style="opacity:0"> ThatCoder's Blog 钟意博客 那个码农</div></a></div></header>
 
 <div class="nav-area">
 
@@ -98,7 +98,7 @@ var _hmt = _hmt || [];
 
 <widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">专栏：AI专栏</span></div><div class="widget-body"><a class="item active" href="/ai/RAG/"><span class="title">浅谈RAG</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a></div></widget>
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/Blog-Load-Balance/"><span class="title">博客多平台负载均衡方案</span></a><a class="item title" href="/ai/RAG/"><span class="title">浅谈RAG</span></a><a class="item title" href="/Web-Package/"><span class="title">Web技术构建桌面应用方案</span></a><a class="item title" href="/Spring-WebSocket/"><span class="title">SpringBoot WebSocket 代理模式、客户端模式</span></a><a class="item title" href="/bug/spring-websocket-bug/"><span class="title">Spring WebSocket 错误</span></a><a class="item title" href="/bug/spring-aop-failure-dynamic/"><span class="title">Spring AOP 调用自身失效</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/tabby-web-gateway/"><span class="title">Tabby的Web前端与Gateway网关部署</span></a><a class="item title" href="/%E5%8F%AF%E5%A1%91%E6%80%A7%E8%AE%B0%E5%BF%86/"><span class="title">可塑性记忆</span></a><a class="item title" href="/%E5%B0%8F%E5%B0%8F%E6%A2%A6%E9%AD%87/"><span class="title">小小梦魇</span></a><a class="item title" href="/hi-res/Sakamoto-Ry%C5%ABichi/"><span class="title">圣诞快乐，劳伦斯先生 Merry Christmas Mr. Lawrence</span></a><a class="item title" href="/game/sky/"><span class="title">《SKY·光遇》</span></a><a class="item title" href="/game/Outer%20Wilds/"><span class="title">《星际拓荒》</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" height="32px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/bilibili-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" height="32px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/wechat-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" height="32px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/github-banner.jpg"/></a><a class="social" href="javascript:ThemeChange('dark');" rel="noopener noreferrer"><img class="lazy" id="ThemeM" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javascript:ThemeChange('light');" rel="noopener noreferrer"><img class="lazy" id="ThemeL" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javascript:ThemeChange('auto');" rel="noopener noreferrer"><img class="lazy" id="ThemeAI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -111,7 +111,7 @@ var _hmt = _hmt || [];
     <div class="content">
       <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" id="menu" href="/topic">专栏</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/ai/RAG/">AI专栏</a></div>
-<div class="flex-row" id="post-meta"><a class="author" href="/author/ThatCoder/">钟意</a><span class="sep"></span><span class="text created"><time datetime="2025-06-15T02:00:00.000Z">2025-06-15</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-06-17T04:43:54.000Z">2025-06-17</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><a class="author" href="/author/ThatCoder/">钟意</a><span class="sep"></span><span class="text created"><time datetime="2025-06-15T02:00:00.000Z">2025-06-15</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-07-19T11:53:21.198Z">2025-07-19</time></span></div></div></div>
       
     <div class="bottom only-title">
       
@@ -152,7 +152,7 @@ var _hmt = _hmt || [];
 <li><strong>生成阶段</strong>：LLM基于检索结果生成答案。</li>
 </ul>
 <h2 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h2><details class="tag-plugin colorful folding" ><summary><p>RAG技术架构图</p>
-</summary><div class="body"><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/20250615024811.png" alt="RAG技术架构图" data-fancybox="true"/></div><div class="image-meta"><span class="image-caption center">RAG技术架构图</span></div></div></div></details>
+</summary><div class="body"><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://upyun.thatcdn.cn/myself/typora/20250615024811.png" alt="RAG技术架构图 ratio:1093/2486" data-fancybox="true"/></div><div class="image-meta"><span class="image-caption center">RAG技术架构图 ratio:1093/2486</span></div></div></div></details>
 
 
 <ol>
@@ -212,7 +212,7 @@ var _hmt = _hmt || [];
       <div class="header"><span>分享文章</span></div>
       <div class="body">
         <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://blog.thatcoder.cn/ai/RAG/" /></div>
-        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.thatcoder.cn/ai/RAG/&title=浅谈RAG - 那个码农&pics=https://upyun.thatcdn.cn/myself/typora/THATCODER-RGA.webp&summary=权衡LLM的发散性与其准确性之后的产物"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=浅谈RAG - 那个码农&amp;body=https://blog.thatcoder.cn/ai/RAG/"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        <div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/b32ef3da1162a.svg" /></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://blog.thatcoder.cn/ai/RAG/&title=浅谈RAG - 钟意博客&pics=https://upyun.thatcdn.cn/myself/typora/THATCODER-RGA.webp&summary=权衡LLM的发散性与其准确性之后的产物"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/80c07e4dbb303.svg" /></a><a class="social share-item email" href="mailto:?subject=浅谈RAG - 钟意博客&amp;body=https://blog.thatcoder.cn/ai/RAG/"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
         
         <div class="qrcode" id="qrcode-wechat" style="opacity:0;height:0">
           <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://blog.thatcoder.cn/ai/RAG/"/>
@@ -302,7 +302,7 @@ siteTime();
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
   </button>
 </div>
-</div><div class="scripts"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"钟意","sameAs":[],"image":"https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp"},"dateCreated":"2025-06-15T10:00:00+08:00","dateModified":"2025-06-17T12:43:54+08:00","datePublished":"2025-06-15T10:00:00+08:00","description":"\nRAG是权衡LLM的发散性与其准确性而诞生的产物\n","headline":"浅谈RAG","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.thatcoder.cn/ai/RAG/"},"publisher":{"@type":"Organization","name":"钟意","sameAs":[],"image":"https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp","logo":{"@type":"ImageObject","url":"https://upyun.thatcdn.cn/hexo/stellar/image/favicon.webp"}},"url":"https://blog.thatcoder.cn/ai/RAG/","keywords":"AI, RAG","thumbnailUrl":"https://upyun.thatcdn.cn/myself/typora/THATCODER-RGA.webp","image":1}</script>
+</div><div class="scripts"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"钟意","sameAs":[],"image":"/favicon.ico"},"dateCreated":"2025-06-15T10:00:00+08:00","dateModified":"2025-07-19T19:53:21+08:00","datePublished":"2025-06-15T10:00:00+08:00","description":"\nRAG是权衡LLM的发散性与其准确性而诞生的产物\n","headline":"浅谈RAG","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.thatcoder.cn/ai/RAG/"},"publisher":{"@type":"Organization","name":"钟意","sameAs":[],"image":"/favicon.ico","logo":{"@type":"ImageObject","url":"/favicon.ico"}},"url":"https://blog.thatcoder.cn/ai/RAG/","keywords":"AI, RAG","thumbnailUrl":"https://upyun.thatcdn.cn/myself/typora/THATCODER-RGA.webp","image":1}</script>
 
 
 <script type="text/javascript">
