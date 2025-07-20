@@ -5,12 +5,12 @@ utils.jq(() => {
         const el = els[i];
         const limit = parseInt(el.getAttribute('limit')) || 10;
   
-        const api = el.getAttribute('api') + '&limit=' + limit;
+        const api = el.dataset.api + '&limit=' + limit;
         if (api == null) {
           continue;
         }
         utils.request(el, api, async resp => {
-          const data = await resp.json();
+          var data = await resp.json();
           data = data.data || [];
           data.forEach((item, i) => {
             var cell = '<div class="timenode" index="' + i + '">';
