@@ -1,0 +1,1234 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <link rel="canonical" href="https://blog.thatcoder.cn/wiki/YDLDoc1/其他/git入门/git入门">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>YDLDoc1：git入门 - 钟意博客</title>
+
+  
+    <meta name="description" content="# Git使用教程提示课程视频教程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1YA411T71Copen in new window# 第一章 Git安装windows安装：进入网站https:&#x2F;&#x2F;git-scm.com&#x2F;下载安装，然后在cmd命令行配置open in new window直接去腾讯软件中心下载也可以！  From: 元动力1234&amp;gt; g">
+<meta property="og:type" content="website">
+<meta property="og:title" content="git入门">
+<meta property="og:url" content="https://blog.thatcoder.cn/wiki/YDLDoc1/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/git%E5%85%A5%E9%97%A8/">
+<meta property="og:site_name" content="钟意博客">
+<meta property="og:description" content="# Git使用教程提示课程视频教程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1YA411T71Copen in new window# 第一章 Git安装windows安装：进入网站https:&#x2F;&#x2F;git-scm.com&#x2F;下载安装，然后在cmd命令行配置open in new window直接去腾讯软件中心下载也可以！  From: 元动力1234&amp;gt; g">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.thatcoder.cn/favicon.ico">
+<meta property="article:published_time" content="2025-07-21T12:21:48.569Z">
+<meta property="article:modified_time" content="2025-07-21T12:21:48.569Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="那个码农">
+<meta property="article:tag" content="码农钟意">
+<meta property="article:tag" content="钟意的博客">
+<meta property="article:tag" content="钟意博客">
+<meta property="article:tag" content="That Coder">
+<meta property="article:tag" content="thatcoder">
+<meta property="article:tag" content="源柒拾柒雅舍">
+<meta property="article:tag" content="源WebGary">
+<meta property="article:tag" content="giligili.work">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.thatcoder.cn/favicon.ico">
+  
+  
+
+  <meta name="keywords" content="那个码农,码农钟意,钟意的博客,钟意博客,That Coder,thatcoder,源柒拾柒雅舍,源WebGary,giligili.work">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="钟意博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://blog.thatcoder.cn/wiki/YDLDoc1/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/git%E5%85%A5%E9%97%A8/","author":{"@type":"Person","name":"钟意","sameAs":[],"image":"/favicon.ico"},"name":"git入门","description":"# Git使用教程提示课程视频教程链接：https://www.bilibili.com/video/BV1YA411T71Copen in new window# 第一章 Git安装windows安装：进入网站https://git-scm.com/下载安装，然后在cmd命令行配置open in new window直接去腾讯软件中心下载也可以！\n\nFrom: 元动力1234&amp;gt...","url":"https://blog.thatcoder.cn/wiki/YDLDoc1/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/git%E5%85%A5%E9%97%A8/","keywords":["那个码农","码农钟意","钟意的博客","钟意博客","That Coder","thatcoder","源柒拾柒雅舍","源WebGary","giligili.work"]}</script>
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel='stylesheet' href='https://public.thatcdn.cn/font/old_song/result.css' /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="author" content="钟意"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+
+<div class="l_body s:aa content tech " id="start" layout="page" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/custom/img/ydl.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/JDBC/JDBC"><div class="main">YDLDoc1</div><div class="sub normal cap">关于YDLDoc的笔记</div><div class="sub hover cap" style="opacity:0"> 不对之处请指出</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item active" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/YDLDoc1/" placeholder="在 YDLDoc1 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<widget class="widget-wrapper doc-tree post-list"><div class="widget-body fs14"><a class="link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/JDBC/JDBC/#start"><span class="toc-text">JDBC</span></a><a class="link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/mysql%E5%85%A5%E9%97%A8/mysql%E5%85%A5%E9%97%A8/"><span class="toc-text">mysql入门</span></a><a class="link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/mysql%E8%BF%9B%E9%98%B6/mysql%E8%BF%9B%E9%98%B6/"><span class="toc-text">mysql进阶</span></a><a class="link" href="/wiki/YDLDoc1/javase/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="toc-text">java正则表达式</span></a><a class="link" href="/wiki/YDLDoc1/javase/IO%E6%B5%81/IO%E6%B5%81/"><span class="toc-text">IO流</span></a><a class="link" href="/wiki/YDLDoc1/javase/nio/nio/"><span class="toc-text">nio</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%8F%8D%E5%B0%84/%E5%8F%8D%E5%B0%84/"><span class="toc-text">反射</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%95%B0%E7%BB%84%E5%92%8C%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84%E5%92%8C%E7%AE%97%E6%B3%95/"><span class="toc-text">数组和算法</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%B8%B8%E7%94%A8api/%E5%B8%B8%E7%94%A8api/"><span class="toc-text">常用api</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%8F%98%E9%87%8F%E5%92%8C%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%8F%98%E9%87%8F%E5%92%8C%E6%A0%87%E8%AF%86%E7%AC%A6/"><span class="toc-text">变量和标识符</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%A0%91/%E6%A0%91/"><span class="toc-text">树</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"><span class="toc-text">多线程</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/"><span class="toc-text">异常机制</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/"><span class="toc-text">流程控制语句</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%9E%9A%E4%B8%BE/%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%9E%9A%E4%B8%BE/"><span class="toc-text">泛型和枚举</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"><span class="toc-text">计算机基础</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"><span class="toc-text">网络编程</span></a><a class="link" href="/wiki/YDLDoc1/web/html/html/"><span class="toc-text">html</span></a><a class="link" href="/wiki/YDLDoc1/web/css/css/"><span class="toc-text">css</span></a><a class="link" href="/wiki/YDLDoc1/web/bom/bom/"><span class="toc-text">bom</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/"><span class="toc-text">集合框架</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"><span class="toc-text">面向对象</span></a><a class="link active" href="/wiki/YDLDoc1/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/git%E5%85%A5%E9%97%A8/"><span class="toc-text">git入门</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="link" href="/wiki/YDLDoc1/web/js/js/"><span class="toc-text">js</span></a><a class="link" href="/wiki/YDLDoc1/%E5%85%B6%E4%BB%96/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="toc-text">linux操作系统</span></a><a class="link" href="/wiki/YDLDoc1/web/jsp/jsp/"><span class="toc-text">jsp</span></a></div></widget>
+
+<widget class="widget-wrapper post-card"><div class="widget-header dis-select"><span class="name">更多：开发</span></div><div class="widget-body"><a class="item wiki" href="/wiki/YDLDoc2/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/maven%E5%85%A5%E9%97%A8/maven%E5%85%A5%E9%97%A8/"><span class="title">元动力摘录 - JAVA阶段二</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc3/ELK%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8/"><span class="title">元动力摘录 - JAVA阶段三</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc4/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/%E5%B7%A5%E4%BD%9C%E6%B5%81/%E5%B7%A5%E4%BD%9C%E6%B5%81/"><span class="title">元动力摘录 - JAVA项目阶段</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/"><span class="title">艿艿若依Boot - 开发指南</span><span class="excerpt">关于艿艿若依Boot的文档</span></a><a class="item wiki" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)/"><span class="title">艿艿若依Cloud - 开发指南</span><span class="excerpt">关于艿艿若依Cloud的文档</span></a><a class="item wiki" href="/wiki/Laf/start/start/"><span class="title">Laf - 开箱即用的 serverless</span><span class="excerpt">钟意关于Laf的笔记</span></a><a class="item wiki" href="/wiki/MySql/basics/select/"><span class="title">MySql - 关系型数据库管理系统</span><span class="excerpt">钟意关于关系型数据库MySql的笔记</span></a><a class="item wiki" href="/wiki/SpringCloud/start/"><span class="title">SpringCloud - JAVA系分布式微服务架构</span><span class="excerpt">钟意关于SpringCloud的笔记</span></a></div></widget>
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%95%B0%E6%8D%AE%E6%90%AD%E5%BB%BA%E5%BC%95%E6%93%8E%20bi-designer%20API-%E8%AE%BE%E8%AE%A1%E5%99%A8%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《数据搭建引擎 bi-designer API-设计器》</span></a><a class="item title" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《源码学习》</span></a><a class="item title" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%E9%A2%98%20-%20%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《算法题 - 地下城游戏》</span></a><a class="item title" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%20CodeReview%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《如何做好 CodeReview》</span></a><a class="item title" href="/wiki/YuDaoBoot/%E5%A4%A7%E5%B1%8F%E6%89%8B%E5%86%8C/%E5%A4%A7%E5%B1%8F%E8%AE%BE%E8%AE%A1%E5%99%A8/%E5%A4%A7%E5%B1%8F%E8%AE%BE%E8%AE%A1%E5%99%A8/"><span class="title"><strong>YuDaoBoot</strong><span class="dot"></span>大屏设计器</span></a><a class="item title" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/"><span class="title"><strong>YuDaoCloud</strong><span class="dot"></span>系统组件</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/bilibili-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/wechat-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/github-banner.jpg"/></a><a class="social" href="javascript:ThemeChange('dark');" rel="noopener noreferrer"><img id="ThemeM" src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javascript:ThemeChange('light');" rel="noopener noreferrer"><img id="ThemeL" src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javascript:ThemeChange('auto');" rel="noopener noreferrer"><img id="ThemeAI" src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+    <div class="content">
+      <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/JDBC/JDBC/">YDLDoc1</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2025-07-21T12:21:48.569Z">2025-07-21</time></span></div></div></div>
+      
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>git入门</span></h1>
+        
+      </div>
+    </div>
+    
+    </div>
+    </div><article class="md-text content"><div class="theme-hope-content"><h1 id="git使用教程" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#git使用教程">#</a> Git使用教程</h1><div class="hint-container tip"><p class="hint-container-title">提示</p><p>课程视频教程链接：<a href="https://www.bilibili.com/video/BV1YA411T71C" rel="noopener noreferrer" target="_blank">https://www.bilibili.com/video/BV1YA411T71C<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p></div><h1 id="第一章-git安装" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#第一章-git安装">#</a> 第一章 Git安装</h1><p>windows安装：进入网站<a href="https://git-scm.com/%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%EF%BC%8C%E7%84%B6%E5%90%8E%E5%9C%A8cmd%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE" rel="noopener noreferrer" target="_blank">https://git-scm.com/下载安装，然后在cmd命令行配置<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><p>直接去腾讯软件中心下载也可以！</p><div class="language-php line-numbers-mode" data-ext="php"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight php"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php">&amp;gt; git config --<span class="hljs-keyword">global</span> user.name <span class="hljs-string">&quot;itnanls&quot;</span><br>&amp;gt; git config --<span class="hljs-keyword">global</span> user.email <span class="hljs-string">&quot;itnanls@163.com&quot;</span><br><span class="hljs-comment">#检查信息是否写入成功</span><br>git config --<span class="hljs-keyword">list</span> <br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>ubuntu配置：apt-get install git</p><p>centos配置：yum install git</p><h1 id="第二章-理论基础" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#第二章-理论基础">#</a> 第二章 理论基础</h1><h2 id="_1-git-是什么" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-git-是什么">#</a> （1）Git 是什么？</h2><p>那么，简单地说，Git 究竟是怎样的一个系统呢？ 请注意接下来的内容非常重要，若你理解了 Git 的思想和基本工作原理，用起来就会知其所以然，游刃有余。 在学习 Git 时，请尽量理清你对其它版本管理系统已有的认识，如 CVS、Subversion 或 Perforce， 这样能帮助你使用工具时避免发生混淆。尽管 Git 用起来与其它的版本控制系统非常相似， 但它在对信息的存储和认知方式上却有很大差异，理解这些差异将有助于避免使用中的困惑。</p><h2 id="_2-三种状态" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-三种状态">#</a> （2）三种状态</h2><p>现在请注意，如果你希望后面的学习更顺利，请记住下面这些关于 Git 的概念。 Git 有三种状态，你的文件可能处于其中之一： <strong>已提交（committed）</strong>、<strong>已修改（modified）</strong> 和 <strong>已暂存（staged）</strong>。</p><ul><li>已修改表示修改了文件，但还没保存到数据库中。</li><li>已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</li><li>已提交表示数据已经安全地保存在本地数据库中。</li></ul><p>这会让我们的 Git 项目拥有三个阶段：工作区、暂存区以及 Git 目录。</p><figure><img alt="工作区、暂存区以及 Git 目录。" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/areas-ef38e741.png" tabindex="0"/><figcaption>工作区、暂存区以及 Git 目录。</figcaption></figure><p>工作目录、暂存区域以及 Git 仓库.</p><p>工作区是对项目的某个版本独立提取出来的内容。 这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p><p>暂存区是一个文件，保存了下次将要提交的文件列表信息，一般在 Git 仓库目录中。 按照 Git 的术语叫做“索引”，不过一般说法还是叫“暂存区”。</p><p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。 这是 Git 中最重要的部分，从其它计算机克隆仓库时，复制的就是这里的数据。</p><p>基本的 Git 工作流程如下：</p><ol><li>在工作区中修改文件。</li><li>将你想要下次提交的更改选择性地暂存，这样只会将更改的部分添加到暂存区。</li><li>提交更新，找到暂存区的文件，将快照永久性存储到 Git 目录。</li></ol><p>如果 Git 目录中保存着特定版本的文件，就属于 <strong>已提交</strong> 状态。 如果文件已修改并放入暂存区，就属于 <strong>已暂存</strong> 状态。 如果自上次检出后，作了修改但还没有放到暂存区域，就是 <strong>已修改</strong> 状态。 在 <a href="https://git-scm.com/book/zh/v2/ch00/ch02-git-basics-chapter" rel="noopener noreferrer" target="_blank">Git 基础<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a> 一章，你会进一步了解这些状态的细节， 并学会如何根据文件状态实施后续操作，以及怎样跳过暂存直接提交。</p><p>如上，如果每个版本中有文件发生变动，Git 会将整个文件复制并保存起来。这种设计看似会多消耗更多的空间，但在分支管理时却是带来了很多的益处和便利。</p><h2 id="_3-git-保证完整性" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3-git-保证完整性">#</a> （3）Git 保证完整性</h2><p>Git 中所有的数据在存储前都计算校验和，然后以校验和来引用。 这意味着不可能在 Git 不知情时更改任何文件内容或目录内容。 这个功能建构在 Git 底层，是构成 Git 哲学不可或缺的部分。 若你在传送过程中丢失信息或损坏文件，Git 就能发现。</p><p>Git 用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成的字符串，基于 Git 中文件的内容或目录结构计算出来。 SHA-1 哈希看起来是这样：</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">24b9da6552252987aa493b52f8696cd6d3b00373<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>Git 中使用这种哈希值的情况很多，你将经常看到这种哈希值。 实际上，Git 数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。</p><h1 id="第三章-实战" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#第三章-实战">#</a> 第三章 实战</h1><h2 id="_1、初始化git" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、初始化git">#</a> 1、初始化Git</h2><h3 id="_1-初次运行-git-前的配置" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-初次运行-git-前的配置">#</a> （1）初次运行 Git 前的配置</h3><p>既然已经在系统上安装了 Git，你会想要做几件事来定制你的 Git 环境。 每台计算机上只需要配置一次，程序升级时会保留配置信息。 你可以在任何时候再次通过运行命令来修改它们。</p><p>Git 自带一个 <code>git config</code> 的工具来帮助设置控制 Git 外观和行为的配置变量。</p><p>在 Windows 系统中，Git 会查找 <code>$HOME</code> 目录下（一般情况下是 <code>C:\Users\$USER</code> ）的 <code>.gitconfig</code> 文件。</p><p>你可以通过以下命令查看所有的配置以及它们所在的文件：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git config --list --show-origin<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><h3 id="_2-用户信息" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-用户信息">#</a> （2）用户信息</h3><p>安装完 Git 之后，要做的第一件事就是设置你的用户名和邮件地址。 这一点很重要，因为每一个 Git 提交都会使用这些信息，它们会写入到你的每一次提交中，不可更改：</p><div class="language-console line-numbers-mode" data-ext="console"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight console"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config --global user.name <span class="hljs-string">&quot;itnanls&quot;</span></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config --global user.email <span class="hljs-string">&quot;510180298@qq.com&quot;</span></span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><p>再次强调，如果使用了 <code>--global</code> 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。 当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 <code>--global</code> 选项的命令来配置。</p><p>很多 GUI 工具都会在第一次运行时帮助你配置这些信息。</p><h3 id="_3-检查配置信息" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3-检查配置信息">#</a> （3）检查配置信息</h3><p>如果想要检查你的配置，可以使用 <code>git config --list</code> 命令来列出所有 Git 当时能找到的配置。</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git config --list<br>user.name=John Doe<br>user.email=johndoe@example.com<br>color.status=auto<br>color.branch=auto<br>color.interactive=auto<br>color.diff=auto<br>...<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>你可能会看到重复的变量名，因为 Git 会从不同的文件中读取同一个配置（例如：<code>/etc/gitconfig</code> 与 <code>~/.gitconfig</code>）。 这种情况下，Git 会使用它找到的每一个变量的最后一个配置。</p><p>你可以通过输入 <code>git config &lt;key&gt;</code>： 来检查 Git 的某一项配置</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git config user.name<br>John Doe<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-尝试" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_4-尝试">#</a> （4）尝试</h3><p>在自己方便的盘中新建一个文件夹，这里以MyProject为例，注意路径中不要含有中文字符。打开cmd命令窗口，操作如下：</p><p>找一个空文件夹：</p><p>点击鼠标右键-----》git bash here</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs bash">// 初始化 仓库<br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study<br>$ git init<br>Initialized empty Git repository <span class="hljs-keyword">in</span> C:/Users/51018/Desktop/git-study/.git/<br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br><br>// 添加一个文件<br>$ <span class="hljs-built_in">touch</span> a.txt<br>$ <span class="hljs-built_in">echo</span> 123 &amp;gt; a.txt<br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br><br>// 提交至缓存区<br>$ git add a.txt<br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br><br>// 提交到本地仓库<br>$ git commit -m <span class="hljs-string">&#x27;first&#x27;</span><br>[master (root-commit) ac41d06] first<br> 1 file changed, 0 insertions(+), 0 deletions(-)<br> create mode 100644 a.txt<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-获取帮助" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_5-获取帮助">#</a> （5）获取帮助</h3><p>若你使用 Git 时需要获取帮助，有三种等价的方法可以找到 Git 命令的综合手册（manpage）：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">help</span> &amp;lt;verb&amp;gt;<br>$ git &amp;lt;verb&amp;gt; --<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><p>例如，要想获得 <code>git config</code> 命令的手册，执行</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">help</span> config<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>此外，如果你不需要全面的手册，只需要可用选项的快速参考，那么可以用 <code>-h</code> 选项获得更简明的 “help” 输出：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git add -h<br>usage: git add [&amp;lt;options&amp;gt;] [--] &amp;lt;pathspec&amp;gt;...<br><br>    -n, --dry-run         dry run<br>    -v, --verbose         be verbose<br><br>    -i, --interactive     interactive picking<br>    -p, --patch           <span class="hljs-keyword">select</span> hunks interactively<br>    -e, --edit            edit current diff and apply<br>    -f, --force           allow adding otherwise ignored files<br>    -u, --update          update tracked files<br>    --renormalize         renormalize EOL of tracked files (implies -u)<br>    -N, --intent-to-add   record only the fact that the path will be added later<br>    -A, --all             add changes from all tracked and untracked files<br>    --ignore-removal      ignore paths removed <span class="hljs-keyword">in</span> the working tree (same as --no-all)<br>    --refresh             don<span class="hljs-string">&#x27;t add, only refresh the index</span><br><span class="hljs-string">    --ignore-errors       just skip files which cannot be added because of errors</span><br><span class="hljs-string">    --ignore-missing      check if - even missing - files are ignored in dry run</span><br><span class="hljs-string">    --chmod (+|-)x        override the executable bit of the listed files</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_2、基础命令" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、基础命令">#</a> 2、基础命令</h2><p>我们怎么知道哪些文件是新添加的，哪些文件已经加入了暂存区域呢？总不能让我们自己拿个本本记下来吧？ 当然不，作为世界上最伟大的版本控制系统，你能遇到的囧境，Git 早已有了相应的解决方案。随时随地都可以使用<strong>git status</strong>查看当前状态</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git status<br>On branch master<br>nothing to commit, working tree clean<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git add b.txt<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>如果代码报错：git上传代码报错-The file will have its original line endings in your working directory</p><p>原因是因为文件中换行符的差别导致的。</p><blockquote><p>这里需要知道CRLF和LF的区别：</p></blockquote><p>windows下的换行符是CRLF而Unix的换行符格式是LF。git默认支持LF。</p><p>上面的报错的意思是会把CRLF（也就是回车换行）转换成Unix格式（LF），这些是转换文件格式的警告，不影响使用。</p><p>一般commit代码时git会把CRLF转LF，pull代码时LF换CRLF。</p><p>解决方案：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">rm</span> -r --cached .<br>git config core.autocrlf <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><p>然后重新上传代码即可。</p><p>为true时，Git会将你add的所有文件视为文本问价你，将结尾的CRLF转换为LF，而checkout时会再将文件的LF格式转为CRLF格式。</p><p>为false时，line endings不做任何改变，文本文件保持其原来的样子。</p><p>为input时，add时Git会把CRLF转换为LF，而check时仍旧为LF，所以Windows操作系统不建议设置此值。</p><p>输入<strong>git status</strong>命令，提示如下：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ <span class="hljs-built_in">echo</span> 1234 &amp;gt; b.txt<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git add b.txt<br><br>$ git status<br>On branch master<br>Changes to be committed:<br>  (use <span class="hljs-string">&quot;git reset HEAD &amp;lt;file&amp;gt;...&quot;</span> to unstage)<br><br>        new file:   b.txt<br><br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>Untracked files</strong> 说明存在未跟踪的文件（下边红色的那个）</p><p>所谓的“未跟踪”文件，是指那些新添加的并且未被加入到暂存区域或提交的文件。它们处于一个逍遥法外的状态，但你一旦将它们加入暂存区域或提交到 Git 仓库，它们就开始受到 Git 的“跟踪”。</p><p>这里圆括号中的英文是 git 给我们的建议：使用 git add &lt;file&gt; 命令将待提交的文件添加到暂存区域。</p><div class="language-csharp line-numbers-mode" data-ext="cs"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight csharp"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs csharp">F:\MyProject&amp;gt;git <span class="hljs-keyword">add</span> LICENSE<br><br>F:\MyProject&amp;gt;git status<br>On branch master<br>Changes to be committed:<br>  (use <span class="hljs-string">&quot;git reset HEAD &amp;lt;file&amp;gt;...&quot;</span> to unstage)<br><br>        <span class="hljs-keyword">new</span> <span class="hljs-keyword">file</span>:   LICENSE(绿色)<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>再次添加到暂存区域，然后执行 git commit -m "b.txt" 命令：</p><p>修改数据</p><div class="language-rust line-numbers-mode" data-ext="rs"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight rust"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-number">51018</span>@DESKTOP-<span class="hljs-number">6</span>R8BLO2 MINGW64 ~/Desktop/git-<span class="hljs-title function_ invoke__">study</span> (master)<br>$ echo <span class="hljs-number">123</span> &amp;gt; b.txt<br><br>$ git status<br>On branch master<br>Changes not staged <span class="hljs-keyword">for</span> <span class="hljs-title class_">commit</span>:<br>  (<span class="hljs-keyword">use</span> <span class="hljs-string">&quot;git add &amp;lt;file&amp;gt;...&quot;</span> to update what will be committed)<br>  (<span class="hljs-keyword">use</span> <span class="hljs-string">&quot;git checkout -- &amp;lt;file&amp;gt;...&quot;</span> to discard changes <span class="hljs-keyword">in</span> working directory)<br><br>        modified:   b.txt<br><br>no changes added to <span class="hljs-title function_ invoke__">commit</span> (<span class="hljs-keyword">use</span> <span class="hljs-string">&quot;git add&quot;</span> and/or <span class="hljs-string">&quot;git commit -a&quot;</span>)<br><br><span class="hljs-number">51018</span>@DESKTOP-<span class="hljs-number">6</span>R8BLO2 MINGW64 ~/Desktop/git-<span class="hljs-title function_ invoke__">study</span> (master)<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>修改文件后，使用git status查看数据。</p><blockquote><p>git log 查看历史操作记录</p></blockquote><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">log</span><br>commit 5da78a44017dda030d1fe273e2a470792534ba9a (HEAD -&amp;gt; master)<br>Author: zhangnan &amp;lt;510180298@qq.com&amp;gt;<br>Date:   Sat Mar 13 16:01:01 2021 +0800<br><br>    123<br><br>commit c7c0e3bf6d64404e3e68632c24ca13eac38b02e2<br>Author: zhangnan &amp;lt;510180298@qq.com&amp;gt;<br>Date:   Sat Mar 13 15:53:38 2021 +0800<br><br>    first<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">* d5a12d8a966da5bf36c1f4a080c5d507398f5f59 (HEAD -&amp;gt; master) first<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>结果中：有head代表当前所处的分之，master代表当前是master分支。可以按下不表。</p><p>两次的提交记录看到了。--pretty=oneline</p><p>head git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指针。git 是如何知道你当前在哪个分支上工作的呢？ 其实答案也很简单，它保存着一个名为 HEAD 的特别指针。在 git 中，它是一个指向你正在工作中的本地分支的指针，可以将 HEAD 想象为当前分支的别名。</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">log</span> --graph<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><h2 id="_3、时光回退" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3、时光回退">#</a> 3、时光回退</h2><p>有关回退的命令有两个：<strong>reset 和 checkout</strong></p><h3 id="_1-回滚快照" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-回滚快照">#</a> （1）回滚快照</h3><p><em>注：快照即提交的版本，每个版本我们称之为一个快照。</em></p><p>现在我们利用 reset 命令回滚快照，并看看 Git 仓库和三棵树分别发生了什么。</p><p>执行 git reset HEAD~ 命令：</p><p><em>注：HEAD 表示最新提交的快照，而 HEAD~ 表示 HEAD 的上一个快照，HEAD~~表示上上个快照，如果表示上10个快照，则可以用HEAD ~10</em></p><p>此时我们的快找回滚到了第二棵数（暂存区域）</p><p>记住：head永远指向当前分支的当前快照</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git  --hard reset <span class="hljs-built_in">head</span>~<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git <span class="hljs-built_in">log</span><br>commit c7c0e3bf6d64404e3e68632c24ca13eac38b02e2 (HEAD -&amp;gt; master)<br>Author: zhangnan &amp;lt;510180298@qq.com&amp;gt;<br>Date:   Sat Mar 13 15:53:38 2021 +0800<br><br>    first<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>可以看到，只剩下一个记录了。</p><figure><img alt="image-20210316212457416" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316212457416-62bfdc2a.png" tabindex="0"/><figcaption>image-20210316212457416</figcaption></figure><blockquote><p>参数选择</p></blockquote><p>--hard : 回退版本库，暂存区，工作区。（因此我们修改过的代码就没了，需要谨慎使用）</p><p>reset 不仅移动 HEAD 的指向，将快照回滚动到暂存区域，它还将暂存区域的文件还原到工作目录。</p><p>--mixed: 回退版本库，暂存区。(--mixed为git reset的默认参数，即当任何参数都不加的时候的参数)</p><p>--soft: 回退版本库。</p><p>就相当于只移动 HEAD 的指向，但并不会将快照回滚到暂存区域。相当于撤消了上一次的提交（commit）。</p><figure><img alt="image-20210316214437985" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316214437985-2956454f.png" tabindex="0"/><figcaption>image-20210316214437985</figcaption></figure><h3 id="_2-回滚指定快照" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-回滚指定快照">#</a> <strong>（2）回滚指定快照</strong></h3><p>reset 不仅可以回滚指定快照，还可以回滚个别文件。</p><p>命令格式为：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git reset --hard  c7c0e3bf6d64404e3e68632c24ca13eac38b02e2<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>这样，它就会将忽略移动 HEAD 的指向这一步（因为你只是回滚快照的部分内容，并不是整个快照，所以 HEAD 的指向不应该发生改变），直接将指定快照的指定文件回滚到暂存区域。</p><p><strong>不仅可以往回滚，还可以往前滚！</strong></p><p>这里需要强调的是：reset 不仅是一个“复古”的命令，它不仅可以回到过去，还可以去到“未来”。</p><p>唯一的一个前提条件是：你需要知道指定快照的 ID 号。</p><p><strong>那如果不小心把命令窗口关了不记得ID号怎么办？</strong> 命令：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git reflog<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>Git记录的每一次操作的版本ID号</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git reset --hard 7ce4954<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><h2 id="_4、版本对比" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_4、版本对比">#</a> 4、版本对比</h2><h3 id="_1-暂存区与工作树" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-暂存区与工作树">#</a> （1）暂存区与工作树</h3><p>目的：对比版本之间有哪些不同</p><p>在已经存在的文件b.txt中添加内容：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git diff<br>diff --git a/b.txt b/b.txt<br>index 9ab39d5..4d37a8a 100644<br>--- a/b.txt<br>+++ b/b.txt<br>@@ -2,3 +2,4 @@<br> 1212<br> 123123123<br> 234234234<br>+手动阀手动阀<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>现在来解释一下上面每一行的含义：</p><p>**第一行：**diff --git a/b.txt b/b.txt 表示对比的是存放在暂存区域和工作目录的b.txt</p><p>**第二行：**index 9ab39d5..4d37a8a 100644 表示对应文件的 ID 分别是 9ab39d5和 4d37a8a，左边暂存区域，后边当前目录。最后的 100644 是指定文件的类型和权限</p><p><strong>第三行：</strong>--- a/b.txt</p><p>--- 表示该文件是旧文件（存放在暂存区域）</p><p><strong>第四行：</strong>+++ b/b.txt +++ 表示该文件是新文件（存放在工作区域）</p><p><strong>第五行：</strong>@@ -2,3 +2,4 @@ 以 @@ 开头和结束，中间的“-”表示旧文件，“+”表示新文件，后边的数字表示“开始行号，显示行数”</p><p>内容：+代表新增的行 -代表少了的行</p><p>直接执行 git diff 命令是比较暂存区域与工作目录的文件内容：</p><h3 id="_2-工作树和最新提交" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-工作树和最新提交">#</a> （2）工作树和最新提交</h3><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs text">$ git diff head<br>warning: LF will be replaced by CRLF in b.txt.<br>The file will have its original line endings in your working directory<br>diff --git a/b.txt b/b.txt<br>new file mode 100644<br>index 0000000..4d37a8a<br>--- /dev/null<br>+++ b/b.txt<br>@@ -0,0 +1,5 @@<br>+123<br>+1212<br>+123123123<br>+234234234<br>+手动阀手动阀<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-两个历史快照" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3-两个历史快照">#</a> （3）两个历史快照</h3><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git diff 5da78a4 c7c0e3b<br>diff --git a/b.txt b/b.txt<br>deleted file mode 100644<br>index 81c545e..0000000<br>--- a/b.txt<br>+++ /dev/null<br>@@ -1 +0,0 @@<br>-1234<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-比较仓库和暂存区" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_4-比较仓库和暂存区">#</a> （4）比较仓库和暂存区</h3><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git diff --cached c7c0e3b<br>diff --git a/b.txt b/b.txt<br>new file mode 100644<br>index 0000000..9ab39d5<br>--- /dev/null<br>+++ b/b.txt<br>@@ -0,0 +1,4 @@<br>+123<br>+1212<br>+123123123<br>+234234234<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_5、删除文件" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_5、删除文件">#</a> 5、删除文件</h2><blockquote><p>不小心删除文件怎么办？</p></blockquote><p>现在从工作目录中手动删除 b.txt 文件，然后执行 git status 命令：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git status<br>On branch master<br>Changes not staged <span class="hljs-keyword">for</span> commit:<br>  (use <span class="hljs-string">&quot;git add/rm &amp;lt;file&amp;gt;...&quot;</span> to update what will be committed)<br>  (use <span class="hljs-string">&quot;git checkout -- &amp;lt;file&amp;gt;...&quot;</span> to discard changes <span class="hljs-keyword">in</span> working directory)<br><br>        deleted:    b.txt<br><br>no changes added to commit (use <span class="hljs-string">&quot;git add&quot;</span> and/or <span class="hljs-string">&quot;git commit -a&quot;</span>)<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>提醒使用 checkout 命令可以将暂存区域的文件恢复到工作目录：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git checkout -- b.txt<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>文件就会重新返回。</p><blockquote><p>那么如何彻底删除一个文件呢？</p></blockquote><p>假如你不小心把小黄图下载到了工作目录，然后又不小心提交到了 Git 仓库：</p><p>新增一个c.txt文件</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs text">51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ echo 123 &amp;gt; c.txt<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git add .<br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git commit -m &#x27;third&#x27;<br>[master 3bd84d8] third<br> 1 file changed, 1 insertion(+)<br> create mode 100644 c.txt<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>还有方法：</p><p>执行 git rm a.txt 命令：</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">$ git rm c.txt<br>rm &#x27;c.txt&#x27;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><p>此时工作目录中的c.txt已经被删除……</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ <span class="hljs-built_in">ls</span><br>a.txt  b.txt  mintty.exe.stackdump<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>但执行 git status 命令，你仍然发现 Git 还不肯松手：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git status<br>On branch master<br>Changes to be committed:<br>  (use <span class="hljs-string">&quot;git reset HEAD &amp;lt;file&amp;gt;...&quot;</span> to unstage)<br><br>        deleted:    c.txt<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>意思是说它在仓库的快照中发现有个叫 c.txt 的东西，但似乎在暂存区域和当前目录不见了！</p><p>此时可以执行 git reset --soft HEAD~ 命令将快照回滚到上一个位置，然后重新提交，就好了：</p><p><strong>注意：rm 命令删除的只是工作目录和暂存区域的文件（即取消跟踪，在下次提交时不纳入版本管理）</strong></p><blockquote><p>缓冲区和工作树的内容不一致，怎么删除</p></blockquote><p>1、修改b.txt 添加至缓冲区</p><p>2、再修改b.txt</p><p>3、git rm c.txt</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">echo</span> 123 &amp;gt; b.txt<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git add b.txt<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ <span class="hljs-built_in">echo</span> 123 &amp;gt; b.txt<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git <span class="hljs-built_in">rm</span> b.txt<br>error: the following file has changes staged <span class="hljs-keyword">in</span> the index:<br>    b.txt<br>(use --cached to keep the file, or -f to force removal)<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>因为两个不同内容的同名文件，谁知道你是不是搞清楚了都要删掉？还是提醒一下好，别等一下出错了又要赖机器…… 根据提示，执行 git rm -f b.txt命令就可以把两个都删除。</p><blockquote><p>我只想删除暂存区域的文件，保留工作目录的，应该怎么操作？</p></blockquote><p>执行 git rm --cached 文件名 命令。</p><h2 id="_6、重命名文件" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_6、重命名文件">#</a> 6、重命名文件</h2><p>直接在工作目录重命名文件，执行git status出现错误：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git status<br>On branch master<br>Changes to be committed:<br>  (use <span class="hljs-string">&quot;git reset HEAD &amp;lt;file&amp;gt;...&quot;</span> to unstage)<br><br>        modified:   b.txt<br><br>Changes not staged <span class="hljs-keyword">for</span> commit:<br>  (use <span class="hljs-string">&quot;git add/rm &amp;lt;file&amp;gt;...&quot;</span> to update what will be committed)<br>  (use <span class="hljs-string">&quot;git checkout -- &amp;lt;file&amp;gt;...&quot;</span> to discard changes <span class="hljs-keyword">in</span> working directory)<br><br>        deleted:    b.txt<br><br>Untracked files:<br>  (use <span class="hljs-string">&quot;git add &amp;lt;file&amp;gt;...&quot;</span> to include <span class="hljs-keyword">in</span> what will be committed)<br><br>        n.txt<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>正确的姿势应该是：</p><p>git mv 旧文件名 新文件名</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">mv</span> b.txt c.txt<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git status<br>On branch master<br>Changes to be committed:<br>  (use <span class="hljs-string">&quot;git reset HEAD &amp;lt;file&amp;gt;...&quot;</span> to unstage)<br><br>        renamed:    b.txt -&amp;gt; c.txt<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_7、忽略文件" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_7、忽略文件">#</a> 7、忽略文件</h2><p><strong>如何让Git 识别某些格式的文件，然后自主不跟踪它们？</strong> 比如工作目录中有三个文件1.temp、2.temp 和 3.temp，我们不希望后缀名为 temp 的文件被追踪，可是每次执行git status都会出现：</p><p>解决办法：在工作目录创建一个名为 .gitignore 的文件。</p><p>然后你发现 Windows 压根儿不允许你在文件管理器中创建以点（.）开头的文件。windows需要在命令行窗口创建（.）开头的文件。执行 echo *.temp &gt; .gitignore 命令，创建一个 .gitignore 文件，并让 Git 忽略所有 .temp 后缀的文件：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">echo</span> *.temp &amp;gt; .gitignore<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">echo</span> *.temp &amp;gt; .gitignore<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>在工作目录创建 a.temp</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git status<br>On branch master<br>Changes to be committed:<br>  (use <span class="hljs-string">&quot;git reset HEAD &amp;lt;file&amp;gt;...&quot;</span> to unstage)<br><br>        renamed:    b.txt -&amp;gt; c.txt<br><br>Untracked files:<br>  (use <span class="hljs-string">&quot;git add &amp;lt;file&amp;gt;...&quot;</span> to include <span class="hljs-keyword">in</span> what will be committed)<br><br>        .gitignore<br><br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>好了，Git 已经忽略了所有的 *.temp 文件（你还可以把 .gitignore 文件也一并忽略）。</p><h2 id="_8、创建和切换分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_8、创建和切换分支">#</a> 8、创建和切换分支</h2><h3 id="_1-分支是什么" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-分支是什么">#</a> （1）分支是什么？</h3><p>假设你的大项目已经上线了（有上百万人在使用），过了一段时间</p><p>你突然觉得应该添加一些新的功能，但是为了保险起见，你肯定不能在当前项目上直接进行开发，这时候你就有创建分支的需要了。</p><figure><img alt="image-20210316221252036" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316221252036-21f2b3f7.png" tabindex="0"/><figcaption>image-20210316221252036</figcaption></figure><p>对于其它版本控制系统而言，创建分支常常需要完全创建一个源代码目录的副本，项目越大，耗费的时间就越多；而 Git 由于每一个结点都已经是一个完整的项目，所以只需要创建多一个“指针”（像 master）指向分支开始的位置即可。</p><h3 id="_2-创建分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-创建分支">#</a> （2）创建分支</h3><p>执行git status查看状态：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git status<br>On branch master<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><p>创建分支，使用 git branch 分支名 命令：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git branch feature01<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>没有任何提示说明分支创建成功（一般也不会失败啦，除非创建了同名的分支会提醒你一下），此时可以执行 git log --decorate 命令查看：</p><p><em>如果希望以“精简版”的方式显示，可以加上一个 --oneline 选项（即 git log --decorate --oneline），这样就只用一行来显示一个快照记录。</em></p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">log</span><br>commit 432621d36faf270eae133cfe2e976fc99df479a5 (HEAD -&amp;gt; master, feature01)<br>Author: zhangnan &amp;lt;510180298@qq.com&amp;gt;<br>Date:   Sat Mar 13 17:43:53 2021 +0800<br><br>    1<br><br>commit 4c9e83b6d4ca3ca3d8b0b77bb5aca614dd755413<br>Author: zhangnan &amp;lt;510180298@qq.com&amp;gt;<br>Date:   Sat Mar 13 17:11:51 2021 +0800<br><br>    123<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>可以看到最新的快照后边多了一个 (HEAD -&gt; master, feature01)</p><p>它的意思是：目前有两个分支，一个是主分支（master），一个是刚才我们创建的新分支（feature），然后 HEAD 指针仍然指向默认的 master 分支。</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">log</span> --decorate --oneline<br>432621d (HEAD -&amp;gt; master, feature01) 1<br>4c9e83b 123<br>8af2e68 secong<br>c7c0e3b first<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>所以目前仓库中的快照应该是这样：head --》 master feature01</p><h3 id="_3-切换分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3-切换分支">#</a> （3）切换分支</h3><p>现在我们需要将工作环境切换到新创建的分支（feature）上，使用的就是之前我们欲言又止的 checkout 命令。执行 git checkout feature 命令：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git checkout feature01<br>Switched to branch <span class="hljs-string">&#x27;feature01&#x27;</span><br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (feature01)<br>$ git status<br>On branch feature01<br>nothing to commit, working tree clean<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>现在我们进行一次提交（暂存区域还有一个更改的文件没有提交呢）：</p><p>创建d.txt文件</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs text">$ git add d.txt<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (feature01)<br>$ git commit -am &#x27;feature01&#x27;<br>[feature01 f5e0b68] feature01<br> 1 file changed, 1 insertion(+)<br> create mode 100644 d.txt<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>现在仓库中的快照应该是酱紫（提交的快照由当前HEAD指针指向的分支来管理）：</p><figure><img alt="image-20210316221845292" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316221845292-8f628f66.png" tabindex="0"/><figcaption>image-20210316221845292</figcaption></figure><p>然后我们将 HEAD 指针切回 master 分支：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (feature01)<br>$ <span class="hljs-built_in">ls</span><br>a.temp  a.txt  c.txt  d.txt  mintty.exe.stackdump<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (feature01)<br>$ git checkout master<br>Switched to branch <span class="hljs-string">&#x27;master&#x27;</span><br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ <span class="hljs-built_in">ls</span><br>a.temp  a.txt  c.txt  mintty.exe.stackdump<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>细心的朋友会发现上一次对 <a href="http://README.md" rel="noopener noreferrer" target="_blank">README.md<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a> 文件的修改已经荡然无存了，这是因为我们的工作目录已经回到 master 分支的状态中：</p><blockquote><p>在不同的分支分别提交</p></blockquote><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git status<br>On branch master<br>nothing to commit, working tree clean<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ <span class="hljs-built_in">echo</span> 333 &amp;gt;&amp;gt; c.txt<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git add c.txt<br>warning: LF will be replaced by CRLF <span class="hljs-keyword">in</span> c.txt.<br>The file will have its original line endings <span class="hljs-keyword">in</span> your working directory<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git commit -m <span class="hljs-string">&#x27;master&#x27;</span><br>[master baccb7f] master<br> 1 file changed, 1 insertion(+)<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git checkout feature01<br>Switched to branch <span class="hljs-string">&#x27;feature01&#x27;</span><br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (feature01)<br>$ <span class="hljs-built_in">echo</span> 333 &amp;gt;&amp;gt; c.txt<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (feature01)<br>$ git add c.txt<br>warning: LF will be replaced by CRLF <span class="hljs-keyword">in</span> c.txt.<br>The file will have its original line endings <span class="hljs-keyword">in</span> your working directory<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (feature01)<br>$ git commit -m <span class="hljs-string">&#x27;feature01&#x27;</span><br>[feature01 b134862] feature01<br> 1 file changed, 1 insertion(+)<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (feature01)<br>$ got <span class="hljs-built_in">log</span> --graph<br><br>| Author: zhangnan &amp;lt;510180298@qq.com&amp;gt;<br>| Date:   Sat Mar 13 18:00:03 2021 +0800<br>|<br>|     feature01<br>|<br>* commit f5e0b68217b66d959bf9eeed7ad7631e4365f355<br>| Author: zhangnan &amp;lt;510180298@qq.com&amp;gt;<br>| Date:   Sat Mar 13 17:50:20 2021 +0800<br>|<br>|     feature01<br>|<br>| * commit baccb7f29da8143adebc79ca4c10e15204e79411 (master)<br>|/  Author: zhangnan &amp;lt;510180298@qq.com&amp;gt;<br>|   Date:   Sat Mar 13 17:59:20 2021 +0800<br>|<br>|       master<br>|<br>* commit 432621d36faf270eae133cfe2e976fc99df479a5<br>| Author: zhangnan &amp;lt;510180298@qq.com&amp;gt;<br>| Date:   Sat Mar 13 17:43:53 2021 +0800<br>|<br>|     1<br>|<br>* commit 4c9e83b6d4ca3ca3d8b0b77bb5aca614dd755413<br>| Author: zhangnan &amp;lt;510180298@qq.com&amp;gt;<br>| Date:   Sat Mar 13 17:11:51 2021 +0800<br>|<br>|     123<br>|<br><br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_9、合并分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_9、合并分支">#</a> 9、合并分支</h2><p>新建一个仓库</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash">// 初始化一个仓库<br>$ git init<br>// 创建一个a.txt 文件，并且修改他的内容<br>$ <span class="hljs-built_in">touch</span> a.txt<br><br>// 提交该分支<br>$ git add a.txt<br>$ git commit -m <span class="hljs-string">&#x27;master&#x27;</span><br><br>// 切出一个分支<br>$ git branch feature1<br>// 切换到该分支<br>$ git checkout feature1<br>Switched to branch <span class="hljs-string">&#x27;feature1&#x27;</span><br>// 随意修改a.txt的内容<br>。。。<br>// 切换回主分支<br>$ git checkout master<br>Switched to branch <span class="hljs-string">&#x27;master&#x27;</span><br>// 合并分支<br>$ git merge feature1<br>Updating 540e027..cae5dfc<br>Fast-forward<br> a.txt | 8 +++++++-<br> 1 file changed, 7 insertions(+), 1 deletion(-)<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><img alt="image-20210315100125472" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210315100125472-29dec56b.png" tabindex="0"/><figcaption>image-20210315100125472</figcaption></figure><p>当一个子分支的使命完结之后，它就应该回归到主分支中去。</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">log</span> --decorate --all --graph --online<br>fatal: unrecognized argument: --online<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (feature01)<br>$ git <span class="hljs-built_in">log</span> --decorate --all --graph --oneline<br>* b134862 (HEAD -&amp;gt; feature01) feature01<br>* f5e0b68 feature01<br>| * baccb7f (master) master<br>|/<br>* 432621d 1<br>* 4c9e83b 123<br>* 8af2e68 secong<br>* c7c0e3b first<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>合并分支我们使用 merge 命令，执行 git merge feature01命令，将 feature 分支合并到 HEAD 所在的分支（master）上：</p><p>第一步 切出一个feature2分支，修改master分支中a.txt第一行数据，</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs bash">// 先切出一个分支<br>$ git branch feature2<br><br>// 在master分支做修改，修改a.txt的第一行数据<br>$ git add a.txt<br><br>//提交master分支<br>$ git commit -m <span class="hljs-string">&#x27;master&#x27;</span><br><br>// 切换到feature2 分支<br>$ git checkout feature2<br>Switched to branch <span class="hljs-string">&#x27;feature2&#x27;</span><br><br>// 同样修改a.txt的第一行数据<br>$ git add a.txt<br>// 提交<br>$ git commit -m feature2<br>[feature2 0ebb84a] feature2<br> 1 file changed, 1 insertion(+), 1 deletion(-)<br><br>// 切换到master分支<br>$ git checkout master<br>Switched to branch <span class="hljs-string">&#x27;master&#x27;</span><br><br>// 将feature2合并到master分支上<br>$ git merge feature2<br>// 发生了问题<br>Auto-merging a.txt<br>CONFLICT (content): Merge conflict <span class="hljs-keyword">in</span> a.txt<br>Automatic merge failed; fix conflicts and <span class="hljs-keyword">then</span> commit the result.<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>a.txt内容变成了如下：</p><div class="language-txt line-numbers-mode" data-ext="txt"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight txt"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs txt">&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD<br>123123<br>=======<br>123345<br>&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; feature2<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>意思是说现在你需要先解决冲突的问题，Git 才能进行合并操作。所谓冲突，无非就是像两个分支中存在同名但内容却不同的文件，Git 不知道你要舍弃哪一个或保留哪一个，所以需要你自己来决定。 此时执行 git status 命令也会显示需要你解决的冲突：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git status<br>On branch master<br>You have unmerged paths.<br>  (fix conflicts and run <span class="hljs-string">&quot;git commit&quot;</span>)<br>  (use <span class="hljs-string">&quot;git merge --abort&quot;</span> to abort the merge)<br><br>Unmerged paths:<br>  (use <span class="hljs-string">&quot;git add &amp;lt;file&amp;gt;...&quot;</span> to mark resolution)<br><br>        both modified:   a.txt<br><br>no changes added to commit (use <span class="hljs-string">&quot;git add&quot;</span> and/or <span class="hljs-string">&quot;git commit -a&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>以“=======”为界，上到“&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD”的内容表示当前分支，下到“&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature”表示待合并的 feature 分支，之间的内容就是冲突的地方。</p><figure><img alt="image-20210315100412732" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210315100412732-4620ac19.png" tabindex="0"/><figcaption>image-20210315100412732</figcaption></figure><p>我们就需要手动修改：</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">123123<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master|MERGING)<br>$ git add a.txt<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master|MERGING)<br>$ git commit -m <span class="hljs-string">&#x27;解决冲突&#x27;</span><br>[master 569943e] 解决冲突<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_10、删除分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_10、删除分支">#</a> 10、删除分支</h2><p>当一个功能开发完成，并且成功合并到主分支，我们应该删除分支</p><p>使用 git branch -d 分支名 命令：</p><p>执行 git log --decorate --all --graph --oneline 命令：</p><p>由于 Git 的分支原理实际上只是通过一个指针记载，所以创建和删除分支都几乎是瞬间完成。</p><p><em>注意：如果试图删除未合并的分支，Git 会提示你“该分支未完全合并，如果你确定要删除，请使用 git branch -D 分支名 命令。</em></p><h2 id="_11、变基" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_11、变基">#</a> 11、变基</h2><p>当我们开发一个功能时，可能会在本地有无数次commit，而你实际上在你的master分支上只想显示每一个功能测试完成后的一次完整提交记录就好了，其他的提交记录并不想将来全部保留在你的master分支上，那么rebase将会是一个好的选择，他可以在rebase时将本地多次的commit合并成一个commit，还可以修改commit的描述等</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">// 合并前两次的commit<br>git  rebase -i head~~<br><br>// 合并此次commit在最新commit的提交<br>git rebaser -i hash值<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h1 id="第四章-码云的使用" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#第四章-码云的使用">#</a> 第四章 码云的使用</h1><p>既然git是一个团队合作开发的工具，那本地的仓库肯定不能满足团队开发的需求！就必须要有一个远程仓库统一管理我们的代码。</p><p>这类的工具有很多，公网上的有github，国内的有码云 gitee</p><p>公司内部直接使用 gitlab （等学习了docker后我们部署一个gitlab）</p><figure><img alt="image-20210316223001173" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316223001173-3b39b549.png" tabindex="0"/><figcaption>image-20210316223001173</figcaption></figure><h2 id="一、基本了解" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#一、基本了解">#</a> 一、基本了解</h2><h3 id="_1-github" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-github">#</a> （1）github</h3><figure><img alt="image-20210316141240499" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316141240499-a40a7b38.png" tabindex="0"/><figcaption>image-20210316141240499</figcaption></figure><h3 id="_2-码云" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-码云">#</a> （2）码云</h3><figure><img alt="image-20210316141308572" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316141308572-271089e2.png" tabindex="0"/><figcaption>image-20210316141308572</figcaption></figure><h3 id="_3-gitlab独立部署" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3-gitlab独立部署">#</a> （3）gitlab独立部署</h3><figure><img alt="image-20210316141401006" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316141401006-19f8e475.png" tabindex="0"/><figcaption>image-20210316141401006</figcaption></figure><p>但是基于网路的原因和学习成本，咱们使用码云。会一个就都回了。</p><h2 id="二、基本使用" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#二、基本使用">#</a> 二、基本使用</h2><h3 id="_1、注册个账号" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、注册个账号">#</a> 1、注册个账号</h3><h3 id="_2、认识界面" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、认识界面">#</a> 2、认识界面</h3><p>开源软件--》里边有很多的优秀的开源软件学习</p><figure><img alt="image-20210316142109047" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316142109047-35dd766c.png" tabindex="0"/><figcaption>image-20210316142109047</figcaption></figure><blockquote><p>我的控制台</p></blockquote><figure><img alt="image-20210316142040365" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316142040365-8bbc87fb.png" tabindex="0"/><figcaption>image-20210316142040365</figcaption></figure><figure><img alt="image-20210316142303377" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316142303377-bbfde513.png" tabindex="0"/><figcaption>image-20210316142303377</figcaption></figure><blockquote><p>贡献度和动态</p></blockquote><figure><img alt="image-20210316142318619" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316142318619-b069e8c7.png" tabindex="0"/><figcaption>image-20210316142318619</figcaption></figure><blockquote><p>认识仓库</p></blockquote><figure><img alt="image-20210316142705234" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316142705234-0bcef3c6.png" tabindex="0"/><figcaption>image-20210316142705234</figcaption></figure><p>1、pull Request 开发者在本地对源代码进行修改之后，想仓库提交请求合并的功能</p><p>2、Wiki 该功能通常用作文档手册的编写当中</p><p>3、Issues：是将一个任务或问题分配给一个issue进行跟踪和管理，可以当做bug管理系统使用，每一个功能的更正或修改都应该对应一个issue，只要看issues就能看到关于这个更改的所有信息</p><p>4、统计就是仓库各项数据的数据统计，devOPs是持续继承、持续交付的服务，服务：其他码云提供的一些服务。</p><p>5、管理：对仓库的一些修改删除等操作：</p><h3 id="_3、新建仓库" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3、新建仓库">#</a> 3、新建仓库</h3><figure><img alt="image-20210316143811271" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316143811271-330f6ba6.png" tabindex="0"/><figcaption>image-20210316143811271</figcaption></figure><figure><img alt="image-20210316143923380" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316143923380-bf0502e4.png" tabindex="0"/><figcaption>image-20210316143923380</figcaption></figure><figure><img alt="image-20210316144205201" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316144205201-d0096190.png" tabindex="0"/><figcaption>image-20210316144205201</figcaption></figure><blockquote><p>第一次进入</p></blockquote><figure><img alt="image-20210316144308897" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316144308897-2002da30.png" tabindex="0"/><figcaption>image-20210316144308897</figcaption></figure><blockquote><p>会让你输入密码</p></blockquote><figure><img alt="image-20210316144512234" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316144512234-10cc368d.png" tabindex="0"/><figcaption>image-20210316144512234</figcaption></figure><h3 id="_4、建立本地仓库" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_4、建立本地仓库">#</a> 4、建立本地仓库</h3><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study<br>$ git config --global user.name <span class="hljs-string">&quot;Alm张楠&quot;</span><br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study<br>$ git config --global user.email <span class="hljs-string">&quot;510180298@qq.com&quot;</span><br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study<br>$ <span class="hljs-built_in">cd</span> git-study<br>bash: <span class="hljs-built_in">cd</span>: git-study: No such file or directory<br><span class="hljs-built_in">touch</span> README.md<br>git add README.md<br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study<br>$ git init<br>Initialized empty Git repository <span class="hljs-keyword">in</span> C:/Users/51018/Desktop/git-study/.git/<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ <span class="hljs-built_in">touch</span> README.md<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git add README.md<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git commit -m <span class="hljs-string">&quot;first commit&quot;</span><br>[master (root-commit) d885e2e] first commit<br> 1 file changed, 0 insertions(+), 0 deletions(-)<br> create mode 100644 README.md<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git remote add origin https://gitee.com/zhangnan716/git-study.git<br><br>51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)<br>$ git push -u origin master<br>Enumerating objects: 3, <span class="hljs-keyword">done</span>.<br>Counting objects: 100% (3/3), <span class="hljs-keyword">done</span>.<br>Writing objects: 100% (3/3), 215 bytes | 215.00 KiB/s, <span class="hljs-keyword">done</span>.<br>Total 3 (delta 0), reused 0 (delta 0)<br>remote: Powered by GITEE.COM [GNK-5.0]<br>To https://gitee.com/zhangnan716/git-study.git<br> * [new branch]      master -&amp;gt; master<br>Branch <span class="hljs-string">&#x27;master&#x27;</span> <span class="hljs-built_in">set</span> up to track remote branch <span class="hljs-string">&#x27;master&#x27;</span> from <span class="hljs-string">&#x27;origin&#x27;</span>.<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><p>第一个关键：添加一个远程仓库</p></blockquote><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">$ git remote add origin https://gitee.com/zhangnan716/git-study.git<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><blockquote><p>把代码推送到远程仓库</p></blockquote><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git push -u origin master<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><blockquote><p>列出所有的远程仓库</p></blockquote><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">git remote -v<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><blockquote><p>显示某个远程仓库信息</p></blockquote><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">git remote show [remote]<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><blockquote><p>git push 的其他命令**</p></blockquote><p>这几个常见的用法已足以满足我们日常开发的使用了，还有几个扩展的用法，如下：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git push -u origin master <br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>如果当前分支与多个主机存在追踪关系，则可以使用 -u 参数指定一个默认主机，这样后面就可以不加任何参数使用git push，</p><p>不带任何参数的git push，默认只推送当前分支，这叫做simple方式，还有一种matching方式，会推送所有有对应的远程分支的本地分支， Git 2.0之前默认使用matching，现在改为simple方式</p><p>如果想更改设置，可以使用git config命令。git config --global push.default matching OR git config --global push.default simple；可以使用git config -l 查看配置</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git push --all origin <br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>当遇到这种情况就是不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机，这时需要 -all 选项</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git push --force origin <br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>git push的时候需要本地先git pull更新到跟服务器版本一致，如果本地版本库比远程服务器上的低，那么一般会提示你git pull更新，如果一定要提交，那么可以使用这个命令。</p><figure><img alt="image-20210316144809258" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316144809258-c175de5a.png" tabindex="0"/><figcaption>image-20210316144809258</figcaption></figure><h3 id="_5、其他功能" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_5、其他功能">#</a> 5、其他功能</h3><blockquote><p>打标签</p></blockquote><figure><img alt="image-20210316144902740" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316144902740-193b760b.png" tabindex="0"/><figcaption>image-20210316144902740</figcaption></figure><blockquote><p>分支选择</p></blockquote><figure><img alt="image-20210316144940684" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316144940684-1e4cb7d5.png" tabindex="0"/><figcaption>image-20210316144940684</figcaption></figure><blockquote><p>创建分支</p></blockquote><figure><img alt="image-20210316145026969" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316145026969-8e809286.png" tabindex="0"/><figcaption>image-20210316145026969</figcaption></figure><figure><img alt="image-20210316145048834" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316145048834-231f716d.png" tabindex="0"/><figcaption>image-20210316145048834</figcaption></figure><blockquote><p>在统计模块，你还可以发布发型版，提供下载</p></blockquote><figure><img alt="image-20210316145150233" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316145150233-3a655df0.png" tabindex="0"/><figcaption>image-20210316145150233</figcaption></figure><figure><img alt="image-20210316145202029" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316145202029-76d92ba6.png" tabindex="0"/><figcaption>image-20210316145202029</figcaption></figure><h2 id="三、一般的协同开发流程" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#三、一般的协同开发流程">#</a> 三、一般的协同开发流程</h2><h3 id="_1、仓库" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、仓库">#</a> 1、仓库</h3><h3 id="_1-源仓库-线上版本库" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-源仓库-线上版本库">#</a> （1）源仓库(线上版本库)</h3><p>在项目的开始,项目的发起者构建起一个项目的最原始的仓库,称为<code>origin。</code></p><p>源仓库的有两个作用：</p><ul><li>汇总参与该项目的各个开发者的代码</li><li>存放趋于稳定和可发布的代码</li></ul><p>源仓库应该是受保护的，开发者不应该直接对其进行开发工作。只有项目管理者能对其进行较高权限的操作。</p><h3 id="_2-开发者仓库-本地仓库" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-开发者仓库-本地仓库">#</a> （2）开发者仓库(本地仓库)</h3><p>任何开发者都不会对源仓库进行直接的操作，源仓库建立以后，每个开发者需要做的事情就是把源仓库的“复制”一份，作为自己日常开发的仓库。这个复制是gitlab上面的<code>fork</code>。</p><p>每个开发者所fork的仓库是完全独立的，互不干扰，甚至与源仓库都无关。每个开发者仓库相当于一个源仓库实体的影像，开发者在这个影像中进行编码，提交到自己的仓库中，这样就可以轻易地实现团队成员之间的并行开发工作。而开发工作完成以后，开发者可以向源仓库发送pull request，请求管理员把自己的代码合并到源仓库中，这样就实现了<strong>分布式开发工作</strong>和<strong>集中式的管理</strong>。</p><h3 id="_2、分支划分-branch" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、分支划分-branch">#</a> 2、分支划分（Branch）</h3><h3 id="_1-master-branch-主分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-master-branch-主分支">#</a> （1）master branch：主分支</h3><p><strong>master</strong>：主分支从项目一开始便存在，它用于存放经过测试，已经完全稳定代码；在项目开发以后的任何时刻当中，<code>master</code>存放的代码应该是可作为产品供用户使用的代码。所以，应该随时保持<code>master</code>仓库代码的清洁和稳定，确保入库之前是通过完全测试和代码reivew的。master分支是所有分支中最不活跃的，大概每个月或每两个月更新一次，每一次master更新的时候都应该用<code>git</code>打上<code>tag</code>，来说明产品有新版本发布。</p><h3 id="_2-develop-branch-开发分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-develop-branch-开发分支">#</a> （2）develop branch：开发分支</h3><p><strong>develop</strong>：开发分支，一开始从<code>master</code>分支中分离出来，用于开发者存放基本稳定代码。每个开发者的仓库相当于源仓库的一个镜像，每个开发者自己的仓库上也有master和develop。开发者把功能做好以后，是存放到自己的develop中，当测试完以后，可以向管理者发起一个pull request，请求把自己仓库的develop分支合并到源仓库的develop中。所有开发者开发好的功能会在源仓库的develop分支中进行汇总，当develop中的代码经过不断的测试，已经逐渐趋于稳定了，接近产品目标了。这时候，就可以把<code>develop</code>分支合并到<code>master</code>分支中，发布一个新版本。</p><p>注:任何人不应该向<code>master</code>直接进行无意义的合并、提交操作。正常情况下，<code>master</code>只应该接受<code>develop</code>的合并，也就是说，<code>master</code>所有代码更新应该源于合并<code>develop</code>的代码。</p><h3 id="_3-feature-branch-功能分支" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3-feature-branch-功能分支">#</a> （3）feature branch：功能分支</h3><p><strong>feature</strong>：功能性分支，是用于开发项目的功能的分支，是开发者主要战斗阵地。开发者在本地仓库从<code>develop</code>分支分出功能分支，在该分支上进行功能的开发，开发完成以后再合并到<code>develop</code>分支上，这时候功能性分支已经完成任务，可以删除。功能性分支的命名一般为<code>feature-*</code>，|*为需要开发的功能的名称。</p><h3 id="_4-协议选择" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_4-协议选择">#</a> （4）协议选择</h3><figure><img alt="image-20210316154759831" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316154759831-f5926af7.png" tabindex="0"/><figcaption>image-20210316154759831</figcaption></figure><blockquote><p>http好还是ssh好</p></blockquote><ul><li>git可以使用四种主要的协议来传输资料: 本地协议（Local），HTTP 协议，SSH（Secure Shell）协议及 git 协议。其中，本地协议由于目前大都是进行远程开发和共享代码所以一般不常用，而git协议由于缺乏授权机制且较难架设所以也不常用。</li><li>最常用的便是SSH和HTTP(S)协议。git关联远程仓库可以使用http协议或者ssh协议。</li></ul><blockquote><p>HTTPS优缺点</p></blockquote><ul><li>优点1: 相比 SSH 协议，可以使用用户名／密码授权是一个很大的优势，这样用户就不必须在使用 Git 之前先在本地生成 SSH 密钥对再把公钥上传到服务器。 对非资深的使用者，或者系统上缺少 SSH 相关程序的使用者，HTTP 协议的可用性是主要的优势。 与 SSH 协议类似，HTTP 协议也非常快和高效</li><li>优点2: 企业防火墙一般会打开 80 和 443 这两个常见的http和https协议的端口，使用http和https的协议在架设了防火墙的企业里面就可以绕过安全限制正常使用git，非常方便</li><li>缺点: 使用http/https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令. 但是现在操作系统或者其他git工具都提供了 <code>keychain</code> 的功能，可以把你的账户密码记录在系统里，例如OSX 的 Keychain 或者 Windows 的凭证管理器。所以也只需要输一次密码就搞定了。</li></ul><blockquote><p>SSH的优缺点</p></blockquote><ul><li><p>优点1: 架设 Git 服务器时常用 SSH 协议作为传输协议。 因为大多数环境下已经支持通过 SSH 访问 —— 即时没有也比较很容易架设。 SSH 协议也是一个验证授权的网络协议；并且，因为其普遍性，架设和使用都很容易。</p></li><li><p>缺点1: SSH服务端一般使用22端口，企业防火墙可能没有打开这个端口。</p></li><li><p>缺点2: SSH 协议的缺点在于你不能通过他实现匿名访问。 即便只要读取数据，使用者也要有通过 SSH 访问你的主机的权限，这使得 SSH 协议不利于开源的项目。 如果你只在公司网络使用，SSH 协议可能是你唯一要用到的协议。 如果你要同时提供匿名只读访问和 SSH 协议，那么你除了为自己推送架设 SSH 服务以外，还得架设一个可以让其他人访问的服务。</p></li></ul><blockquote><p>总结</p></blockquote><p>HTTPS利于匿名访问，适合开源项目可以方便被别人克隆和读取(但他没有push权限)；毕竟为了克隆别人一个仓库学习一下你就要生成个ssh-key折腾一番还是比较麻烦，所以github除了支持ssh协议必然提供了https协议的支持。</p><p>而SSH协议使用公钥认证比较适合内部项目。 当然了现在的代码管理平台例如github、gitliab，两种协议都是支持的，基本上看自己喜好和需求来选择就可以了。</p><blockquote><p>生成/添加SSH公钥</p></blockquote><p><a href="https://gitee.com/help/labels/19" rel="noopener noreferrer" target="_blank">SSH Key<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a> <a href="https://gitee.com/help/labels/29" rel="noopener noreferrer" target="_blank">SSH 公钥<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><p>Gitee 提供了基于SSH协议的Git服务，在使用SSH协议访问仓库仓库之前，需要先配置好账户/仓库的SSH公钥。</p><p>你可以按如下命令来生成 sshkey:</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">ssh-keygen -t rsa -C &quot;510180298@qq.com&quot;  <br># Generating public/private rsa key pair...<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><p>注意：这里的 <code>xxxxx@xxxxx.com</code> 只是生成的 sshkey 的名称，并不约束或要求具体命名为某个邮箱。 现网的大部分教程均讲解的使用邮箱生成，其一开始的初衷仅仅是为了便于辨识所以使用了邮箱。</p></blockquote><p>按照提示完成三次回车，即可生成 ssh key。通过查看 <code>~/.ssh/id_rsa.pub</code> 文件内容，获取到你的 public key</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">cat ~/.ssh/id_rsa.pub<br># ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6eNtGpNGwstc....<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><figure><img alt="SSH生成" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/170141_5aa5bc98_551147-5983bb6e.png" tabindex="0"/><figcaption>SSH生成</figcaption></figure><p>复制生成后的 ssh key，通过仓库主页 <strong>「管理」-&gt;「部署公钥管理」-&gt;「添加部署公钥」</strong> ，添加生成的 public key 添加到仓库中。</p><figure><img alt="添加部署公钥" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/233212_29a62378_551147-9d04d8e4.png" tabindex="0"/><figcaption>添加部署公钥</figcaption></figure><p>添加后，在终端（Terminal）中输入</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@gitee.com<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>首次使用需要确认并添加主机到本机SSH可信列表。若返回 <code>Hi XXX! You've successfully authenticated, but Gitee.com does not provide shell access.</code> 内容，则证明添加成功。</p><figure><img alt="SSH添加提示" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/170837_4c5ef029_551147-20915a65.png" tabindex="0"/><figcaption>SSH添加提示</figcaption></figure><p>添加成功后，就可以使用SSH协议对仓库进行操作了。</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ssh -T git@gitee.com<br>Hi Alm张楠 (DeployKey)! You<span class="hljs-string">&#x27;ve successfully authenticated, but GITEE.COM does not provide shell access.</span><br><span class="hljs-string">Note: Perhaps the current use is DeployKey.</span><br><span class="hljs-string">Note: DeployKey only supports pull/fetch operations</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><p>仓库公钥和可部署公钥</p></blockquote><p>为了便于用户在多个项目仓库下使用一套公钥，免于重复部署和管理的繁琐，Gitee 推出了「可部署公钥」功能，支持在一个仓库空间下使用当前账户名下/参与的另一个仓库空间的部署公钥，实现公钥共用。</p><p>部署公钥允许以只读的方式访问仓库，主要用于仓库在生产服务器的部署上，免去HTTP方式每次操作都要输入密码和普通SSH方式担心不小心修改仓库代码的麻烦。</p><p>部署公钥配置后的机器，只支持clone与pull等只读操作。如果您想要对仓库进行写操作，请 <a href="https://gitee.com/profile/sshkeys" rel="noopener noreferrer" target="_blank">添加个人公钥<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><p>部署公钥允许以只读的方式访问仓库，主要用于仓库在生产服务器的部署上，免去HTTP方式每次操作都要输入密码和普通SSH方式担心不小心修改仓库代码的麻烦。</p><p>部署公钥配置后的机器，只支持clone与pull等只读操作。如果您想要对仓库进行写操作，请 <a href="https://gitee.com/profile/sshkeys" rel="noopener noreferrer" target="_blank">添加个人公钥<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p><p>个人公钥的添加地址：</p><figure><img alt="image-20210316173317900" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316173317900-2bdba5d1.png" tabindex="0"/><figcaption>image-20210316173317900</figcaption></figure><h3 id="_3、实战" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3、实战">#</a> 3、实战</h3><h3 id="_1-多人合作开发流程" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-多人合作开发流程">#</a> （1）多人合作开发流程</h3><figure><img alt="image-20210318143710841" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210318143710841-89588c83.png" tabindex="0"/><figcaption>image-20210318143710841</figcaption></figure><p>1、首先项目经理初始化仓库建立好分支。一般会建立两个，一个master分支，一个develop分支。当然，也可能建立一个预发布版本的分支用于测试不如 realse分支。</p><p>2、对个分支设置保护行为。</p><p>3、添加项目成员。</p><blockquote><p>小张的开发</p></blockquote><p>1、将项目克隆到本地。</p><p>2、切换至开发分支</p><p>3、在开发分支上新建一个单独的功能分支，进行开发。</p><p>4、开发完成，合并到开发分支，如果功能分支没用了，可以删除。</p><p>5、先拉取新代码（git pull）,其实就是合并，发生冲突，解决冲突。</p><p>6、解决完冲突，将代码推送至代码托管平台。</p><blockquote><p>1、新建仓库</p></blockquote><figure><img alt="image-20210316161344242" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316161344242-99345513.png" tabindex="0"/><figcaption>image-20210316161344242</figcaption></figure><blockquote><p>选择项目分支保护</p></blockquote><figure><img alt="image-20210316161514694" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316161514694-f908097f.png" tabindex="0"/><figcaption>image-20210316161514694</figcaption></figure><blockquote><p>添加开发者（如果你的仓库是公共的，直接搜也行）</p></blockquote><figure><img alt="image-20210316162346682" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316162346682-01561211.png" tabindex="0"/><figcaption>image-20210316162346682</figcaption></figure><blockquote><p>此时开发者的账户汇出现该仓库</p></blockquote><blockquote><p>将项目克隆到本地，进行开发</p></blockquote><blockquote><p>开发完成推送至远程仓库</p></blockquote><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">&amp;gt;&amp;gt;&amp;gt; git <span class="hljs-built_in">clone</span> 仓库地址<br>&amp;gt;&amp;gt;&amp;gt; git checkout develop<br><span class="hljs-comment"># 切换到`develop`分支</span><br>&amp;gt;&amp;gt;&amp;gt; git checkout -b feature-discuss<br><span class="hljs-comment"># 分出一个功能性分支</span><br>&amp;gt;&amp;gt;&amp;gt; <span class="hljs-built_in">touch</span> discuss.java<br><span class="hljs-comment"># 假装discuss.java就是我们要开发的功能</span><br>&amp;gt;&amp;gt;&amp;gt; git add .<br>&amp;gt;&amp;gt;&amp;gt; git commit -m <span class="hljs-string">&#x27;finish discuss feature&#x27;</span><br><span class="hljs-comment"># 提交更改,多次测试以后</span><br>&amp;gt;&amp;gt;&amp;gt; git checkout develop<br><span class="hljs-comment"># 回到develop分支</span><br>&amp;gt;&amp;gt;&amp;gt; git merge feature-discuss<br><span class="hljs-comment"># 把做好的功能合并到develop中</span><br>&amp;gt;&amp;gt;&amp;gt; git branch -d feature-discuss<br><span class="hljs-comment"># 删除功能性分支</span><br>&amp;gt;&amp;gt;&amp;gt; git push origin develop<br><span class="hljs-comment"># 把develop提交到远程仓库中</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-跨团队合作开发" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-跨团队合作开发">#</a> （2）跨团队合作开发</h3><figure><img alt="image-20210318145518474" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210318145518474-724ffea0.png" tabindex="0"/><figcaption>image-20210318145518474</figcaption></figure><p>项目组成员的开发保持不变。</p><blockquote><p>跨团队成员的合作方式</p></blockquote><p>1、将代码fork到自己的仓库，同样可以进行相关的配置。</p><p>2、项目克隆到本地。</p><p>3、可以担任开发也可以多人开发。</p><p>4、开发完成后合并到自己的仓库</p><p>5、发起pull request请求给源仓库管理员</p><p>6、源仓库管理员进行code review（重新检查代码，审核代码），测试审核，通过则进行合并。</p><blockquote><p>源仓库的构建</p></blockquote><p>这一步通常由项目发起人(项目管理员)来操作，源仓库为op/Chanjet_Asset_Management,并初始化两个分支master和develop.</p><blockquote><p>1、新建仓库</p></blockquote><figure><img alt="image-20210316161344242" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316161344242-99345513.png" tabindex="0"/><figcaption>image-20210316161344242</figcaption></figure><blockquote><p>选择项目分支保护</p></blockquote><figure><img alt="image-20210316161514694" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316161514694-f908097f.png" tabindex="0"/><figcaption>image-20210316161514694</figcaption></figure><blockquote><p>开发者fork仓库到自己的账户下，作为自己开发所用的仓库。</p></blockquote><figure><img alt="image-20210316162529369" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316162529369-89eebb82.png" tabindex="0"/><figcaption>image-20210316162529369</figcaption></figure><blockquote><p>把自己开发者仓库clone到本地</p></blockquote><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&amp;gt;&amp;gt;&amp;gt; git <span class="hljs-built_in">clone</span> https://gitee.com/zhao-dengkai/git-study.git<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><blockquote><p>修改内容，并提交，这里直接在码云上修改</p></blockquote><figure><img alt="image-20210316162711300" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316162711300-794ee557.png" tabindex="0"/><figcaption>image-20210316162711300</figcaption></figure><blockquote><p>构建功能分支进行开发</p></blockquote><p>假设现在要开发一个“讨论”功能：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash">&amp;gt;&amp;gt;&amp;gt; git checkout develop<br><span class="hljs-comment"># 切换到`develop`分支</span><br>&amp;gt;&amp;gt;&amp;gt; git checkout -b feature-discuss<br><span class="hljs-comment"># 分出一个功能性分支</span><br>&amp;gt;&amp;gt;&amp;gt; <span class="hljs-built_in">touch</span> discuss.java<br><span class="hljs-comment"># 假装discuss.java就是我们要开发的功能</span><br>&amp;gt;&amp;gt;&amp;gt; git add .<br>&amp;gt;&amp;gt;&amp;gt; git commit -m <span class="hljs-string">&#x27;finish discuss feature&#x27;</span><br><span class="hljs-comment"># 提交更改,多次测试以后</span><br>&amp;gt;&amp;gt;&amp;gt; git checkout develop<br><span class="hljs-comment"># 回到develop分支</span><br>&amp;gt;&amp;gt;&amp;gt; git merge feature-discuss<br><span class="hljs-comment"># 把做好的功能合并到develop中</span><br>&amp;gt;&amp;gt;&amp;gt; git branch -d feature-discuss<br><span class="hljs-comment"># 删除功能性分支</span><br>&amp;gt;&amp;gt;&amp;gt; git push origin develop<br><span class="hljs-comment"># 把develop提交到自己的远程仓库中</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此时，上自己gitlab的项目主页中<code>develop</code>分支中查看，已经有<code>discuss.java</code>这个文件了：</p><blockquote><p>向项目经理提交pull request</p></blockquote><blockquote><p>提交pullrequest请求页面</p></blockquote><figure><img alt="image-20210316162936698" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316162936698-574f16d7.png" tabindex="0"/><figcaption>image-20210316162936698</figcaption></figure><figure><img alt="image-20210316162907857" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316162907857-f8f42c87.png" tabindex="0"/><figcaption>image-20210316162907857</figcaption></figure><p>在完成了“讨论”功能（当然，也可能对自己的<code>develop</code>进行了多次合并，完成了多个功能）,经过测试以后，觉得没问题，就可以请求管理员把<strong>自己仓库的</strong><code>develop</code><strong>分支</strong>合并到<strong>源仓库的</strong><code>develop</code>分支中。</p><blockquote><p>管理员测试、合并</p></blockquote><p>管理员登陆<code>gitlab</code>，看到了开发者对源仓库发起的<code>pull request``。</code></p><p>管理员需要做的事情就是：对开发者的代码进行**<code>**review</code>。</p><p>在他的本地测试新建一个测试分支，测试开发者的代码：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">&amp;gt;&amp;gt;&amp;gt; git checkout develop<br><span class="hljs-comment"># 进入管理员本地的develop分支</span><br>&amp;gt;&amp;gt;&amp;gt; git checkout -b manager-develop<br><span class="hljs-comment"># 从develop分支中分出一个叫manager-develop的测试分支测试开发者的代码</span><br>&amp;gt;&amp;gt;&amp;gt; git pull<br>http://gitlab.rd.chanjet.com/op/Chanjet_Asset_Management.git develop<br><span class="hljs-comment"># 把开发者的代码pull到测试分支中，进行测试</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>判断是否同意合并到源仓库的</strong><code>develop</code><strong>中</strong>，如果经过测试没问题，可以把开发者的代码合并到源仓库的<code>develop</code>中：</p><blockquote><p>审核通过</p></blockquote><figure><img alt="image-20210316163025733" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316163025733-a57acff5.png" tabindex="0"/><figcaption>image-20210316163025733</figcaption></figure><blockquote><p>接受请求</p></blockquote><figure><img alt="image-20210316163045014" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316163045014-dfa44fbe.png" tabindex="0"/><figcaption>image-20210316163045014</figcaption></figure><figure><img alt="image-20210316163136823" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316163136823-925f94dd.png" tabindex="0"/><figcaption>image-20210316163136823</figcaption></figure><blockquote><p>总结：</p></blockquote><p>1、自己先fork代码到自己账户</p><p>2、拉倒本地，写代码</p><p>3、推到远程仓库</p><p>4、提交issue</p><p>5、管理员测试，review后统一，就合并了</p><p>6、如发生冲突，解决冲突即可</p><h3 id="_4、重点" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_4、重点">#</a> 4、重点</h3><ul><li><p>不要随便动别人的代码，即使要动也要商量！</p></li><li><p>不要随便动别人的代码，即使要动也要商量！</p></li><li><p>不要随便动别人的代码，即使要动也要商量！</p></li><li><p>记住一点，写代码和提交之前先拉去最新的代码！必须记住！</p></li><li><p>记住一点，写代和提交之码前先拉去最新的代码！必须记住！</p></li><li><p>记住一点，写代和提交之码前先拉去最新的代码！必须记住！</p></li></ul><p>能够很大程度的避免冲突！</p><h1 id="第五章-idea使用git" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#第五章-idea使用git">#</a> 第五章 idea使用git</h1><blockquote><p>配置</p></blockquote><figure><img alt="image-20210316223514317" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316223514317-e5ebf480.png" tabindex="0"/><figcaption>image-20210316223514317</figcaption></figure><p>可以下载码云插件 gitee</p><blockquote><p>从远程仓库拉项目</p></blockquote><figure><img alt="image-20210316223943198" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316223943198-e938cc5b.png" tabindex="0"/><figcaption>image-20210316223943198</figcaption></figure><figure><img alt="image-20210316224009006" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316224009006-380c58a5.png" tabindex="0"/><figcaption>image-20210316224009006</figcaption></figure><blockquote><p>控制台查看分支提交等信息</p></blockquote><figure><img alt="image-20210316223754144" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316223754144-d07d1ad2.png" tabindex="0"/><figcaption>image-20210316223754144</figcaption></figure><blockquote><p>提交代码</p></blockquote><figure><img alt="image-20210316223853465" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316223853465-8dca464a.png" tabindex="0"/><figcaption>image-20210316223853465</figcaption></figure><figure><img alt="image-20210316223911336" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/image-20210316223911336-c8762fc5.png" tabindex="0"/><figcaption>image-20210316223911336</figcaption></figure></div></article>
+<div class="article-footer">
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/YDLDoc1/javase/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/YDLDoc1/web/js/js/">js</a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://vercel.com/">vercel</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.netlify.com/">netlify</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.cloudflare.com/">cloudflare</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 
+<!--本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span>-->
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#_1-git-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text"> （1）Git 是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_2-%E4%B8%89%E7%A7%8D%E7%8A%B6%E6%80%81"><span class="toc-text"> （2）三种状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_3-git-%E4%BF%9D%E8%AF%81%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="toc-text"> （3）Git 保证完整性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_1%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96git"><span class="toc-text"> 1、初始化Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1-%E5%88%9D%E6%AC%A1%E8%BF%90%E8%A1%8C-git-%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text"> （1）初次运行 Git 前的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2-%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-text"> （2）用户信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3-%E6%A3%80%E6%9F%A5%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-text"> （3）检查配置信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_4-%E5%B0%9D%E8%AF%95"><span class="toc-text"> （4）尝试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_5-%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9"><span class="toc-text"> （5）获取帮助</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_2%E3%80%81%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="toc-text"> 2、基础命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_3%E3%80%81%E6%97%B6%E5%85%89%E5%9B%9E%E9%80%80"><span class="toc-text"> 3、时光回退</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1-%E5%9B%9E%E6%BB%9A%E5%BF%AB%E7%85%A7"><span class="toc-text"> （1）回滚快照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2-%E5%9B%9E%E6%BB%9A%E6%8C%87%E5%AE%9A%E5%BF%AB%E7%85%A7"><span class="toc-text"> （2）回滚指定快照</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_4%E3%80%81%E7%89%88%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="toc-text"> 4、版本对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1-%E6%9A%82%E5%AD%98%E5%8C%BA%E4%B8%8E%E5%B7%A5%E4%BD%9C%E6%A0%91"><span class="toc-text"> （1）暂存区与工作树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2-%E5%B7%A5%E4%BD%9C%E6%A0%91%E5%92%8C%E6%9C%80%E6%96%B0%E6%8F%90%E4%BA%A4"><span class="toc-text"> （2）工作树和最新提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3-%E4%B8%A4%E4%B8%AA%E5%8E%86%E5%8F%B2%E5%BF%AB%E7%85%A7"><span class="toc-text"> （3）两个历史快照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_4-%E6%AF%94%E8%BE%83%E4%BB%93%E5%BA%93%E5%92%8C%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-text"> （4）比较仓库和暂存区</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_5%E3%80%81%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-text"> 5、删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_6%E3%80%81%E9%87%8D%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6"><span class="toc-text"> 6、重命名文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_7%E3%80%81%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-text"> 7、忽略文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_8%E3%80%81%E5%88%9B%E5%BB%BA%E5%92%8C%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="toc-text"> 8、创建和切换分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1-%E5%88%86%E6%94%AF%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text"> （1）分支是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-text"> （2）创建分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="toc-text"> （3）切换分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_9%E3%80%81%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="toc-text"> 9、合并分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_10%E3%80%81%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-text"> 10、删除分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_11%E3%80%81%E5%8F%98%E5%9F%BA"><span class="toc-text"> 11、变基</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BA%86%E8%A7%A3"><span class="toc-text"> 一、基本了解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1-github"><span class="toc-text"> （1）github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2-%E7%A0%81%E4%BA%91"><span class="toc-text"> （2）码云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3-gitlab%E7%8B%AC%E7%AB%8B%E9%83%A8%E7%BD%B2"><span class="toc-text"> （3）gitlab独立部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text"> 二、基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81%E6%B3%A8%E5%86%8C%E4%B8%AA%E8%B4%A6%E5%8F%B7"><span class="toc-text"> 1、注册个账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81%E8%AE%A4%E8%AF%86%E7%95%8C%E9%9D%A2"><span class="toc-text"> 2、认识界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3%E3%80%81%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="toc-text"> 3、新建仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_4%E3%80%81%E5%BB%BA%E7%AB%8B%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-text"> 4、建立本地仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_5%E3%80%81%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD"><span class="toc-text"> 5、其他功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%80%E8%88%AC%E7%9A%84%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-text"> 三、一般的协同开发流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81%E4%BB%93%E5%BA%93"><span class="toc-text"> 1、仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_1-%E6%BA%90%E4%BB%93%E5%BA%93-%E7%BA%BF%E4%B8%8A%E7%89%88%E6%9C%AC%E5%BA%93"><span class="toc-text"> （1）源仓库(线上版本库)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2-%E5%BC%80%E5%8F%91%E8%80%85%E4%BB%93%E5%BA%93-%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-text"> （2）开发者仓库(本地仓库)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81%E5%88%86%E6%94%AF%E5%88%92%E5%88%86-branch"><span class="toc-text"> 2、分支划分（Branch）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_1-master-branch-%E4%B8%BB%E5%88%86%E6%94%AF"><span class="toc-text"> （1）master branch：主分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2-develop-branch-%E5%BC%80%E5%8F%91%E5%88%86%E6%94%AF"><span class="toc-text"> （2）develop branch：开发分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3-feature-branch-%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF"><span class="toc-text"> （3）feature branch：功能分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_4-%E5%8D%8F%E8%AE%AE%E9%80%89%E6%8B%A9"><span class="toc-text"> （4）协议选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3%E3%80%81%E5%AE%9E%E6%88%98"><span class="toc-text"> 3、实战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_1-%E5%A4%9A%E4%BA%BA%E5%90%88%E4%BD%9C%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-text"> （1）多人合作开发流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2-%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E5%BC%80%E5%8F%91"><span class="toc-text"> （2）跨团队合作开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_4%E3%80%81%E9%87%8D%E7%82%B9"><span class="toc-text"> 4、重点</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":"blog.thatcoder.cn","officialHosts":["localhost","en.blog.thatcoder.cn","hexo.thatcoder.cn","thatcoder.vercel.app","thatcoder.netlify.app","cn-coder.vercel.app","thatcoders.github.io","thatcoder.pages.dev","cncoder.pages.dev"],"encoded":"YmxvZy50aGF0Y29kZXIuY24="};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"post, page, docs","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  import { init } from 'https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js';
+
+  const el = document.getElementById('waline_container');
+  util.viewportLazyload(el, load_waline, false);
+
+  function load_waline(){
+    if (!el) return;
+
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css');
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css');
+
+    const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+    const waline = init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js","css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+      el: '#waline_container',
+      path: path,
+      
+        imageUploader: function(file) {
+          const headers = new Headers();
+          headers.set('Accept', 'application/json');
+          
+            headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+          
+          const formData = new FormData();
+          formData.append('file', file);
+          return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+            method: 'POST',
+            body: formData,
+            headers: headers
+            }).then((resp) => resp.json())
+              .then((resp) => resp.data.links.url)
+        },
+      
+    }));
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>

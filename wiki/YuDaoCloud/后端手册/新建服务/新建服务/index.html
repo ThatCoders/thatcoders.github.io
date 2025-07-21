@@ -1,0 +1,1021 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <link rel="canonical" href="https://blog.thatcoder.cn/wiki/YuDaoCloud/后端手册/新建服务/新建服务">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>YuDaoCloud：新建服务 - 钟意博客</title>
+
+  
+    <meta name="description" content="开发指南后端手册 芋道源码 2022-03-02   目录  新建服务 本章节，将介绍如何新建名字为 yudao-module-demo 的示例服务，并添加 RESTful API 接口。 虽然内容看起来比较长，是因为艿艿写的比较详细，大量截图，保姆级教程！其实只有 6 个步骤，保持耐心，跟着艿艿一点点来。🙂 完成之后，你会对整个 项目结构 有更充分的了解。 # 👍 相关视频教程 从零开始">
+<meta property="og:type" content="website">
+<meta property="og:title" content="新建服务">
+<meta property="og:url" content="https://blog.thatcoder.cn/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/">
+<meta property="og:site_name" content="钟意博客">
+<meta property="og:description" content="开发指南后端手册 芋道源码 2022-03-02   目录  新建服务 本章节，将介绍如何新建名字为 yudao-module-demo 的示例服务，并添加 RESTful API 接口。 虽然内容看起来比较长，是因为艿艿写的比较详细，大量截图，保姆级教程！其实只有 6 个步骤，保持耐心，跟着艿艿一点点来。🙂 完成之后，你会对整个 项目结构 有更充分的了解。 # 👍 相关视频教程 从零开始">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.thatcoder.cn/favicon.ico">
+<meta property="article:published_time" content="2025-07-21T12:21:48.732Z">
+<meta property="article:modified_time" content="2025-07-21T12:21:48.732Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="那个码农">
+<meta property="article:tag" content="码农钟意">
+<meta property="article:tag" content="钟意的博客">
+<meta property="article:tag" content="钟意博客">
+<meta property="article:tag" content="That Coder">
+<meta property="article:tag" content="thatcoder">
+<meta property="article:tag" content="源柒拾柒雅舍">
+<meta property="article:tag" content="源WebGary">
+<meta property="article:tag" content="giligili.work">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.thatcoder.cn/favicon.ico">
+  
+  
+
+  <meta name="keywords" content="那个码农,码农钟意,钟意的博客,钟意博客,That Coder,thatcoder,源柒拾柒雅舍,源WebGary,giligili.work">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="钟意博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://blog.thatcoder.cn/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/","author":{"@type":"Person","name":"钟意","sameAs":[],"image":"/favicon.ico"},"name":"新建服务","description":" 开发指南后端手册 芋道源码 2022-03-02   目录  新建服务 本章节，将介绍如何新建名字为 yudao-module-demo 的示例服务，并添加 RESTful API 接口。 虽然内容看起来比较长，是因为艿艿写的比较详细，大量截图，保姆级教程！其实只有 6 个步骤，保持耐心，跟着艿艿一点点来。🙂 完成之后，你会对整个 项目结构 有更充分的了解。 # 👍 相关视频教程 从零...","url":"https://blog.thatcoder.cn/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/","keywords":["那个码农","码农钟意","钟意的博客","钟意博客","That Coder","thatcoder","源柒拾柒雅舍","源WebGary","giligili.work"]}</script>
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel='stylesheet' href='https://public.thatcdn.cn/font/old_song/result.css' /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="author" content="钟意"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+
+<div class="l_body s:aa content tech " id="start" layout="page" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/custom/img/ruoyi.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)"><div class="main">YuDaoCloud</div><div class="sub normal cap">关于艿艿若依Cloud的文档</div><div class="sub hover cap" style="opacity:0"> 一个简单易上手的 Spring Cloud 开发平台</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item active" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/YuDaoCloud/" placeholder="在 YuDaoCloud 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<widget class="widget-wrapper doc-tree post-list"><div class="widget-body fs14"><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)/#start"><span class="toc-text">OAuth 2.0（SSO 单点登录)</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/Redis%20%E7%BC%93%E5%AD%98/Redis%20%E7%BC%93%E5%AD%98/"><span class="toc-text">Redis 缓存</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/Excel%20%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/Excel%20%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/"><span class="toc-text">Excel 导入导出</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/SaaS%20%E5%A4%9A%E7%A7%9F%E6%88%B7%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9A%94%E7%A6%BB%E3%80%91/SaaS%20%E5%A4%9A%E7%A7%9F%E6%88%B7%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9A%94%E7%A6%BB%E3%80%91/"><span class="toc-text">SaaS 多租户【数据库隔离】</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%EF%BC%88%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD%EF%BC%89/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%EF%BC%88%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD%EF%BC%89/"><span class="toc-text">代码生成（新增功能）</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/SaaS%20%E5%A4%9A%E7%A7%9F%E6%88%B7%E3%80%90%E5%AD%97%E6%AE%B5%E9%9A%94%E7%A6%BB%E3%80%91/SaaS%20%E5%A4%9A%E7%A7%9F%E6%88%B7%E3%80%90%E5%AD%97%E6%AE%B5%E9%9A%94%E7%A6%BB%E3%80%91/"><span class="toc-text">SaaS 多租户【字段隔离】</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/"><span class="toc-text">三方登录</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/"><span class="toc-text">分布式锁</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%8A%9F%E8%83%BD%E6%9D%83%E9%99%90/%E5%8A%9F%E8%83%BD%E6%9D%83%E9%99%90/"><span class="toc-text">功能权限</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%88%86%E9%A1%B5%E5%AE%9E%E7%8E%B0/%E5%88%86%E9%A1%B5%E5%AE%9E%E7%8E%B0/"><span class="toc-text">分页实现</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%EF%BC%88%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%EF%BC%89/%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%EF%BC%88%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%EF%BC%89/"><span class="toc-text">多数据源（读写分离）</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/"><span class="toc-text">参数校验</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%EF%BC%88%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%89/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%EF%BC%88%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%89/"><span class="toc-text">异常处理（错误码）</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"><span class="toc-text">单元测试</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%9C%B0%E5%8C%BA%20&%20IP%20%E5%BA%93/%E5%9C%B0%E5%8C%BA%20&%20IP%20%E5%BA%93/"><span class="toc-text">地区 & IP 库</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%B9%82%E7%AD%89%E6%80%A7%EF%BC%88%E9%98%B2%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4%EF%BC%89/%E5%B9%82%E7%AD%89%E6%80%A7%EF%BC%88%E9%98%B2%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4%EF%BC%89/"><span class="toc-text">幂等性（防重复提交）</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%95%8F%E6%84%9F%E8%AF%8D/%E6%95%8F%E6%84%9F%E8%AF%8D/"><span class="toc-text">敏感词</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/"><span class="toc-text">异步任务</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E6%A1%A3/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E6%A1%A3/"><span class="toc-text">数据库文档</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%EF%BC%88%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%EF%BC%89/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%EF%BC%88%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%EF%BC%89/"><span class="toc-text">文件存储（上传下载）</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%B7%A5%E5%85%B7%E7%B1%BB%20Util/%E5%B7%A5%E5%85%B7%E7%B1%BB%20Util/"><span class="toc-text">工具类 Util</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%95%B0%E6%8D%AE%E6%9D%83%E9%99%90/%E6%95%B0%E6%8D%AE%E6%9D%83%E9%99%90/"><span class="toc-text">数据权限</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/"><span class="toc-text">本地缓存</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%95%B0%E6%8D%AE%E8%84%B1%E6%95%8F/%E6%95%B0%E6%8D%AE%E8%84%B1%E6%95%8F/"><span class="toc-text">数据脱敏</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/"><span class="toc-text">系统日志</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%95%B0%E6%8D%AE%E5%BA%93%20MyBatis/%E6%95%B0%E6%8D%AE%E5%BA%93%20MyBatis/"><span class="toc-text">数据库 MyBatis</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E7%9F%AD%E4%BF%A1%E9%85%8D%E7%BD%AE/%E7%9F%AD%E4%BF%A1%E9%85%8D%E7%BD%AE/"><span class="toc-text">短信配置</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E9%82%AE%E4%BB%B6%E9%85%8D%E7%BD%AE/%E9%82%AE%E4%BB%B6%E9%85%8D%E7%BD%AE/"><span class="toc-text">邮件配置</span></a><a class="link active" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/"><span class="toc-text">新建服务</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E7%94%A8%E6%88%B7%E4%BD%93%E7%B3%BB/%E7%94%A8%E6%88%B7%E4%BD%93%E7%B3%BB/"><span class="toc-text">用户体系</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%A4%A7%E5%B1%8F%E6%89%8B%E5%86%8C/%E5%A4%A7%E5%B1%8F%E8%AE%BE%E8%AE%A1%E5%99%A8/%E5%A4%A7%E5%B1%8F%E8%AE%BE%E8%AE%A1%E5%99%A8/"><span class="toc-text">大屏设计器</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E9%AA%8C%E8%AF%81%E7%A0%81/%E9%AA%8C%E8%AF%81%E7%A0%81/"><span class="toc-text">验证码</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E7%AB%99%E5%86%85%E4%BF%A1%E9%85%8D%E7%BD%AE/%E7%AB%99%E5%86%85%E4%BF%A1%E9%85%8D%E7%BD%AE/"><span class="toc-text">站内信配置</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/Icon%20%E5%9B%BE%E6%A0%87/Icon%20%E5%9B%BE%E6%A0%87/"><span class="toc-text">Icon 图标</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%A4%A7%E5%B1%8F%E6%89%8B%E5%86%8C/%E6%8A%A5%E8%A1%A8%E8%AE%BE%E8%AE%A1%E5%99%A8/%E6%8A%A5%E8%A1%A8%E8%AE%BE%E8%AE%A1%E5%99%A8/"><span class="toc-text">报表设计器</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E5%AD%97%E5%85%B8%E6%95%B0%E6%8D%AE/%E5%AD%97%E5%85%B8%E6%95%B0%E6%8D%AE/"><span class="toc-text">字典数据</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"><span class="toc-text">开发规范</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95/%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="toc-text">通用方法</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1/"><span class="toc-text">菜单路由</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/"><span class="toc-text">系统组件</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E9%85%8D%E7%BD%AE%E8%AF%BB%E5%8F%96/%E9%85%8D%E7%BD%AE%E8%AF%BB%E5%8F%96/"><span class="toc-text">配置读取</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/IDE%20%E8%B0%83%E8%AF%95/IDE%20%E8%B0%83%E8%AF%95/"><span class="toc-text">IDE 调试</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/CRUD%20%E7%BB%84%E4%BB%B6/CRUD%20%E7%BB%84%E4%BB%B6/"><span class="toc-text">CRUD 组件</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/Icon%20%E5%9B%BE%E6%A0%87/Icon%20%E5%9B%BE%E6%A0%87/"><span class="toc-text">Icon 图标</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E5%9B%BD%E9%99%85%E5%8C%96/%E5%9B%BD%E9%99%85%E5%8C%96/"><span class="toc-text">国际化</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E5%AD%97%E5%85%B8%E6%95%B0%E6%8D%AE/%E5%AD%97%E5%85%B8%E6%95%B0%E6%8D%AE/"><span class="toc-text">字典数据</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"><span class="toc-text">开发规范</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1/"><span class="toc-text">菜单路由</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%89%8B%E5%86%8C/%E6%9C%8D%E5%8A%A1%E4%BF%9D%E9%9A%9C%20Sentinel/%E6%9C%8D%E5%8A%A1%E4%BF%9D%E9%9A%9C%20Sentinel/"><span class="toc-text">服务保障 Sentinel</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95/%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="toc-text">通用方法</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E9%85%8D%E7%BD%AE%E8%AF%BB%E5%8F%96/%E9%85%8D%E7%BD%AE%E8%AF%BB%E5%8F%96/"><span class="toc-text">配置读取</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%89%8B%E5%86%8C/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%20Seata/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%20Seata/"><span class="toc-text">分布式事务 Seata</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/"><span class="toc-text">系统组件</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%89%8B%E5%86%8C/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%20XXL%20Job/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%20XXL%20Job/"><span class="toc-text">定时任务 XXL Job</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%89%8B%E5%86%8C/%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%20Feign/%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%20Feign/"><span class="toc-text">服务调用 Feign</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%89%8B%E5%86%8C/%E6%9C%8D%E5%8A%A1%E7%BD%91%E5%85%B3%20Spring%20Cloud%20Gateway/%E6%9C%8D%E5%8A%A1%E7%BD%91%E5%85%B3%20Spring%20Cloud%20Gateway/"><span class="toc-text">服务网关 Spring Cloud Gateway</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%89%8B%E5%86%8C/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%20RocketMQ/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%20RocketMQ/"><span class="toc-text">消息队列 RocketMQ</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%89%8B%E5%86%8C/%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88Flowable%EF%BC%89%E4%BC%9A%E7%AD%BE%E3%80%81%E6%88%96%E7%AD%BE/%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88Flowable%EF%BC%89%E4%BC%9A%E7%AD%BE%E3%80%81%E6%88%96%E7%AD%BE/"><span class="toc-text">工作流（Flowable）会签、或签</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%89%8B%E5%86%8C/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%20Nacos/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%20Nacos/"><span class="toc-text">配置中心 Nacos</span></a><a class="link" href="/wiki/YuDaoCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%89%8B%E5%86%8C/%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%20Nacos/%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%20Nacos/"><span class="toc-text">注册中心 Nacos</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/Jenkins%20%E9%83%A8%E7%BD%B2/Jenkins%20%E9%83%A8%E7%BD%B2/"><span class="toc-text">Jenkins 部署</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/Docker%20%E9%83%A8%E7%BD%B2/Docker%20%E9%83%A8%E7%BD%B2/"><span class="toc-text">Docker 部署</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/HTTPS%20%E8%AF%81%E4%B9%A6/HTTPS%20%E8%AF%81%E4%B9%A6/"><span class="toc-text">HTTPS 证书</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"><span class="toc-text">开发环境</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/Linux%20%E9%83%A8%E7%BD%B2/Linux%20%E9%83%A8%E7%BD%B2/"><span class="toc-text">Linux 部署</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7/%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7/"><span class="toc-text">服务监控</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.0.0%E3%80%912021.05.03/%E3%80%90v1.0.0%E3%80%912021.05.03"><span class="toc-text">【v1.0.0】2021.05.03</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.2.0%E3%80%912021.12.15/%E3%80%90v1.2.0%E3%80%912021.12.15"><span class="toc-text">【v1.2.0】2021.12.15</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.3.0%E3%80%912022.01.24/%E3%80%90v1.3.0%E3%80%912022.01.24"><span class="toc-text">【v1.3.0】2022.01.24</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.1.0%E3%80%912021.10.25/%E3%80%90v1.1.0%E3%80%912021.10.25"><span class="toc-text">【v1.1.0】2021.10.25</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.5.0%E3%80%912022-02-17/%E3%80%90v1.5.0%E3%80%912022-02-17/"><span class="toc-text">【v1.5.0】2022-02-17</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.4.0%E3%80%912022-02-04/%E3%80%90v1.4.0%E3%80%912022-02-04/"><span class="toc-text">【v1.4.0】2022-02-04</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.5.1%E3%80%912022-02-28/%E3%80%90v1.5.1%E3%80%912022-02-28/"><span class="toc-text">【v1.5.1】2022-02-28</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.0%E3%80%912022-03-10/%E3%80%90v1.6.0%E3%80%912022-03-10/"><span class="toc-text">【v1.6.0】2022-03-10</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.2%E3%80%912022-06-05/%E3%80%90v1.6.2%E3%80%912022-06-05/"><span class="toc-text">【v1.6.2】2022-06-05</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.3%E3%80%912022-07-29/%E3%80%90v1.6.3%E3%80%912022-07-29/"><span class="toc-text">【v1.6.3】2022-07-29</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.1%E3%80%912022-03-21/%E3%80%90v1.6.1%E3%80%912022-03-21/"><span class="toc-text">【v1.6.1】2022-03-21</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.4%E3%80%912022-08-22/%E3%80%90v1.6.4%E3%80%912022-08-22/"><span class="toc-text">【v1.6.4】2022-08-22</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.6%E3%80%912023-01-05/%E3%80%90v1.6.6%E3%80%912023-01-05/"><span class="toc-text">【v1.6.6】2023-01-05</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.7.3%E3%80%91%E5%BC%80%E5%8F%91%E4%B8%AD/%E3%80%90v1.7.3%E3%80%91%E5%BC%80%E5%8F%91%E4%B8%AD/"><span class="toc-text">【v1.7.3】开发中</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.7.0%E3%80%912023-01-30/%E3%80%90v1.7.0%E3%80%912023-01-30/"><span class="toc-text">【v1.7.0】2023-01-30</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.7.1%E3%80%912023-03-05/%E3%80%90v1.7.1%E3%80%912023-03-05/"><span class="toc-text">【v1.7.1】2023-03-05</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E4%B8%80%E9%94%AE%E6%94%B9%E5%8C%85/%E4%B8%80%E9%94%AE%E6%94%B9%E5%8C%85/"><span class="toc-text">一键改包</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E4%BA%A4%E6%B5%81%E7%BE%A4/%E4%BA%A4%E6%B5%81%E7%BE%A4/"><span class="toc-text">交流群</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E4%BB%A3%E7%A0%81%E7%83%AD%E5%8A%A0%E8%BD%BD/%E4%BB%A3%E7%A0%81%E7%83%AD%E5%8A%A0%E8%BD%BD/"><span class="toc-text">代码热加载</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.7.2%E3%80%912023-04-19/%E3%80%90v1.7.2%E3%80%912023-04-19/"><span class="toc-text">【v1.7.2】2023-04-19</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E5%88%A0%E9%99%A4%E5%8A%9F%E8%83%BD/%E5%88%A0%E9%99%A4%E5%8A%9F%E8%83%BD/"><span class="toc-text">删除功能</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8/"><span class="toc-text">功能列表</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/"><span class="toc-text">接口文档</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%EF%BC%88%E9%80%82%E5%90%88%E2%80%9C%E5%89%8D%E7%AB%AF%E2%80%9D%E5%B7%A5%E7%A8%8B%E5%B8%88%EF%BC%89/%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%EF%BC%88%E9%80%82%E5%90%88%E2%80%9C%E5%89%8D%E7%AB%AF%E2%80%9D%E5%B7%A5%E7%A8%8B%E5%B8%88%EF%BC%89/"><span class="toc-text">快速启动（适合“前端”工程师）</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%EF%BC%88%E9%80%82%E5%90%88%E2%80%9C%E5%90%8E%E7%AB%AF%E2%80%9D%E5%B7%A5%E7%A8%8B%E5%B8%88%EF%BC%89/%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%EF%BC%88%E9%80%82%E5%90%88%E2%80%9C%E5%90%8E%E7%AB%AF%E2%80%9D%E5%B7%A5%E7%A8%8B%E5%B8%88%EF%BC%89/"><span class="toc-text">快速启动（适合“后端”工程师）</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/"><span class="toc-text">技术选型</span></a><a class="link" href="/wiki/YuDaoCloud/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.5%E3%80%912022-12-01/%E3%80%90v1.6.5%E3%80%912022-12-01/"><span class="toc-text">【v1.6.5】2022-12-01</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E7%AE%80%E4%BB%8B/%E7%AE%80%E4%BB%8B/"><span class="toc-text">简介</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/"><span class="toc-text">项目结构</span></a><a class="link" href="/wiki/YuDaoCloud/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/"><span class="toc-text">视频教程</span></a></div></widget>
+
+<widget class="widget-wrapper post-card"><div class="widget-header dis-select"><span class="name">更多：开发</span></div><div class="widget-body"><a class="item wiki" href="/wiki/YDLDoc2/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/maven%E5%85%A5%E9%97%A8/maven%E5%85%A5%E9%97%A8/"><span class="title">元动力摘录 - JAVA阶段二</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/JDBC/JDBC/"><span class="title">元动力摘录 - JAVA阶段一</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc3/ELK%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8/"><span class="title">元动力摘录 - JAVA阶段三</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc4/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/%E5%B7%A5%E4%BD%9C%E6%B5%81/%E5%B7%A5%E4%BD%9C%E6%B5%81/"><span class="title">元动力摘录 - JAVA项目阶段</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/"><span class="title">艿艿若依Boot - 开发指南</span><span class="excerpt">关于艿艿若依Boot的文档</span></a><a class="item wiki" href="/wiki/Laf/start/start/"><span class="title">Laf - 开箱即用的 serverless</span><span class="excerpt">钟意关于Laf的笔记</span></a><a class="item wiki" href="/wiki/MySql/basics/select/"><span class="title">MySql - 关系型数据库管理系统</span><span class="excerpt">钟意关于关系型数据库MySql的笔记</span></a><a class="item wiki" href="/wiki/SpringCloud/start/"><span class="title">SpringCloud - JAVA系分布式微服务架构</span><span class="excerpt">钟意关于SpringCloud的笔记</span></a></div></widget>
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%95%B0%E6%8D%AE%E6%90%AD%E5%BB%BA%E5%BC%95%E6%93%8E%20bi-designer%20API-%E8%AE%BE%E8%AE%A1%E5%99%A8%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《数据搭建引擎 bi-designer API-设计器》</span></a><a class="item title" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《源码学习》</span></a><a class="item title" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%E9%A2%98%20-%20%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《算法题 - 地下城游戏》</span></a><a class="item title" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%20CodeReview%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《如何做好 CodeReview》</span></a><a class="item title" href="/wiki/YuDaoBoot/%E5%A4%A7%E5%B1%8F%E6%89%8B%E5%86%8C/%E5%A4%A7%E5%B1%8F%E8%AE%BE%E8%AE%A1%E5%99%A8/%E5%A4%A7%E5%B1%8F%E8%AE%BE%E8%AE%A1%E5%99%A8/"><span class="title"><strong>YuDaoBoot</strong><span class="dot"></span>大屏设计器</span></a><a class="item title" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/"><span class="title"><strong>YuDaoCloud</strong><span class="dot"></span>系统组件</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/bilibili-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/wechat-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/github-banner.jpg"/></a><a class="social" href="javascript:ThemeChange('dark');" rel="noopener noreferrer"><img id="ThemeM" src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javascript:ThemeChange('light');" rel="noopener noreferrer"><img id="ThemeL" src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javascript:ThemeChange('auto');" rel="noopener noreferrer"><img id="ThemeAI" src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+    <div class="content">
+      <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)/">YuDaoCloud</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2025-07-21T12:21:48.732Z">2025-07-21</time></span></div></div></div>
+      
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>新建服务</span></h1>
+        
+      </div>
+    </div>
+    
+    </div>
+    </div><article class="md-text content"><div class="theme-vdoing-wrapper"><div class="articleInfo-wrap" data-v-0c557b5e=""><div class="articleInfo" data-v-0c557b5e=""><ul class="breadcrumbs" data-v-0c557b5e=""><li data-v-0c557b5e=""><a class="iconfont icon-home router-link-active" data-v-0c557b5e="" href="/" title="首页"></a></li> <li data-v-0c557b5e=""><span data-v-0c557b5e="">开发指南</span></li><li data-v-0c557b5e=""><span data-v-0c557b5e="">后端手册</span></li></ul> <div class="info" data-v-0c557b5e=""><div class="author iconfont icon-touxiang" data-v-0c557b5e="" title="作者"><a class="beLink" data-v-0c557b5e="" href="https://www.iocoder.cn" target="_blank" title="作者">芋道源码</a></div> <div class="date iconfont icon-riqi" data-v-0c557b5e="" title="创建时间"><a data-v-0c557b5e="" href="javascript:;">2022-03-02</a></div> <!-- --></div></div></div> <!-- --> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img style="float:left;padding: 10px;" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/MhAAAAAE.png"/>新建服务<!-- --></h1> <div class="theme-vdoing-content content__default"><p>本章节，将介绍如何新建名字为 <code>yudao-module-demo</code> 的示例服务，并添加 RESTful API 接口。</p> <p>虽然内容看起来比较长，是因为艿艿写的比较详细，大量截图，保姆级教程！其实只有 6 个步骤，保持耐心，跟着艿艿一点点来。🙂 完成之后，你会对整个 <a href="/project-intro/">项目结构</a> 有更充分的了解。</p> <h2 id="👍-相关视频教程"><a class="header-anchor" href="#👍-相关视频教程">#</a> 👍 相关视频教程</h2> <ul><li><a href="https://t.zsxq.com/07EUrZrNV" rel="noopener noreferrer" target="_blank">从零开始 06：如何 5 分钟，创建一个新模块？<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 【该视频是 Boot 单体版，Cloud 待录制】</li></ul> <h2 id="_1-新建-demo-模块"><a class="header-anchor" href="#_1-新建-demo-模块">#</a> 1. 新建 demo 模块</h2> <p>① 选择 File -&gt; New -&gt; Module 菜单，如下图所示：</p> <p><img alt="打开 New Module" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/40.png"/></p> <p>② 选择 Maven 类型，选择父模块为 <code>yudao</code>，输入名字为 <code>yudao-module-demo</code>，并点击 Create 按钮，如下图所示：</p> <p><img alt="填写 Module 信息" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/42.png"/></p> <p>③ 打开 <code>yudao-module-demo</code> 模块，删除 src 文件，如下图所示：</p> <p><img alt="删除 src 文件" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/43.png"/></p> <p>④ 打开 <code>yudao-module-demo</code> 模块的 <code>pom.xml</code> 文件，修改内容如下：</p> <div class="custom-block tip"><p class="custom-block-title">提示</p> <p><code>&lt;!-- --&gt;</code> 部分，只是注释，不需要写到 XML 中。</p></div> 
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;revision&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span> <span class="hljs-comment">&lt;!-- 1. 修改 version 为 $&#123;revision&#125; --&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-module-demo<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span> <span class="hljs-comment">&lt;!-- 2. 新增 packaging 为 pom --&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>$&#123;project.artifactId&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span> <span class="hljs-comment">&lt;!-- 3. 新增 name 为 $&#123;project.artifactId&#125; --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span> <span class="hljs-comment">&lt;!-- 4. 新增 description 为该模块的描述 --&gt;</span><br>        demo 模块，主要实现 XXX、YYY、ZZZ 等功能。<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="_2-新建-demo-api-子模块"><a class="header-anchor" href="#_2-新建-demo-api-子模块">#</a> 2. 新建 demo-api
+子模块</h2> <p>① 新建 <code>yudao-module-demo-api</code> 子模块，整个过程和“新建 demo
+模块”是一致的，如下图所示：</p> <p><img alt="打开 New Module" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/40.png"/></p> <p><img alt="填写 Module 信息" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/42-api.png"/></p> <p>
+② 打开 <code>yudao-module-demo-api</code> 模块的 <code>pom.xml</code> 文件，修改内容如下：</p>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-module-demo<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;revision&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span> <span class="hljs-comment">&lt;!-- 1. 修改 version 为 $&#123;revision&#125; --&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-module-demo-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>jar<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span> <span class="hljs-comment">&lt;!-- 2. 新增 packaging 为 jar --&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>$&#123;project.artifactId&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span> <span class="hljs-comment">&lt;!-- 3. 新增 name 为 $&#123;project.artifactId&#125; --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span> <span class="hljs-comment">&lt;!-- 4. 新增 description 为该模块的描述 --&gt;</span><br>        demo 模块 API，暴露给其它模块调用<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>  <span class="hljs-comment">&lt;!-- 5. 新增 yudao-common 依赖 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-common<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>③ 【可选】新建 <code>cn.iocoder.yudao.module.demo</code> <strong>基础</strong>包，其中 <code>demo</code> 为模块名。之后，新建 <code>api</code> 和 <code>enums</code> 包。如下图所示：</p> <p><img alt="新建基础包" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/44.png"/></p> <h2 id="_3-新建-demo-biz-子模块"><a class="header-anchor" href="#_3-新建-demo-biz-子模块">#</a> 3. 新建 demo-biz 子模块</h2> <p>① 新建 <code>yudao-module-demo-biz</code> 子模块，整个过程和“新建 demo 模块”也是一致的，如下图所示：</p> <p><img alt="打开 New Module" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/40.png"/></p> <p><img alt="填写 Module 信息" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/42-biz.png"/></p> <p>② 打开 <code>yudao-module-demo-biz</code> 模块的 <code>pom.xml</code> 文件，修改成内容如下：</p> 
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-module-demo<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;revision&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span> <span class="hljs-comment">&lt;!-- 1. 修改 version 为 $&#123;revision&#125; --&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>jar<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span> <span class="hljs-comment">&lt;!-- 2. 新增 packaging 为 jar --&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-module-demo-biz<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>$&#123;project.artifactId&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span> <span class="hljs-comment">&lt;!-- 3. 新增 name 为 $&#123;project.artifactId&#125; --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span> <span class="hljs-comment">&lt;!-- 4. 新增 description 为该模块的描述 --&gt;</span><br>        demo 模块，主要实现 XXX、YYY、ZZZ 等功能。<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>  <span class="hljs-comment">&lt;!-- 5. 新增依赖，这里引入的都是比较常用的业务组件、技术组件 --&gt;</span><br>        <span class="hljs-comment">&lt;!-- Spring Cloud 基础 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-env<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- 依赖服务 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-module-system-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;revision&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-module-infra-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;revision&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-module-demo-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;revision&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- 业务组件 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-banner<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-biz-operatelog<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-biz-dict<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-biz-data-permission<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-biz-tenant<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-biz-error-code<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- Web 相关 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-security<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- DB 相关 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-redis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- RPC 远程调用相关 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-rpc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- Registry 注册中心相关 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- Config 配置中心相关 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- Job 定时任务相关 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-job<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- 消息队列相关 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-mq<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- Test 测试相关 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- 工具类相关 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-excel<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- 监控相关 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.iocoder.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>yudao-spring-boot-starter-monitor<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- 设置构建的 jar 包名 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">finalName</span>&gt;</span>$&#123;project.artifactId&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">finalName</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 打包 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;spring.boot.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">fork</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">fork</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span><br>                        <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span><br>                            <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>repackage<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span> <span class="hljs-comment">&lt;!-- 将引入的 jar 打入其中 --&gt;</span><br>                        <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span><br>                    <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>③ 【必选】新建 <code>cn.iocoder.yudao.module.demo</code> <strong>基础</strong>包，其中 <code>demo</code> 为模块名。之后，新建 <code>controller.admin</code> 和 <code>controller.user</code> 等包。如下图所示：</p> <p><img alt="新建基础包" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/45.png"/></p> <p>其中 SecurityConfiguration 的 Java 代码如下：</p> 
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> cn.iocoder.yudao.<span class="hljs-keyword">module</span>.demo.framework.security.config;<br><br><span class="hljs-keyword">import</span> cn.iocoder.yudao.framework.security.config.AuthorizeRequestsCustomizer;<br><span class="hljs-keyword">import</span> cn.iocoder.yudao.<span class="hljs-keyword">module</span>.system.enums.ApiConstants;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;<br><span class="hljs-keyword">import</span> org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Demo 模块的 Security 配置</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Configuration(proxyBeanMethods = false)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SecurityConfiguration</span> &#123;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> AuthorizeRequestsCustomizer <span class="hljs-title function_">authorizeRequestsCustomizer</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AuthorizeRequestsCustomizer</span>() &#123;<br><br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">customize</span><span class="hljs-params">(ExpressionUrlAuthorizationConfigurer&lt;HttpSecurity&gt;.ExpressionInterceptUrlRegistry registry)</span> &#123;<br>                <span class="hljs-comment">// Swagger 接口文档</span><br>                registry.antMatchers(<span class="hljs-string">&quot;/v3/api-docs/**&quot;</span>).permitAll() <span class="hljs-comment">// 元数据</span><br>                        .antMatchers(<span class="hljs-string">&quot;/swagger-ui.html&quot;</span>).permitAll(); <span class="hljs-comment">// Swagger UI</span><br>                <span class="hljs-comment">// Druid 监控</span><br>                registry.antMatchers(<span class="hljs-string">&quot;/druid/**&quot;</span>).anonymous();<br>                <span class="hljs-comment">// Spring Boot Actuator 的安全配置</span><br>                registry.antMatchers(<span class="hljs-string">&quot;/actuator&quot;</span>).anonymous()<br>                        .antMatchers(<span class="hljs-string">&quot;/actuator/**&quot;</span>).anonymous();<br>                <span class="hljs-comment">// RPC 服务的安全配置</span><br>                registry.antMatchers(ApiConstants.PREFIX + <span class="hljs-string">&quot;/**&quot;</span>).permitAll();<br>            &#125;<br><br>        &#125;;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其中 DemoServerApplication 的 Java 代码如下：</p> 
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> cn.iocoder.yudao.<span class="hljs-keyword">module</span>.demo;<br><br><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;<br><span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 项目的启动类</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> 芋道源码</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DemoServerApplication</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SpringApplication.run(DemoServerApplication.class, args);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>④ 打开 Maven 菜单，点击刷新按钮，让引入的 Maven 依赖生效。如下图所示：</p> <p><img alt="刷新 Maven 依赖" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/46.png"/></p> <p>⑤ 在 <code>resources</code> 目录下，新建配置文件。如下图所示：</p> <p><img alt="配置文件" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/101.png"/></p> <p>其中 <code>application.yml</code> 的配置如下：</p> 
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">main:</span><br>    <span class="hljs-attr">allow-circular-references:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 允许循环依赖，因为项目是三层架构，无法避免这个情况。</span><br>    <span class="hljs-attr">allow-bean-definition-overriding:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 允许 Bean 覆盖，例如说 Dubbo 或者 Feign 等会存在重复定义的服务</span><br><br>  <span class="hljs-comment"># Servlet 配置</span><br>  <span class="hljs-attr">servlet:</span><br>    <span class="hljs-comment"># 文件上传相关配置项</span><br>    <span class="hljs-attr">multipart:</span><br>      <span class="hljs-attr">max-file-size:</span> <span class="hljs-string">16MB</span> <span class="hljs-comment"># 单个文件大小</span><br>      <span class="hljs-attr">max-request-size:</span> <span class="hljs-string">32MB</span> <span class="hljs-comment"># 设置总上传的文件大小</span><br>  <span class="hljs-attr">mvc:</span><br>    <span class="hljs-attr">pathmatch:</span><br>      <span class="hljs-attr">matching-strategy:</span> <span class="hljs-string">ANT_PATH_MATCHER</span> <span class="hljs-comment"># 解决 SpringFox 与 SpringBoot 2.6.x 不兼容的问题，参见 SpringFoxHandlerProviderBeanPostProcessor 类</span><br><br>  <span class="hljs-comment"># Jackson 配置项</span><br>  <span class="hljs-attr">jackson:</span><br>    <span class="hljs-attr">serialization:</span><br>      <span class="hljs-attr">write-dates-as-timestamps:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 设置 LocalDateTime 的格式，使用时间戳</span><br>      <span class="hljs-attr">write-date-timestamps-as-nanoseconds:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 设置不使用 nanoseconds 的格式。例如说 1611460870.401，而是直接 1611460870401</span><br>      <span class="hljs-attr">write-durations-as-timestamps:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 设置 Duration 的格式，使用时间戳</span><br>      <span class="hljs-attr">fail-on-empty-beans:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 允许序列化无属性的 Bean</span><br><br>  <span class="hljs-comment"># Cache 配置项</span><br>  <span class="hljs-attr">cache:</span><br>    <span class="hljs-attr">type:</span> <span class="hljs-string">REDIS</span><br>    <span class="hljs-attr">redis:</span><br>      <span class="hljs-attr">time-to-live:</span> <span class="hljs-string">1h</span> <span class="hljs-comment"># 设置过期时间为 1 小时</span><br><br><span class="hljs-string">---</span> <span class="hljs-comment">#################### 接口文档配置 ####################</span><br><br><span class="hljs-attr">springdoc:</span><br>  <span class="hljs-attr">api-docs:</span><br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 1. 是否开启 Swagger 接文档的元数据</span><br>    <span class="hljs-attr">path:</span> <span class="hljs-string">/v3/api-docs</span><br>  <span class="hljs-attr">swagger-ui:</span><br>    <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 2.1 是否开启 Swagger 文档的官方 UI 界面</span><br>    <span class="hljs-attr">path:</span> <span class="hljs-string">/swagger-ui.html</span><br><br><span class="hljs-attr">knife4j:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 2.2 是否开启 Swagger 文档的 Knife4j UI 界面</span><br>  <span class="hljs-attr">setting:</span><br>    <span class="hljs-attr">language:</span> <span class="hljs-string">zh_cn</span><br><br><span class="hljs-comment"># MyBatis Plus 的配置项</span><br><span class="hljs-attr">mybatis-plus:</span><br>  <span class="hljs-attr">configuration:</span><br>    <span class="hljs-attr">map-underscore-to-camel-case:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 虽然默认为 true ，但是还是显示去指定下。</span><br>  <span class="hljs-attr">global-config:</span><br>    <span class="hljs-attr">db-config:</span><br>      <span class="hljs-comment"># 重要说明：如果将配置放到 Nacos 时，请注意将 id-type 设置为对应 DB 的类型，否则会报错；详细见 https://gitee.com/zhijiantianya/yudao-cloud/issues/I5W2N0 讨论</span><br>      <span class="hljs-attr">id-type:</span> <span class="hljs-string">NONE</span> <span class="hljs-comment"># “智能”模式，基于 IdTypeEnvironmentPostProcessor + 数据源的类型，自动适配成 AUTO、INPUT 模式。</span><br><span class="hljs-comment">#      id-type: AUTO # 自增 ID，适合 MySQL 等直接自增的数据库</span><br><span class="hljs-comment">#      id-type: INPUT # 用户输入 ID，适合 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库</span><br><span class="hljs-comment">#      id-type: ASSIGN_ID # 分配 ID，默认使用雪花算法。注意，Oracle、PostgreSQL、Kingbase、DB2、H2 数据库时，需要去除实体类上的 @KeySequence 注解</span><br>      <span class="hljs-attr">logic-delete-value:</span> <span class="hljs-number">1</span> <span class="hljs-comment"># 逻辑已删除值(默认为 1)</span><br>      <span class="hljs-attr">logic-not-delete-value:</span> <span class="hljs-number">0</span> <span class="hljs-comment"># 逻辑未删除值(默认为 0)</span><br>  <span class="hljs-attr">type-aliases-package:</span> <span class="hljs-string">$&#123;yudao.info.base-package&#125;.dal.dataobject</span><br><br><span class="hljs-string">---</span> <span class="hljs-comment">#################### RPC 远程调用相关配置 ####################</span><br><span class="hljs-attr">dubbo:</span><br>  <span class="hljs-attr">scan:</span><br>    <span class="hljs-attr">base-packages:</span> <span class="hljs-string">$&#123;yudao.info.base-package&#125;.api</span> <span class="hljs-comment"># 指定 Dubbo 服务实现类的扫描基准包</span><br>  <span class="hljs-attr">protocol:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">dubbo</span> <span class="hljs-comment"># 协议名称</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">-1</span> <span class="hljs-comment"># 协议端口，-1 表示自增端口，从 20880 开始</span><br>  <span class="hljs-attr">registry:</span><br>    <span class="hljs-attr">address:</span> <span class="hljs-string">spring-cloud://localhost</span> <span class="hljs-comment"># 设置使用 Spring Cloud 注册中心</span><br><br><span class="hljs-string">---</span> <span class="hljs-comment">#################### MQ 消息队列相关配置 ####################</span><br><br><span class="hljs-string">---</span> <span class="hljs-comment">#################### 定时任务相关配置 ####################</span><br><br><span class="hljs-attr">xxl:</span><br>  <span class="hljs-attr">job:</span><br>    <span class="hljs-attr">executor:</span><br>      <span class="hljs-attr">appname:</span> <span class="hljs-string">$&#123;spring.application.name&#125;</span> <span class="hljs-comment"># 执行器 AppName</span><br>      <span class="hljs-attr">logpath:</span> <span class="hljs-string">$&#123;user.home&#125;/logs/xxl-job/$&#123;spring.application.name&#125;</span> <span class="hljs-comment"># 执行器运行日志文件存储磁盘路径</span><br>    <span class="hljs-attr">accessToken:</span> <span class="hljs-string">default_token</span> <span class="hljs-comment"># 执行器通讯TOKEN</span><br><br><span class="hljs-string">---</span> <span class="hljs-comment">#################### 芋道相关配置 ####################</span><br><br><span class="hljs-attr">yudao:</span><br>  <span class="hljs-attr">info:</span><br>    <span class="hljs-attr">version:</span> <span class="hljs-number">1.0</span><span class="hljs-number">.0</span><br>    <span class="hljs-attr">base-package:</span> <span class="hljs-string">cn.iocoder.yudao.module.demo</span><br>  <span class="hljs-attr">web:</span><br>    <span class="hljs-attr">admin-ui:</span><br>      <span class="hljs-attr">url:</span> <span class="hljs-string">http://dashboard.yudao.iocoder.cn</span> <span class="hljs-comment"># Admin 管理后台 UI 的地址</span><br>  <span class="hljs-attr">swagger:</span><br>    <span class="hljs-attr">title:</span> <span class="hljs-string">管理后台</span><br>    <span class="hljs-attr">description:</span> <span class="hljs-string">提供管理员管理的所有功能</span><br>    <span class="hljs-attr">version:</span> <span class="hljs-string">$&#123;yudao.info.version&#125;</span><br>    <span class="hljs-attr">base-package:</span> <span class="hljs-string">$&#123;yudao.info.base-package&#125;</span><br>  <span class="hljs-attr">tenant:</span> <span class="hljs-comment"># 多租户相关配置项</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br><br><span class="hljs-attr">debug:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<ul><li><code>yudao.info.version.base-package</code> 配置项：可以改成你的项目的基准包名。</li></ul> <p>其中 <code>application-local.yml</code> 的配置如下：</p> 
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">---</span> <span class="hljs-comment">#################### 数据库相关配置 ####################</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-comment"># 数据源配置项</span><br>  <span class="hljs-attr">autoconfigure:</span><br>    <span class="hljs-attr">exclude:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure</span> <span class="hljs-comment"># 排除 Druid 的自动配置，使用 dynamic-datasource-spring-boot-starter 配置多数据源</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">druid:</span> <span class="hljs-comment"># Druid 【监控】相关的全局配置</span><br>      <span class="hljs-attr">web-stat-filter:</span><br>        <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>      <span class="hljs-attr">stat-view-servlet:</span><br>        <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>        <span class="hljs-attr">allow:</span> <span class="hljs-comment"># 设置白名单，不填则允许所有访问</span><br>        <span class="hljs-attr">url-pattern:</span> <span class="hljs-string">/druid/*</span><br>        <span class="hljs-attr">login-username:</span> <span class="hljs-comment"># 控制台管理用户名和密码</span><br>        <span class="hljs-attr">login-password:</span><br>      <span class="hljs-attr">filter:</span><br>        <span class="hljs-attr">stat:</span><br>          <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br>          <span class="hljs-attr">log-slow-sql:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 慢 SQL 记录</span><br>          <span class="hljs-attr">slow-sql-millis:</span> <span class="hljs-number">100</span><br>          <span class="hljs-attr">merge-sql:</span> <span class="hljs-literal">true</span><br>        <span class="hljs-attr">wall:</span><br>          <span class="hljs-attr">config:</span><br>            <span class="hljs-attr">multi-statement-allow:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">dynamic:</span> <span class="hljs-comment"># 多数据源配置</span><br>      <span class="hljs-attr">druid:</span> <span class="hljs-comment"># Druid 【连接池】相关的全局配置</span><br>        <span class="hljs-attr">initial-size:</span> <span class="hljs-number">5</span> <span class="hljs-comment"># 初始连接数</span><br>        <span class="hljs-attr">min-idle:</span> <span class="hljs-number">10</span> <span class="hljs-comment"># 最小连接池数量</span><br>        <span class="hljs-attr">max-active:</span> <span class="hljs-number">20</span> <span class="hljs-comment"># 最大连接池数量</span><br>        <span class="hljs-attr">max-wait:</span> <span class="hljs-number">600000</span> <span class="hljs-comment"># 配置获取连接等待超时的时间，单位：毫秒</span><br>        <span class="hljs-attr">time-between-eviction-runs-millis:</span> <span class="hljs-number">60000</span> <span class="hljs-comment"># 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位：毫秒</span><br>        <span class="hljs-attr">min-evictable-idle-time-millis:</span> <span class="hljs-number">300000</span> <span class="hljs-comment"># 配置一个连接在池中最小生存的时间，单位：毫秒</span><br>        <span class="hljs-attr">max-evictable-idle-time-millis:</span> <span class="hljs-number">900000</span> <span class="hljs-comment"># 配置一个连接在池中最大生存的时间，单位：毫秒</span><br>        <span class="hljs-attr">validation-query:</span> <span class="hljs-string">SELECT</span> <span class="hljs-number">1</span> <span class="hljs-string">FROM</span> <span class="hljs-string">DUAL</span> <span class="hljs-comment"># 配置检测连接是否有效</span><br>        <span class="hljs-attr">test-while-idle:</span> <span class="hljs-literal">true</span><br>        <span class="hljs-attr">test-on-borrow:</span> <span class="hljs-literal">false</span><br>        <span class="hljs-attr">test-on-return:</span> <span class="hljs-literal">false</span><br>      <span class="hljs-attr">primary:</span> <span class="hljs-string">master</span><br>      <span class="hljs-attr">datasource:</span><br>        <span class="hljs-attr">master:</span><br>          <span class="hljs-attr">name:</span> <span class="hljs-string">ruoyi-vue-pro</span><br>          <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://127.0.0.1:3306/$&#123;spring.datasource.dynamic.datasource.master.name&#125;?allowMultiQueries=true&amp;useUnicode=true&amp;useSSL=false&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;autoReconnect=true&amp;nullCatalogMeansCurrent=true</span> <span class="hljs-comment"># MySQL Connector/J 8.X 连接的示例</span><br><span class="hljs-comment">#          url: jdbc:mysql://127.0.0.1:3306/$&#123;spring.datasource.dynamic.datasource.master.name&#125;?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=CTT # MySQL Connector/J 5.X 连接的示例</span><br><span class="hljs-comment">#          url: jdbc:postgresql://127.0.0.1:5432/$&#123;spring.datasource.dynamic.datasource.slave.name&#125; # PostgreSQL 连接的示例</span><br><span class="hljs-comment">#          url: jdbc:oracle:thin:@127.0.0.1:1521:xe # Oracle 连接的示例</span><br><span class="hljs-comment">#          url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=$&#123;spring.datasource.dynamic.datasource.master.name&#125; # SQLServer 连接的示例</span><br>          <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>          <span class="hljs-attr">password:</span> <span class="hljs-number">123456</span><br><span class="hljs-comment">#          username: sa</span><br><span class="hljs-comment">#          password: JSm:g(*%lU4ZAkz06cd52KqT3)i1?H7W</span><br>        <span class="hljs-attr">slave:</span> <span class="hljs-comment"># 模拟从库，可根据自己需要修改</span><br>          <span class="hljs-attr">name:</span> <span class="hljs-string">ruoyi-vue-pro</span><br>          <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://127.0.0.1:3306/$&#123;spring.datasource.dynamic.datasource.slave.name&#125;?allowMultiQueries=true&amp;useUnicode=true&amp;useSSL=false&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;autoReconnect=true&amp;nullCatalogMeansCurrent=true</span> <span class="hljs-comment"># MySQL Connector/J 8.X 连接的示例</span><br><span class="hljs-comment">#          url: jdbc:mysql://127.0.0.1:3306/$&#123;spring.datasource.dynamic.datasource.slave.name&#125;?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=CTT # MySQL Connector/J 5.X 连接的示例</span><br><span class="hljs-comment">#          url: jdbc:postgresql://127.0.0.1:5432/$&#123;spring.datasource.dynamic.datasource.slave.name&#125; # PostgreSQL 连接的示例</span><br><span class="hljs-comment">#          url: jdbc:oracle:thin:@127.0.0.1:1521:xe # Oracle 连接的示例</span><br><span class="hljs-comment">#          url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=$&#123;spring.datasource.dynamic.datasource.slave.name&#125; # SQLServer 连接的示例</span><br>          <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>          <span class="hljs-attr">password:</span> <span class="hljs-number">123456</span><br><span class="hljs-comment">#          username: sa</span><br><span class="hljs-comment">#          password: JSm:g(*%lU4ZAkz06cd52KqT3)i1?H7W</span><br><br>  <span class="hljs-comment"># Redis 配置。Redisson 默认的配置足够使用，一般不需要进行调优</span><br>  <span class="hljs-attr">redis:</span><br>    <span class="hljs-attr">host:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span> <span class="hljs-comment"># 地址</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">6379</span> <span class="hljs-comment"># 端口</span><br>    <span class="hljs-attr">database:</span> <span class="hljs-number">0</span> <span class="hljs-comment"># 数据库索引</span><br><span class="hljs-comment">#    password: 123456 # 密码，建议生产环境开启</span><br><br><span class="hljs-string">---</span> <span class="hljs-comment">#################### MQ 消息队列相关配置 ####################</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">stream:</span><br>      <span class="hljs-attr">rocketmq:</span><br>        <span class="hljs-comment"># RocketMQ Binder 配置项，对应 RocketMQBinderConfigurationProperties 类</span><br>        <span class="hljs-attr">binder:</span><br>          <span class="hljs-attr">name-server:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><span class="hljs-string">:9876</span> <span class="hljs-comment"># RocketMQ Namesrv 地址</span><br><br><span class="hljs-string">---</span> <span class="hljs-comment">#################### 定时任务相关配置 ####################</span><br><br><span class="hljs-attr">xxl:</span><br>  <span class="hljs-attr">job:</span><br>    <span class="hljs-attr">admin:</span><br>      <span class="hljs-attr">addresses:</span> <span class="hljs-string">http://127.0.0.1:9090/xxl-job-admin</span> <span class="hljs-comment"># 调度中心部署跟地址</span><br><br><span class="hljs-string">---</span> <span class="hljs-comment">#################### 服务保障相关配置 ####################</span><br><br><span class="hljs-comment"># Lock4j 配置项</span><br><span class="hljs-attr">lock4j:</span><br>  <span class="hljs-attr">acquire-timeout:</span> <span class="hljs-number">3000</span> <span class="hljs-comment"># 获取分布式锁超时时间，默认为 3000 毫秒</span><br>  <span class="hljs-attr">expire:</span> <span class="hljs-number">30000</span> <span class="hljs-comment"># 分布式锁的超时时间，默认为 30 毫秒</span><br><br><span class="hljs-string">---</span> <span class="hljs-comment">#################### 监控相关配置 ####################</span><br><br><span class="hljs-comment"># Actuator 监控端点的配置项</span><br><span class="hljs-attr">management:</span><br>  <span class="hljs-attr">endpoints:</span><br>    <span class="hljs-attr">web:</span><br>      <span class="hljs-attr">base-path:</span> <span class="hljs-string">/actuator</span> <span class="hljs-comment"># Actuator 提供的 API 接口的根目录。默认为 /actuator</span><br>      <span class="hljs-attr">exposure:</span><br>        <span class="hljs-attr">include:</span> <span class="hljs-string">&#x27;*&#x27;</span> <span class="hljs-comment"># 需要开放的端点。默认值只打开 health 和 info 两个端点。通过设置 * ，可以开放所有端点。</span><br><br><span class="hljs-comment"># Spring Boot Admin 配置项</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">boot:</span><br>    <span class="hljs-attr">admin:</span><br>      <span class="hljs-comment"># Spring Boot Admin Client 客户端的相关配置</span><br>      <span class="hljs-attr">client:</span><br>        <span class="hljs-attr">instance:</span><br>          <span class="hljs-attr">service-host-type:</span> <span class="hljs-string">IP</span> <span class="hljs-comment"># 注册实例时，优先使用 IP [IP, HOST_NAME, CANONICAL_HOST_NAME]</span><br><br><span class="hljs-comment"># 日志文件配置</span><br><span class="hljs-attr">logging:</span><br>  <span class="hljs-attr">level:</span><br>    <span class="hljs-comment"># 配置自己写的 MyBatis Mapper 打印日志</span><br>    <span class="hljs-attr">cn.iocoder.yudao.module.demo.dal.mysql:</span> <span class="hljs-string">debug</span><br><br><span class="hljs-string">---</span> <span class="hljs-comment">#################### 芋道相关配置 ####################</span><br><br><span class="hljs-comment"># 芋道配置项，设置当前项目所有自定义的配置</span><br><span class="hljs-attr">yudao:</span><br>  <span class="hljs-attr">env:</span> <span class="hljs-comment"># 多环境的配置项</span><br>    <span class="hljs-attr">tag:</span> <span class="hljs-string">$&#123;HOSTNAME&#125;</span><br>  <span class="hljs-attr">security:</span><br>    <span class="hljs-attr">mock-enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">xss:</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">exclude-urls:</span> <span class="hljs-comment"># 如下两个 url，仅仅是为了演示，去掉配置也没关系</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">$&#123;spring.boot.admin.context-path&#125;/**</span> <span class="hljs-comment"># 不处理 Spring Boot Admin 的请求</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">$&#123;management.endpoints.web.base-path&#125;/**</span> <span class="hljs-comment"># 不处理 Actuator 的请求</span><br>  <span class="hljs-attr">access-log:</span> <span class="hljs-comment"># 访问日志的配置项</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br>  <span class="hljs-attr">error-code:</span> <span class="hljs-comment"># 错误码相关配置项</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br>  <span class="hljs-attr">demo:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 关闭演示模式</span><br></code></pre></td></tr></table></figure>
+
+<ul><li><code>logging.level.cn.iocoder.yudao.module.demo.dal.mysql</code> 配置项：可以改成你的项目的基准包名。</li></ul> <p>其中 <code>bootstrap.yml</code> 的配置如下：</p> 
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">demo-server</span><br><br>  <span class="hljs-attr">profiles:</span><br>    <span class="hljs-attr">active:</span> <span class="hljs-string">local</span><br><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">48099</span><br><br><span class="hljs-comment"># 日志文件配置。注意，如果 logging.file.name 不放在 bootstrap.yaml 配置文件，而是放在 application.yaml 中，会导致出现 LOG_FILE_IS_UNDEFINED 文件</span><br><span class="hljs-attr">logging:</span><br>  <span class="hljs-attr">file:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">$&#123;user.home&#125;/logs/$&#123;spring.application.name&#125;.log</span> <span class="hljs-comment"># 日志文件名，全路径</span><br></code></pre></td></tr></table></figure>
+
+<ul><li><code>spring.application.name</code> 配置项：可以改成你想要的服务名。</li> <li><code>server.port</code> 配置项：可以改成你想要的端口号。</li></ul> <p>其中 <code>bootstrap-local.yml</code> 的配置如下：</p> 
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">---</span> <span class="hljs-comment">#################### 注册中心相关配置 ####################</span><br><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">nacos:</span><br>      <span class="hljs-attr">server-addr:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><span class="hljs-string">:8848</span><br>      <span class="hljs-attr">discovery:</span><br>        <span class="hljs-attr">namespace:</span> <span class="hljs-string">dev</span> <span class="hljs-comment"># 命名空间。这里使用 dev 开发环境</span><br>        <span class="hljs-attr">metadata:</span><br>          <span class="hljs-attr">version:</span> <span class="hljs-number">1.0</span><span class="hljs-number">.0</span> <span class="hljs-comment"># 服务实例的版本号，可用于灰度发布</span><br><br><span class="hljs-string">---</span> <span class="hljs-comment">#################### 配置中心相关配置 ####################</span><br><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">nacos:</span><br>      <span class="hljs-comment"># Nacos Config 配置项，对应 NacosConfigProperties 配置属性类</span><br>      <span class="hljs-attr">config:</span><br>        <span class="hljs-attr">server-addr:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><span class="hljs-string">:8848</span> <span class="hljs-comment"># Nacos 服务器地址</span><br>        <span class="hljs-attr">namespace:</span> <span class="hljs-string">dev</span> <span class="hljs-comment"># 命名空间。这里使用 dev 开发环境</span><br>        <span class="hljs-attr">group:</span> <span class="hljs-string">DEFAULT_GROUP</span> <span class="hljs-comment"># 使用的 Nacos 配置分组，默认为 DEFAULT_GROUP</span><br>        <span class="hljs-attr">name:</span> <span class="hljs-comment"># 使用的 Nacos 配置集的 dataId，默认为 spring.application.name</span><br>        <span class="hljs-attr">file-extension:</span> <span class="hljs-string">yaml</span> <span class="hljs-comment"># 使用的 Nacos 配置集的 dataId 的文件拓展名，同时也是 Nacos 配置集的配置格式，默认为 properties</span><br></code></pre></td></tr></table></figure>
+
+<p>其中 <code>logback-spring.xml</code> 的配置如下：</p> 
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 引用 Spring Boot 的 logback 基础配置 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">&quot;org/springframework/boot/logging/logback/defaults.xml&quot;</span> /&gt;</span><br>    <span class="hljs-comment">&lt;!-- 变量 yudao.info.base-package，基础业务包 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">springProperty</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">&quot;context&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;yudao.info.base-package&quot;</span> <span class="hljs-attr">source</span>=<span class="hljs-string">&quot;yudao.info.base-package&quot;</span>/&gt;</span><br>    <span class="hljs-comment">&lt;!-- 格式化输出：%d 表示日期，%X&#123;tid&#125; SkWalking 链路追踪编号，%thread 表示线程名，%-5level：级别从左显示 5 个字符宽度，%msg：日志消息，%n是换行符 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;PATTERN_DEFAULT&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;%d&#123;$&#123;LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS&#125;&#125; $&#123;LOG_LEVEL_PATTERN:-%5p&#125; $&#123;PID:- &#125; --- [%thread] [%tid] %-40.40logger&#123;39&#125; : %m%n$&#123;LOG_EXCEPTION_CONVERSION_WORD:-%wEx&#125;&quot;</span>/&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 控制台 Appender --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;STDOUT&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.ConsoleAppender&quot;</span>&gt;</span>　　　　　<br>        <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.encoder.LayoutWrappingEncoder&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>$&#123;PATTERN_DEFAULT&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 文件 Appender --&gt;</span><br>    <span class="hljs-comment">&lt;!-- 参考 Spring Boot 的 file-appender.xml 编写 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;FILE&quot;</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.encoder.LayoutWrappingEncoder&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>$&#123;PATTERN_DEFAULT&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- 日志文件名 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">file</span>&gt;</span>$&#123;LOG_FILE&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">file</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">rollingPolicy</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&quot;</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 滚动后的日志文件名 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">fileNamePattern</span>&gt;</span>$&#123;LOGBACK_ROLLINGPOLICY_FILE_NAME_PATTERN:-$&#123;LOG_FILE&#125;.%d&#123;yyyy-MM-dd&#125;.%i.gz&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">fileNamePattern</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 启动服务时，是否清理历史日志，一般不建议清理 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">cleanHistoryOnStart</span>&gt;</span>$&#123;LOGBACK_ROLLINGPOLICY_CLEAN_HISTORY_ON_START:-false&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">cleanHistoryOnStart</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 日志文件，到达多少容量，进行滚动 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">maxFileSize</span>&gt;</span>$&#123;LOGBACK_ROLLINGPOLICY_MAX_FILE_SIZE:-10MB&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">maxFileSize</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 日志文件的总大小，0 表示不限制 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">totalSizeCap</span>&gt;</span>$&#123;LOGBACK_ROLLINGPOLICY_TOTAL_SIZE_CAP:-0&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">totalSizeCap</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 日志文件的保留天数 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">maxHistory</span>&gt;</span>$&#123;LOGBACK_ROLLINGPOLICY_MAX_HISTORY:-30&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">maxHistory</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">rollingPolicy</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 异步写入日志，提升性能 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ASYNC&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.classic.AsyncAppender&quot;</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- 不丢失日志。默认的，如果队列的 80% 已满,则会丢弃 TRACT、DEBUG、INFO 级别的日志 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">discardingThreshold</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">discardingThreshold</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- 更改默认的队列的深度，该值会影响性能。默认值为 256 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">queueSize</span>&gt;</span>256<span class="hljs-tag">&lt;/<span class="hljs-name">queueSize</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;FILE&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- SkyWalking GRPC 日志收集，实现日志中心。注意：SkyWalking 8.4.0 版本开始支持 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;GRPC&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.apache.skywalking.apm.toolkit.log.logback.v1.x.log.GRPCLogClientAppender&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.encoder.LayoutWrappingEncoder&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>$&#123;PATTERN_DEFAULT&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 本地环境 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">springProfile</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;local&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">root</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;STDOUT&quot;</span>/&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;GRPC&quot;</span>/&gt;</span> <span class="hljs-comment">&lt;!-- 本地环境下，如果不想接入 SkyWalking 日志服务，可以注释掉本行 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;ASYNC&quot;</span>/&gt;</span>  <span class="hljs-comment">&lt;!-- 本地环境下，如果不想打印日志，可以注释掉本行 --&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">springProfile</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 其它环境 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">springProfile</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dev,test,stage,prod,default&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">root</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;INFO&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;STDOUT&quot;</span>/&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;ASYNC&quot;</span>/&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;GRPC&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">springProfile</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="_4-新建-restful-api-接口"><a class="header-anchor" href="#_4-新建-restful-api-接口">#</a> 4. 新建 RESTful API
+接口</h2> <p>① 在 <code>controller.admin</code> 包，新建一个 DemoTestController 类，并新建一个 <code>/demo/test/get</code>
+接口。代码如下：</p>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> cn.iocoder.yudao.<span class="hljs-keyword">module</span>.demo.controller.admin;<br><br><span class="hljs-keyword">import</span> cn.iocoder.yudao.framework.common.pojo.CommonResult;<br><span class="hljs-keyword">import</span> io.swagger.annotations.Api;<br><span class="hljs-keyword">import</span> io.swagger.annotations.ApiOperation;<br><span class="hljs-keyword">import</span> org.springframework.validation.annotation.Validated;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;<br><br><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> cn.iocoder.yudao.framework.common.pojo.CommonResult.success;<br><br><span class="hljs-meta">@Tag(name = &quot;管理后台 - Test&quot;)</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@RequestMapping(&quot;/demo/test&quot;)</span><br><span class="hljs-meta">@Validated</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DemoTestController</span> &#123;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/get&quot;)</span><br>    <span class="hljs-meta">@Operation(summary = &quot;获取 test 信息&quot;)</span><br>    <span class="hljs-keyword">public</span> CommonResult&lt;String&gt; <span class="hljs-title function_">get</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> success(<span class="hljs-string">&quot;true&quot;</span>);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>，<code>/demo</code> 是该模块所有 RESTful API 的基础路径，<code>/test</code> 是 Test 功能的基础路径。</p> <p>① 在 <code>controller.app</code> 包，新建一个 AppDemoTestController 类，并新建一个 <code>/demo/test/get</code> 接口。代码如下：</p> 
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> cn.iocoder.yudao.<span class="hljs-keyword">module</span>.demo.controller.app;<br><br><span class="hljs-keyword">import</span> cn.iocoder.yudao.framework.common.pojo.CommonResult;<br><span class="hljs-keyword">import</span> io.swagger.annotations.Api;<br><span class="hljs-keyword">import</span> io.swagger.annotations.ApiOperation;<br><span class="hljs-keyword">import</span> org.springframework.validation.annotation.Validated;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;<br><br><span class="hljs-keyword">import</span> <span class="hljs-keyword">static</span> cn.iocoder.yudao.framework.common.pojo.CommonResult.success;<br><br><span class="hljs-meta">@Tag(name = &quot;用户 App - Test&quot;)</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@RequestMapping(&quot;/demo/test&quot;)</span><br><span class="hljs-meta">@Validated</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AppDemoTestController</span> &#123;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/get&quot;)</span><br>    <span class="hljs-meta">@Operation(summary = &quot;获取 test 信息&quot;)</span><br>    <span class="hljs-keyword">public</span> CommonResult&lt;String&gt; <span class="hljs-title function_">get</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> success(<span class="hljs-string">&quot;true&quot;</span>);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在 Controller 的命名上，额外增加 <strong>App</strong> 作为前缀，一方面区分是管理后台还是用户 App 的 Controller，另一方面避免 Spring Bean 的名字冲突。</p> <p>可能你会奇怪，这里我们定义了两个 <code>/demo/test/get</code> 接口，会不会存在重复导致冲突呢？答案，当然是并不会。原因是：</p> <ul><li><code>controller.admin</code> 包下的接口，默认会增加 <code>/admin-api</code>，即最终的访问地址是 <code>/admin-api/demo/test/get</code></li> <li><code>controller.app</code> 包下的接口，默认会增加 <code>/app-api</code>，即最终的访问地址是 <code>/app-api/demo/test/get</code></li></ul> <h2 id="_5-启动-demo-服务"><a class="header-anchor" href="#_5-启动-demo-服务">#</a> 5. 启动 demo 服务</h2> <p>① 运行 SystemServerApplication 类，将 <code>system</code> 服务启动。运行 InfraServerApplication 类，将 <code>infra</code> 服务启动。</p> <p>② 运行 DemoServerApplication 类，将新建的 <code>demo</code> 服务进行启动。启动完成后，使用浏览器打开 <a href="http://127.0.0.1:48099/doc.html" rel="noopener noreferrer" target="_blank">http://127.0.0.1:48099/doc.html<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 地址，进入该服务的 Swagger 接口文档。</p> <p>③ 打开“管理后台 - Test”接口，进行 <code>/admin-api/demo/test/get</code> 接口的调试，如下图所示：</p> <p><img alt="测试  接口" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/48.png"/></p> <p>④ 打开“用户 App - Test”接口，进行 <code>/app-api/demo/test/get</code> 接口的调试，如下图所示：</p> <p><img alt="测试  接口" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/49.png"/></p> <h2 id="_6-网关配置"><a class="header-anchor" href="#_6-网关配置">#</a> 6. 网关配置</h2> <p>① 打开 <code>yudao-gateway</code> 网关项目的 <code>application.yml</code> 配置文件，增加 <code>demo</code> 服务的路由配置。代码如下：</p> <p><img alt="网关路由配置" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/102.png"/></p> 
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">demo-admin-api</span> <span class="hljs-comment"># 路由的编号</span><br>  <span class="hljs-attr">uri:</span> <span class="hljs-string">grayLb://demo-server</span><br>  <span class="hljs-attr">predicates:</span> <span class="hljs-comment"># 断言，作为路由的匹配条件，对应 RouteDefinition 数组</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">Path=/admin-api/demo/**</span><br>  <span class="hljs-attr">filters:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">RewritePath=/admin-api/demo/v2/api-docs,</span> <span class="hljs-string">/v2/api-docs</span> <span class="hljs-comment"># 配置，保证转发到 /v2/api-docs</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">demo-app-api</span> <span class="hljs-comment"># 路由的编号</span><br>  <span class="hljs-attr">uri:</span> <span class="hljs-string">grayLb://demo-server</span><br>  <span class="hljs-attr">predicates:</span> <span class="hljs-comment"># 断言，作为路由的匹配条件，对应 RouteDefinition 数组</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">Path=/app-api/demo/**</span><br>  <span class="hljs-attr">filters:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">RewritePath=/app-api/demo/v2/api-docs,</span> <span class="hljs-string">/v2/api-docs</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">demo-server</span><br>  <span class="hljs-attr">service-name:</span> <span class="hljs-string">demo-server</span><br>  <span class="hljs-attr">url:</span> <span class="hljs-string">/admin-api/demo/v3/api-docs</span><br></code></pre></td></tr></table></figure>
+
+<p>② 运行 GatewayServerApplication 类，将 <code>gateway</code> 网关服务启动。</p> <p>③ 使用浏览器打开 <a href="http://127.0.0.1:48080/doc.html" rel="noopener noreferrer" target="_blank">http://127.0.0.1:48080/doc.html<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 地址，进入网关的 Swagger 接口文档。然后，选择 <code>demo-server</code> 服务，即可进行 <code>/admin-api/demo/test/get</code> 和 <code>/app-api/demo/test/get</code> 接口的调试，如下图所示：</p> <p><img alt="网关 Swagger 接口文档" src="https://upyun.thatcdn.cn/public/img/yudaocloud/cloudImages/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1/103.png"/></p></div></div> <div class="page-slot page-slot-bottom">
+<div class="wwads-cn wwads-horizontal pageB" data-id="136" style="width:100%;max-height:80px;min-height:auto;"></div>
+<style>
+    .pageB img{width:80px!important;}
+    .wwads-horizontal .wwads-text, .wwads-content .wwads-text{line-height:1;}
+  </style>
+</div> <div class="page-edit"><!-- --> <!-- --> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2023/04/14, 09:21:21</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a class="page-nav-centre page-nav-centre-prev" href="/delete-code/"><div class="tooltip">删除功能</div></a> <a class="page-nav-centre page-nav-centre-next" href="/new-feature/"><div class="tooltip">代码生成（新增功能）</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a class="prev" href="/delete-code/">删除功能</a></span> <span class="next"><a href="/new-feature/">代码生成（新增功能）</a>→
+      </span></p></div></div></div>
+</article>
+<div class="article-footer">
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E9%82%AE%E4%BB%B6%E9%85%8D%E7%BD%AE/%E9%82%AE%E4%BB%B6%E9%85%8D%E7%BD%AE/">邮件配置</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E7%94%A8%E6%88%B7%E4%BD%93%E7%B3%BB/%E7%94%A8%E6%88%B7%E4%BD%93%E7%B3%BB/">用户体系</a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://vercel.com/">vercel</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.netlify.com/">netlify</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.cloudflare.com/">cloudflare</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 
+<!--本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span>-->
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%91%8D-%E7%9B%B8%E5%85%B3%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B"><span class="toc-text"> 👍 相关视频教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_1-%E6%96%B0%E5%BB%BA-demo-%E6%A8%A1%E5%9D%97"><span class="toc-text"> 1. 新建 demo 模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_2-%E6%96%B0%E5%BB%BA-demo-api-%E5%AD%90%E6%A8%A1%E5%9D%97"><span class="toc-text"> 2. 新建 demo-api
+子模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_3-%E6%96%B0%E5%BB%BA-demo-biz-%E5%AD%90%E6%A8%A1%E5%9D%97"><span class="toc-text"> 3. 新建 demo-biz 子模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_4-%E6%96%B0%E5%BB%BA-restful-api-%E6%8E%A5%E5%8F%A3"><span class="toc-text"> 4. 新建 RESTful API
+接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_5-%E5%90%AF%E5%8A%A8-demo-%E6%9C%8D%E5%8A%A1"><span class="toc-text"> 5. 启动 demo 服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_6-%E7%BD%91%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-text"> 6. 网关配置</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":"blog.thatcoder.cn","officialHosts":["localhost","en.blog.thatcoder.cn","hexo.thatcoder.cn","thatcoder.vercel.app","thatcoder.netlify.app","cn-coder.vercel.app","thatcoders.github.io","thatcoder.pages.dev","cncoder.pages.dev"],"encoded":"YmxvZy50aGF0Y29kZXIuY24="};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"post, page, docs","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  import { init } from 'https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js';
+
+  const el = document.getElementById('waline_container');
+  util.viewportLazyload(el, load_waline, false);
+
+  function load_waline(){
+    if (!el) return;
+
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css');
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css');
+
+    const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+    const waline = init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js","css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+      el: '#waline_container',
+      path: path,
+      
+        imageUploader: function(file) {
+          const headers = new Headers();
+          headers.set('Accept', 'application/json');
+          
+            headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+          
+          const formData = new FormData();
+          formData.append('file', file);
+          return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+            method: 'POST',
+            body: formData,
+            headers: headers
+            }).then((resp) => resp.json())
+              .then((resp) => resp.data.links.url)
+        },
+      
+    }));
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>

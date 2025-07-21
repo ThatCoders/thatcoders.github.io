@@ -1,0 +1,960 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <link rel="canonical" href="https://blog.thatcoder.cn/wiki/YuDaoBoot/更新日志/【v1.6.6】2023-01-05/【v1.6.6】2023-01-05">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>YuDaoBoot：【v1.6.6】2023-01-05 - 钟意博客</title>
+
+  
+    <meta name="description" content="开发指南更新日志 芋道源码 2023-01-01   目录  【v1.6.6】2023-01-05 # 完善 Vue3 管理后台，新增 IP &amp; 地区库 # 📈 Statistic 总代码行数：104298 源码代码行数：63656 注释行数：24708 单元测试用例数：602 # ⭐ New Features 【新增】yudao-spring-boot-starter-biz-ip">
+<meta property="og:type" content="website">
+<meta property="og:title" content="【v1.6.6】2023-01-05">
+<meta property="og:url" content="https://blog.thatcoder.cn/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.6%E3%80%912023-01-05/%E3%80%90v1.6.6%E3%80%912023-01-05/">
+<meta property="og:site_name" content="钟意博客">
+<meta property="og:description" content="开发指南更新日志 芋道源码 2023-01-01   目录  【v1.6.6】2023-01-05 # 完善 Vue3 管理后台，新增 IP &amp; 地区库 # 📈 Statistic 总代码行数：104298 源码代码行数：63656 注释行数：24708 单元测试用例数：602 # ⭐ New Features 【新增】yudao-spring-boot-starter-biz-ip">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.thatcoder.cn/favicon.ico">
+<meta property="article:published_time" content="2025-07-21T12:21:47.959Z">
+<meta property="article:modified_time" content="2025-07-21T12:21:47.959Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="那个码农">
+<meta property="article:tag" content="码农钟意">
+<meta property="article:tag" content="钟意的博客">
+<meta property="article:tag" content="钟意博客">
+<meta property="article:tag" content="That Coder">
+<meta property="article:tag" content="thatcoder">
+<meta property="article:tag" content="源柒拾柒雅舍">
+<meta property="article:tag" content="源WebGary">
+<meta property="article:tag" content="giligili.work">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.thatcoder.cn/favicon.ico">
+  
+  
+
+  <meta name="keywords" content="那个码农,码农钟意,钟意的博客,钟意博客,That Coder,thatcoder,源柒拾柒雅舍,源WebGary,giligili.work">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="钟意博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://blog.thatcoder.cn/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.6%E3%80%912023-01-05/%E3%80%90v1.6.6%E3%80%912023-01-05/","author":{"@type":"Person","name":"钟意","sameAs":[],"image":"/favicon.ico"},"name":"【v1.6.6】2023-01-05","description":" 开发指南更新日志 芋道源码 2023-01-01   目录  【v1.6.6】2023-01-05 # 完善 Vue3 管理后台，新增 IP &amp; 地区库 # 📈 Statistic 总代码行数：104298 源码代码行数：63656 注释行数：24708 单元测试用例数：602 # ⭐ New Features 【新增】yudao-spring-boot-starter-biz-...","url":"https://blog.thatcoder.cn/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.6%E3%80%912023-01-05/%E3%80%90v1.6.6%E3%80%912023-01-05/","keywords":["那个码农","码农钟意","钟意的博客","钟意博客","That Coder","thatcoder","源柒拾柒雅舍","源WebGary","giligili.work"]}</script>
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel='stylesheet' href='https://public.thatcdn.cn/font/old_song/result.css' /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="author" content="钟意"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+
+<div class="l_body s:aa content tech " id="start" layout="page" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/custom/img/ruoyi.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5"><div class="main">YuDaoBoot</div><div class="sub normal cap">关于艿艿若依Boot的文档</div><div class="sub hover cap" style="opacity:0"> 一个简单易上手的 Spring Boot 开发平台</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item active" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/YuDaoBoot/" placeholder="在 YuDaoBoot 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<widget class="widget-wrapper doc-tree post-list"><div class="widget-body fs14"><a class="link" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/#start"><span class="toc-text">公众号接入</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9B%BE%E6%96%87/%E5%85%AC%E4%BC%97%E5%8F%B7%E5%9B%BE%E6%96%87/"><span class="toc-text">公众号图文</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E7%B4%A0%E6%9D%90/%E5%85%AC%E4%BC%97%E5%8F%B7%E7%B4%A0%E6%9D%90/"><span class="toc-text">公众号素材</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%A0%87%E7%AD%BE/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%A0%87%E7%AD%BE/"><span class="toc-text">公众号标签</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E7%B2%89%E4%B8%9D/%E5%85%AC%E4%BC%97%E5%8F%B7%E7%B2%89%E4%B8%9D/"><span class="toc-text">公众号粉丝</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E8%8F%9C%E5%8D%95/%E5%85%AC%E4%BC%97%E5%8F%B7%E8%8F%9C%E5%8D%95/"><span class="toc-text">公众号菜单</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%B6%88%E6%81%AF/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%B6%88%E6%81%AF/"><span class="toc-text">公众号消息</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%8A%9F%E8%83%BD%E5%BC%80%E5%90%AF/%E5%8A%9F%E8%83%BD%E5%BC%80%E5%90%AF/"><span class="toc-text">功能开启</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E7%BB%9F%E8%AE%A1/%E5%85%AC%E4%BC%97%E5%8F%B7%E7%BB%9F%E8%AE%A1/"><span class="toc-text">公众号统计</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/Icon%20%E5%9B%BE%E6%A0%87/Icon%20%E5%9B%BE%E6%A0%87/"><span class="toc-text">Icon 图标</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E5%AD%97%E5%85%B8%E6%95%B0%E6%8D%AE/%E5%AD%97%E5%85%B8%E6%95%B0%E6%8D%AE/"><span class="toc-text">字典数据</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"><span class="toc-text">开发规范</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E8%87%AA%E5%8A%A8%E5%9B%9E%E5%A4%8D/%E8%87%AA%E5%8A%A8%E5%9B%9E%E5%A4%8D/"><span class="toc-text">自动回复</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E9%85%8D%E7%BD%AE%E8%AF%BB%E5%8F%96/%E9%85%8D%E7%BD%AE%E8%AF%BB%E5%8F%96/"><span class="toc-text">配置读取</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1/"><span class="toc-text">菜单路由</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/CRUD%20%E7%BB%84%E4%BB%B6/CRUD%20%E7%BB%84%E4%BB%B6/"><span class="toc-text">CRUD 组件</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E5%9B%BD%E9%99%85%E5%8C%96/%E5%9B%BD%E9%99%85%E5%8C%96/"><span class="toc-text">国际化</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/"><span class="toc-text">系统组件</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/IDE%20%E8%B0%83%E8%AF%95/IDE%20%E8%B0%83%E8%AF%95/"><span class="toc-text">IDE 调试</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95/%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="toc-text">通用方法</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/Icon%20%E5%9B%BE%E6%A0%87/Icon%20%E5%9B%BE%E6%A0%87/"><span class="toc-text">Icon 图标</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E5%AD%97%E5%85%B8%E6%95%B0%E6%8D%AE/%E5%AD%97%E5%85%B8%E6%95%B0%E6%8D%AE/"><span class="toc-text">字典数据</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1/"><span class="toc-text">菜单路由</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95/%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="toc-text">通用方法</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E9%85%8D%E7%BD%AE%E8%AF%BB%E5%8F%96/%E9%85%8D%E7%BD%AE%E8%AF%BB%E5%8F%96/"><span class="toc-text">配置读取</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/"><span class="toc-text">开发规范</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/"><span class="toc-text">系统组件</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/Excel%20%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/Excel%20%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/"><span class="toc-text">Excel 导入导出</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%EF%BC%88%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD%EF%BC%89/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%EF%BC%88%E6%96%B0%E5%A2%9E%E5%8A%9F%E8%83%BD%EF%BC%89/"><span class="toc-text">代码生成（新增功能）</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/SaaS%20%E5%A4%9A%E7%A7%9F%E6%88%B7%E3%80%90%E5%AD%97%E6%AE%B5%E9%9A%94%E7%A6%BB%E3%80%91/SaaS%20%E5%A4%9A%E7%A7%9F%E6%88%B7%E3%80%90%E5%AD%97%E6%AE%B5%E9%9A%94%E7%A6%BB%E3%80%91/"><span class="toc-text">SaaS 多租户【字段隔离】</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/SaaS%20%E5%A4%9A%E7%A7%9F%E6%88%B7%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9A%94%E7%A6%BB%E3%80%91/SaaS%20%E5%A4%9A%E7%A7%9F%E6%88%B7%E3%80%90%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9A%94%E7%A6%BB%E3%80%91/"><span class="toc-text">SaaS 多租户【数据库隔离】</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/Redis%20%E7%BC%93%E5%AD%98/Redis%20%E7%BC%93%E5%AD%98/"><span class="toc-text">Redis 缓存</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95/"><span class="toc-text">三方登录</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)/"><span class="toc-text">OAuth 2.0（SSO 单点登录)</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/"><span class="toc-text">分布式锁</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/"><span class="toc-text">参数校验</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"><span class="toc-text">单元测试</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%9C%B0%E5%8C%BA%20&%20IP%20%E5%BA%93/%E5%9C%B0%E5%8C%BA%20&%20IP%20%E5%BA%93/"><span class="toc-text">地区 & IP 库</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%8A%9F%E8%83%BD%E6%9D%83%E9%99%90/%E5%8A%9F%E8%83%BD%E6%9D%83%E9%99%90/"><span class="toc-text">功能权限</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"><span class="toc-text">定时任务</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%EF%BC%88%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%EF%BC%89/%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%EF%BC%88%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%EF%BC%89/"><span class="toc-text">多数据源（读写分离）</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/"><span class="toc-text">异步任务</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%88%86%E9%A1%B5%E5%AE%9E%E7%8E%B0/%E5%88%86%E9%A1%B5%E5%AE%9E%E7%8E%B0/"><span class="toc-text">分页实现</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%B7%A5%E5%85%B7%E7%B1%BB%20Util/%E5%B7%A5%E5%85%B7%E7%B1%BB%20Util/"><span class="toc-text">工具类 Util</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%B9%82%E7%AD%89%E6%80%A7%EF%BC%88%E9%98%B2%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4%EF%BC%89/%E5%B9%82%E7%AD%89%E6%80%A7%EF%BC%88%E9%98%B2%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4%EF%BC%89/"><span class="toc-text">幂等性（防重复提交）</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%95%8F%E6%84%9F%E8%AF%8D/%E6%95%8F%E6%84%9F%E8%AF%8D/"><span class="toc-text">敏感词</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%EF%BC%88%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%89/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%EF%BC%88%E9%94%99%E8%AF%AF%E7%A0%81%EF%BC%89/"><span class="toc-text">异常处理（错误码）</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%95%B0%E6%8D%AE%E8%84%B1%E6%95%8F/%E6%95%B0%E6%8D%AE%E8%84%B1%E6%95%8F/"><span class="toc-text">数据脱敏</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%95%B0%E6%8D%AE%E6%9D%83%E9%99%90/%E6%95%B0%E6%8D%AE%E6%9D%83%E9%99%90/"><span class="toc-text">数据权限</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%EF%BC%88%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%EF%BC%89/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%EF%BC%88%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%EF%BC%89/"><span class="toc-text">文件存储（上传下载）</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%95%B0%E6%8D%AE%E5%BA%93%20MyBatis/%E6%95%B0%E6%8D%AE%E5%BA%93%20MyBatis/"><span class="toc-text">数据库 MyBatis</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E6%A1%A3/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E6%A1%A3/"><span class="toc-text">数据库文档</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/"><span class="toc-text">本地缓存</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"><span class="toc-text">消息队列</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E7%9F%AD%E4%BF%A1%E9%85%8D%E7%BD%AE/%E7%9F%AD%E4%BF%A1%E9%85%8D%E7%BD%AE/"><span class="toc-text">短信配置</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E7%94%A8%E6%88%B7%E4%BD%93%E7%B3%BB/%E7%94%A8%E6%88%B7%E4%BD%93%E7%B3%BB/"><span class="toc-text">用户体系</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%A4%A7%E5%B1%8F%E6%89%8B%E5%86%8C/%E6%8A%A5%E8%A1%A8%E8%AE%BE%E8%AE%A1%E5%99%A8/%E6%8A%A5%E8%A1%A8%E8%AE%BE%E8%AE%A1%E5%99%A8/"><span class="toc-text">报表设计器</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E7%AB%99%E5%86%85%E4%BF%A1%E9%85%8D%E7%BD%AE/%E7%AB%99%E5%86%85%E4%BF%A1%E9%85%8D%E7%BD%AE/"><span class="toc-text">站内信配置</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97/"><span class="toc-text">系统日志</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%A4%A7%E5%B1%8F%E6%89%8B%E5%86%8C/%E5%A4%A7%E5%B1%8F%E8%AE%BE%E8%AE%A1%E5%99%A8/%E5%A4%A7%E5%B1%8F%E8%AE%BE%E8%AE%A1%E5%99%A8/"><span class="toc-text">大屏设计器</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E9%99%90%E6%B5%81%E7%86%94%E6%96%AD/%E9%99%90%E6%B5%81%E7%86%94%E6%96%AD/"><span class="toc-text">限流熔断</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E9%82%AE%E4%BB%B6%E9%85%8D%E7%BD%AE/%E9%82%AE%E4%BB%B6%E9%85%8D%E7%BD%AE/"><span class="toc-text">邮件配置</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/"><span class="toc-text">配置管理</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/Jenkins%20%E9%83%A8%E7%BD%B2/Jenkins%20%E9%83%A8%E7%BD%B2/"><span class="toc-text">Jenkins 部署</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"><span class="toc-text">开发环境</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E9%AA%8C%E8%AF%81%E7%A0%81/%E9%AA%8C%E8%AF%81%E7%A0%81/"><span class="toc-text">验证码</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/Docker%20%E9%83%A8%E7%BD%B2/Docker%20%E9%83%A8%E7%BD%B2/"><span class="toc-text">Docker 部署</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7/%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7/"><span class="toc-text">服务监控</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/%E6%96%B0%E5%BB%BA%E6%A8%A1%E5%9D%97/%E6%96%B0%E5%BB%BA%E6%A8%A1%E5%9D%97/"><span class="toc-text">新建模块</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E4%B8%80%E9%94%AE%E6%94%B9%E5%8C%85/%E4%B8%80%E9%94%AE%E6%94%B9%E5%8C%85/"><span class="toc-text">一键改包</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E5%88%A0%E9%99%A4%E5%8A%9F%E8%83%BD/%E5%88%A0%E9%99%A4%E5%8A%9F%E8%83%BD/"><span class="toc-text">删除功能</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%89%8B%E5%86%8C/%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88Flowable%EF%BC%89%E4%BC%9A%E7%AD%BE%E3%80%81%E6%88%96%E7%AD%BE/%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88Flowable%EF%BC%89%E4%BC%9A%E7%AD%BE%E3%80%81%E6%88%96%E7%AD%BE/"><span class="toc-text">工作流（Flowable）会签、或签</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E4%BA%A4%E6%B5%81%E7%BE%A4/%E4%BA%A4%E6%B5%81%E7%BE%A4/"><span class="toc-text">交流群</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%EF%BC%88%E9%80%82%E5%90%88%E2%80%9C%E5%89%8D%E7%AB%AF%E2%80%9D%E5%B7%A5%E7%A8%8B%E5%B8%88%EF%BC%89/%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%EF%BC%88%E9%80%82%E5%90%88%E2%80%9C%E5%89%8D%E7%AB%AF%E2%80%9D%E5%B7%A5%E7%A8%8B%E5%B8%88%EF%BC%89/"><span class="toc-text">快速启动（适合“前端”工程师）</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/HTTPS%20%E8%AF%81%E4%B9%A6/HTTPS%20%E8%AF%81%E4%B9%A6/"><span class="toc-text">HTTPS 证书</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/Linux%20%E9%83%A8%E7%BD%B2/Linux%20%E9%83%A8%E7%BD%B2/"><span class="toc-text">Linux 部署</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/"><span class="toc-text">技术选型</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/"><span class="toc-text">接口文档</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E4%BB%A3%E7%A0%81%E7%83%AD%E5%8A%A0%E8%BD%BD/%E4%BB%A3%E7%A0%81%E7%83%AD%E5%8A%A0%E8%BD%BD/"><span class="toc-text">代码热加载</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8/"><span class="toc-text">功能列表</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E7%AE%80%E4%BB%8B/%E7%AE%80%E4%BB%8B/"><span class="toc-text">简介</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%EF%BC%88%E9%80%82%E5%90%88%E2%80%9C%E5%90%8E%E7%AB%AF%E2%80%9D%E5%B7%A5%E7%A8%8B%E5%B8%88%EF%BC%89/%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8%EF%BC%88%E9%80%82%E5%90%88%E2%80%9C%E5%90%8E%E7%AB%AF%E2%80%9D%E5%B7%A5%E7%A8%8B%E5%B8%88%EF%BC%89/"><span class="toc-text">快速启动（适合“后端”工程师）</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/"><span class="toc-text">项目结构</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.1.0%E3%80%912021.10.25/%E3%80%90v1.1.0%E3%80%912021.10.25"><span class="toc-text">【v1.1.0】2021.10.25</span></a><a class="link" href="/wiki/YuDaoBoot/%E8%90%8C%E6%96%B0%E5%BF%85%E8%AF%BB/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/"><span class="toc-text">视频教程</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.2.0%E3%80%912021.12.15/%E3%80%90v1.2.0%E3%80%912021.12.15"><span class="toc-text">【v1.2.0】2021.12.15</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.0%E3%80%912022-03-10/%E3%80%90v1.6.0%E3%80%912022-03-10/"><span class="toc-text">【v1.6.0】2022-03-10</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.0.0%E3%80%912021.05.03/%E3%80%90v1.0.0%E3%80%912021.05.03"><span class="toc-text">【v1.0.0】2021.05.03</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.4.0%E3%80%912022-02-04/%E3%80%90v1.4.0%E3%80%912022-02-04/"><span class="toc-text">【v1.4.0】2022-02-04</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.3.0%E3%80%912022.01.24/%E3%80%90v1.3.0%E3%80%912022.01.24"><span class="toc-text">【v1.3.0】2022.01.24</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.5.1%E3%80%912022-02-28/%E3%80%90v1.5.1%E3%80%912022-02-28/"><span class="toc-text">【v1.5.1】2022-02-28</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.1%E3%80%912022-03-21/%E3%80%90v1.6.1%E3%80%912022-03-21/"><span class="toc-text">【v1.6.1】2022-03-21</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.3%E3%80%912022-07-29/%E3%80%90v1.6.3%E3%80%912022-07-29/"><span class="toc-text">【v1.6.3】2022-07-29</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.5.0%E3%80%912022-02-17/%E3%80%90v1.5.0%E3%80%912022-02-17/"><span class="toc-text">【v1.5.0】2022-02-17</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.4%E3%80%912022-08-22/%E3%80%90v1.6.4%E3%80%912022-08-22/"><span class="toc-text">【v1.6.4】2022-08-22</span></a><a class="link active" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.6%E3%80%912023-01-05/%E3%80%90v1.6.6%E3%80%912023-01-05/"><span class="toc-text">【v1.6.6】2023-01-05</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.2%E3%80%912022-06-05/%E3%80%90v1.6.2%E3%80%912022-06-05/"><span class="toc-text">【v1.6.2】2022-06-05</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.7.0%E3%80%912023-01-30/%E3%80%90v1.7.0%E3%80%912023-01-30/"><span class="toc-text">【v1.7.0】2023-01-30</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.5%E3%80%912022-12-01/%E3%80%90v1.6.5%E3%80%912022-12-01/"><span class="toc-text">【v1.6.5】2022-12-01</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.7.3%E3%80%91%E5%BC%80%E5%8F%91%E4%B8%AD/%E3%80%90v1.7.3%E3%80%91%E5%BC%80%E5%8F%91%E4%B8%AD/"><span class="toc-text">【v1.7.3】开发中</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.7.1%E3%80%912023-03-05/%E3%80%90v1.7.1%E3%80%912023-03-05/"><span class="toc-text">【v1.7.1】2023-03-05</span></a><a class="link" href="/wiki/YuDaoBoot/%E5%95%86%E5%9F%8E%E6%89%8B%E5%86%8C/%E5%8A%9F%E8%83%BD%E5%BC%80%E5%90%AF/%E5%8A%9F%E8%83%BD%E5%BC%80%E5%90%AF/"><span class="toc-text">功能开启</span></a><a class="link" href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.7.2%E3%80%912023-04-19/%E3%80%90v1.7.2%E3%80%912023-04-19/"><span class="toc-text">【v1.7.2】2023-04-19</span></a></div></widget>
+
+<widget class="widget-wrapper post-card"><div class="widget-header dis-select"><span class="name">更多：开发</span></div><div class="widget-body"><a class="item wiki" href="/wiki/YDLDoc2/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/maven%E5%85%A5%E9%97%A8/maven%E5%85%A5%E9%97%A8/"><span class="title">元动力摘录 - JAVA阶段二</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/JDBC/JDBC/"><span class="title">元动力摘录 - JAVA阶段一</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc3/ELK%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8/"><span class="title">元动力摘录 - JAVA阶段三</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc4/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/%E5%B7%A5%E4%BD%9C%E6%B5%81/%E5%B7%A5%E4%BD%9C%E6%B5%81/"><span class="title">元动力摘录 - JAVA项目阶段</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YuDaoCloud/%E5%90%8E%E7%AB%AF%E6%89%8B%E5%86%8C/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)/OAuth%202.0%EF%BC%88SSO%20%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95)/"><span class="title">艿艿若依Cloud - 开发指南</span><span class="excerpt">关于艿艿若依Cloud的文档</span></a><a class="item wiki" href="/wiki/Laf/start/start/"><span class="title">Laf - 开箱即用的 serverless</span><span class="excerpt">钟意关于Laf的笔记</span></a><a class="item wiki" href="/wiki/MySql/basics/select/"><span class="title">MySql - 关系型数据库管理系统</span><span class="excerpt">钟意关于关系型数据库MySql的笔记</span></a><a class="item wiki" href="/wiki/SpringCloud/start/"><span class="title">SpringCloud - JAVA系分布式微服务架构</span><span class="excerpt">钟意关于SpringCloud的笔记</span></a></div></widget>
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%95%B0%E6%8D%AE%E6%90%AD%E5%BB%BA%E5%BC%95%E6%93%8E%20bi-designer%20API-%E8%AE%BE%E8%AE%A1%E5%99%A8%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《数据搭建引擎 bi-designer API-设计器》</span></a><a class="item title" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《源码学习》</span></a><a class="item title" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%E9%A2%98%20-%20%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《算法题 - 地下城游戏》</span></a><a class="item title" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%20CodeReview%E3%80%8B/"><span class="title"><strong>WebWeekly</strong><span class="dot"></span>《如何做好 CodeReview》</span></a><a class="item title" href="/wiki/YuDaoBoot/%E5%A4%A7%E5%B1%8F%E6%89%8B%E5%86%8C/%E5%A4%A7%E5%B1%8F%E8%AE%BE%E8%AE%A1%E5%99%A8/%E5%A4%A7%E5%B1%8F%E8%AE%BE%E8%AE%A1%E5%99%A8/"><span class="title"><strong>YuDaoBoot</strong><span class="dot"></span>大屏设计器</span></a><a class="item title" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6/"><span class="title"><strong>YuDaoCloud</strong><span class="dot"></span>系统组件</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/bilibili-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/wechat-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/github-banner.jpg"/></a><a class="social" href="javascript:ThemeChange('dark');" rel="noopener noreferrer"><img id="ThemeM" src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javascript:ThemeChange('light');" rel="noopener noreferrer"><img id="ThemeL" src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javascript:ThemeChange('auto');" rel="noopener noreferrer"><img id="ThemeAI" src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+    <div class="content">
+      <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/">YuDaoBoot</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2025-07-21T12:21:47.959Z">2025-07-21</time></span></div></div></div>
+      
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>【v1.6.6】2023-01-05</span></h1>
+        
+      </div>
+    </div>
+    
+    </div>
+    </div><article class="md-text content"><div class="theme-vdoing-wrapper"><div class="articleInfo-wrap" data-v-0c557b5e=""><div class="articleInfo" data-v-0c557b5e=""><ul class="breadcrumbs" data-v-0c557b5e=""><li data-v-0c557b5e=""><a class="iconfont icon-home router-link-active" data-v-0c557b5e="" href="/" title="首页"></a></li> <li data-v-0c557b5e=""><span data-v-0c557b5e="">开发指南</span></li><li data-v-0c557b5e=""><span data-v-0c557b5e="">更新日志</span></li></ul> <div class="info" data-v-0c557b5e=""><div class="author iconfont icon-touxiang" data-v-0c557b5e="" title="作者"><a class="beLink" data-v-0c557b5e="" href="https://www.iocoder.cn" target="_blank" title="作者">芋道源码</a></div> <div class="date iconfont icon-riqi" data-v-0c557b5e="" title="创建时间"><a data-v-0c557b5e="" href="javascript:;">2023-01-01</a></div> <!-- --></div></div></div> <!-- --> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img style="float:left;padding: 10px;" src="https://upyun.thatcdn.cn/public/img/yudaocloud/bootImages/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.6%E3%80%912023-01-05/5ApbkYw%2B.png"/>【v1.6.6】2023-01-05<!-- --></h1> <div class="theme-vdoing-content content__default"><h2 id="完善-vue3-管理后台-新增-ip-地区库"><a class="header-anchor" href="#完善-vue3-管理后台-新增-ip-地区库">#</a> 完善 Vue3 管理后台，新增 IP &amp; 地区库</h2> <h3 id="📈-statistic"><a class="header-anchor" href="#📈-statistic">#</a> 📈 Statistic</h3> <ul><li>总代码行数：104298</li> <li>源码代码行数：63656</li> <li>注释行数：24708</li> <li>单元测试用例数：602</li></ul> <h3 id="⭐-new-features"><a class="header-anchor" href="#⭐-new-features">#</a> ⭐ New Features</h3> <ul><li>【新增】<a href="https://github.com/YunaiV/ruoyi-vue-pro/tree/master/yudao-framework/yudao-spring-boot-starter-biz-ip" rel="noopener noreferrer" target="_blank"><code>yudao-spring-boot-starter-biz-ip</code><span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 业务组件，提供地区 &amp; IP 库的封装，由 <a href="https://gitee.com/wanglhup" rel="noopener noreferrer" target="_blank">@WangLH<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/commit/0b5aa560b392071f019f52796662fdc21f01f919" rel="noopener noreferrer" target="_blank">0b5aa56<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【新增】<a href="https://doc.iocoder.cn/area-and-ip/" rel="noopener noreferrer" target="_blank">《后端手册 —— 地区 &amp; IP 库》<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 文档</li> <li>【新增】<a href="https://doc.iocoder.cn/sensitive-word/" rel="noopener noreferrer" target="_blank">《后端手册 —— 敏感词》<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 文档</li> <li>【新增】<a href="https://doc.iocoder.cn/vue3/dev-spec/" rel="noopener noreferrer" target="_blank">《前端手册 Vue 3.x》<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 文档</li> <li>【优化】本地缓存的刷新实现，数据变更时，强制刷新，贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/commit/3443aa6" rel="noopener noreferrer" target="_blank">#3443aa6<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【新增】Vue3 XTable 组件，由 <a href="https://gitee.com/xingyu4j" rel="noopener noreferrer" target="_blank">@xingyu4j<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/349" rel="noopener noreferrer" target="_blank">#349<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【优化】优化 Vue3 管理后台实现，由 <a href="https://gitee.com/xingyu4j" rel="noopener noreferrer" target="_blank">@xingyu4j<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/317" rel="noopener noreferrer" target="_blank">#317<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/322" rel="noopener noreferrer" target="_blank">#322<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/331" rel="noopener noreferrer" target="_blank">#331<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/335" rel="noopener noreferrer" target="_blank">#335<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/339" rel="noopener noreferrer" target="_blank">#339<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/343" rel="noopener noreferrer" target="_blank">#343<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【优化】完善 Vue3 上传组件 &amp;&amp; 提升打包速度，由 <a href="https://gitee.com/xingyu4j" rel="noopener noreferrer" target="_blank">@xingyu4j<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/337" rel="noopener noreferrer" target="_blank">#337<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【重构】Vue3 头像上传，由 <a href="https://gitee.com/xingyu4j" rel="noopener noreferrer" target="_blank">@xingyu4j<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/338" rel="noopener noreferrer" target="_blank">#338<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【新增】WebSocket 连接测试，由 <a href="https://gitee.com/zan_ge" rel="noopener noreferrer" target="_blank">@咱哥丶<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/348" rel="noopener noreferrer" target="_blank">#348<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h3 id="🐞-bug-fixes"><a class="header-anchor" href="#🐞-bug-fixes">#</a> 🐞 Bug Fixes</h3> <ul><li>【修复】字典类型逻辑删除时，唯一索引冲突的问题，由 <a href="https://gitee.com/tangkc123" rel="noopener noreferrer" target="_blank">@tangkc123<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/323" rel="noopener noreferrer" target="_blank">#323<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】<code>pay</code> 模块提交退款申请时，重复设置属性，由 <a href="https://gitee.com/qshome" rel="noopener noreferrer" target="_blank">@qshome<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/325" rel="noopener noreferrer" target="_blank">#325<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】修改<code>pay</code> 模块创建支付单时，错误返回订单编号，由 <a href="https://gitee.com/qshome" rel="noopener noreferrer" target="_blank">@qshome<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/324" rel="noopener noreferrer" target="_blank">#324<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】修改 <code>pay</code> 模块在微信支付时，支付过期时间格式化异常 <code>（yyyy-MM-ddTHH:mm:ssXXX）</code>，由 <a href="https://gitee.com/qshome" rel="noopener noreferrer" target="_blank">@qshome<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/329" rel="noopener noreferrer" target="_blank">#329<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】数据权限 SQL 存在多个表达式时，缺少括号问题，由 <a href="https://gitee.com/tangkc123" rel="noopener noreferrer" target="_blank">@与或非<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/328" rel="noopener noreferrer" target="_blank">#328<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】<code>yudao-ui-admin-vue3</code> 面包屑导航图标和文字不在同一水平线，由 <a href="https://gitee.com/supine-win" rel="noopener noreferrer" target="_blank">@supine-win<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/333" rel="noopener noreferrer" target="_blank">#333<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】<code>yudao-module-system-api</code> 的 ErrorCodeConstants 中错误码重复的问题，由 <a href="https://gitee.com/tianyiwang-pro" rel="noopener noreferrer" target="_blank">@王添翼<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/340" rel="noopener noreferrer" target="_blank">#340<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】DeptService 的 getDeptsByParentIdFromCache 在获取部门列表时，未处理多租户场景，贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/commit/75b3a29" rel="noopener noreferrer" target="_blank">#75b3a29<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】前端 FileUpload 文件上传时，code 未使用 0 判断成功，由 <a href="https://gitee.com/plimlips" rel="noopener noreferrer" target="_blank">@plimlips<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/344" rel="noopener noreferrer" target="_blank">#344<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】Redis Stream 消息队列在重启 Java 进程时，由于 Consumer 未释放消息，导致消息丢失的问题，由 <a href="https://gitee.com/tangkc123" rel="noopener noreferrer" target="_blank">@与或非<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/332" rel="noopener noreferrer" target="_blank">#332<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】腾讯 COS 异常，Region 必传，由 <a href="https://gitee.com/tangkc123" rel="noopener noreferrer" target="_blank">@与或非<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/347" rel="noopener noreferrer" target="_blank">#347<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】DB 存储文件时，读取可能报错的问题，由 <a href="https://gitee.com/tangkc123" rel="noopener noreferrer" target="_blank">@与或非<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/346" rel="noopener noreferrer" target="_blank">#346<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】没有数据权限时，添加/修改用户的唯一手机、账号等字段的校验不正确，贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/commit/7912a54ebd0d8057b948384a6dbec4d4bc122196" rel="noopener noreferrer" target="_blank">7912a54 <span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】配置管理，配置是否可见判断写反了，由 <a href="https://gitee.com/kinlon92" rel="noopener noreferrer" target="_blank">@kinlon92<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/350/" rel="noopener noreferrer" target="_blank">#350<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>【修复】上传视频无法预览，由 <a href="https://gitee.com/tangkc123" rel="noopener noreferrer" target="_blank">@与或非<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 贡献 <a href="https://gitee.com/zhijiantianya/ruoyi-vue-pro/pulls/352" rel="noopener noreferrer" target="_blank">#352<span><svg aria-hidden="true" class="icon outbound" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h3 id="🔨-dependency-upgrades"><a class="header-anchor" href="#🔨-dependency-upgrades">#</a> 🔨 Dependency Upgrades</h3> <ul><li>【升级】spring-boot from 2.7.6 to 2.7.7</li> <li>【升级】mybatis-plus from 3.5.2 to 3.5.3</li> <li>【升级】dynamic-datasource from 3.6.0 to 3.6.1</li> <li>【升级】flowable from 6.7.2 to 6.8.0</li> <li>【升级】lock4j from 2.2.2 to 2.2.3</li> <li>【升级】podam from 7.2.9 to 7.2.11</li> <li>【升级】jedis-mock from 1.0.4 to 1.0.5</li> <li>【升级】transmittable-thread-local from 2.14.0 to 2.14.2</li> <li>【升级】netty-all from 4.1.82 to 4.1.86</li> <li>【升级】aliyun-java-sdk-core from 4.6.2 to 4.6.3</li> <li>【升级】tencentcloud-sdk-java from 3.1.635 to 3.1.660</li> <li>【升级】spring-boot-admin from 2.7.7 to 2.7.9</li></ul></div></div> <div class="page-slot page-slot-bottom">
+<div class="wwads-cn wwads-horizontal pageB" data-id="136" style="width:100%;max-height:80px;min-height:auto;"></div>
+<style>
+    .pageB img{width:80px!important;}
+    .wwads-horizontal .wwads-text, .wwads-content .wwads-text{line-height:1;}
+  </style>
+</div> <div class="page-edit"><!-- --> <!-- --> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2023/03/01, 00:29:36</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a class="page-nav-centre page-nav-centre-prev" href="/changelog/1.7.0/"><div class="tooltip">【v1.7.0】2023-01-30</div></a> <a class="page-nav-centre page-nav-centre-next" href="/changelog/1.6.5/"><div class="tooltip">【v1.6.5】2022-12-01</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a class="prev" href="/changelog/1.7.0/">【v1.7.0】2023-01-30</a></span> <span class="next"><a href="/changelog/1.6.5/">【v1.6.5】2022-12-01</a>→
+      </span></p></div></div></div>
+</article>
+<div class="article-footer">
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.4%E3%80%912022-08-22/%E3%80%90v1.6.4%E3%80%912022-08-22/">【v1.6.4】2022-08-22</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.2%E3%80%912022-06-05/%E3%80%90v1.6.2%E3%80%912022-06-05/">【v1.6.2】2022-06-05</a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://vercel.com/">vercel</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.netlify.com/">netlify</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.cloudflare.com/">cloudflare</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 
+<!--本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span>-->
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E5%96%84-vue3-%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0-%E6%96%B0%E5%A2%9E-ip-%E5%9C%B0%E5%8C%BA%E5%BA%93"><span class="toc-text"> 完善 Vue3 管理后台，新增 IP &amp; 地区库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%88-statistic"><span class="toc-text"> 📈 Statistic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%AD%90-new-features"><span class="toc-text"> ⭐ New Features</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%90%9E-bug-fixes"><span class="toc-text"> 🐞 Bug Fixes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A8-dependency-upgrades"><span class="toc-text"> 🔨 Dependency Upgrades</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":"blog.thatcoder.cn","officialHosts":["localhost","en.blog.thatcoder.cn","hexo.thatcoder.cn","thatcoder.vercel.app","thatcoder.netlify.app","cn-coder.vercel.app","thatcoders.github.io","thatcoder.pages.dev","cncoder.pages.dev"],"encoded":"YmxvZy50aGF0Y29kZXIuY24="};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"post, page, docs","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  import { init } from 'https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js';
+
+  const el = document.getElementById('waline_container');
+  util.viewportLazyload(el, load_waline, false);
+
+  function load_waline(){
+    if (!el) return;
+
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css');
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css');
+
+    const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+    const waline = init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js","css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+      el: '#waline_container',
+      path: path,
+      
+        imageUploader: function(file) {
+          const headers = new Headers();
+          headers.set('Accept', 'application/json');
+          
+            headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+          
+          const formData = new FormData();
+          formData.append('file', file);
+          return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+            method: 'POST',
+            body: formData,
+            headers: headers
+            }).then((resp) => resp.json())
+              .then((resp) => resp.data.links.url)
+        },
+      
+    }));
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>
