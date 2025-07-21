@@ -1,0 +1,1006 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <link rel="canonical" href="https://blog.thatcoder.cn/wiki/YDLDoc1/javase/计算机基础/计算机基础">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>YDLDoc1：计算机基础 - 钟意博客</title>
+
+  
+    <meta name="description" content="# 第一章：计算机基础和java环境搭建提示课程视频教程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1h64y1i78Nopen in new window主要内容：了解软件开发行业，认识java熟悉windows操作系统。# 一、你选择了正确的赛道学习软件开发的原因有二：第一是你穷，因为他是一个好的赚钱的工具，他能帮你快速的买房，起码是老家的房子；第二是你爱，他是很多">
+<meta property="og:type" content="website">
+<meta property="og:title" content="计算机基础">
+<meta property="og:url" content="https://blog.thatcoder.cn/wiki/YDLDoc1/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80">
+<meta property="og:site_name" content="钟意博客">
+<meta property="og:description" content="# 第一章：计算机基础和java环境搭建提示课程视频教程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1h64y1i78Nopen in new window主要内容：了解软件开发行业，认识java熟悉windows操作系统。# 一、你选择了正确的赛道学习软件开发的原因有二：第一是你穷，因为他是一个好的赚钱的工具，他能帮你快速的买房，起码是老家的房子；第二是你爱，他是很多">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.thatcoder.cn/favicon.ico">
+<meta property="article:published_time" content="2025-07-11T14:15:58.328Z">
+<meta property="article:modified_time" content="2023-12-16T19:23:02.000Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="那个码农">
+<meta property="article:tag" content="码农钟意">
+<meta property="article:tag" content="钟意的博客">
+<meta property="article:tag" content="钟意博客">
+<meta property="article:tag" content="That Coder">
+<meta property="article:tag" content="thatcoder">
+<meta property="article:tag" content="源柒拾柒雅舍">
+<meta property="article:tag" content="源WebGary">
+<meta property="article:tag" content="giligili.work">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.thatcoder.cn/favicon.ico">
+  
+  
+
+  <meta name="keywords" content="那个码农,码农钟意,钟意的博客,钟意博客,That Coder,thatcoder,源柒拾柒雅舍,源WebGary,giligili.work">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="钟意博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://blog.thatcoder.cn","author":{"@type":"Person","name":"钟意","sameAs":[],"image":"/favicon.ico"},"name":"钟意博客","description":"钟意博客, 记录代码与生活. 这里记载着那个码农钟意的所有文章与游戏等艺术分享. 原钟意的博客, 柒拾柒雅舍, WebGary.","url":"https://blog.thatcoder.cn"}</script>
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel='stylesheet' href='https://public.thatcdn.cn/font/old_song/result.css' /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="author" content="钟意"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+
+<div class="l_body s:aa content tech " id="start" layout="wiki" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/custom/img/ydl.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/YDLDoc1/javase/IO%E6%B5%81/IO%E6%B5%81"><div class="main">YDLDoc1</div><div class="sub normal cap">关于YDLDoc的笔记</div><div class="sub hover cap" style="opacity:0"> 不对之处请指出</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item active" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/YDLDoc1/" placeholder="在 YDLDoc1 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<widget class="widget-wrapper doc-tree post-list"><div class="widget-body fs14"><a class="link" href="/wiki/YDLDoc1/javase/IO%E6%B5%81/IO%E6%B5%81/#start"><span class="toc-text">IO流</span></a><a class="link" href="/wiki/YDLDoc1/javase/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="toc-text">java正则表达式</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%8F%98%E9%87%8F%E5%92%8C%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%8F%98%E9%87%8F%E5%92%8C%E6%A0%87%E8%AF%86%E7%AC%A6/"><span class="toc-text">变量和标识符</span></a><a class="link" href="/wiki/YDLDoc1/javase/nio/nio/"><span class="toc-text">nio</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"><span class="toc-text">多线程</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%B8%B8%E7%94%A8api/%E5%B8%B8%E7%94%A8api/"><span class="toc-text">常用api</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%8F%8D%E5%B0%84/%E5%8F%8D%E5%B0%84/"><span class="toc-text">反射</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/"><span class="toc-text">异常机制</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%A0%91/%E6%A0%91/"><span class="toc-text">树</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%95%B0%E7%BB%84%E5%92%8C%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84%E5%92%8C%E7%AE%97%E6%B3%95/"><span class="toc-text">数组和算法</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/"><span class="toc-text">流程控制语句</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%9E%9A%E4%B8%BE/%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%9E%9A%E4%B8%BE/"><span class="toc-text">泛型和枚举</span></a><a class="link" href="/wiki/YDLDoc1/web/bom/bom/"><span class="toc-text">bom</span></a><a class="link active" href="/wiki/YDLDoc1/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"><span class="toc-text">计算机基础</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="link" href="/wiki/YDLDoc1/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/"><span class="toc-text">集合框架</span></a><a class="link" href="/wiki/YDLDoc1/web/css/css/"><span class="toc-text">css</span></a><a class="link" href="/wiki/YDLDoc1/web/html/html/"><span class="toc-text">html</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"><span class="toc-text">网络编程</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"><span class="toc-text">面向对象</span></a><a class="link" href="/wiki/YDLDoc1/web/js/js/"><span class="toc-text">js</span></a><a class="link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/JDBC/JDBC/"><span class="toc-text">JDBC</span></a><a class="link" href="/wiki/YDLDoc1/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/git%E5%85%A5%E9%97%A8/"><span class="toc-text">git入门</span></a><a class="link" href="/wiki/YDLDoc1/web/jsp/jsp/"><span class="toc-text">jsp</span></a><a class="link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/mysql%E8%BF%9B%E9%98%B6/mysql%E8%BF%9B%E9%98%B6/"><span class="toc-text">mysql进阶</span></a><a class="link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/mysql%E5%85%A5%E9%97%A8/mysql%E5%85%A5%E9%97%A8/"><span class="toc-text">mysql入门</span></a><a class="link" href="/wiki/YDLDoc1/%E5%85%B6%E4%BB%96/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="toc-text">linux操作系统</span></a></div></widget>
+
+<widget class="widget-wrapper post-card"><div class="widget-header dis-select"><span class="name">更多：开发</span></div><div class="widget-body"><a class="item wiki" href="/wiki/YDLDoc2/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/maven%E5%85%A5%E9%97%A8/maven%E5%85%A5%E9%97%A8/"><span class="title">元动力摘录 - JAVA阶段二</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc3/ELK%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8/"><span class="title">元动力摘录 - JAVA阶段三</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc4/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/"><span class="title">元动力摘录 - JAVA项目阶段</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/"><span class="title">艿艿若依Boot - 开发指南</span><span class="excerpt">关于艿艿若依Boot的文档</span></a><a class="item wiki" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/Icon%20%E5%9B%BE%E6%A0%87/Icon%20%E5%9B%BE%E6%A0%87/"><span class="title">艿艿若依Cloud - 开发指南</span><span class="excerpt">关于艿艿若依Cloud的文档</span></a><a class="item wiki" href="/wiki/MySql/basics/select/"><span class="title">MySql - 关系型数据库管理系统</span><span class="excerpt">钟意关于关系型数据库MySql的笔记</span></a><a class="item wiki" href="/wiki/SpringCloud/start/"><span class="title">SpringCloud - JAVA系分布式微服务架构</span><span class="excerpt">钟意关于SpringCloud的笔记</span></a><a class="item wiki" href="/wiki/Laf/start/start/"><span class="title">Laf - 开箱即用的 serverless</span><span class="excerpt">钟意关于Laf的笔记</span></a></div></widget>
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/wiki/Laf/start/start/"><span class="title"><strong>Laf</strong><span class="dot"></span>Laf 简介</span></a><a class="item title" href="/share/game/%E5%B0%8F%E5%B0%8F%E6%A2%A6%E9%AD%87/"><span class="title"><strong>share</strong><span class="dot"></span>小小梦魇</span></a><a class="item title" href="/wiki/Laf/start/laf-https-start/"><span class="title"><strong>Laf</strong><span class="dot"></span>Laf 部署之 开启HTTPS/SSL</span></a><a class="item title" href="/wiki/LoadBalance/multiple/proxy/"><span class="title"><strong>LoadBalance</strong><span class="dot"></span>负载均衡</span></a><a class="item title" href="/wiki/LoadBalance/deploy/cloudflare/"><span class="title"><strong>LoadBalance</strong><span class="dot"></span>Cloudflare 部署</span></a><a class="item title" href="/wiki/LoadBalance/deploy/netlify/"><span class="title"><strong>LoadBalance</strong><span class="dot"></span>Netlify 部署</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/bilibili-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/wechat-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/github-banner.jpg"/></a><a class="social" href="javascript:ThemeChange('dark');" rel="noopener noreferrer"><img id="ThemeM" src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javascript:ThemeChange('light');" rel="noopener noreferrer"><img id="ThemeL" src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javascript:ThemeChange('auto');" rel="noopener noreferrer"><img id="ThemeAI" src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+    <div class="content">
+      <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/YDLDoc1/javase/IO%E6%B5%81/IO%E6%B5%81/">YDLDoc1</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2023-12-16T19:23:02.000Z">2023-12-17</time></span></div></div></div>
+      
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>计算机基础</span></h1>
+        
+      </div>
+    </div>
+    
+    </div>
+    </div><article class="md-text content"><div class="theme-hope-content"><h1 id="第一章-计算机基础和java环境搭建" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#第一章-计算机基础和java环境搭建">#</a> 第一章：计算机基础和java环境搭建</h1><div class="hint-container tip"><p class="hint-container-title">提示</p><p>课程视频教程链接：<a href="https://www.bilibili.com/video/BV1h64y1i78N" rel="noopener noreferrer" target="_blank">https://www.bilibili.com/video/BV1h64y1i78N<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p></div><p>主要内容：了解软件开发行业，认识java熟悉windows操作系统。</p><h2 id="一、你选择了正确的赛道" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#一、你选择了正确的赛道">#</a> 一、你选择了正确的赛道</h2><p><strong>学习软件开发的原因有二：</strong></p><p>第一是你穷，因为他是一个好的赚钱的工具，他能帮你快速的买房，起码是老家的房子；</p><p>第二是你爱，他是很多很有终其一生热爱的一项工作；</p><h3 id="_1、聊一聊内卷" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、聊一聊内卷">#</a> 1、聊一聊内卷</h3><p>有一次直播，直播间有个小伙子，高二就学完了springcloud，而且学习还很好，你说气不气，估计高考分数能在700以上，但这确实是极少数，直播间大呼java已经卷成这个样子了？</p><p>目前的软件开发的确有比较严重的内卷情况，<strong>加班</strong>是你不得不面临的现实。但是内卷是<strong>社会现象</strong>，不是行业独有。你从小就补课，三天一大补，两天一小补。小学里所谓神童比比皆是，你人生的整个过程不就是一路被卷过来的。</p><p>你无力改变，只有奋斗。与其被卷掉，倒不如卷掉别人。选对了赛道，努力一把，起码会让你过的更好一点。</p><h3 id="_2、就业和薪资情况" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、就业和薪资情况">#</a> 2、就业和薪资情况</h3><blockquote><p>上个月的统计</p></blockquote><p>先科普一下：平均工资=总工资数/总人数，中位数=工资由低到高排序后，最中间的那个数值。</p><p>在相信统计数据的情况下，会有以下结论：</p><p>【1】程序员薪资是真的高，本月招聘人数为435501人，其中一半的人薪资都超过13000元，收入低于这个数的，已经不是被平均，而是拖后腿了！</p><p>【2】程序员收入差别大，不同城市不同岗位差别很大，中位数的13000元，然而平均工资到了15052元，高薪人群的薪资是真的高，<strong>程序员工资成长空间真大</strong>！</p><p><strong>只要自己肯努力，年薪30w、40w、50w、60w、70w都会有的。</strong></p><h2 id="二、学前知识" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#二、学前知识">#</a> 二、学前知识</h2><h3 id="_1、计算机组成" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、计算机组成">#</a> 1、计算机组成</h3><figure><img alt="image-20210809115451924" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115451924-d7d59bd9.png" tabindex="0"/><figcaption>image-20210809115451924</figcaption></figure><p>内存</p><figure><img alt="image-20210809115505136" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115505136-ddd6085a.png" tabindex="0"/><figcaption>image-20210809115505136</figcaption></figure><p>硬盘</p><figure><img alt="image-20210809115520117" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115520117-06f9e203.png" tabindex="0"/><figcaption>image-20210809115520117</figcaption></figure><h3 id="_2、windows系统" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、windows系统">#</a> 2、windows系统</h3><h4 id="_1-初识命令行" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-初识命令行">#</a> （1）初识命令行</h4><p>CMD命令：开始－&gt;运行－&gt;键入cmd或command(在命令行里可以看到系统版本、文件系统版本)</p><blockquote><p>进入某一个盘符</p></blockquote><p>输入盘符 如 <code>C:</code> 然后回车，相当于进了C盘(c盘一般进的是桌面目录)</p><blockquote><p>切换目录</p></blockquote><p>输入 <code>cd</code> 目录名 然后回车</p><blockquote><p>返回上层目录</p></blockquote><p>如果你想返回到上层目录，那么直接输入`cd..就行了，可以返回到上层目录。开发过程中最常用的命令也就这些。</p><blockquote><p>查看文件</p></blockquote><p><code>dir</code>命令查看目录下的文件列表,查看该目录下的所有文件:</p><p><code>dir</code></p><blockquote><p>创建一个空文件</p></blockquote><p><code>copy nul a.txt</code></p><blockquote><p>文件里输入字符</p></blockquote><p><code>echo 2323&gt;a.txt</code></p><blockquote><p>拷贝文件</p></blockquote><p>copy拷贝文件命令,拷贝该目录下所有文件到D盘: <code>copy * "d:\"</code></p><blockquote><p>删除文件</p></blockquote><p><code>del a.js</code> 删除 a.js文件</p><h4 id="_2-计算机的一些设置" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-计算机的一些设置">#</a> （2）计算机的一些设置</h4><p>1、显示后缀名</p><p>2、文件浏览方式</p><p>3、不建议使用第三方的杀毒软件</p><h3 id="_3、二进制基础" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3、二进制基础">#</a> 3、二进制基础</h3><h4 id="_1-二进制的存储" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-二进制的存储">#</a> （1）二进制的存储</h4><figure><img alt="image-20210809115532066" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115532066-8c6b14f6.png" tabindex="0"/><figcaption>image-20210809115532066</figcaption></figure><h4 id="_2-存储单位" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-存储单位">#</a> （2）存储单位</h4><ul><li><p>1bit 一位</p></li><li><p>1Byte = 8bit</p></li><li><p>1KB = 1024B</p></li><li><p>1MB = 1024KB</p></li><li><p>1GB = 1024MB</p></li><li><p>1TB = 1024GB</p></li></ul><h4 id="_3-二进制的加减运算" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3-二进制的加减运算">#</a> （3）二进制的加减运算</h4><p>十进制是逢十进一，二进制是逢二进一，十进制的世界单个数字最大为9，二进制的世界单个数字最大为1。</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">  10010011<br>  10101001<br>-------------<br> 100111100<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><p>思考一个问题，计算机只能保存0和1那他是怎么区分正负数的呢？</p></blockquote><p>那我们不妨使用第一个数字当做符号，1代表负数，0代表正数，当然为了让数字更有规律，我们不妨每个数字用八位代替。</p><p>那1就可以表示为<code>00000001</code>，而-1就可以表示为<code>10000001</code>。</p><p>咱们不妨来一个两数之和。</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">  10000001<br>  00000001<br>-------------<br>  10000010<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>结果居然是-2，很明想这种解决方案有局限。</p><blockquote><p>其实我想要的结果是这样子的</p></blockquote><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">  00000001<br>  ????????<br>-------------<br>  00000000<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>?代表-1，我们想寻求一个这样的值表示负一，很显然不行，但是以下这种方案却有一定的可行性。</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">  00000001<br>  ????????<br>-------------<br> 100000000<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>应为我们规定了一个数字8位，所以第九位变成了1之后就溢出了，就没了。那此时的 <code>?</code> 是否能代表-1呢？ 而他的结果是 <code>11111111</code> 。</p><p>没错在计算机中负一就是<code>11111111</code>。</p><p>这个值称之为补码，计算机的数值都是以补码的形式存在。而之前的<code>10000001</code>称之为原码。</p><blockquote><p>补码是怎么计算的</p></blockquote><p>1、计算 <code>反码</code> ，正数的反码就是他本身，负数的反码是符号位不变，其他位取反。</p><p>2、计算 <code>补码</code> ，正数的补码还是他本身，负数的补码是反码加一。</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">正数 原码 00000001  反码  00000001  补码  00000001<br>正数 原码 10000001  反码  11111110  补码  11111111<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><p>咱们思考一下0和 -0 的</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">+0 原码 00000000 反码 00000000 补吗     00000000<br>-0 原码 10000000 反码 11111111 补码  (1)00000000<br><br>-0的最高位溢出了，所以补码也解决了-0和0的值不同的问题，是不是很妙啊！<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_4-二进制和其他进制的转换" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_4-二进制和其他进制的转换">#</a> （4）二进制和其他进制的转换</h4><ul><li>二进制 逢二进一 01</li><li>八进制 逢八进一 01234567</li><li>十进制 逢十进一 0123456789</li><li>十六进制 逢十六进一 0123456789abcdef</li></ul><p>win10自带的计算器就能解决呀！</p><blockquote><p>十进制转其他进制</p></blockquote><p>18怎么转为二进制呢？</p><figure><img alt="image-20210809115546180" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115546180-7226353b.png" tabindex="0"/><figcaption>image-20210809115546180</figcaption></figure><p>结果就是 <code>10010</code>。</p><p>同理</p><p>18转为8进制呢？八进制就是逢八进一。</p><figure><img alt="image-20210809115556308" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115556308-7e0caf9d.png" tabindex="0"/><figcaption>image-20210809115556308</figcaption></figure><p>所以18的八进制就是22，十六进制就是12。</p><blockquote><p>二进制转其他进制</p></blockquote><p>1010 0*2<sup>0+1*2</sup>1+0*2<sup>2+1*2</sup>3 = 0+2+0+8 = 10</p><p>快速计算：0 2 4 8 16</p><h4 id="_5-二进制的逻辑运算" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_5-二进制的逻辑运算">#</a> （5）二进制的逻辑运算</h4><p>与 或 非</p><p>回忆一下高中的电路这个电路熟悉吧！</p><figure><img alt="image-20210809115619802" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115619802-70753923.png" tabindex="0"/><figcaption>image-20210809115619802</figcaption></figure><p>我们把s1和s2当做输入，灯泡l1当做输入。大概有这么几种情况</p><table><thead><tr><th>开关s1（1代表开，0代表关）</th><th>开关s2（1代表开，0代表关）</th><th>灯泡l1（1代表亮，0代表关）</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>0</td><td>0</td><td>0</td></tr></tbody></table><figure><img alt="image-20210809115629207" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115629207-4c7814a9.png" tabindex="0"/><figcaption>image-20210809115629207</figcaption></figure><p>我们吧s1和s2当做输入，灯泡l1当做输入。大概有这么几种情况</p><table><thead><tr><th>开关s1（1代表开，0代表关）</th><th>开关s2（1代表开，0代表关）</th><th>灯泡l1（1代表亮，0代表关）</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>0</td><td>0</td><td>0</td></tr></tbody></table><figure><img alt="image-20210809115638257" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115638257-1355dbc2.png" tabindex="0"/><figcaption>image-20210809115638257</figcaption></figure><p>我们吧s1和s2当做输入，灯泡l1当做输入。大概有这么几种情况</p><table><thead><tr><th>开关s（1代表开，0代表关）</th><th>灯泡l1（1代表亮，0代表关）</th></tr></thead><tbody><tr><td>1</td><td>0</td></tr><tr><td>0</td><td>1</td></tr><tr><td>0</td><td>0</td></tr></tbody></table><blockquote><p>其实以上几种情况就是二进制的基本逻辑运算——与或非</p></blockquote><p>串联相当于 <code>与运算</code>，只有两者都为一，结果才是一。</p><p>并联相当于<code>或运算</code>， 只有两者都为零，结果才是零。</p><p>最后一个是<code>非运算</code>，分别取反。</p><p>还有一个常用的逻辑运算——异或：相同为零，不同为一。</p><h4 id="_6-网络" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_6-网络">#</a> （6）网络</h4><p>网络就是通过网线，光缆，路由器，交换机等设备将一个计算机的信号传送到另一个计算机上。咱们的课程不是计算机网络，到了后期会详细的介绍网络中的一些协议。</p><p>传输的就是信号，可以是电信号，也可以是光信号。电信号高电平代表一，低电平代表0。</p><p>网络带宽是啥意思，就是1s能传输多少个0或1。</p><p>比如说你家的网络是 200M，其实真实的单位是200MHZ，上个频率的单位。</p><p>运营商的单位是 Mbit</p><p>我们的下载速度是 MByte</p><p>下载理论速度是 200/8 = 25M/s</p><h2 id="三、初识java" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#三、初识java">#</a> 三、初识java</h2><h3 id="_1、java是什么" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、java是什么">#</a> 1、java是什么</h3><h4 id="_1-java-是一种计算机编程语言" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-java-是一种计算机编程语言">#</a> （1）<strong>Java</strong> 是一种计算机编程语言</h4><ul><li>编程是把我们的要求和想法，按照能够让计算机看懂的规则和约定编写出来。编程的结果就是一些计算机能够看懂并能够执行和处理的东西，我们把它叫做软件或者程序。事实上，程序就是我们对计算机发出的命令集（指令集）。</li><li>语言是用来交流的，和你说的汉语很向，但是汉语是人与人交流，java是一种人与计算机交流的语言。换句话说把我们的要求和想法用Java 表达出来，那么计算机能看懂，就能够按照我们要求运行，而这个过程就是我们说的使用Java 编程，所以我们讲Java 是一种计算机编程语言。</li><li>为了让计算机看懂，Java 会有一系列的规则和约定，这些就是Java 的语法。</li></ul><h4 id="_2-java-是一种软件开发、运行、部署的平台" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-java-是一种软件开发、运行、部署的平台">#</a> （2）<strong>Java</strong> 是一种软件开发、运行、部署的平台</h4><p>简单来说，我们可以用java语言开发出应用程序，部署并运行在安装有java环境的计算机上。</p><h3 id="_2、java-能干什么" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、java-能干什么">#</a> 2、Java 能干什么</h3><p>Java 能做的事情很多，涉及到编程领域的各个方面。</p><h4 id="_1-桌面级应用" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-桌面级应用">#</a> （1）桌面级应用</h4><p>先解释一下桌面级应用：简单的说就是主要功能都在我们本机上运行的程序，比如word 、excel 等运行在本机上的应用就属于桌面应用，尤其是需要跨平台的桌面级应用程序，但是目前使用java做桌面级开发的场景确实越来越少。</p><h4 id="_2-企业级应用" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-企业级应用">#</a> （2）企业级应用</h4><p>先解释一下企业级应用：简单的说就是大规模的应用，一般使用人数较多，数据量较大，对系统的稳定性、安全性、可扩展性和可装配性等都有比较高的要求。</p><p>这是目前Java 应用最广泛的一个领域，几乎一枝独秀。包括各种行业应用，企业信息化，也包括电子政务等，领域涉及：办公自动化OA，客户关系管理CRM，人力资源HR，企业资源计划ERP 、知识管理KM、供应链管理SCM 、企业设备管理系统EAM 、产品生命周期管理PLM 、面向服务体系架构SOA 、商业智能BI、项目管理PM、营销管理、流程管理WorkFlow 、财务管理……等等几乎所有你能想到的应用。</p><p>其实这个概念已经慢慢淡化了，我们现在进入了互联网时代，一个软件的体量已经不能同日而语，现在的软件需要支持更高的并发，追求更稳定的效果。</p><h4 id="_3-嵌入式设备" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3-嵌入式设备">#</a> （3）嵌入式设备</h4><p>包括无线手持设备、智能卡、通信终端、医疗设备、信息家电（如数字电视、机顶盒、电冰箱）、汽车电子设备等都是近年以来热门的Java 应用领域，尤其是手机上的Java 应用程序和Java 游戏，更是普及。</p><h4 id="_4-大数据领域产品" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_4-大数据领域产品">#</a> （4）大数据领域产品</h4><p>很多大数据领域使用的软件都是java编写的，所有java学习也是大数据学习的基础。</p><h3 id="_3、java-历史" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3、java-历史">#</a> 3、<strong>Java</strong> 历史</h3><h4 id="_1-简介" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-简介">#</a> （1）简介</h4><p>在上世纪90 年代初，sun 公司有一个叫做Green 的项目，目的是为家用消费电子产品开发一个分布式代码系统，这样就可以对家用电器进行控制，和它们进行信息交流。</p><p>詹姆斯·高斯林（JamesGosling）等人基于C++ 开发一种新的语言Oak(Java 的前身)。Oak 是一种用于网络的精巧而安全的语言。Sun 公司曾依此投标一个交互式电视项目，但结果是被SGI 打败，Sun 打算抛弃Oak。随着互联网的发展，Sun 看到了Oak 在计算机网络上的广阔应用前景，于是改造Oak，在1995 年5 月以“Java”的名称正式发布，从此Java 走上繁荣之路。</p><p>当然提到Java 历史，不得不提的一个故事就是Java 的命名。开始“Oak”的命名是以项目小组办公室外的树而得名，但是Oak 商标被其他公司注册了，必须另外取一个名字，传说有一天，几位Java 成员组的会员正在讨论给这个新的语言取什么名字，当时他们正在咖啡馆喝着Java( 爪哇)咖啡，有一个人灵机一动说就叫Java 怎样，得到了其他人的赞同，于是，Java 这个名字就这样传开了。当然对于传说，了解一下就好了，不必过于认真。</p><h4 id="_2-java-大事记" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-java-大事记">#</a> （2）Java 大事记</h4><p>作为学习Java 的人士，对Java 历史上发生的大事件有一个了解是应该的。</p><p>JDK（<strong>Java Software Develop Kit</strong>）：Java 软件开发工具包。JDK 是Java 的核心，包括了Java 运行环境，一系列Java 开发工具和Java 基础的类库。目前主流的JDK 是Sun 公司发布的JDK，除了Sun 之外，还有很多公司和组织都开发了自己的JDK，例如IBM 公司开发的JDK，BEA 公司的Jrocket，还有GNU 组织开发的JDK 等等。</p><figure><img alt="image-20210809115659786" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115659786-f94a2b2d.png" tabindex="0"/><figcaption>image-20210809115659786</figcaption></figure><h3 id="_4、java语言的特点" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_4、java语言的特点">#</a> 4、Java语言的特点</h3><p>Java 语言的风格很像 C 语言和 <a href="http://c.biancheng.net/cplus/" rel="noopener noreferrer" target="_blank">C++<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a> 语言，是一种纯粹的面向对象语言，它继承了 C++ 语言面向对象的技术核心，但是拋弃了 C++ 的一些缺点，比如说容易引起错误的指针以及多继承等，同时也增加了垃圾回收机制，释放掉不被使用的内存空间，解决了管理内存空间的烦恼。</p><p>Java 语言是一种分布式的面向对象语言，具有面向对象、平台无关性、简单性、解释执行、多线程、安全性等很多特点，下面针对这些特点进行逐一介绍。</p><p>（1）面向对象</p><p>Java 是一种面向对象的语言，它对对象中的类、对象、继承、封装、多态、接口、包等均有很好的支持。为了简单起见，Java 只支持类之间的单继承，但是可以使用接口来实现多继承。使用 Java 语言开发程序，需要采用面向对象的思想设计程序和编写代码。</p><p>（2） 平台无关性</p><p>平台无关性的具体表现在于，Java 是“一次编写，到处运行（Write Once，Run any Where）”的语言，因此采用 Java 语言编写的程序具有很好的可移植性，而保证这一点的正是 Java 的虚拟机机制。在引入虚拟机之后，Java 语言在不同的平台上运行不需要重新编译。</p><p>Java 语言使用 Java 虚拟机机制屏蔽了具体平台的相关信息，使得 Java 语言编译的程序只需生成虚拟机上的目标代码，就可以在多种平台上不加修改地运行。</p><p>（3） 简单性</p><p>Java 语言的语法与 C 语言和 C++ 语言很相近，使得很多程序员学起来很容易。对 Java 来说，它舍弃了很多 C++ 中难以理解的特性，如操作符的重载和多继承等，而且 Java 语言不使用指针，加入了垃圾回收机制，解决了程序员需要管理内存的问题，使编程变得更加简单。</p><p>（4）解释执行</p><p>Java 程序在 Java 平台运行时会被编译成字节码文件，然后可以在有 Java 环境的操作系统上运行。在运行文件时，Java 的解释器对这些字节码进行解释执行，执行过程中需要加入的类在连接阶段被载入到运行环境中。</p><p>（5）多线程</p><p>Java 语言是多线程的，这也是 Java 语言的一大特性，它必须由 Thread 类和它的子类来创建。Java 支持多个线程同时执行，并提供多线程之间的同步机制。任何一个线程都有自己的 run() 方法，要执行的方法就写在 run() 方法体内。</p><p>（6）分布式</p><p>Java 语言支持 Internet 应用的开发，在 Java 的基本应用编程接口中就有一个网络应用编程接口，它提供了网络应用编程的类库，包括 URL、URLConnection、Socket 等。Java 的 RIM 机制也是开发分布式应用的重要手段。</p><p>（7） 健壮性</p><p>Java 的强类型机制、异常处理、垃圾回收机制等都是 Java 健壮性的重要保证。对指针的丢弃是 Java 的一大进步。另外，Java 的异常机制也是健壮性的一大体现。</p><p>（8）高性能</p><p>Java 的高性能主要是相对其他高级脚本语言来说的，随着 JIT（Just in Time）的发展，Java 的运行速度也越来越高。</p><p>（9）安全性</p><p>Java 通常被用在网络环境中，为此，Java 提供了一个安全机制以防止恶意代码的攻击。除了 Java 语言具有许多的安全特性以外，Java 还对通过网络下载的类增加一个安全防范机制，分配不同的名字空间以防替代本地的同名类，并包含安全管理机制。</p><h2 id="四、java环境搭建" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#四、java环境搭建">#</a> 四、java环境搭建</h2><p>主要内容：搭建java环境，编写第一个java程序，学习变量</p><h3 id="_1、安装java" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、安装java">#</a> 1、安装java</h3><h4 id="_1-安装" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-安装">#</a> （1）安装</h4><p>将给定的安装包安装在电脑上，我们一起去官方网站看看</p><figure><img alt="image-20210809115721353" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115721353-44321393.png" tabindex="0"/><figcaption>image-20210809115721353</figcaption></figure><p>我们能看到目前java的版本已经更新到了java16，但是企业中常用的还是java8，所以我们的学习也是建立在java8的基础之上，后期会推出一些新版本的新特性课程。</p><p>安装java8，这里我们全程下一步。系统会默认将jdk安装至"C:\Program Files\Java"目录下。</p><p>安装文件我们会分享至指定的网盘。</p><p>输入：</p><div class="language-cmake line-numbers-mode" data-ext="cmake"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight cmake"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-string">&quot;C:\Program Files\Java\jdk1.8.0_221\bin\javac&quot;</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>有内容即可。</p><p>输入：</p><div class="language-cmake line-numbers-mode" data-ext="cmake"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight cmake"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-string">&quot;C:\Program Files\Java\jdk1.8.0_221\bin\java&quot;</span> -version<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">java version &quot;1.8.0_221&quot;<br>Java(TM) SE Runtime Environment (build 1.8.0_221-b11)<br>Java HotSpot(TM) 64-Bit Server VM (build 25.221-b11, mixed mode)<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>可查看当前的jdk的版本。</p><h4 id="_2-目录结构" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-目录结构">#</a> （2）目录结构</h4><figure><img alt="image-20210809115734398" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115734398-f84613d2.png" tabindex="0"/><figcaption>image-20210809115734398</figcaption></figure><p>我们会发现最外层的目录有一个jdk，有一个jre。</p><blockquote><p>JDK 基本介绍</p></blockquote><p>JDK 的全称(Java Development Kit Java 开发工具包) JDK = JRE + java 的开发工具 [java, javac,javadoc,javap 等] 2) JDK 是提供给 Java 开发人员使用的，其中包含了 java 的开发工具，也包括了 JRE。所以安装了 JDK，就不用在单独 安装 JRE 了。</p><blockquote><p>JRE 基本介绍</p></blockquote><ul><li>JRE(Java Runtime Environment Java 运行环境) JRE = JVM + Java 的核心类库[类]</li><li>包括 Java 虚拟机(JVM Java Virtual Machine)和 Java 程序所需的核心类库等，如果想要运行一个开发好的 Java 程序， 计算机中只需要安装 JRE 即可。</li></ul><blockquote><p>JDK、JRE 和 JVM 的包含关系</p></blockquote><ul><li><p>JDK = JRE + 开发工具集（例如 Javac,java 编译工具等)</p></li><li><p>JRE = JVM + Java SE 标准类库（java 核心类库）</p></li><li><p>如果只想运行开发好的 .class 文件 只需要 JRE</p></li></ul><h3 id="_2、第一个java程序" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、第一个java程序">#</a> 2、第一个java程序</h3><h4 id="_1-helloworld" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-helloworld">#</a> （1）HelloWorld</h4><p>（1）安装notepad++，当然你也可以用txt写。</p><div class="language-url line-numbers-mode" data-ext="url"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight plaintext"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs url">https://en.softonic.com/download/notepad-plus/windows/post-download<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>下载，双加安装就可以了，比安装英雄联盟简单多了，这里楠哥已经给你准备好了。</p><p>（2）新建文本使用notepad++打开，里输入以下代码</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloWorld</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;Hello World&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-comment">//println和print的区别</span><br>println是输出之后换行  <br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>（3）运行这个程序</p><blockquote><p>编译(compilation , compile)</p></blockquote><p>编译就是把高级语言变成计算机可以识别的二进制语言，计算机只认识1和0，<code>编译程序</code>把人们熟悉的语言换成2进制的。</p><p>我们写的helloworld对我们人类而言是友好的，但是对一计算机并不友好。</p><p>java语言需要特性的java编译器进行编译，这个编译器在哪里，就在咱们解压的文件夹里javac文件。</p><div class="language-cmake line-numbers-mode" data-ext="cmake"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight cmake"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-string">&quot;C:\Program Files\Java\jdk1.8.0_221\bin\javac&quot;</span> HelloWorld.java<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>java文件经过编译之后会成为一个class文件，这个文件就是二进制的文件，将来他要加载到内存运行。</p><figure><img alt="image-20210809115748567" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115748567-41ac2674.png" tabindex="0"/><figcaption>image-20210809115748567</figcaption></figure><blockquote><p>编译后的文件</p></blockquote><figure><img alt="image-20210809115808180" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115808180-68659f8f.png" tabindex="0"/><figcaption>image-20210809115808180</figcaption></figure><blockquote><p>运行</p></blockquote><div class="language-cmake line-numbers-mode" data-ext="cmake"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight cmake"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-string">&quot;C:\Program Files\Java\jdk1.8.0_221\bin\java&quot;</span> HelloWorld<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><figure><img alt="image-20210809115819721" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/6EpNDKH6.png" tabindex="0"/><figcaption>image-20210809115819721</figcaption></figure><p>发现helloworld被打印了出来，运行成功。</p><p>但是我们每一次运行一个java程序都要指定java的安装目录是不是有点太麻烦了，于是我们引出了环境变量的概念。</p><h3 id="_3、环境搭建" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3、环境搭建">#</a> 3、环境搭建</h3><blockquote><p>什么是环境</p></blockquote><p>我们在地球上生活，环境给我们提供了空气，提供了水，提供了食物，正是由于有了环境的馈赠我们才能得以生存。</p><p>同样，一个用java写的程序也要有自己的运行环境，有环境才能生存。</p><p>能让所有的java程序自动的找到自己的环境，而不是手动的指定。</p><p>我们已经知道了编译java代码需要 javac</p><p>运行java程序 需要java</p><p>其实这就是我们java环境所必须的一部分，至少编译的的时候不用可以去找。</p><h4 id="_1-环境变量" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-环境变量">#</a> （1）环境变量</h4><p>环境变量（environment variables）一般是指在操作系统中用来指定操<code>作系统运行环境</code>的一些参数，如：临时文件夹位置和系统文件夹位置等。</p><p>环境变量相当于给系统或用户应用程序设置的一些参数，具体起什么作用这当然和具体的环境变量相关。比如<code>path</code>，是告诉系统，当要求系统运行一个程序而没有告诉它程序所在的完整路径时，系统除了在<code>当前目录</code>下面寻找此程序外，还应到哪些目录下去寻找。</p><p>环境变量在哪里配置</p><p>我的电脑——&gt;右键属性</p><figure><img alt="image-20210809115833865" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115833865-928d11af.png" tabindex="0"/><figcaption>image-20210809115833865</figcaption></figure><p>选择环境变量：</p><figure><img alt="image-20210809115929014" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115929014-fe8e6e90.png" tabindex="0"/><figcaption>image-20210809115929014</figcaption></figure><p>在系统环境变量中有一个Path，这里边配置了很多路径。</p><figure><img alt="image-20210809115855823" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/image-20210809115855823-96944f63.png" tabindex="0"/><figcaption>image-20210809115855823</figcaption></figure><h4 id="_2-回归本初" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-回归本初">#</a> （2）回归本初</h4><p>怎么使用cmd打开微信，其实这个咱们第一天就已经学过了，但是我今天想，不进入这个目录就能打开。</p><p>其实只需要两步骤，一：配置环境变量中的path，添加微信的路径的名称。二：在cmd中输入微信的可执行文件名字即可。</p><h4 id="_3-配置java的环境变量" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3-配置java的环境变量">#</a> （3）配置java的环境变量</h4><p>好了之后，我么就可以这样玩了：</p><div class="language-bash line-numbers-mode" data-ext="sh"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight bash"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">javac HelloWorld.java<br>java HelloWorld<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><p>是不是很简单呢？</p><h2 id="五、怎么学习java" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#五、怎么学习java">#</a> 五、怎么学习java</h2><ol><li>多写代码</li><li>多思考</li><li>多总结</li><li>第一周以后，尽量不要抄代码</li><li>找一个好的笔记工具-typora</li><li>后期还要多写博客</li></ol></div></article>
+<div class="article-footer">
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/YDLDoc1/web/bom/bom/">bom</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/YDLDoc1/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">集合框架</a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://vercel.com/">vercel</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.netlify.com/">netlify</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.cloudflare.com/">cloudflare</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 
+<!--本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span>-->
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BD%A0%E9%80%89%E6%8B%A9%E4%BA%86%E6%AD%A3%E7%A1%AE%E7%9A%84%E8%B5%9B%E9%81%93"><span class="toc-text"> 一、你选择了正确的赛道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81%E8%81%8A%E4%B8%80%E8%81%8A%E5%86%85%E5%8D%B7"><span class="toc-text"> 1、聊一聊内卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81%E5%B0%B1%E4%B8%9A%E5%92%8C%E8%96%AA%E8%B5%84%E6%83%85%E5%86%B5"><span class="toc-text"> 2、就业和薪资情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AD%A6%E5%89%8D%E7%9F%A5%E8%AF%86"><span class="toc-text"> 二、学前知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90"><span class="toc-text"> 1、计算机组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81windows%E7%B3%BB%E7%BB%9F"><span class="toc-text"> 2、windows系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-%E5%88%9D%E8%AF%86%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-text"> （1）初识命令行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_2-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%BE%E7%BD%AE"><span class="toc-text"> （2）计算机的一些设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3%E3%80%81%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%9F%BA%E7%A1%80"><span class="toc-text"> 3、二进制基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9A%84%E5%AD%98%E5%82%A8"><span class="toc-text"> （1）二进制的存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_2-%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D"><span class="toc-text"> （2）存储单位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_3-%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9A%84%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97"><span class="toc-text"> （3）二进制的加减运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_4-%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%92%8C%E5%85%B6%E4%BB%96%E8%BF%9B%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-text"> （4）二进制和其他进制的转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_5-%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9A%84%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="toc-text"> （5）二进制的逻辑运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_6-%E7%BD%91%E7%BB%9C"><span class="toc-text"> （6）网络</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%88%9D%E8%AF%86java"><span class="toc-text"> 三、初识java</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81java%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text"> 1、java是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-java-%E6%98%AF%E4%B8%80%E7%A7%8D%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80"><span class="toc-text"> （1）Java 是一种计算机编程语言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_2-java-%E6%98%AF%E4%B8%80%E7%A7%8D%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E3%80%81%E8%BF%90%E8%A1%8C%E3%80%81%E9%83%A8%E7%BD%B2%E7%9A%84%E5%B9%B3%E5%8F%B0"><span class="toc-text"> （2）Java 是一种软件开发、运行、部署的平台</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81java-%E8%83%BD%E5%B9%B2%E4%BB%80%E4%B9%88"><span class="toc-text"> 2、Java 能干什么</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-%E6%A1%8C%E9%9D%A2%E7%BA%A7%E5%BA%94%E7%94%A8"><span class="toc-text"> （1）桌面级应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_2-%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%BA%94%E7%94%A8"><span class="toc-text"> （2）企业级应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_3-%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%AE%BE%E5%A4%87"><span class="toc-text"> （3）嵌入式设备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_4-%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%A2%86%E5%9F%9F%E4%BA%A7%E5%93%81"><span class="toc-text"> （4）大数据领域产品</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3%E3%80%81java-%E5%8E%86%E5%8F%B2"><span class="toc-text"> 3、Java 历史</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-%E7%AE%80%E4%BB%8B"><span class="toc-text"> （1）简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_2-java-%E5%A4%A7%E4%BA%8B%E8%AE%B0"><span class="toc-text"> （2）Java 大事记</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_4%E3%80%81java%E8%AF%AD%E8%A8%80%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text"> 4、Java语言的特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81java%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text"> 四、java环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81%E5%AE%89%E8%A3%85java"><span class="toc-text"> 1、安装java</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-%E5%AE%89%E8%A3%85"><span class="toc-text"> （1）安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_2-%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-text"> （2）目录结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81%E7%AC%AC%E4%B8%80%E4%B8%AAjava%E7%A8%8B%E5%BA%8F"><span class="toc-text"> 2、第一个java程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-helloworld"><span class="toc-text"> （1）HelloWorld</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3%E3%80%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text"> 3、环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text"> （1）环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_2-%E5%9B%9E%E5%BD%92%E6%9C%AC%E5%88%9D"><span class="toc-text"> （2）回归本初</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_3-%E9%85%8D%E7%BD%AEjava%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text"> （3）配置java的环境变量</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%80%8E%E4%B9%88%E5%AD%A6%E4%B9%A0java"><span class="toc-text"> 五、怎么学习java</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":"blog.thatcoder.cn","officialHosts":["localhost","en.blog.thatcoder.cn","hexo.thatcoder.cn","thatcoder.vercel.app","thatcoder.netlify.app","cn-coder.vercel.app","thatcoders.github.io","thatcoder.pages.dev","cncoder.pages.dev"],"encoded":"YmxvZy50aGF0Y29kZXIuY24="};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"post, page, docs","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  import { init } from 'https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js';
+
+  const el = document.getElementById('waline_container');
+  util.viewportLazyload(el, load_waline, false);
+
+  function load_waline(){
+    if (!el) return;
+
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css');
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css');
+
+    const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+    const waline = init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js","css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+      el: '#waline_container',
+      path: path,
+      
+        imageUploader: function(file) {
+          const headers = new Headers();
+          headers.set('Accept', 'application/json');
+          
+            headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+          
+          const formData = new FormData();
+          formData.append('file', file);
+          return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+            method: 'POST',
+            body: formData,
+            headers: headers
+            }).then((resp) => resp.json())
+              .then((resp) => resp.data.links.url)
+        },
+      
+    }));
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>

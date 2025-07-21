@@ -1,0 +1,1117 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <link rel="canonical" href="https://blog.thatcoder.cn/wiki/WebWeekly/前沿技术/《2017 前端性能优化备忘录》">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>WebWeekly：《2017 前端性能优化备忘录》 - 钟意博客</title>
+
+  
+    <meta name="description" content="当前期刊数: 28 本期精读的文章是：Front End Performance Checklist 2017 现在随着 web 应用的复杂性日益增加，其性能优化就会显得尤为必要，同时会给性能指标分析带来新的挑战，因为性能指标之间的差异性非常大，这取决于使用的设备、浏览器、协议、网络类型以及其它能够对性能产生影响的潜在因素(如：CDN、ISP、cache、proxy、firewall、load b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="《2017 前端性能优化备忘录》">
+<meta property="og:url" content="https://blog.thatcoder.cn/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A2017%20%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%8B">
+<meta property="og:site_name" content="钟意博客">
+<meta property="og:description" content="当前期刊数: 28 本期精读的文章是：Front End Performance Checklist 2017 现在随着 web 应用的复杂性日益增加，其性能优化就会显得尤为必要，同时会给性能指标分析带来新的挑战，因为性能指标之间的差异性非常大，这取决于使用的设备、浏览器、协议、网络类型以及其它能够对性能产生影响的潜在因素(如：CDN、ISP、cache、proxy、firewall、load b">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.thatcoder.cn/favicon.ico">
+<meta property="article:published_time" content="2025-07-11T14:15:57.895Z">
+<meta property="article:modified_time" content="2023-12-30T20:35:12.000Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="那个码农">
+<meta property="article:tag" content="码农钟意">
+<meta property="article:tag" content="钟意的博客">
+<meta property="article:tag" content="钟意博客">
+<meta property="article:tag" content="That Coder">
+<meta property="article:tag" content="thatcoder">
+<meta property="article:tag" content="源柒拾柒雅舍">
+<meta property="article:tag" content="源WebGary">
+<meta property="article:tag" content="giligili.work">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.thatcoder.cn/favicon.ico">
+  
+  
+
+  <meta name="keywords" content="那个码农,码农钟意,钟意的博客,钟意博客,That Coder,thatcoder,源柒拾柒雅舍,源WebGary,giligili.work">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="钟意博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://blog.thatcoder.cn","author":{"@type":"Person","name":"钟意","sameAs":[],"image":"/favicon.ico"},"name":"钟意博客","description":"钟意博客, 记录代码与生活. 这里记载着那个码农钟意的所有文章与游戏等艺术分享. 原钟意的博客, 柒拾柒雅舍, WebGary.","url":"https://blog.thatcoder.cn"}</script>
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel='stylesheet' href='https://public.thatcdn.cn/font/old_song/result.css' /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="author" content="钟意"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+
+<div class="l_body s:aa content tech " id="start" layout="wiki" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/custom/img/WEB前端.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/WebWeekly/SQL/SQL%20CASE%20%E8%A1%A8%E8%BE%BE%E5%BC%8F"><div class="main">WebWeekly</div><div class="sub normal cap">关于WebWeekly的转载</div><div class="sub hover cap" style="opacity:0"> 介于网络原因转载</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item active" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/WebWeekly/" placeholder="在 WebWeekly 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<widget class="widget-wrapper doc-tree post-list"><div class="widget-body fs14"><a class="link" href="/wiki/WebWeekly/SQL/SQL%20CASE%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/#start"><span class="toc-text">SQL CASE 表达式</span></a><a class="link" href="/wiki/WebWeekly/SQL/SQL%20grouping/"><span class="toc-text">SQL grouping</span></a><a class="link" href="/wiki/WebWeekly/SQL/SQL%20%E5%85%A5%E9%97%A8/"><span class="toc-text">SQL 入门</span></a><a class="link" href="/wiki/WebWeekly/SQL/SQL%20%E5%A4%8D%E6%9D%82%E6%9F%A5%E8%AF%A2/"><span class="toc-text">SQL 复杂查询</span></a><a class="link" href="/wiki/WebWeekly/SQL/SQL%20%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0/"><span class="toc-text">SQL 窗口函数</span></a><a class="link" href="/wiki/WebWeekly/SQL/SQL%20%E8%81%9A%E5%90%88%E6%9F%A5%E8%AF%A2/"><span class="toc-text">SQL 聚合查询</span></a><a class="link" href="/wiki/WebWeekly/TS%20%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D/%E3%80%8ADiff,%20AnyOf,%20IsUnion/"><span class="toc-text">《Diff, AnyOf, IsUnion</span></a><a class="link" href="/wiki/WebWeekly/TS%20%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D/%E3%80%8AFlip,%20Fibonacci,%20AllCombinations/"><span class="toc-text">《Flip, Fibonacci, AllCombinations</span></a><a class="link" href="/wiki/WebWeekly/TS%20%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D/%E3%80%8AGet%20return%20type,%20Omit,%20ReadOnly/"><span class="toc-text">《Get return type, Omit, ReadOnly</span></a><a class="link" href="/wiki/WebWeekly/TS%20%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D/%E3%80%8AMinusOne,%20PickByType,%20StartsWith/"><span class="toc-text">《MinusOne, PickByType, StartsWith</span></a><a class="link" href="/wiki/WebWeekly/TS%20%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D/%E3%80%8AObjectEntries,%20Shift,%20Reverse/"><span class="toc-text">《ObjectEntries, Shift, Reverse</span></a><a class="link" href="/wiki/WebWeekly/TS%20%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D/%E3%80%8APermutation,%20Flatten,%20Absolute/"><span class="toc-text">《Permutation, Flatten, Absolute</span></a><a class="link" href="/wiki/WebWeekly/TS%20%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D/%E3%80%8APick,%20Awaited,%20If/"><span class="toc-text">《Pick, Awaited, If</span></a><a class="link" href="/wiki/WebWeekly/TS%20%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D/%E3%80%8APromise/"><span class="toc-text">《Promise</span></a><a class="link" href="/wiki/WebWeekly/TS%20%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D/%E3%80%8ATrim%20Right,%20Without,%20Trunc/"><span class="toc-text">《Trim Right, Without, Trunc</span></a><a class="link" href="/wiki/WebWeekly/TS%20%E7%B1%BB%E5%9E%8B%E4%BD%93%E6%93%8D/%E3%80%8AUnique,%20MapTypes,%20Construct%20Tuple/"><span class="toc-text">《Unique, MapTypes, Construct Tuple</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/ComponentLoader%20%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/"><span class="toc-text">ComponentLoader 与动态组件</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/keepAlive%20%E6%A8%A1%E5%BC%8F/"><span class="toc-text">keepAlive 模式</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA%E5%86%85%E7%BD%AE%20API/"><span class="toc-text">可视化搭建内置 API</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/%E5%A6%82%E4%BD%95%E6%8A%BD%E8%B1%A1%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/"><span class="toc-text">如何抽象可视化搭建</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/%E5%9C%BA%E6%99%AF%E5%AE%9E%E6%88%98/"><span class="toc-text">场景实战</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/%E5%AE%B9%E5%99%A8%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1/"><span class="toc-text">容器组件设计</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/%E5%AE%9A%E4%B9%89%E8%81%94%E5%8A%A8%E5%8D%8F%E8%AE%AE/"><span class="toc-text">定义联动协议</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/%E7%94%BB%E5%B8%83%E4%B8%8E%E7%BB%84%E4%BB%B6%E5%85%83%E4%BF%A1%E6%81%AF%E6%95%B0%E6%8D%AE%E6%B5%81/"><span class="toc-text">画布与组件元信息数据流</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/%E7%BB%84%E4%BB%B6%E5%80%BC%E4%B8%8E%E8%81%94%E5%8A%A8/"><span class="toc-text">组件值与联动</span></a><a class="link" href="/wiki/WebWeekly/%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/%E3%80%8ATableau%20%E5%85%A5%E9%97%A8%E3%80%8B/"><span class="toc-text">《Tableau 入门》</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/%E7%BB%84%E4%BB%B6%E6%B3%A8%E5%86%8C%E4%B8%8E%E7%94%BB%E5%B8%83%E6%B8%B2%E6%9F%93/"><span class="toc-text">组件注册与画布渲染</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/%E7%BB%84%E4%BB%B6%E5%80%BC%E6%A0%A1%E9%AA%8C/"><span class="toc-text">组件值校验</span></a><a class="link" href="/wiki/WebWeekly/%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA/%E8%87%AA%E5%8A%A8%E6%89%B9%E5%A4%84%E7%90%86%E4%B8%8E%E5%86%BB%E7%BB%93/"><span class="toc-text">自动批处理与冻结</span></a><a class="link" href="/wiki/WebWeekly/%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/%E3%80%8A%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%93%E5%AE%B6%E4%B8%8D%E5%86%8D%E5%85%B3%E5%BF%83%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E3%80%8B/"><span class="toc-text">《为什么专家不再关心技术细节》</span></a><a class="link" href="/wiki/WebWeekly/%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/%E3%80%8A%E4%BB%8E%200%20%E5%88%B0%201%E3%80%8B/"><span class="toc-text">《从 0 到 1》</span></a><a class="link" href="/wiki/WebWeekly/%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/%E3%80%8A%E5%88%B7%E6%96%B0%E3%80%8B/"><span class="toc-text">《刷新》</span></a><a class="link" href="/wiki/WebWeekly/%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/%E3%80%8A%E5%BD%93%E6%88%91%E5%9C%A8%E5%88%86%E4%BA%AB%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E5%9C%A8%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F%E3%80%8B/"><span class="toc-text">《当我在分享的时候，我在做什么？》</span></a><a class="link" href="/wiki/WebWeekly/%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/%E3%80%8A%E6%99%BA%E8%83%BD%E5%95%86%E4%B8%9A%E3%80%8B/"><span class="toc-text">《智能商业》</span></a><a class="link" href="/wiki/WebWeekly/%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/%E3%80%8A%E6%95%B0%E6%8D%AE%E4%B9%8B%E4%B8%8A%C2%B7%E6%99%BA%E6%85%A7%E4%B9%8B%E5%85%89%20-%202018%E3%80%8B/"><span class="toc-text">《数据之上·智慧之光 - 2018》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8A@umijs%20use-request%E3%80%8B%E6%BA%90%E7%A0%81/"><span class="toc-text">《@umijs use-request》源码</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8AEpitath%20%E6%BA%90%E7%A0%81%20-%20renderProps%20%E6%96%B0%E7%94%A8%E6%B3%95%E3%80%8B/"><span class="toc-text">《Epitath 源码 - renderProps 新用法》</span></a><a class="link" href="/wiki/WebWeekly/%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/%E3%80%8A%E6%9E%81%E5%AE%A2%E5%85%AC%E5%9B%AD%20IFX%20-%20%E4%B8%8A%E3%80%8B/"><span class="toc-text">《极客公园 IFX - 上》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8AHooks%20%E5%8F%96%E6%95%B0%20-%20swr%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《Hooks 取数 - swr 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/%E3%80%8A%E6%9E%81%E5%AE%A2%E5%85%AC%E5%9B%AD%202019%E3%80%8B/"><span class="toc-text">《极客公园 2019》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8AHtm%20-%20Hyperscript%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《Htm - Hyperscript 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8AImmer/"><span class="toc-text">《Immer</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8AInject%20Instance%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《Inject Instance 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/%E3%80%8A%E8%B0%81%E5%9C%A8%E4%B8%96%E7%95%8C%E4%B8%AD%E5%BF%83%E3%80%8B/"><span class="toc-text">《谁在世界中心》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8Areact-easy-state%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《react-easy-state 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/%E3%80%8A%E6%9E%81%E5%AE%A2%E5%85%AC%E5%9B%AD%20IFX%20-%20%E4%B8%8B%E3%80%8B/"><span class="toc-text">《极客公园 IFX - 下》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8AReact%20PowerPlug%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《React PowerPlug 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8Areact-intersection-observer%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《react-intersection-observer 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8Arobot%20%E6%BA%90%E7%A0%81%20-%20%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA%E3%80%8B/"><span class="toc-text">《robot 源码 - 有限状态机》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8Areact-snippets%20-%20Router%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《react-snippets - Router 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8Asqorn%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《sqorn 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8Asyntax-parser%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《syntax-parser 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8Ause-what-changed%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《use-what-changed 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8Avue-lit%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《vue-lit 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8Aunstated%20%E4%B8%8E%20unstated-next%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《unstated 与 unstated-next 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A12%20%E4%B8%AA%E8%AF%84%E4%BC%B0%20JS%20%E5%BA%93%E4%BD%A0%E9%9C%80%E8%A6%81%E5%85%B3%E5%BF%83%E7%9A%84%E4%BA%8B%E3%80%8B/"><span class="toc-text">《12 个评估 JS 库你需要关心的事》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A15%20%E5%A4%A7%20LOD%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%20-%20%E4%B8%8A%E3%80%8B/"><span class="toc-text">《15 大 LOD 表达式 - 上》</span></a><a class="link" href="/wiki/WebWeekly/%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/%E3%80%8Azustand%20%E6%BA%90%E7%A0%81%E3%80%8B/"><span class="toc-text">《zustand 源码》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A15%20%E5%A4%A7%20LOD%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%20-%20%E4%B8%8B%E3%80%8B/"><span class="toc-text">《15 大 LOD 表达式 - 下》</span></a><a class="link active" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A2017%20%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%8B/"><span class="toc-text">《2017 前端性能优化备忘录》</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A2021%20%E5%89%8D%E7%AB%AF%E6%96%B0%E7%A7%80%E5%9B%9E%E9%A1%BE%E3%80%8B/"><span class="toc-text">《2021 前端新秀回顾》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A30%20%E8%A1%8C%20js%20%E4%BB%A3%E7%A0%81%E5%88%9B%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E3%80%8B/"><span class="toc-text">《30 行 js 代码创建神经网络》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A@types%20react%20%E5%80%BC%E5%BE%97%E6%B3%A8%E6%84%8F%E7%9A%84%20TS%20%E6%8A%80%E5%B7%A7%E3%80%8B/"><span class="toc-text">《@types react 值得注意的 TS 技巧》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AAPI%20%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E3%80%8B/"><span class="toc-text">《API 设计原则》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AAnt%20Design%203/"><span class="toc-text">《Ant Design 3</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AAsyncAwait%20%E4%BC%98%E8%B6%8A%E4%B9%8B%E5%A4%84%E3%80%8B/"><span class="toc-text">《AsyncAwait 优越之处》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ABI%20%E6%90%AD%E5%BB%BA%20-%20%E7%AD%9B%E9%80%89%E6%9D%A1%E4%BB%B6%E3%80%8B/"><span class="toc-text">《BI 搭建 - 筛选条件》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ACSS%20Animations%20vs%20Web%20Animations%20API%E3%80%8B/"><span class="toc-text">《CSS Animations vs Web Animations API》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ACaches%20API%E3%80%8B/"><span class="toc-text">《Caches API》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ACompilers%20are%20the%20New%20Frameworks%E3%80%8B/"><span class="toc-text">《Compilers are the New Frameworks》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ADOM%20diff%20%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97%E3%80%8B/"><span class="toc-text">《DOM diff 最长上升子序列》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ADOM%20diff%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E3%80%8B/"><span class="toc-text">《DOM diff 原理详解》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ADeno%201/"><span class="toc-text">《Deno 1</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AElements%20of%20Web%20Dev%E3%80%8B/"><span class="toc-text">《Elements of Web Dev》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AExcel%20JS%20API%E3%80%8B/"><span class="toc-text">《Excel JS API》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AFunction%20VS%20Class%20%E7%BB%84%E4%BB%B6%E3%80%8B/"><span class="toc-text">《Function VS Class 组件》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AImmutable%20%E7%BB%93%E6%9E%84%E5%85%B1%E4%BA%AB%E3%80%8B/"><span class="toc-text">《Immutable 结构共享》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AFunction%20Component%20%E5%85%A5%E9%97%A8%E3%80%8B/"><span class="toc-text">《Function Component 入门》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AHeadless%20%E7%BB%84%E4%BB%B6%E7%94%A8%E6%B3%95%E4%B8%8E%E5%8E%9F%E7%90%86%E3%80%8B/"><span class="toc-text">《Headless 组件用法与原理》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AJS%20%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E3%80%8B/"><span class="toc-text">《JS 中的内存管理》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AJS%20%E6%95%B0%E7%BB%84%E7%9A%84%E5%86%85%E9%83%A8%E5%AE%9E%E7%8E%B0%E3%80%8B/"><span class="toc-text">《JS 数组的内部实现》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AJS%20with%20%E8%AF%AD%E6%B3%95%E3%80%8B/"><span class="toc-text">《JS with 语法》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AJS%20%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80%E4%B9%8B%20Shapes%20and%20Inline%20Caches%E3%80%8B/"><span class="toc-text">《JS 引擎基础之 Shapes and Inline Caches》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AJavascript%20%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E4%B8%8E%E5%BC%82%E6%AD%A5%E3%80%8B/"><span class="toc-text">《Javascript 事件循环与异步》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AMicrosoft%20Power%20Fx%E3%80%8B/"><span class="toc-text">《Microsoft Power Fx》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AMonorepo%20%E7%9A%84%E4%BC%98%E5%8A%BF%E3%80%8B/"><span class="toc-text">《Monorepo 的优势》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ANestjs%E3%80%8B%E6%96%87%E6%A1%A3/"><span class="toc-text">《Nestjs》文档</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ANodejs%20V12%E3%80%8B/"><span class="toc-text">《Nodejs V12》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AJavaScript%20%E9%94%99%E8%AF%AF%E5%A0%86%E6%A0%88%E5%A4%84%E7%90%86%E3%80%8B/"><span class="toc-text">《JavaScript 错误堆栈处理》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AOptional%20chaining%E3%80%8B/"><span class="toc-text">《Optional chaining》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8APrisma%20%E7%9A%84%E4%BD%BF%E7%94%A8%E3%80%8B/"><span class="toc-text">《Prisma 的使用》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ANuxtjs%E3%80%8B/"><span class="toc-text">《Nuxtjs》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AREST,%20GraphQL,%20Webhooks,%20&%20gRPC%20%E5%A6%82%E4%BD%95%E9%80%89%E5%9E%8B%E3%80%8B/"><span class="toc-text">《REST, GraphQL, Webhooks, & gRPC 如何选型》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20Conf%202019%20-%20Day2%E3%80%8B/"><span class="toc-text">《React Conf 2019 - Day2》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%2018%E3%80%8B/"><span class="toc-text">《React 18》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20Hooks%20%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E3%80%8B/"><span class="toc-text">《React Hooks 最佳实践》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20Hooks%E3%80%8B/"><span class="toc-text">《React Hooks》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20Conf%202019%20-%20Day1%E3%80%8B/"><span class="toc-text">《React Conf 2019 - Day1》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20Error%20Boundaries%E3%80%8B/"><span class="toc-text">《React Error Boundaries》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20Hooks%20%E6%95%B0%E6%8D%AE%E6%B5%81%E3%80%8B/"><span class="toc-text">《React Hooks 数据流》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20useEvent%20RFC%E3%80%8B/"><span class="toc-text">《React useEvent RFC》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20%E5%85%AB%E7%A7%8D%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93%E3%80%8B/"><span class="toc-text">《React 八种条件渲染》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20Router%20v6%E3%80%8B/"><span class="toc-text">《React Router v6》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20Router4/"><span class="toc-text">《React Router4</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93%E3%80%8B/"><span class="toc-text">《React 代码整洁之道》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20Server%20Component%E3%80%8B/"><span class="toc-text">《React Server Component》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20%E7%9A%84%E5%A4%9A%E6%80%81%E6%80%A7%E3%80%8B/"><span class="toc-text">《React 的多态性》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact's%20new%20Context%20API%E3%80%8B/"><span class="toc-text">《React"s new Context API》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20%E6%80%A7%E8%83%BD%E8%B0%83%E8%AF%95%E3%80%8B/"><span class="toc-text">《React 性能调试》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact%20%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6%E3%80%8B/"><span class="toc-text">《React 高阶组件》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AReact16%20%E6%96%B0%E7%89%B9%E6%80%A7%E3%80%8B/"><span class="toc-text">《React16 新特性》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ARecords%20&%20Tuples%20for%20React%E3%80%8B/"><span class="toc-text">《Records & Tuples for React》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ARecords%20&%20Tuples%20%E6%8F%90%E6%A1%88%E3%80%8B/"><span class="toc-text">《Records & Tuples 提案》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ARekit%20Studio%E3%80%8B/"><span class="toc-text">《Rekit Studio》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ARest%20vs%20Spread%20%E8%AF%AD%E6%B3%95%E3%80%8B/"><span class="toc-text">《Rest vs Spread 语法》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ARust%20%E6%98%AF%20JS%20%E5%9F%BA%E5%BB%BA%E7%9A%84%E6%9C%AA%E6%9D%A5%E3%80%8B/"><span class="toc-text">《Rust 是 JS 基建的未来》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ASQL%20vs%20Flux%E3%80%8B/"><span class="toc-text">《SQL vs Flux》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AScheduling%20in%20React%E3%80%8B/"><span class="toc-text">《Scheduling in React》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AServerless%20%E7%BB%99%E5%89%8D%E7%AB%AF%E5%B8%A6%E6%9D%A5%E4%BA%86%E4%BB%80%E4%B9%88%E3%80%8B/"><span class="toc-text">《Serverless 给前端带来了什么》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ASolidJS%E3%80%8B/"><span class="toc-text">《SolidJS》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ASpring%20%E6%A6%82%E5%BF%B5%E3%80%8B/"><span class="toc-text">《Spring 概念》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AState%20of%20CSS%202022%E3%80%8B/"><span class="toc-text">《State of CSS 2022》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ATC39%20%E4%B8%8E%20ECMAScript%20%E6%8F%90%E6%A1%88%E3%80%8B/"><span class="toc-text">《TC39 与 ECMAScript 提案》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ATableau%20%E6%8E%A2%E7%B4%A2%E5%BC%8F%E6%A8%A1%E5%9E%8B%E3%80%8B/"><span class="toc-text">《Tableau 探索式模型》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ASuspense%20%E6%94%B9%E5%8F%98%E5%BC%80%E5%8F%91%E6%96%B9%E5%BC%8F%E3%80%8B/"><span class="toc-text">《Suspense 改变开发方式》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ATypescript%203/"><span class="toc-text">《Typescript 3</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AThis%20%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%9B%B0%E6%83%91%E3%80%8B/"><span class="toc-text">《This 带来的困惑》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ATypescript%204/"><span class="toc-text">《Typescript 4</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ATypescript%20infer%20%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%8B/"><span class="toc-text">《Typescript infer 关键字》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ATypescript2/"><span class="toc-text">《Typescript2</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AV8%20%E5%BC%95%E6%93%8E%20Lazy%20Parsing%E3%80%8B/"><span class="toc-text">《V8 引擎 Lazy Parsing》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ATasks,%20microtasks,%20queues%20and%20schedules%E3%80%8B/"><span class="toc-text">《Tasks, microtasks, queues and schedules》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AWeb%20Components%20%E7%9A%84%E5%9B%B0%E5%A2%83%E3%80%8B/"><span class="toc-text">《Web Components 的困境》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AWeb%20fonts_%20when%20you%20need%20them,%20when%20you%20don%E2%80%99t%E3%80%8B/"><span class="toc-text">《Web fonts_ when you need them, when you don’t》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8ATypescript%204%E3%80%8B/"><span class="toc-text">《Typescript 4》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AVue3/"><span class="toc-text">《Vue3</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AWhat's%20new%20in%20javascript%E3%80%8B/"><span class="toc-text">《What"s new in javascript》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AWebpack5%20%E6%96%B0%E7%89%B9%E6%80%A7%20-%20%E6%A8%A1%E5%9D%97%E8%81%94%E9%82%A6%E3%80%8B/"><span class="toc-text">《Webpack5 新特性 - 模块联邦》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AWhen%20You%20%E2%80%9CGit%E2%80%9D%20in%20Trouble-%20a%20Version%20Control%20Story%E3%80%8B/"><span class="toc-text">《When You “Git” in Trouble- a Version Control Story》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Aasync%20await%20%E6%98%AF%E6%8A%8A%E5%8F%8C%E5%88%83%E5%89%91%E3%80%8B/"><span class="toc-text">《async await 是把双刃剑》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Aclass%20static%20block%E3%80%8B/"><span class="toc-text">《class static block》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Acss-in-js%20%E6%9D%80%E9%B8%A1%E7%94%A8%E7%89%9B%E5%88%80%E3%80%8B/"><span class="toc-text">《css-in-js 杀鸡用牛刀》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Adob%20-%20%E6%A1%86%E6%9E%B6%E4%BD%BF%E7%94%A8%E3%80%8B/"><span class="toc-text">《dob - 框架使用》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Adob%20-%20%E6%A1%86%E6%9E%B6%E5%AE%9E%E7%8E%B0%E3%80%8B/"><span class="toc-text">《dob - 框架实现》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Ahow%20we%20position%20and%20what%20we%20compare%E3%80%8B/"><span class="toc-text">《how we position and what we compare》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Ajs%20%E6%A8%A1%E5%9D%97%E5%8C%96%E5%8F%91%E5%B1%95%E3%80%8B/"><span class="toc-text">《js 模块化发展》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AV8%20%E5%BC%95%E6%93%8E%E7%89%B9%E6%80%A7%E5%B8%A6%E6%9D%A5%E7%9A%84%E7%9A%84%20JS%20%E6%80%A7%E8%83%BD%E5%8F%98%E5%8C%96%E3%80%8B/"><span class="toc-text">《V8 引擎特性带来的的 JS 性能变化》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Anull%20_=%200_%E3%80%8B/"><span class="toc-text">《null _= 0_》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Aproposal-extractors%E3%80%8B/"><span class="toc-text">《proposal-extractors》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Apnpm%E3%80%8B/"><span class="toc-text">《pnpm》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Apipe%20operator%20for%20JavaScript%E3%80%8B/"><span class="toc-text">《pipe operator for JavaScript》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Areact-rxjs%E3%80%8B/"><span class="toc-text">《react-rxjs》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Arecoil%E3%80%8B/"><span class="toc-text">《recoil》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AsetState%20%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%E3%80%8B/"><span class="toc-text">《setState 做了什么》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Asnowpack%E3%80%8B/"><span class="toc-text">《snowpack》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AuseEffect%20%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E3%80%8B/"><span class="toc-text">《useEffect 完全指南》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Aweb%20reflow%E3%80%8B/"><span class="toc-text">《web reflow》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Awebpack4/"><span class="toc-text">《webpack4</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8AuseRef%20%E4%B8%8E%20createRef%20%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%8B/"><span class="toc-text">《useRef 与 createRef 的区别》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E4%B8%80%E7%A7%8D%20Hooks%20%E6%95%B0%E6%8D%AE%E6%B5%81%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88%E3%80%8B/"><span class="toc-text">《一种 Hooks 数据流管理方案》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E4%B8%8D%E5%86%8D%E9%9C%80%E8%A6%81%20JS%20%E5%81%9A%E7%9A%84%205%20%E4%BB%B6%E4%BA%8B%E3%80%8B/"><span class="toc-text">《不再需要 JS 做的 5 件事》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E4%BB%80%E4%B9%88%E6%98%AF%20LOD%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%8B/"><span class="toc-text">《什么是 LOD 表达式》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E4%BD%8E%E4%BB%A3%E7%A0%81%E9%80%BB%E8%BE%91%E7%BC%96%E6%8E%92%E3%80%8B/"><span class="toc-text">《低代码逻辑编排》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8Aweb%20streams%E3%80%8B/"><span class="toc-text">《web streams》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E4%BD%BF%E7%94%A8%20CSS%20%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8%E3%80%8B/"><span class="toc-text">《使用 CSS 属性选择器》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E4%BD%BF%E7%94%A8%20css%20%E5%8F%98%E9%87%8F%E7%94%9F%E6%88%90%E9%A2%9C%E8%89%B2%E4%B8%BB%E9%A2%98%E3%80%8B/"><span class="toc-text">《使用 css 变量生成颜色主题》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E7%AE%80%E4%BB%8B%E3%80%8B/"><span class="toc-text">《依赖注入简介》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%85%A5%E5%9D%91%20React%20%E5%89%8D%E6%B2%A1%E6%9C%89%E4%BA%BA%E4%BC%9A%E5%91%8A%E8%AF%89%E4%BD%A0%E7%9A%84%E4%BA%8B%E3%80%8B/"><span class="toc-text">《入坑 React 前没有人会告诉你的事》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%85%A8%E9%93%BE%E8%B7%AF%E4%BD%93%E9%AA%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8C%96%E7%9F%BF%E3%80%8B/"><span class="toc-text">《全链路体验浏览器挖矿》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%87%BD%E6%95%B0%E7%BC%93%E5%AD%98%E3%80%8B/"><span class="toc-text">《函数缓存》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%88%9D%E6%8E%A2%20Reason%20%E4%B8%8E%20GraphQL%E3%80%8B/"><span class="toc-text">《初探 Reason 与 GraphQL》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%89%8D%E5%90%8E%E7%AB%AF%E6%B8%B2%E6%9F%93%E4%B9%8B%E4%BA%89%E3%80%8B/"><span class="toc-text">《前后端渲染之争》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%89%8D%E7%AB%AF%E4%B8%8E%20BI%E3%80%8B/"><span class="toc-text">《前端与 BI》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%B5%81%E5%93%B2%E5%AD%A6%E3%80%8B/"><span class="toc-text">《前端数据流哲学》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%88%A9%E7%94%A8%20GPT%20%E8%A7%A3%E8%AF%BB%20PDF%E3%80%8B/"><span class="toc-text">《利用 GPT 解读 PDF》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%89%8D%E7%AB%AF%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B%E3%80%8B/"><span class="toc-text">《前端未来展望》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%89%8D%E7%AB%AF%E6%B7%B1%E6%B0%B4%E5%8C%BA%E3%80%8B/"><span class="toc-text">《前端深水区》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%89%8D%E7%AB%AF%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92%20-%202021%20%E5%B9%B4%E3%80%8B/"><span class="toc-text">《前端职业规划 - 2021 年》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E3%80%8B/"><span class="toc-text">《前端调试技巧》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7%E6%80%9D%E8%80%83%E3%80%8B/"><span class="toc-text">《可维护性思考》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%8F%AF%E8%A7%86%E5%8C%96%E6%90%AD%E5%BB%BA%E6%80%9D%E8%80%83%20-%20%E5%AF%8C%E6%96%87%E6%9C%AC%E6%90%AD%E5%BB%BA%E3%80%8B/"><span class="toc-text">《可视化搭建思考 - 富文本搭建》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%9B%BD%E9%99%85%E5%8C%96%E5%B8%83%E5%B1%80%20-%20Logical%20Properties%E3%80%8B/"><span class="toc-text">《国际化布局 - Logical Properties》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%8A%A0%E5%AF%86%E5%AA%92%E4%BD%93%E6%89%A9%E5%B1%95%E3%80%8B/"><span class="toc-text">《加密媒体扩展》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%9B%BE%E8%A7%A3%20ES%20%E6%A8%A1%E5%9D%97%E3%80%8B/"><span class="toc-text">《图解 ES 模块》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%90%E8%A1%8C%20serverRender%E3%80%8B/"><span class="toc-text">《在浏览器运行 serverRender》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%A6%82%E4%BD%95%E4%B8%BA%20TS%20%E7%B1%BB%E5%9E%8B%E5%86%99%E5%8D%95%E6%B5%8B%E3%80%8B/"><span class="toc-text">《如何为 TS 类型写单测》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%20CodeReview%E3%80%8B/"><span class="toc-text">《如何做好 CodeReview》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%20Nodejs%20%E7%9B%91%E5%90%AC%E6%96%87%E4%BB%B6%E5%A4%B9%E3%80%8B/"><span class="toc-text">《如何利用 Nodejs 监听文件夹》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%A6%82%E4%BD%95%E5%9C%A8%20nodejs%20%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E3%80%8B/"><span class="toc-text">《如何在 nodejs 使用环境变量》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%A6%82%E4%BD%95%E5%AE%89%E5%85%A8%E5%9C%B0%E4%BD%BF%E7%94%A8%20React%20context%E3%80%8B/"><span class="toc-text">《如何安全地使用 React context》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%20Object%20%E5%AF%B9%E8%B1%A1%E3%80%8B/"><span class="toc-text">《如何比较 Object 对象》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%A6%82%E4%BD%95%E7%BC%96%E8%AF%91%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E4%B8%8E%E7%BB%84%E4%BB%B6%E3%80%8B/"><span class="toc-text">《如何编译前端项目与组件》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%AF%B9%E4%BD%8E%E4%BB%A3%E7%A0%81%E6%90%AD%E5%BB%BA%E7%9A%84%E7%90%86%E8%A7%A3%E3%80%8B/"><span class="toc-text">《对低代码搭建的理解》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%AF%B9%20Markdown%20%E7%9A%84%E6%80%9D%E8%80%83%E3%80%8B/"><span class="toc-text">《对 Markdown 的思考》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%A2%9E%E5%BC%BA%E7%8E%B0%E5%AE%9E%E4%B8%8E%E5%8F%AF%E8%A7%86%E5%8C%96%E3%80%8B/"><span class="toc-text">《增强现实与可视化》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%AF%B9%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E7%90%86%E8%A7%A3%20-%20%E5%88%86%E5%B1%82%E4%B8%8E%E6%8A%BD%E8%B1%A1%E3%80%8B/"><span class="toc-text">《对前端架构的理解 - 分层与抽象》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%AF%BB%E6%89%BE%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%B9%B3%E8%A1%A1%E7%82%B9%E3%80%8B/"><span class="toc-text">《寻找框架设计的平衡点》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%9E%84%E5%BB%BA%20ARKit%20%E5%BA%94%E7%94%A8%E3%80%8B/"><span class="toc-text">《快速上手构建 ARKit 应用》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%80%8E%E4%B9%88%E7%94%A8%20React%20Hooks%20%E9%80%A0%E8%BD%AE%E5%AD%90%E3%80%8B/"><span class="toc-text">《怎么用 React Hooks 造轮子》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%88%91%E5%9C%A8%E9%98%BF%E9%87%8C%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E5%A4%A7%E5%89%8D%E7%AB%AF%E3%80%8B/"><span class="toc-text">《我在阿里数据中台大前端》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BD%95%E5%BC%83%E7%94%A8%20css-in-js%E3%80%8B/"><span class="toc-text">《我们为何弃用 css-in-js》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%88%91%E4%B8%8D%E5%86%8D%E4%BD%BF%E7%94%A8%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6%E3%80%8B/"><span class="toc-text">《我不再使用高阶组件》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%8D%95%E8%8E%B7%E6%89%80%E6%9C%89%E5%BC%82%E6%AD%A5%20error%E3%80%8B/"><span class="toc-text">《捕获所有异步 error》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%8F%92%E4%BB%B6%E5%8C%96%E6%80%9D%E7%BB%B4%E3%80%8B/"><span class="toc-text">《插件化思维》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%89%8B%E5%86%99%20JSON%20Parser%E3%80%8B/"><span class="toc-text">《手写 JSON Parser》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%95%B0%E6%8D%AE%E6%90%AD%E5%BB%BA%E5%BC%95%E6%93%8E%20bi-designer%20API-%E8%AE%BE%E8%AE%A1%E5%99%A8%E3%80%8B/"><span class="toc-text">《数据搭建引擎 bi-designer API-设计器》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%20vs%20%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%20vs%20%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2%E3%80%8B/"><span class="toc-text">《持续集成 vs 持续交付 vs 持续部署》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%9C%80%E4%BD%B3%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E3%80%8B%E5%8F%8A%E9%9D%A2%E8%AF%95%E5%AE%98%E6%8A%80%E5%B7%A7/"><span class="toc-text">《最佳前端面试题》及面试官技巧</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B9%8B%20DCI%E3%80%8B/"><span class="toc-text">《架构设计之 DCI》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%96%B0%E4%B8%80%E4%BB%A3%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94%E3%80%8B/"><span class="toc-text">《新一代前端构建工具对比》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%A8%A1%E6%80%81%E6%A1%86%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E3%80%8B/"><span class="toc-text">《模态框的最佳实践》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%AD%A3%E4%BA%A4%E7%9A%84%20React%20%E7%BB%84%E4%BB%B6%E3%80%8B/"><span class="toc-text">《正交的 React 组件》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%B0%91%E5%B7%A5%E5%8F%94%E5%8D%95%E9%A1%B5%E6%95%B0%E6%8D%AE%E6%B5%81%E6%96%B9%E6%A1%88%E3%80%8B/"><span class="toc-text">《民工叔单页数据流方案》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%AD%A3%E5%88%99%20ES2018%E3%80%8B/"><span class="toc-text">《正则 ES2018》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%80%E3%80%8B/"><span class="toc-text">《深入了解现代浏览器一》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8C%E3%80%8B/"><span class="toc-text">《深入了解现代浏览器二》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%9B%E3%80%8B/"><span class="toc-text">《深入了解现代浏览器四》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%20-%20%E5%87%BD%E6%95%B0%E5%BC%8F%E4%B9%8B%E7%BE%8E%E3%80%8B/"><span class="toc-text">《深度学习 - 函数式之美》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3%E7%8E%B0%E4%BB%A3%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%89%E3%80%8B/"><span class="toc-text">《深入了解现代浏览器三》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E3%80%8B/"><span class="toc-text">《源码学习》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E6%95%B0%E6%8D%AE%E6%90%AD%E5%BB%BA%E5%BC%95%E6%93%8E%20bi-designer%20API-%E7%BB%84%E4%BB%B6%E3%80%8B/"><span class="toc-text">《数据搭建引擎 bi-designer API-组件》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%8E%B0%E4%BB%A3%20JavaScript%20%E6%A6%82%E8%A7%88%E3%80%8B/"><span class="toc-text">《现代 JavaScript 概览》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%8E%B0%E4%BB%A3%20js%20%E6%A1%86%E6%9E%B6%E5%AD%98%E5%9C%A8%E7%9A%84%E6%A0%B9%E6%9C%AC%E5%8E%9F%E5%9B%A0%E3%80%8B/"><span class="toc-text">《现代 js 框架存在的根本原因》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%94%A8%20Babel%20%E5%88%9B%E9%80%A0%E8%87%AA%E5%AE%9A%E4%B9%89%20JS%20%E8%AF%AD%E6%B3%95%E3%80%8B/"><span class="toc-text">《用 Babel 创造自定义 JS 语法》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%94%A8%20React%20%E5%81%9A%E6%8C%89%E9%9C%80%E6%B8%B2%E6%9F%93%E3%80%8B/"><span class="toc-text">《用 React 做按需渲染》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%94%A8%20css%20grid%20%E9%87%8D%E6%96%B0%E6%80%9D%E8%80%83%E5%B8%83%E5%B1%80%E3%80%8B/"><span class="toc-text">《用 css grid 重新思考布局》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%94%A8%20Reduce%20%E5%AE%9E%E7%8E%B0%20Promise%20%E4%B8%B2%E8%A1%8C%E6%89%A7%E8%A1%8C%E3%80%8B/"><span class="toc-text">《用 Reduce 实现 Promise 串行执行》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%A3%81%E8%B4%B4%E5%B8%83%E5%B1%80%20-%20%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90%E3%80%8B/"><span class="toc-text">《磁贴布局 - 功能分析》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%A3%81%E8%B4%B4%E5%B8%83%E5%B1%80%20-%20%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E3%80%8B/"><span class="toc-text">《磁贴布局 - 功能实现》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%A3%81%E8%B4%B4%E5%B8%83%E5%B1%80%20-%20%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E3%80%8B/"><span class="toc-text">《磁贴布局 - 性能优化》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B/"><span class="toc-text">《算法基础数据结构》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%B2%BE%E9%80%9A%20console/"><span class="toc-text">《精通 console</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%BC%96%E5%86%99%E6%9C%89%E5%BC%B9%E6%80%A7%E7%9A%84%E7%BB%84%E4%BB%B6%E3%80%8B/"><span class="toc-text">《编写有弹性的组件》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%BB%B4%E6%8A%A4%E5%A5%BD%E4%B8%80%E4%B8%AA%E5%A4%8D%E6%9D%82%E9%A1%B9%E7%9B%AE%E3%80%8B/"><span class="toc-text">《维护好一个复杂项目》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E7%BB%93%E5%90%88%20React%20%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9F%20Drag%20Drop%20API%E3%80%8B/"><span class="toc-text">《结合 React 使用原生 Drag Drop API》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E8%87%AA%E7%94%B1%20+%20%E7%A3%81%E8%B4%B4%E6%B7%B7%E5%90%88%E5%B8%83%E5%B1%80%E3%80%8B/"><span class="toc-text">《自由 + 磁贴混合布局》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E8%87%AA%E7%94%B1%E5%B8%83%E5%B1%80%E5%90%B8%E9%99%84%E7%BA%BF%E7%9A%84%E5%AE%9E%E7%8E%B0%E3%80%8B/"><span class="toc-text">《自由布局吸附线的实现》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E8%A1%A1%E9%87%8F%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E3%80%8B/"><span class="toc-text">《衡量用户体验》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E8%AE%BE%E8%AE%A1%E5%AE%8C%E7%BE%8E%E7%9A%84%E6%97%A5%E6%9C%9F%E9%80%89%E6%8B%A9%E5%99%A8%E3%80%8B/"><span class="toc-text">《设计完美的日期选择器》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E8%AF%B7%E5%81%9C%E6%AD%A2%20css-in-js%20%E7%9A%84%E8%A1%8C%E4%B8%BA%E3%80%8B/"><span class="toc-text">《请停止 css-in-js 的行为》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E8%B0%88%E8%B0%88%20Web%20Workers%E3%80%8B/"><span class="toc-text">《谈谈 Web Workers》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E8%BF%AD%E4%BB%A3%E5%99%A8%20Iterable%E3%80%8B/"><span class="toc-text">《迭代器 Iterable》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E9%87%8D%E6%96%B0%E6%80%9D%E8%80%83%20Redux%E3%80%8B/"><span class="toc-text">《重新思考 Redux》</span></a><a class="link" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%20-%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E3%80%8B/"><span class="toc-text">《算法 - 二叉搜索树》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E9%BB%98%E8%AE%A4%E3%80%81%E5%91%BD%E5%90%8D%E5%AF%BC%E5%87%BA%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%8B/"><span class="toc-text">《默认、命名导出的区别》</span></a><a class="link" href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A%E9%AB%98%E6%80%A7%E8%83%BD%E8%A1%A8%E6%A0%BC%E3%80%8B/"><span class="toc-text">《高性能表格》</span></a><a class="link" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%20-%20%E4%BA%8C%E5%8F%89%E6%A0%91%E3%80%8B/"><span class="toc-text">《算法 - 二叉树》</span></a><a class="link" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%20-%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E3%80%8B/"><span class="toc-text">《算法 - 动态规划》</span></a><a class="link" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%20-%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E3%80%8B/"><span class="toc-text">《算法 - 滑动窗口》</span></a><a class="link" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%E9%A2%98%20-%20%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F%E3%80%8B/"><span class="toc-text">《算法题 - 地下城游戏》</span></a><a class="link" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%E9%A2%98%20-%20%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2%E3%80%8B/"><span class="toc-text">《算法题 - 最小覆盖子串》</span></a><a class="link" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%E9%A2%98%20-%20%E7%BB%9F%E8%AE%A1%E5%8F%AF%E4%BB%A5%E8%A2%AB%20K%20%E6%95%B4%E9%99%A4%E7%9A%84%E4%B8%8B%E6%A0%87%E5%AF%B9%E6%95%B0%E7%9B%AE%E3%80%8B/"><span class="toc-text">《算法题 - 统计可以被 K 整除的下标对数目》</span></a><a class="link" href="/wiki/WebWeekly/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E3%80%8A%E6%89%8B%E5%86%99%20SQL%20%E7%BC%96%E8%AF%91%E5%99%A8%20-%20%E5%9B%9E%E6%BA%AF%E3%80%8B/"><span class="toc-text">《手写 SQL 编译器 - 回溯》</span></a><a class="link" href="/wiki/WebWeekly/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E3%80%8A%E6%89%8B%E5%86%99%20SQL%20%E7%BC%96%E8%AF%91%E5%99%A8%20-%20%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E7%BC%93%E5%AD%98%E3%80%8B/"><span class="toc-text">《手写 SQL 编译器 - 性能优化之缓存》</span></a><a class="link" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%E9%A2%98%20-%20%E9%80%9A%E9%85%8D%E7%AC%A6%E5%8C%B9%E9%85%8D%E3%80%8B/"><span class="toc-text">《算法题 - 通配符匹配》</span></a><a class="link" href="/wiki/WebWeekly/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E3%80%8A%E6%89%8B%E5%86%99%20SQL%20%E7%BC%96%E8%AF%91%E5%99%A8%20-%20%E6%96%87%E6%B3%95%E4%BB%8B%E7%BB%8D%E3%80%8B/"><span class="toc-text">《手写 SQL 编译器 - 文法介绍》</span></a><a class="link" href="/wiki/WebWeekly/%E7%AE%97%E6%B3%95/%E3%80%8A%E7%AE%97%E6%B3%95%20-%20%E5%9B%9E%E6%BA%AF%E3%80%8B/"><span class="toc-text">《算法 - 回溯》</span></a><a class="link" href="/wiki/WebWeekly/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E3%80%8A%E6%89%8B%E5%86%99%20SQL%20%E7%BC%96%E8%AF%91%E5%99%A8%20-%20%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA%E3%80%8B/"><span class="toc-text">《手写 SQL 编译器 - 智能提示》</span></a><a class="link" href="/wiki/WebWeekly/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E3%80%8A%E6%89%8B%E5%86%99%20SQL%20%E7%BC%96%E8%AF%91%E5%99%A8%20-%20%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E3%80%8B/"><span class="toc-text">《手写 SQL 编译器 - 词法分析》</span></a><a class="link" href="/wiki/WebWeekly/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E3%80%8A%E6%89%8B%E5%86%99%20SQL%20%E7%BC%96%E8%AF%91%E5%99%A8%20-%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E3%80%8B/"><span class="toc-text">《手写 SQL 编译器 - 语法分析》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Abstract%20Factory%20%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E3%80%8B/"><span class="toc-text">《设计模式 - Abstract Factory 抽象工厂》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Adapter%20%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Adapter 适配器模式》</span></a><a class="link" href="/wiki/WebWeekly/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E3%80%8A%E6%89%8B%E5%86%99%20SQL%20%E7%BC%96%E8%AF%91%E5%99%A8%20-%20%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA%E3%80%8B/"><span class="toc-text">《手写 SQL 编译器 - 错误提示》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Builder%20%E7%94%9F%E6%88%90%E5%99%A8%E3%80%8B/"><span class="toc-text">《设计模式 - Builder 生成器》</span></a><a class="link" href="/wiki/WebWeekly/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/%E3%80%8A%E6%89%8B%E5%86%99%20SQL%20%E7%BC%96%E8%AF%91%E5%99%A8%20-%20%E8%AF%AD%E6%B3%95%E6%A0%91%E3%80%8B/"><span class="toc-text">《手写 SQL 编译器 - 语法树》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Chain%20of%20Responsibility%20%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Chain of Responsibility 职责链模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Bridge%20%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Bridge 桥接模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Command%20%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Command 命令模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Composite%20%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Composite 组合模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Decorator%20%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Decorator 装饰器模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Facade%20%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Facade 外观模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Factory%20Method%20%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E3%80%8B/"><span class="toc-text">《设计模式 - Factory Method 工厂方法》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Flyweight%20%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Flyweight 享元模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Interpreter%20%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Interpreter 解释器模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Mediator%20%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Mediator 中介者模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Iterator%20%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Iterator 迭代器模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Memoto%20%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Memoto 备忘录模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Observer%20%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Observer 观察者模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Prototype%20%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Prototype 原型模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Proxy%20%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Proxy 代理模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Singleton%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Singleton 单例模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Strategy%20%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Strategy 策略模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20State%20%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - State 状态模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Template%20Method%20%E6%A8%A1%E7%89%88%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Template Method 模版模式》</span></a><a class="link" href="/wiki/WebWeekly/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E3%80%8A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%20-%20Visitor%20%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%E3%80%8B/"><span class="toc-text">《设计模式 - Visitor 访问者模式》</span></a></div></widget>
+
+
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/wiki/Laf/start/start/"><span class="title"><strong>Laf</strong><span class="dot"></span>Laf 简介</span></a><a class="item title" href="/share/game/%E5%B0%8F%E5%B0%8F%E6%A2%A6%E9%AD%87/"><span class="title"><strong>share</strong><span class="dot"></span>小小梦魇</span></a><a class="item title" href="/wiki/Laf/start/laf-https-start/"><span class="title"><strong>Laf</strong><span class="dot"></span>Laf 部署之 开启HTTPS/SSL</span></a><a class="item title" href="/wiki/LoadBalance/multiple/proxy/"><span class="title"><strong>LoadBalance</strong><span class="dot"></span>负载均衡</span></a><a class="item title" href="/wiki/LoadBalance/deploy/cloudflare/"><span class="title"><strong>LoadBalance</strong><span class="dot"></span>Cloudflare 部署</span></a><a class="item title" href="/wiki/LoadBalance/deploy/netlify/"><span class="title"><strong>LoadBalance</strong><span class="dot"></span>Netlify 部署</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/bilibili-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/wechat-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/github-banner.jpg"/></a><a class="social" href="javascript:ThemeChange('dark');" rel="noopener noreferrer"><img id="ThemeM" src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javascript:ThemeChange('light');" rel="noopener noreferrer"><img id="ThemeL" src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javascript:ThemeChange('auto');" rel="noopener noreferrer"><img id="ThemeAI" src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+    <div class="content">
+      <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/WebWeekly/SQL/SQL%20CASE%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/">WebWeekly</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2023-12-30T20:35:12.000Z">2023-12-31</time></span></div></div></div>
+      
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>《2017 前端性能优化备忘录》</span></h1>
+        
+      </div>
+    </div>
+    
+    </div>
+    </div><article class="md-text content"><p>当前期刊数: 28</p>
+<p>本期精读的文章是：<a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2016/12/front-end-performance-checklist-2017-pdf-pages/">Front End Performance Checklist 2017</a></p>
+<p>现在随着 web 应用的复杂性日益增加，其性能优化就会显得尤为必要，同时会给性能指标分析带来新的挑战，因为性能指标之间的差异性非常大，这取决于使用的设备、浏览器、协议、网络类型以及其它能够对性能产生影响的潜在因素(如：CDN、ISP、cache、proxy、firewall、load balancer、server 等)。</p>
+<h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h2><img src="https://img.alicdn.com/imgextra/i2/O1CN01rWHv8I1StHD2o0bV3_!!6000000002304-2-tps-800-313.png" width="500" alt="logo" />
+
+<p>本文提供了解决如何让网站响应更加迅速、访问更加流畅等前端性能优化问题的方法，读者们可以提供一些在实际场景中的性能优化问题以及解决方案，可泛谈优化策略，亦可针对性深入讨论某个优化方法。</p>
+<h2 id="2-内容概要"><a href="#2-内容概要" class="headerlink" title="2 内容概要"></a>2 内容概要</h2><p>文中列举了很多不同的性能优化策略、模型或方法，如下：</p>
+<h3 id="制定目标"><a href="#制定目标" class="headerlink" title="制定目标"></a>制定目标</h3><h4 id="网站速度快于他人-20"><a href="#网站速度快于他人-20" class="headerlink" title="网站速度快于他人 20%"></a>网站速度快于他人 20%</h4><p>根据 <a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2015/09/why-performance-matters-the-perception-of-time/##the-need-for-performance-optimization-the-20-rule">psychological research</a> 指出，网站最少在速度上比别人快 20%，才能让用户感觉到比别人的更快。这个速度说的并不是整个页面的加载时间，而是<a target="_blank" rel="noopener" href="http://www.websiteoptimization.com/speed/tweak/start-render/">启动渲染时间</a>，<a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint">首次有效渲染时间</a>，<a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive">交互时间</a>。</p>
+<h4 id="控制响应时间在-100ms，控制帧速在-60-帧-秒"><a href="#控制响应时间在-100ms，控制帧速在-60-帧-秒" class="headerlink" title="控制响应时间在 100ms，控制帧速在 60 帧&#x2F;秒"></a>控制响应时间在 100ms，控制帧速在 60 帧&#x2F;秒</h4><p><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2015/10/rail-user-centric-model-performance/">RAIL performance model</a> 提出的性能优化指标：务必在用户初始操作后的 100ms 内提供反馈。考虑到存在响应时间不足 100ms 的情况，页面最迟要在 50ms 的时候，把控制权交给主线程。</p>
+<p>针对动画，其每一帧都需要在 16ms 内完成，这样才能保证每秒 60 帧（一秒&#x2F;60&#x3D;16.6ms），如果可以的话最好能在 10ms 内完成。</p>
+<h4 id="控制首次有效渲染时间在-1-25s，控制-SpeedIndex-在-1000"><a href="#控制首次有效渲染时间在-1-25s，控制-SpeedIndex-在-1000" class="headerlink" title="控制首次有效渲染时间在 1.25s，控制 SpeedIndex 在 1000"></a>控制首次有效渲染时间在 1.25s，控制 SpeedIndex 在 1000</h4><p>控制启动渲染时间在 1s 以内，且速度指数在 1000 以内，对于首次有效渲染时间，最好可以优化到 1.25s 以内。</p>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><h4 id="做好构建工具的选型"><a href="#做好构建工具的选型" class="headerlink" title="做好构建工具的选型"></a>做好构建工具的选型</h4><p>不要过度使用那些酷炫的技术栈，坚持选择适合开发环境的工具，如 Grunt、Gulp、Webpack、PostCSS，或者组合起来的工具。只要这个工具运行的速度够快，而且没有给项目维护带来太大问题，就够了。</p>
+<h4 id="渐进增强"><a href="#渐进增强" class="headerlink" title="渐进增强"></a>渐进增强</h4><p>在构建前端结构的时，应始终将<a target="_blank" rel="noopener" href="https://www.aaron-gustafson.com/notebook/insert-clickbait-headline-about-progressive-enhancement-here/">渐进增强</a>作为指导原则。首先设计并且构建核心体验，再完善为高性能浏览器设计的高级特性的相关体验。</p>
+<h4 id="前端框架"><a href="#前端框架" class="headerlink" title="前端框架"></a>前端框架</h4><p>最好使用那些支持服务器端渲染的框架，如 Angular，React，Ember 等。所选的框架要保证是被广泛使用并且经过考验的。不同框架对性能有着不同程度的影响，同时对应着不同的优化策略，所以要清楚的了解所选择框架的每个方面。</p>
+<h4 id="AMP-或-Instant-Articles"><a href="#AMP-或-Instant-Articles" class="headerlink" title="AMP 或 Instant Articles"></a>AMP 或 Instant Articles</h4><ul>
+<li>Google 的 <a target="_blank" rel="noopener" href="https://www.ampproject.org/">AMP</a> 技术会提供一套可靠的性能优化框架(基于免费的 CDN 网络)</li>
+<li>Facebook 的 <a target="_blank" rel="noopener" href="https://instantarticles.fb.com/">Instant Articles</a> 技术可以在 Facebook 上提升网站的性能。</li>
+</ul>
+<h4 id="合理利用-CDN"><a href="#合理利用-CDN" class="headerlink" title="合理利用 CDN"></a>合理利用 CDN</h4><p>根据网站的动态数据量，可以将部分内容给静态网站生成工具生成一个静态版本，将其置于 CDN 上，从而避免数据库的请求，亦可选择基于 CDN 的静态主机平台，通过交互组件丰富页面。</p>
+<h3 id="优化构建"><a href="#优化构建" class="headerlink" title="优化构建"></a>优化构建</h3><h4 id="确定优先级"><a href="#确定优先级" class="headerlink" title="确定优先级"></a>确定优先级</h4><p>将网站的所有文件（js，图片，字体，第三方 script 文件，多媒体内容等）进行分门别类。根据优先级区分基础核心内容，高性能浏览器设计的升级体验，附加内容等。具体细节可参考 <a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2014/09/improving-smashing-magazine-performance-case-study/">Improving Smashing Magazine’s Performance</a>。</p>
+<h4 id="使用-cutting-the-mustard-技术"><a href="#使用-cutting-the-mustard-技术" class="headerlink" title="使用 cutting-the-mustard 技术"></a>使用 cutting-the-mustard 技术</h4><p>使用 <a target="_blank" rel="noopener" href="http://responsivenews.co.uk/post/18948466399/cutting-the-mustard">cutting-the-mustard</a> 技术能够实现不同类型的浏览器载入不同类型的资源(传统浏览器载入核心型资源，现代浏览器载入增强型资源)。在载入资源时要严格遵守相应的规则：页面加载时应首先载入 Core 资源，然后在 DomContentLoaded 事件触发时载入 Enhancement 资源，最后在 Load 事件触发时载入 Extras 资源。</p>
+<h4 id="micro-optimization-和-progressive-booting"><a href="#micro-optimization-和-progressive-booting" class="headerlink" title="micro-optimization 和 progressive booting"></a>micro-optimization 和 progressive booting</h4><ul>
+<li>使用 <a target="_blank" rel="noopener" href="https://twitter.com/lukew/status/665288063195594752">skeleton screens</a> 代替 loading indicator 展示</li>
+<li>使用能够加速 App 初始化渲染的技术，如 <a target="_blank" rel="noopener" href="https://medium.com/@richavyas/aha-moments-from-ngconf-2016-part-1-angular-2-0-compile-cycle-6f462f68632e##.8b9afnsub">tree-shaking</a>、<a target="_blank" rel="noopener" href="https://webpack.github.io/docs/code-splitting.html">code-splitting</a></li>
+<li>针对<a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2016/03/server-side-rendering-react-node-express">服务端渲染</a>增加<a target="_blank" rel="noopener" href="https://www.lucidchart.com/techblog/2016/09/26/improving-angular-2-load-times/">预编译</a>环节</li>
+<li>使用 <a target="_blank" rel="noopener" href="https://github.com/nolanlawson/optimize-js">Optimize.js</a> 来加快初始加载速度，其原理是包装优先级高的调用函数</li>
+<li><a target="_blank" rel="noopener" href="https://aerotwist.com/blog/when-everything-is-important-nothing-is/">渐进启动</a>，先通过使用服务器端渲染快速完成首次有效渲染，浏览器再通过少量的 JS 代码就可以让交互时间接近于首次有效渲染时间。</li>
+</ul>
+<h4 id="正确设置-HTTP-cache-header"><a href="#正确设置-HTTP-cache-header" class="headerlink" title="正确设置 HTTP cache header"></a>正确设置 HTTP cache header</h4><p>需要正确设置 expires、cache-control、max-age 以及其它 HTTP 缓存响应头。请使用 Cache-control: immutable，可以参考 <a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers">Heroku’s primer on HTTP caching headers</a>、<a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=en">HTTP caching primer</a>以及<a target="_blank" rel="noopener" href="https://jakearchibald.com/2016/caching-best-practices/">缓存之最佳实践</a>。</p>
+<h4 id="减少使用第三方库，异步加载-JS"><a href="#减少使用第三方库，异步加载-JS" class="headerlink" title="减少使用第三方库，异步加载 JS"></a>减少使用第三方库，异步加载 JS</h4><p>想要在不等 js 执行完就开始渲染页面，可以通过在 HTML 的 script 标签上添加 defer 以及 async 属性来实现。减少第三方库和脚本的使用，尤其是社交网站的分享按键和 iframe 嵌入等。</p>
+<h4 id="合理优化图片"><a href="#合理优化图片" class="headerlink" title="合理优化图片"></a>合理优化图片</h4><ul>
+<li>要实现图片的响应式，应尽可能地使用带有 srcset、sizes 属性的 HTML 标签，如 <code>&lt;picture&gt;</code></li>
+<li>使用 <a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2015/10/webp-images-and-performance/">WebP</a> 格式的图片</li>
+</ul>
+<h4 id="图片优化进阶"><a href="#图片优化进阶" class="headerlink" title="图片优化进阶"></a>图片优化进阶</h4><ul>
+<li>可以使用<a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/wordpress/2013/01/progressive-jpeg-image-and-so-on/">渐进式 JPEG 图片</a></li>
+<li>可以使用压缩工具对不同格式的图片进行压缩，如 JPEG 图片用 <a target="_blank" rel="noopener" href="https://github.com/mozilla/mozjpeg">mozJPEG</a> 压缩、PNG 图片用 <a target="_blank" rel="noopener" href="http://css-ig.net/pingo">Pingo</a> 压缩、GIF 图片用 <a target="_blank" rel="noopener" href="https://kornel.ski/lossygif">Lossy GIF</a> 压缩、SVG 图片用 <a target="_blank" rel="noopener" href="https://jakearchibald.github.io/svgomg/">SVGOMG</a> 压缩</li>
+<li>可以通过过滤掉不必要的图片细节（通过给图片添加高斯模糊滤镜实现）来减小文件的大小</li>
+<li>可以使用 PhotoShop 导出（质量在 0-10%）的图片用于做背景图</li>
+<li>可以使用<a target="_blank" rel="noopener" href="http://csswizardry.com/2016/10/improving-perceived-performance-with-multiple-background-images/">多张背景图的技巧</a>来提高对图片性能感知的能力</li>
+</ul>
+<h4 id="优化-web-字体"><a href="#优化-web-字体" class="headerlink" title="优化 web 字体"></a>优化 web 字体</h4><ul>
+<li>如果使用开源字体，可以使用字体库中的子集或自己归类的子集来压缩文件大小</li>
+<li>浏览器对 WOFF2 的支持度较高，当浏览器不支持 WOFF2 时，可以将 WOFF、OTF 作为备用</li>
+<li>可以从 <a target="_blank" rel="noopener" href="https://www.zachleat.com/web/comprehensive-webfonts/">Comprehensive Guide to Font-Loading Strategies</a> 中选择一些针对字体优化的策略</li>
+<li>可以使用 service worker 来达到字体缓存持久化</li>
+<li><a target="_blank" rel="noopener" href="https://pixelambacht.nl/2016/font-awesome-fixed/">关于如何快速入门字体优化的教程</a></li>
+</ul>
+<h4 id="快速推送-critical-CSS-文件"><a href="#快速推送-critical-CSS-文件" class="headerlink" title="快速推送 critical CSS 文件"></a>快速推送 critical CSS 文件</h4><p>为了保证能够让浏览器快速渲染，会将所有用于首屏渲染的 CSS 文件整合成一个文件（即 <a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2015/08/understanding-critical-css/">critical CSS</a>），以 <code>&lt;style&gt;</code> 的行内形式内嵌到 <code>&lt;head&gt;</code>，这样可以减少 <a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path?hl=en">critical 渲染路径</a>。由于 HTTP 数据包大小的限制，因此 critical CSS 文件大小不能超过 14KB。</p>
+<p>HTTP&#x2F;2 协议可以让 critical CSS 用单个 CSS 文件存储，通过服务器推送 CSS 文件的传输方式来减少 HTML 文件数据量，由于存在高速缓存问题，因此需要建立<a target="_blank" rel="noopener" href="https://css-tricks.com/cache-aware-server-push/">带有缓存的 HTTP&#x2F;2 服务器传输机制</a>。</p>
+<h4 id="tree-shaking-和-code-splitting-机制减轻负载"><a href="#tree-shaking-和-code-splitting-机制减轻负载" class="headerlink" title="tree-shaking 和 code-splitting 机制减轻负载"></a>tree-shaking 和 code-splitting 机制减轻负载</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@roman01la/dead-code-elimination-and-tree-shaking-in-javascript-build-systems-fb8512c86edf">Tree-shaking</a> 机制能够帮助清理生产环境中的冗余代码。可以通过 <a target="_blank" rel="noopener" href="http://www.2ality.com/2015/12/webpack-tree-shaking.html">Webpack2 Tree-Shaking</a> 机制来清理冗余的 exports 代码或者使用 <a target="_blank" rel="noopener" href="https://github.com/giakki/uncss">UnCSS</a>、<a target="_blank" rel="noopener" href="https://github.com/geuis/helium-css">Helium</a> 工具来清理冗余的 CSS 代码</li>
+<li><a target="_blank" rel="noopener" href="https://webpack.github.io/docs/code-splitting.html">code splitting</a> 机制是 Webpack 的另一个特性，它能够将构建的代码分成多个 chunk，并且对 chunk 按需载入。只要在代码中定义了分离点（split point），Webpack 便会处理好相关的输出文件，不仅能够较少文件数据量，而且还能对代码做到按需载入。</li>
+<li>用 <a target="_blank" rel="noopener" href="http://rollupjs.org/">Rollup</a> 来 export 代码也能够取得不错的效果</li>
+</ul>
+<h4 id="提升渲染性能"><a href="#提升渲染性能" class="headerlink" title="提升渲染性能"></a>提升渲染性能</h4><p>可以通过使用 <a target="_blank" rel="noopener" href="http://caniuse.com/##search=contain">css containment</a> 属性的方式来达到隔离性能开销大的组件，限制浏览器样式的范围，限制作用在 canvas 以外的布局和绘制工作中，限制用在第三方工具上，以确保页面滚动和出现动画效果时没有延迟。推荐使用 CSS 属性 will-change，该属性能够在元素的属性改变之前通知浏览器。</p>
+<p>需要衡量浏览器在处于<a target="_blank" rel="noopener" href="https://aerotwist.com/blog/my-performance-audit-workflow/##runtime-performance">运行时渲染模式下的性能</a>，可以参考<a target="_blank" rel="noopener" href="https://www.udacity.com/course/browser-rendering-optimization--ud860">浏览器渲染优化</a>、<a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/">如何正确的使用 GPU</a>。</p>
+<h4 id="优化网络环境，加快网络传输"><a href="#优化网络环境，加快网络传输" class="headerlink" title="优化网络环境，加快网络传输"></a>优化网络环境，加快网络传输</h4><ul>
+<li>使用 skeleton screen 或者使用懒加载的方式载入字体或者开销大的组件，如视频、iframe、图片等</li>
+<li><a target="_blank" rel="noopener" href="http://caniuse.com/##search=dns-prefetch">dns-prefetch</a>，能够让浏览器在后台进程执行一次 DNS 查询</li>
+<li><a target="_blank" rel="noopener" href="http://www.caniuse.com/##search=preconnect">preconnect</a>，能够让浏览器在后台进程发起一次握手（DNS，TCP，TLS）</li>
+<li><a target="_blank" rel="noopener" href="http://caniuse.com/##search=prefetch">prefetch</a>，能够让浏览器发起对资源的请求</li>
+<li><a target="_blank" rel="noopener" href="http://caniuse.com/##search=prerender">prerender</a>，能够让浏览器在后台进程渲染出特定的页面</li>
+<li><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/">preload</a>，在不执行资源的前提下，预先拿到该资源</li>
+</ul>
+<h3 id="HTTP-2"><a href="#HTTP-2" class="headerlink" title="HTTP&#x2F;2"></a>HTTP&#x2F;2</h3><h4 id="为-HTTP-2-环境的搭建做好准备"><a href="#为-HTTP-2-环境的搭建做好准备" class="headerlink" title="为 HTTP&#x2F;2 环境的搭建做好准备"></a>为 HTTP&#x2F;2 环境的搭建做好准备</h4><p>从目前来看，浏览器对 HTTP&#x2F;2 支持度还不错，使用 HTTP&#x2F;2 后，就可以利用 service worker 以及 HTTP&#x2F;2 的服务器推送功能来获取更显著的性能提升。</p>
+<p>在项目进行 HTTPS 改造时，需要评估 HTTP&#x2F;1.1 项目的用户基数，需要针对这类用户构建并发送符合 HTTP2 规范的报头。</p>
+<h4 id="正确部署-HTTP-2"><a href="#正确部署-HTTP-2" class="headerlink" title="正确部署 HTTP&#x2F;2"></a>正确部署 HTTP&#x2F;2</h4><p>需要在载入大模块以及并行载入小模块之间找到一个平衡点。</p>
+<ul>
+<li>将所有视图都分散到小模块中，然后在项目构建的过程中完成对小模块的压缩，最后通过 <a target="_blank" rel="noopener" href="https://rmurphey.com/blog/2015/11/25/building-for-http2">scount approach</a> 以及异步的方式来分别实现对模块的引用及载入，对一个文件将不再需要重新下载整个样式清单或 js 文件</li>
+<li><a target="_blank" rel="noopener" href="http://engineering.khanacademy.org/posts/js-packaging-http2.htm">HTTP&#x2F;2 环境下打包 js 文件时存在问题</a>，由于向浏览器发送很多 js 小文件的过程中会存在很多问题。 首先，文件压缩的优势被破坏。在压缩大文件的过程中，借助 dictionary reuse 可以达到优化性能的目的，然而单个小文件就不能。其次，浏览器不能针对一些工作流进行优化</li>
+</ul>
+<h4 id="确保服务器的安全性"><a href="#确保服务器的安全性" class="headerlink" title="确保服务器的安全性"></a>确保服务器的安全性</h4><p>需要检查是否<a target="_blank" rel="noopener" href="https://securityheaders.io/">正确设置 HTTP 请求头部</a>，如 strict-transport-security，<a target="_blank" rel="noopener" href="https://www.w3ctech.com/www.smashingmagazine.com/2016/01/eliminating-known-security-vulnerabilities-with-snyk/">使用 Snyk 工具</a>排除已知的漏洞以及<a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest/">使用 SSL Server Test</a> 网站来检查证书是否失效。 尽量保证从外部引入的插件以及 js 脚本的载入是通过 HTTPS 协议的，发起 HTTP 请求同时设置 strict-transport-security 以及 content-security-policy HTTP 请求头。</p>
+<h4 id="服务器和-CDN-是否支持-HTTP-2"><a href="#服务器和-CDN-是否支持-HTTP-2" class="headerlink" title="服务器和 CDN 是否支持 HTTP&#x2F;2"></a>服务器和 CDN 是否支持 HTTP&#x2F;2</h4><p>通过 <a target="_blank" rel="noopener" href="https://istlsfastyet.com/">Is TLS Fast Yet</a> 来查看不同服务器和 CDN 对 HTTP&#x2F;2 的兼容情况。</p>
+<h4 id="Brotli-或-Zopfli-压缩算法"><a href="#Brotli-或-Zopfli-压缩算法" class="headerlink" title="Brotli 或 Zopfli 压缩算法"></a>Brotli 或 Zopfli 压缩算法</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://samsaffron.com/archive/2016/06/15/the-current-state-of-brotli-compression">Brotli</a>，是 Google 开源的无损数据格式，其压缩效率要远高于 Gzip 和 Deflate</li>
+<li><a target="_blank" rel="noopener" href="https://blog.codinghorror.com/zopfli-optimization-literally-free-bandwidth/">Zopfli 压缩算法</a>，能够将数据编码成 Deflate、Gzip、Zlib 数据格式。用 Zopfli 算法压缩过后的文件能够比同样用 Zlib 算法压缩的文件小 3%-8%</li>
+</ul>
+<h4 id="激活-OCSP-stapling"><a href="#激活-OCSP-stapling" class="headerlink" title="激活 OCSP stapling"></a>激活 OCSP stapling</h4><p>激活服务器的 <a target="_blank" rel="noopener" href="https://www.digicert.com/enabling-ocsp-stapling.htm">OCSP stapling</a>，可以减少 TLS 握手所需的时间，加速 TLS 握手过程。</p>
+<h4 id="使用-IPv6"><a href="#使用-IPv6" class="headerlink" title="使用 IPv6"></a>使用 IPv6</h4><p>因为 IPv6 自带 NDP 以及路由优化，能够让网站的载入速度提升 10%-15%。</p>
+<h4 id="HPACK-压缩算法"><a href="#HPACK-压缩算法" class="headerlink" title="HPACK 压缩算法"></a>HPACK 压缩算法</h4><p>如果网站使用了 HTTP&#x2F;2，需要检查服务器有没有执行 <a target="_blank" rel="noopener" href="https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/">HPACK</a> 对 HTTP 的响应头进行压缩，来减少不必要的消耗。</p>
+<h4 id="使用-service-worker"><a href="#使用-service-worker" class="headerlink" title="使用 service worker"></a>使用 service worker</h4><p>如果网站切换到 HTTPS，可以使用 <a target="_blank" rel="noopener" href="https://github.com/lyzadanger/pragmatist-service-worker">pragmatist-service-worker</a> 通过 service worker cache 来缓存静态资源、离线页面等，也可以从缓存中拿数据。参考当前<a target="_blank" rel="noopener" href="http://caniuse.com/##search=serviceworker">浏览器对 service worker 的支持程度</a>。</p>
+<h3 id="测试与监控"><a href="#测试与监控" class="headerlink" title="测试与监控"></a>测试与监控</h3><h4 id="监控警告"><a href="#监控警告" class="headerlink" title="监控警告"></a>监控警告</h4><ul>
+<li>通过 <a target="_blank" rel="noopener" href="https://report-uri.io/">Report-URI.io</a> 工具监控混合内容中出现的警告</li>
+<li>通过 <a target="_blank" rel="noopener" href="https://github.com/bramus/mixed-content-scan">Mixed Content Scan</a> 工具扫描支持 HTTPS 的网站是否存在混合内容</li>
+</ul>
+<h4 id="使用-Devtools"><a href="#使用-Devtools" class="headerlink" title="使用 Devtools"></a>使用 Devtools</h4><p>在 DevTool 中选一个调试工具来对每一个功能进行检查，确保知道如何分析渲染性能和控制台输出、明白如何调试 JS 以及编辑 CSS 样式。参考<a target="_blank" rel="noopener" href="https://umaar.github.io/devtools-optimise-your-web-development-workflow-2016/##/">开发者工具的调试技巧</a>。</p>
+<h4 id="使用代理浏览器或过时浏览器测试"><a href="#使用代理浏览器或过时浏览器测试" class="headerlink" title="使用代理浏览器或过时浏览器测试"></a>使用代理浏览器或过时浏览器测试</h4><p>完成 Chrome 和 Firefox 的测试是不够的，还需要关注部分区域占比较高的浏览器，如 UC 浏览器、Opera Min 等, 也需要了解一下受关注<a target="_blank" rel="noopener" href="https://www.webworldwide.io/">国家的平均网速</a>。</p>
+<h4 id="持续监控"><a href="#持续监控" class="headerlink" title="持续监控"></a>持续监控</h4><p>在进行快速、无限制的测试时，最好使用一个个人的 WebPageTest 实例。建立一个能自动预警的性能预算监听。建立自己的用户时间标记从而测量并监测具体商用的数据。使用 SpeedCurve 对性能的变化进行监控，同时利用 New Relic 获取 WebPageTest 没法提供的数据。SpeedTracker，Lighthouse 和 Calibre 都是不错的选择。</p>
+<p>部署私密的 <a target="_blank" rel="noopener" href="http://www.webpagetest.org/">WebPageTest</a> 测试环境，有助于快速构建测试用例。针对性能开销大的环节建立自动报警机制，可以使用 <a target="_blank" rel="noopener" href="https://speedcurve.com/">SpeedCurve</a> 对性能的变化进行监控，利用 <a target="_blank" rel="noopener" href="https://newrelic.com/browser-monitoring">New Relic</a> 获取 WebPageTest 无法提供的数据。</p>
+<h2 id="3-精读"><a href="#3-精读" class="headerlink" title="3 精读"></a>3 精读</h2><p>这一部分会介绍一些上述没有提到的方法，主要是利用 Devtools 工具对性能优化策略或方法进行深入的解读和分析。</p>
+<h3 id="通过-Devtools-排查渲染性能问题"><a href="#通过-Devtools-排查渲染性能问题" class="headerlink" title="通过 Devtools 排查渲染性能问题"></a>通过 Devtools 排查渲染性能问题</h3><p>页面代码被转换成屏幕上显示的像素，这个转换过程可以简单归纳为以下流程，包含五个关键步骤：</p>
+<ul>
+<li>Javascript</li>
+<li>Style</li>
+<li>Layout</li>
+<li>Paint</li>
+<li>Composite</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/3983192/31860160-85fd7e00-b6db-11e7-93b4-aa2f60a1a768.png"></p>
+<h4 id="Timeline"><a href="#Timeline" class="headerlink" title="Timeline"></a>Timeline</h4><p>通过 Chrome Timeline 对页面进行 Record，其中绿色波浪线就是页面的帧率。波浪线越高表示帧率越高，反之亦然，帧率区域上边标红一行区域，表示有问题的帧，凡是标红的帧都是存在问题的，排查问题时，需要着重关注帧率低和标红的区域。</p>
+<p>需要逐一排查带红色角标的帧，即是有问题的帧：</p>
+<p><img src="https://user-images.githubusercontent.com/3983192/31859793-c8320e4a-b6d5-11e7-8211-8a26c826dae4.png"></p>
+<p>点击选中该帧，可以看到详细的耗时和简单的问题描述：</p>
+<p><img src="https://user-images.githubusercontent.com/3983192/31859773-acd36f90-b6d5-11e7-8ee6-ebd591d29572.png"></p>
+<h4 id="Javascript-Profiler"><a href="#Javascript-Profiler" class="headerlink" title="Javascript Profiler"></a>Javascript Profiler</h4><p>如果发现运行时间很长的 JavaScript 代码，则可以开启 DevTools 中 JavaScript profiler 选项，可以看到页面中的函数调用链路，就能分析出 JavaScript 代码对于页面渲染性能的影响，从而发现并修复 JavaScript 代码中性能低下的部分。那么如何修复 JavaScript 代码中性能问题呢？</p>
+<h5 id="使用-requestAnimationFrame"><a href="#使用-requestAnimationFrame" class="headerlink" title="使用 requestAnimationFrame"></a>使用 requestAnimationFrame</h5><p>假设页面上有一个动画效果，想在动画刚刚发生的那一刻运行一段 JavaScript 代码。那么唯一能保证这个运行时机的，就是 requestAnimationFrame。而大部分代码都是用 setTimeout 或 setInterval 来实现页面中的动画效果。这种实现方式的问题是，setTimeout 或 setInterval 中指定的回调函数的执行时机是无法保证的，如果是在帧结束的时候被执行，就意味着可能失去这一帧的信息，也就是发生 jank。</p>
+<h5 id="降低代码复杂度或者使用-Web-Workers"><a href="#降低代码复杂度或者使用-Web-Workers" class="headerlink" title="降低代码复杂度或者使用 Web Workers"></a>降低代码复杂度或者使用 Web Workers</h5><p>JavaScript 代码是运行在浏览器的主线程上的。与此同时，浏览器的主线程还负责样式计算、布局，甚至绘制等的工作。可以想象，如果 JavaScript 代码运行时间过长，就会阻塞主线程上其他的渲染工作，很可能就会导致帧丢失。</p>
+<p>因此，需要规划 JavaScript 代码的运行时机和运行耗时，或在浏览器空闲的时候来来运行更多的 JavaScript 代码。</p>
+<p>也可以把纯计算工作放到 Web Workers 中做，前提是这些计算工作不会涉及 DOM 元素的存取。一般来说，JavaScript 中的数据处理工作，如排序或搜索比较适合这种处理方式。</p>
+<p>如果 JavaScript 代码需要存取 DOM 元素，即必须在主线程上运行，那么可以考虑批处理的方式，把任务细分为若干个小任务，每个小任务耗时很少，各自放在一个 requestAnimationFrame 中回调运行。</p>
+<h4 id="Render（Style-Layout）"><a href="#Render（Style-Layout）" class="headerlink" title="Render（Style &amp; Layout）"></a>Render（Style &amp; Layout）</h4><p>render 部分包括 Recalculate Style 和 Layout，如果发现 render 部分耗时较长，需要分别从这两部分进行分析。如果这一帧，触发了强制 layout，Timeline 会用红色角标标出，这是需要进行优化的地方。</p>
+<p>如果需要具体分析 Recalculate Style，可以选中 Recalculate Style 部分，查看受影响的元素个数、触发 Recalculate Style 函数以及警告提示。</p>
+<p>如果需要分析 Layout，可以选中 Layout 部分，同 Recalculate Style 一样。</p>
+<p><img src="https://user-images.githubusercontent.com/3983192/31859918-294ca652-b6d8-11e7-9703-4311ede251ad.png"></p>
+<p>那么如何提升 Render 部分的性能问题呢？</p>
+<h5 id="降低样式计算和复杂度"><a href="#降低样式计算和复杂度" class="headerlink" title="降低样式计算和复杂度"></a>降低样式计算和复杂度</h5><p>添加或移除一个 DOM 元素、修改元素属性和样式类、应用动画效果等操作，都会引起 DOM 结构的改变，从而导致浏览器需要重新计算每个元素的样式、对页面或其一部分重新布局（多数情况下），这就是所谓的样式计算。</p>
+<p>因此需要减少执行样式计算的元素的个数，降低样式选择器的复杂度，使用基于 class 的方式，如以 BEM (Block, Element, Modifier)的方式编写 CSS 代码，能达到最好的样式计算的性能，因为这种方式建议对每个 DOM 元素都只使用一个样式 class。</p>
+<h5 id="避免大规模、复杂的布局"><a href="#避免大规模、复杂的布局" class="headerlink" title="避免大规模、复杂的布局"></a>避免大规模、复杂的布局</h5><p>布局，就是浏览器计算 DOM 元素的几何信息的过程：元素大小和在页面中的位置。</p>
+<ul>
+<li>尽可能避免触发布局，当修改了元素的样式属性之后，浏览器会将会检查为了使这个修改生效是否需要重新计算布局以及更新渲染树。对于 DOM 元素的几何属性的修改，比如 width&#x2F;height&#x2F;left&#x2F;top 等，都需要重新计算布局。通过 DevTools Timeline 可以查看页面性能的分解图，从而判断布局过程是否是页面性能的瓶颈，参考能触发布局、绘制或渲染层合并的 <a target="_blank" rel="noopener" href="http://csstriggers.com/">CSS 属性清单</a></li>
+<li>使用 flexbox 替代老的布局模型，在相同数量的元素下 Flexbox 布局，不仅达到了同样的显示效果，而且时间消耗也大大降低，因此需要在对页面布局模型的性能分析的基础之上，来选择一种性能最优的布局方式，而且应该努力避免同时触发所有布局</li>
+<li>避免强制同步布局事件的发生，将一帧画面渲染到屏幕上的处理顺序是执行 JavaScript 脚本、样式计算、布局。但还可以强制浏览器在执行 JavaScript 脚本之前先执行布局过程，这就是所谓的强制同步布局。为了避免触发不必要的布局过程，应该首先批量读取元素样式属性，然后再对样式属性进行写操作，过早地同步执行样式计算和布局是潜在的页面性能的瓶颈之一</li>
+<li>避免快速连续的布局，如果想确保编写的读写操作是安全的，你可以使用 <a target="_blank" rel="noopener" href="https://github.com/wilsonpage/fastdom">FastDOM</a>，它能帮你自动完成读写操作的批处理，还能避免意外地触发强制同步布局或快速连续的布局</li>
+</ul>
+<h4 id="Paint"><a href="#Paint" class="headerlink" title="Paint"></a>Paint</h4><p>Paint（绘制）其实是生成元素呈现的像素的过程。在页面的整个被解析、执行、渲染的过程中，Paint 通常来说是代价最高的一步，因此尽量减少 Paint 时间，甚至避免 Paint 的发生，对页面性能的提升有着很重要的作用。</p>
+<h5 id="如何触发-Paint"><a href="#如何触发-Paint" class="headerlink" title="如何触发 Paint"></a>如何触发 Paint</h5><ul>
+<li>触发了 Layout，那么一定会触发 Paint</li>
+<li>改变元素的一些非几何属性，如背景、颜色、阴影等，不会触发 Layout，但是依然会触发 Paint</li>
+</ul>
+<h5 id="如何定位-Paint"><a href="#如何定位-Paint" class="headerlink" title="如何定位 Paint"></a>如何定位 Paint</h5><p>Timeline 中绿色部分就是 Paint 部分，Summary 会展示绘制的总体情况，包括绘制的元素、元素本身绘制耗时、元素子元素绘制耗时。如果发现绘制的区域超过了本来期望的区域，那么就是需要优化的。更加详细的信息，可以切换至 Paint Profiler，包括了每个具体 Paint 的调用和 Paint 区域截图。当页面发生 Paint 时，如果发现不期望的区域进行了 Paint，那么这里就是可以优化的。</p>
+<h5 id="如何优化-Paint"><a href="#如何优化-Paint" class="headerlink" title="如何优化 Paint"></a>如何优化 Paint</h5><ul>
+<li>提升元素渲染层为合成层，页面的绘制并非是在单层画面里完成的，浏览器的渲染原理，是浏览器将 DOM tree 映射成 GraphicsLayer tree，中间是经过了 RenderObject、RenderLayer 的一系列映射。元素所在的层提升为合成层后可以减少 Repaint</li>
+<li>使用 transform 或 opacity 实现动画，对于独立的合成层应用 transform 和 opacity 是不会触发 Repaint 的，因此尽量对 transform 或 opactiy 应用动画来实现效果</li>
+<li>减少绘制区域，对于不需要重新绘制的区域应尽量避免绘制，已减少绘制区域，比如一个 fix 在页面顶部的固定不变的导航 header，在页面底部某个区域 Repaint 时，整个屏幕包括 fix 的 header 也会被重绘，而对于固定不变的区域，期望其并不会被重绘，因此可以通过之前的方法，将其提升为独立的合成层</li>
+<li>降低绘制复杂度，对于无法避免的 Paint，需要尽可能的减少 Paint 的消耗，有些效果的 Paint 代价十分昂贵，比如绘制一个阴影可能就比绘制一个边框更加耗时，因此开发过程中，需要研究能够实现相同的效果，同时却能达到更小的 Paint 消耗的方法</li>
+</ul>
+<h4 id="Composite"><a href="#Composite" class="headerlink" title="Composite"></a>Composite</h4><p>渲染层合并，对页面中 DOM 元素的绘制是在多个层上进行的。在每个层上完成绘制过程之后，浏览器会将所有层按照合理的顺序合并成一个图层，然后显示在屏幕上。</p>
+<p>提升为合成层简单说来有以下优点：</p>
+<ul>
+<li>合成层的位图，会交由 GPU 合成，比 CPU 处理更快</li>
+<li>当需要 repaint 时，只需要 repaint 本身，不会影响到其他的层</li>
+<li>对于 transform 和 opacity 效果，不会触发 layout 和 paint</li>
+<li>对于诸如 fixed 的合成层，移动时不会触发 repaint</li>
+</ul>
+<h5 id="提升动画效果的元素"><a href="#提升动画效果的元素" class="headerlink" title="提升动画效果的元素"></a>提升动画效果的元素</h5><p>合成层的好处是不会影响到其他元素的绘制，因此，为了减少动画元素对其他元素的影响，从而减少 paint，可以把动画效果中的元素提升为合成层。提升合成层的最好方式是使用 CSS 的 will-change 属性。</p>
+<h5 id="合理管理合成层"><a href="#合理管理合成层" class="headerlink" title="合理管理合成层"></a>合理管理合成层</h5><p>创建一个新的合成层并不是无消耗的，它得消耗额外的内存和管理资源。实际上，在内存资源有限的设备上，合成层带来的性能改善，可能远远赶不上过多合成层开销给页面性能带来的负面影响。同时，由于每个渲染层的纹理都需要上传到 GPU 处理，因此还需要考虑 CPU 和 GPU 之间的带宽问题、以及有多大内存供 GPU 处理这些纹理的问题。</p>
+<h5 id="防止层爆炸"><a href="#防止层爆炸" class="headerlink" title="防止层爆炸"></a>防止层爆炸</h5><p>同合成层重叠也会使元素提升为合成层，虽然有浏览器的层压缩机制，但是也有很多无法进行压缩的情况。因此显式声明的合成层，还可能由于重叠原因不经意间产生一些不在预期的合成层，极端一点可能会产生大量的额外合成层，出现层爆炸的现象。</p>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3 总结"></a>3 总结</h2><p>现在随着 web 应用的复杂性日益增加，其性能优化的重要性越来越突出，且性能优化的方法、技巧、工具也越来越丰富和复杂，本文所展示的内容仅仅只是管中窥豹，希望读者们可以在此讨论一些在实际场景中的性能优化问题以及解决方案。</p>
+<blockquote>
+<p>讨论地址是：<a target="_blank" rel="noopener" href="http://github.com/dt-fe/weekly/issues/39">精读《2017 前端性能优化备忘录》 · Issue ##39 · dt-fe&#x2F;weekly</a></p>
+</blockquote>
+<blockquote>
+<p>如果你想参与讨论，请<a target="_blank" rel="noopener" href="https://github.com/dt-fe/weekly">点击这里</a>，每周都有新的主题，每周五发布。</p>
+</blockquote>
+</article>
+<div class="article-footer">
+    <section id="references">
+      <div class="header"><span>参考资料</span></div>
+      <div class="body">
+        <ul>
+        <li class="post-title">
+          <p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/ascoders/weekly/master/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/28.%E7%B2%BE%E8%AF%BB%E3%80%8A2017%20%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%8B.md">《2017 前端性能优化备忘录》</a></p>
+
+        </li>
+        </ul>
+      </div>
+    </section>
+    
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A15%20%E5%A4%A7%20LOD%20%E8%A1%A8%E8%BE%BE%E5%BC%8F%20-%20%E4%B8%8B%E3%80%8B/">《15 大 LOD 表达式 - 下》</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/WebWeekly/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/%E3%80%8A2021%20%E5%89%8D%E7%AB%AF%E6%96%B0%E7%A7%80%E5%9B%9E%E9%A1%BE%E3%80%8B/">《2021 前端新秀回顾》</a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://vercel.com/">vercel</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.netlify.com/">netlify</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.cloudflare.com/">cloudflare</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 
+<!--本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span>-->
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+<widget class="widget-wrapper ghrepo"><div class="widget-body"><div class="items data-service ds-ghinfo" data-api="https://https://api.thatcoder.cn/public/github/repos/ascoders/weekly"><a class="repo" href="https://github.com/ascoders/weekly" target="_blank" rel="external nofollow noopener noreferrer"><div class="repo-name flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>ascoders/weekly</div><div class="repo-desc"><span type="text" id="description">&nbsp;</span></div><div class="grid"><div class="flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible"><path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25zm0 2.445L6.615 5.5a.75.75 0 01-.564.41l-3.097.45 2.24 2.184a.75.75 0 01.216.664l-.528 3.084 2.769-1.456a.75.75 0 01.698 0l2.77 1.456-.53-3.084a.75.75 0 01.216-.664l2.24-2.183-3.096-.45a.75.75 0 01-.564-.41L8 2.694v.001z"></path></svg><span type="text" id="stargazers_count"></span></div><div class="flex-row"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible"><path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path></svg><span type="text" id="forks_count"></span></div><div class="flex-row data-service ds-ghinfo" index="0" data-api="https://https://api.thatcoder.cn/public/github/repos/ascoders/weekly/tags"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="user-select:none;overflow:visible"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 01.25-.25h5.025a.25.25 0 01.177.073l6.25 6.25a.25.25 0 010 .354l-5.025 5.025a.25.25 0 01-.354 0l-6.25-6.25a.25.25 0 01-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 010 2.474l-5.026 5.026a1.75 1.75 0 01-2.474 0l-6.25-6.25A1.75 1.75 0 011 7.775zM6 5a1 1 0 100 2 1 1 0 000-2z"></path></svg><span type="text" id="latest-tag-name">0</span></div></div></a></div></div></widget>
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BC%95%E8%A8%80"><span class="toc-text">1 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%86%85%E5%AE%B9%E6%A6%82%E8%A6%81"><span class="toc-text">2 内容概要</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B6%E5%AE%9A%E7%9B%AE%E6%A0%87"><span class="toc-text">制定目标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E9%80%9F%E5%BA%A6%E5%BF%AB%E4%BA%8E%E4%BB%96%E4%BA%BA-20"><span class="toc-text">网站速度快于他人 20%</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%93%8D%E5%BA%94%E6%97%B6%E9%97%B4%E5%9C%A8-100ms%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%B8%A7%E9%80%9F%E5%9C%A8-60-%E5%B8%A7-%E7%A7%92"><span class="toc-text">控制响应时间在 100ms，控制帧速在 60 帧&#x2F;秒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E9%A6%96%E6%AC%A1%E6%9C%89%E6%95%88%E6%B8%B2%E6%9F%93%E6%97%B6%E9%97%B4%E5%9C%A8-1-25s%EF%BC%8C%E6%8E%A7%E5%88%B6-SpeedIndex-%E5%9C%A8-1000"><span class="toc-text">控制首次有效渲染时间在 1.25s，控制 SpeedIndex 在 1000</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%9A%E5%A5%BD%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E7%9A%84%E9%80%89%E5%9E%8B"><span class="toc-text">做好构建工具的选型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA"><span class="toc-text">渐进增强</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6"><span class="toc-text">前端框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AMP-%E6%88%96-Instant-Articles"><span class="toc-text">AMP 或 Instant Articles</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E7%90%86%E5%88%A9%E7%94%A8-CDN"><span class="toc-text">合理利用 CDN</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E6%9E%84%E5%BB%BA"><span class="toc-text">优化构建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">确定优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-cutting-the-mustard-%E6%8A%80%E6%9C%AF"><span class="toc-text">使用 cutting-the-mustard 技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#micro-optimization-%E5%92%8C-progressive-booting"><span class="toc-text">micro-optimization 和 progressive booting</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E7%A1%AE%E8%AE%BE%E7%BD%AE-HTTP-cache-header"><span class="toc-text">正确设置 HTTP cache header</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%8F%E5%B0%91%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%8C%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD-JS"><span class="toc-text">减少使用第三方库，异步加载 JS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E7%90%86%E4%BC%98%E5%8C%96%E5%9B%BE%E7%89%87"><span class="toc-text">合理优化图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E4%BC%98%E5%8C%96%E8%BF%9B%E9%98%B6"><span class="toc-text">图片优化进阶</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96-web-%E5%AD%97%E4%BD%93"><span class="toc-text">优化 web 字体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%A8%E9%80%81-critical-CSS-%E6%96%87%E4%BB%B6"><span class="toc-text">快速推送 critical CSS 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tree-shaking-%E5%92%8C-code-splitting-%E6%9C%BA%E5%88%B6%E5%87%8F%E8%BD%BB%E8%B4%9F%E8%BD%BD"><span class="toc-text">tree-shaking 和 code-splitting 机制减轻负载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E5%8D%87%E6%B8%B2%E6%9F%93%E6%80%A7%E8%83%BD"><span class="toc-text">提升渲染性能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83%EF%BC%8C%E5%8A%A0%E5%BF%AB%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93"><span class="toc-text">优化网络环境，加快网络传输</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-2"><span class="toc-text">HTTP&#x2F;2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA-HTTP-2-%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA%E5%81%9A%E5%A5%BD%E5%87%86%E5%A4%87"><span class="toc-text">为 HTTP&#x2F;2 环境的搭建做好准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E7%A1%AE%E9%83%A8%E7%BD%B2-HTTP-2"><span class="toc-text">正确部署 HTTP&#x2F;2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E4%BF%9D%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-text">确保服务器的安全性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C-CDN-%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81-HTTP-2"><span class="toc-text">服务器和 CDN 是否支持 HTTP&#x2F;2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Brotli-%E6%88%96-Zopfli-%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95"><span class="toc-text">Brotli 或 Zopfli 压缩算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB-OCSP-stapling"><span class="toc-text">激活 OCSP stapling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-IPv6"><span class="toc-text">使用 IPv6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HPACK-%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95"><span class="toc-text">HPACK 压缩算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-service-worker"><span class="toc-text">使用 service worker</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E4%B8%8E%E7%9B%91%E6%8E%A7"><span class="toc-text">测试与监控</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E8%AD%A6%E5%91%8A"><span class="toc-text">监控警告</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Devtools"><span class="toc-text">使用 Devtools</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%96%E8%BF%87%E6%97%B6%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B5%8B%E8%AF%95"><span class="toc-text">使用代理浏览器或过时浏览器测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E7%9B%91%E6%8E%A7"><span class="toc-text">持续监控</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%B2%BE%E8%AF%BB"><span class="toc-text">3 精读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-Devtools-%E6%8E%92%E6%9F%A5%E6%B8%B2%E6%9F%93%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98"><span class="toc-text">通过 Devtools 排查渲染性能问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Timeline"><span class="toc-text">Timeline</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Javascript-Profiler"><span class="toc-text">Javascript Profiler</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-requestAnimationFrame"><span class="toc-text">使用 requestAnimationFrame</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%99%8D%E4%BD%8E%E4%BB%A3%E7%A0%81%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%88%96%E8%80%85%E4%BD%BF%E7%94%A8-Web-Workers"><span class="toc-text">降低代码复杂度或者使用 Web Workers</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Render%EF%BC%88Style-Layout%EF%BC%89"><span class="toc-text">Render（Style &amp; Layout）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%99%8D%E4%BD%8E%E6%A0%B7%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%92%8C%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">降低样式计算和复杂度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E5%A4%A7%E8%A7%84%E6%A8%A1%E3%80%81%E5%A4%8D%E6%9D%82%E7%9A%84%E5%B8%83%E5%B1%80"><span class="toc-text">避免大规模、复杂的布局</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Paint"><span class="toc-text">Paint</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A6%E5%8F%91-Paint"><span class="toc-text">如何触发 Paint</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8D-Paint"><span class="toc-text">如何定位 Paint</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96-Paint"><span class="toc-text">如何优化 Paint</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Composite"><span class="toc-text">Composite</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8F%90%E5%8D%87%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-text">提升动画效果的元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%88%E7%90%86%E7%AE%A1%E7%90%86%E5%90%88%E6%88%90%E5%B1%82"><span class="toc-text">合理管理合成层</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2%E5%B1%82%E7%88%86%E7%82%B8"><span class="toc-text">防止层爆炸</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%80%BB%E7%BB%93"><span class="toc-text">3 总结</span></a></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":"blog.thatcoder.cn","officialHosts":["localhost","en.blog.thatcoder.cn","hexo.thatcoder.cn","thatcoder.vercel.app","thatcoder.netlify.app","cn-coder.vercel.app","thatcoders.github.io","thatcoder.pages.dev","cncoder.pages.dev"],"encoded":"YmxvZy50aGF0Y29kZXIuY24="};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"post, page, docs","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  import { init } from 'https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js';
+
+  const el = document.getElementById('waline_container');
+  util.viewportLazyload(el, load_waline, false);
+
+  function load_waline(){
+    if (!el) return;
+
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css');
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css');
+
+    const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+    const waline = init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js","css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+      el: '#waline_container',
+      path: path,
+      
+        imageUploader: function(file) {
+          const headers = new Headers();
+          headers.set('Accept', 'application/json');
+          
+            headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+          
+          const formData = new FormData();
+          formData.append('file', file);
+          return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+            method: 'POST',
+            body: formData,
+            headers: headers
+            }).then((resp) => resp.json())
+              .then((resp) => resp.data.links.url)
+        },
+      
+    }));
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>

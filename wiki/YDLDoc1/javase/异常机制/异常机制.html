@@ -1,0 +1,1146 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
+  <link rel="canonical" href="https://blog.thatcoder.cn/wiki/YDLDoc1/javase/异常机制/异常机制">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  <title>YDLDoc1：异常机制 - 钟意博客</title>
+
+  
+    <meta name="description" content="# 第8章 Java的异常机制提示课程视频教程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1h64y1i78N?p&#x3D;181open in new window# 一、零引发的血案# 1、看问题首先，问大家一个问题：  From: 元动力123456789public static void main(String[] args) &#123;    int num1 &#x3D;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="异常机制">
+<meta property="og:url" content="https://blog.thatcoder.cn/wiki/YDLDoc1/javase/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6">
+<meta property="og:site_name" content="钟意博客">
+<meta property="og:description" content="# 第8章 Java的异常机制提示课程视频教程链接：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1h64y1i78N?p&#x3D;181open in new window# 一、零引发的血案# 1、看问题首先，问大家一个问题：  From: 元动力123456789public static void main(String[] args) &#123;    int num1 &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.thatcoder.cn/favicon.ico">
+<meta property="article:published_time" content="2025-07-11T14:15:58.295Z">
+<meta property="article:modified_time" content="2023-12-16T19:23:02.000Z">
+<meta property="article:author" content="钟意">
+<meta property="article:tag" content="那个码农">
+<meta property="article:tag" content="码农钟意">
+<meta property="article:tag" content="钟意的博客">
+<meta property="article:tag" content="钟意博客">
+<meta property="article:tag" content="That Coder">
+<meta property="article:tag" content="thatcoder">
+<meta property="article:tag" content="源柒拾柒雅舍">
+<meta property="article:tag" content="源WebGary">
+<meta property="article:tag" content="giligili.work">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.thatcoder.cn/favicon.ico">
+  
+  
+
+  <meta name="keywords" content="那个码农,码农钟意,钟意的博客,钟意博客,That Coder,thatcoder,源柒拾柒雅舍,源WebGary,giligili.work">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="钟意博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.33.1">
+
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    
+<link rel="stylesheet" href="/custom/css/ZYCode.css">
+
+  
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://blog.thatcoder.cn","author":{"@type":"Person","name":"钟意","sameAs":[],"image":"/favicon.ico"},"name":"钟意博客","description":"钟意博客, 记录代码与生活. 这里记载着那个码农钟意的所有文章与游戏等艺术分享. 原钟意的博客, 柒拾柒雅舍, WebGary.","url":"https://blog.thatcoder.cn"}</script>
+  <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" /><link rel='stylesheet' href='https://public.thatcdn.cn/font/old_song/result.css' /><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="/custom/css/ZYTimetmpl.css" /><meta itemprop="name" content="钟意博客"><meta itemprop="author" content="钟意"><meta itemprop="description" content="笔名钟意, 记录代码与生活."><meta itemprop="image" content="https://upyun.thatcdn.cn/hexo/stellar/image/shot.webp"><link rel="stylesheet" href="/custom/css/ZYGlobal.css"><link rel="stylesheet" href="/custom/css/ZYWaline.css"><link rel="stylesheet" href="/custom/css/ZYPage.css"><script type="text/javascript" src="/custom/js/header.js"></script><!-- Clarity tracking code for https://blog.thatcoder.cn/ -->
+<script>    (function(c,l,a,r,i,t,y){        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);    })(window, document, "clarity", "script", "fi1zg7i5q5");</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6GM3XZWV7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H6GM3XZWV7');
+</script>
+<!-- BaiDu-ZhanZhang
+<meta name="baidu-site-verification" content="codeva-8tnFVr706d" />
+<!-- BaiDu-Tongji -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?233765a020502d5d6a92d4fe306d36c2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+
+<div class="l_body s:aa content tech " id="start" layout="wiki" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><div class="icon"><img no-lazy class="icon" src="/custom/img/ydl.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><a class="title" href="/wiki/YDLDoc1/javase/IO%E6%B5%81/IO%E6%B5%81"><div class="main">YDLDoc1</div><div class="sub normal cap">关于YDLDoc的笔记</div><div class="sub hover cap" style="opacity:0"> 不对之处请指出</div></a></div></header>
+
+<div class="nav-area">
+
+<nav class="menu dis-select"><a class="nav-item" title="博客" href="/"><span>博客</span></a><a class="nav-item active" title="笔记" href="/wiki/"><span>笔记</span></a><a class="nav-item" title="便签" href="/notes/"><span>便签</span></a><a class="nav-item" title="社交" href="/links/"><span>社交</span></a></nav>
+</div>
+<div class="widgets">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" data-filter="/wiki/YDLDoc1/" placeholder="在 YDLDoc1 中搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<widget class="widget-wrapper doc-tree post-list"><div class="widget-body fs14"><a class="link" href="/wiki/YDLDoc1/javase/IO%E6%B5%81/IO%E6%B5%81/#start"><span class="toc-text">IO流</span></a><a class="link" href="/wiki/YDLDoc1/javase/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="toc-text">java正则表达式</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%8F%98%E9%87%8F%E5%92%8C%E6%A0%87%E8%AF%86%E7%AC%A6/%E5%8F%98%E9%87%8F%E5%92%8C%E6%A0%87%E8%AF%86%E7%AC%A6/"><span class="toc-text">变量和标识符</span></a><a class="link" href="/wiki/YDLDoc1/javase/nio/nio/"><span class="toc-text">nio</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"><span class="toc-text">多线程</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%B8%B8%E7%94%A8api/%E5%B8%B8%E7%94%A8api/"><span class="toc-text">常用api</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E5%8F%8D%E5%B0%84/%E5%8F%8D%E5%B0%84/"><span class="toc-text">反射</span></a><a class="link active" href="/wiki/YDLDoc1/javase/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/"><span class="toc-text">异常机制</span><svg class="active-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M21 11.098v4.993c0 3.096 0 4.645-.734 5.321c-.35.323-.792.526-1.263.58c-.987.113-2.14-.907-4.445-2.946c-1.02-.901-1.529-1.352-2.118-1.47a2.225 2.225 0 0 0-.88 0c-.59.118-1.099.569-2.118 1.47c-2.305 2.039-3.458 3.059-4.445 2.945a2.238 2.238 0 0 1-1.263-.579C3 20.736 3 19.188 3 16.091v-4.994C3 6.81 3 4.666 4.318 3.333C5.636 2 7.758 2 12 2c4.243 0 6.364 0 7.682 1.332C21 4.665 21 6.81 21 11.098" opacity=".5"/><path fill="currentColor" d="M9 5.25a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5z"/></svg></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%A0%91/%E6%A0%91/"><span class="toc-text">树</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%95%B0%E7%BB%84%E5%92%8C%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84%E5%92%8C%E7%AE%97%E6%B3%95/"><span class="toc-text">数组和算法</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/"><span class="toc-text">流程控制语句</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%9E%9A%E4%B8%BE/%E6%B3%9B%E5%9E%8B%E5%92%8C%E6%9E%9A%E4%B8%BE/"><span class="toc-text">泛型和枚举</span></a><a class="link" href="/wiki/YDLDoc1/web/bom/bom/"><span class="toc-text">bom</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"><span class="toc-text">计算机基础</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/"><span class="toc-text">集合框架</span></a><a class="link" href="/wiki/YDLDoc1/web/css/css/"><span class="toc-text">css</span></a><a class="link" href="/wiki/YDLDoc1/web/html/html/"><span class="toc-text">html</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"><span class="toc-text">网络编程</span></a><a class="link" href="/wiki/YDLDoc1/javase/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"><span class="toc-text">面向对象</span></a><a class="link" href="/wiki/YDLDoc1/web/js/js/"><span class="toc-text">js</span></a><a class="link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/JDBC/JDBC/"><span class="toc-text">JDBC</span></a><a class="link" href="/wiki/YDLDoc1/%E5%85%B6%E4%BB%96/git%E5%85%A5%E9%97%A8/git%E5%85%A5%E9%97%A8/"><span class="toc-text">git入门</span></a><a class="link" href="/wiki/YDLDoc1/web/jsp/jsp/"><span class="toc-text">jsp</span></a><a class="link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/mysql%E8%BF%9B%E9%98%B6/mysql%E8%BF%9B%E9%98%B6/"><span class="toc-text">mysql进阶</span></a><a class="link" href="/wiki/YDLDoc1/mysql%E5%AD%A6%E4%B9%A0/mysql%E5%85%A5%E9%97%A8/mysql%E5%85%A5%E9%97%A8/"><span class="toc-text">mysql入门</span></a><a class="link" href="/wiki/YDLDoc1/%E5%85%B6%E4%BB%96/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="toc-text">linux操作系统</span></a></div></widget>
+
+<widget class="widget-wrapper post-card"><div class="widget-header dis-select"><span class="name">更多：开发</span></div><div class="widget-body"><a class="item wiki" href="/wiki/YDLDoc2/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/maven%E5%85%A5%E9%97%A8/maven%E5%85%A5%E9%97%A8/"><span class="title">元动力摘录 - JAVA阶段二</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc3/ELK%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8/elk%E5%85%A5%E9%97%A8/"><span class="title">元动力摘录 - JAVA阶段三</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YDLDoc4/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E9%98%B6/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/"><span class="title">元动力摘录 - JAVA项目阶段</span><span class="excerpt">钟意关于YDLDoc的笔记</span></a><a class="item wiki" href="/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A5%E5%85%A5/"><span class="title">艿艿若依Boot - 开发指南</span><span class="excerpt">关于艿艿若依Boot的文档</span></a><a class="item wiki" href="/wiki/YuDaoCloud/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/Icon%20%E5%9B%BE%E6%A0%87/Icon%20%E5%9B%BE%E6%A0%87/"><span class="title">艿艿若依Cloud - 开发指南</span><span class="excerpt">关于艿艿若依Cloud的文档</span></a><a class="item wiki" href="/wiki/MySql/basics/select/"><span class="title">MySql - 关系型数据库管理系统</span><span class="excerpt">钟意关于关系型数据库MySql的笔记</span></a><a class="item wiki" href="/wiki/SpringCloud/start/"><span class="title">SpringCloud - JAVA系分布式微服务架构</span><span class="excerpt">钟意关于SpringCloud的笔记</span></a><a class="item wiki" href="/wiki/Laf/start/start/"><span class="title">Laf - 开箱即用的 serverless</span><span class="excerpt">钟意关于Laf的笔记</span></a></div></widget>
+
+<widget class="widget-wrapper recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/wiki/Laf/start/start/"><span class="title"><strong>Laf</strong><span class="dot"></span>Laf 简介</span></a><a class="item title" href="/share/game/%E5%B0%8F%E5%B0%8F%E6%A2%A6%E9%AD%87/"><span class="title"><strong>share</strong><span class="dot"></span>小小梦魇</span></a><a class="item title" href="/wiki/Laf/start/laf-https-start/"><span class="title"><strong>Laf</strong><span class="dot"></span>Laf 部署之 开启HTTPS/SSL</span></a><a class="item title" href="/wiki/LoadBalance/multiple/proxy/"><span class="title"><strong>LoadBalance</strong><span class="dot"></span>负载均衡</span></a><a class="item title" href="/wiki/LoadBalance/deploy/cloudflare/"><span class="title"><strong>LoadBalance</strong><span class="dot"></span>Cloudflare 部署</span></a><a class="item title" href="/wiki/LoadBalance/deploy/netlify/"><span class="title"><strong>LoadBalance</strong><span class="dot"></span>Netlify 部署</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://space.bilibili.com/1664687779" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/bilibili-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://muselink.cc/naive" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/wechat-banner.jpg"/></a><a class="social" style="grid-column: span 3;height:32px;padding: 0;" href="https://github.com/ThatCoders" target="_blank" rel="external nofollow noopener noreferrer"><img height="32px" src="https://upyun.thatcdn.cn/public/img/icon/github-banner.jpg"/></a><a class="social" href="javascript:ThemeChange('dark');" rel="noopener noreferrer"><img id="ThemeM" src="https://upyun.thatcdn.cn/public/img/icon/Moon.png"/></a><a class="social" href="javascript:ThemeChange('light');" rel="noopener noreferrer"><img id="ThemeL" src="https://upyun.thatcdn.cn/public/img/icon/Sun.png"/></a><a class="social" href="javascript:ThemeChange('auto');" rel="noopener noreferrer"><img id="ThemeAI" src="https://upyun.thatcdn.cn/public/img/icon/AI.png"/></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+    <div class="content">
+      <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" id="menu" href="/wiki/">文档</a><span class="sep"></span><a class="cap breadcrumb" id="proj" href="/wiki/YDLDoc1/javase/IO%E6%B5%81/IO%E6%B5%81/">YDLDoc1</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">更新于：<time datetime="2023-12-16T19:23:02.000Z">2023-12-17</time></span></div></div></div>
+      
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>异常机制</span></h1>
+        
+      </div>
+    </div>
+    
+    </div>
+    </div><article class="md-text content"><div class="theme-hope-content"><h1 id="第8章-java的异常机制" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#第8章-java的异常机制">#</a> 第8章 Java的异常机制</h1><div class="hint-container tip"><p class="hint-container-title">提示</p><p>课程视频教程链接：<a href="https://www.bilibili.com/video/BV1h64y1i78N?p=181" rel="noopener noreferrer" target="_blank">https://www.bilibili.com/video/BV1h64y1i78N?p=181<span><svg aria-hidden="true" class="external-link-icon" focusable="false" height="15" viewbox="0 0 100 100" width="15" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"><path d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z" fill="currentColor"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg><span class="external-link-icon-sr-only">open in new window</span></span></a></p></div><h2 id="一、零引发的血案" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#一、零引发的血案">#</a> 一、零引发的血案</h2><h3 id="_1、看问题" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、看问题">#</a> 1、看问题</h3><p>首先，问大家一个问题：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">num1</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br>    <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>    <span class="hljs-type">int</span> <span class="hljs-variable">num2</span> <span class="hljs-operator">=</span> scanner.nextInt();<br>    <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> num1 / num2;<br>    System.out.println(res);<br><br>    System.out.println(<span class="hljs-string">&quot;后边还有代码呦！&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>请问：如果我输入了 “abc” 或者 0 程序应该怎么运行呢？</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java">abc<br>Exception in thread <span class="hljs-string">&quot;main&quot;</span> java.util.InputMismatchException<br>    at java.util.Scanner.throwFor(Scanner.java:<span class="hljs-number">864</span>)<br>    at java.util.Scanner.next(Scanner.java:<span class="hljs-number">1485</span>)<br>    at java.util.Scanner.nextInt(Scanner.java:<span class="hljs-number">2117</span>)<br>    at java.util.Scanner.nextInt(Scanner.java:<span class="hljs-number">2076</span>)<br>    at cn.itnanls.Demo.main(Demo.java:<span class="hljs-number">13</span>)<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">0</span><br>Exception in thread <span class="hljs-string">&quot;main&quot;</span> java.lang.ArithmeticException: / by zero<br>    at cn.itnanls.Demo.main(Demo.java:<span class="hljs-number">14</span>)<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>程序它在想办法告诉你，你错了！程序是永远找不到女朋友的，因为程序只有真的是自己错了，它才会承认自己错了。</p><p>而且有个很重要的问题，<strong>程序碰到异常就不再继续执行后边的代码了</strong>，真是悲剧，很明显这不是你想要的。</p><p>​ 世界上存在永远不会出错的程序吗？也许这只会出现在程序员的梦中。随着编程语言和软件的诞生，异常情况就如影随形地纠缠着我们，只有正确处理好意外情况，才能保证程序的可靠性。</p><h3 id="_2、解决方案" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、解决方案">#</a> 2、解决方案</h3><p>其实这个例子的解决方案至少有两种：</p><h4 id="_1-运行前对参数进行校验" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-运行前对参数进行校验">#</a> （1）运行前对参数进行校验</h4><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">num1</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br>    <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>    <span class="hljs-type">int</span> <span class="hljs-variable">num2</span> <span class="hljs-operator">=</span> scanner.nextInt();<br>    <span class="hljs-keyword">if</span> (num2 == <span class="hljs-number">0</span>)&#123;<br>        System.out.println(<span class="hljs-string">&quot;除数不能为零&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> num1 / num2;<br>    System.out.println(res);<br>    System.out.println(<span class="hljs-string">&quot;后边还有代码呦！&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这样是不是就解决了除数不能为零的问题。</p><h4 id="_2-出了问题想办法解决" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-出了问题想办法解决">#</a> （2）出了问题想办法解决</h4><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-comment">// 尝试执行</span><br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">num1</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">num2</span> <span class="hljs-operator">=</span> scanner.nextInt();<br>        <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> num1 / num2;<br>        System.out.println(res);<br>    &#125; <span class="hljs-keyword">catch</span> (Exception e)&#123;    <span class="hljs-comment">// 遇到问题，找出问题</span><br>        System.out.println(<span class="hljs-string">&quot;除数不能为零！&quot;</span>);      <span class="hljs-comment">// 解决问题</span><br>        e.printStackTrace();                    <span class="hljs-comment">// 把问题的内容打印出来   </span><br>    &#125;<br>    System.out.println(<span class="hljs-string">&quot;后边还有代码呦！&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这样也可以让程序继续执行，我们发现我们找出的问题，他叫Exception，也是的java类。</p><h2 id="二、异常的继承体系结构" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#二、异常的继承体系结构">#</a> 二、异常的继承体系结构</h2><img alt="image-20210715143405204" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/image-20210715143405204-36d362d8.png" style="zoom:67%;"/><ul><li><code>Throwable</code> 类是 Java 语言中所有错误或异常的超类。</li></ul><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * The &#123;<span class="hljs-doctag">@code</span> Throwable&#125; class is the superclass of all errors and</span><br><span class="hljs-comment"> * exceptions in the Java language. Only objects that are instances of this</span><br><span class="hljs-comment"> * class (or one of its subclasses) are thrown by the Java Virtual Machine or</span><br><span class="hljs-comment"> * can be thrown by the Java &#123;<span class="hljs-doctag">@code</span> throw&#125; statement. Similarly, only</span><br><span class="hljs-comment"> * this class or one of its subclasses can be the argument type in a</span><br><span class="hljs-comment"> * &#123;<span class="hljs-doctag">@code</span> catch&#125; clause.</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul><li><p>Throwable类是所有错误和Java中异常的超类。 只有当对象是此类（或其子类之一）的实例时，才能通过 Java 虚拟机或者 Java throw 语句抛出。</p></li><li><p>Exception和Error都是继承了Throwable类，它是异常处理机制的基本组成类型。</p></li><li><p>Exception和Error体现了Java平台设计者对不同异常情况的分类。Exception是程序正常运行中，可以预料的意外情况，可能并且应该被捕获，进行相应处理。</p></li><li><p>Error是指在正常情况下，不大可能出现的情况，绝大部分的Error都会导致程序（比如JVM自身）处于非正常的、不可恢复状态。既然是非正常情况，所以不便于也不需要捕获，常见的比如OutOfMemoryError之类，都是Error的子类。</p></li></ul><h3 id="_1、error" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、error">#</a> 1、Error</h3><ul><li>Error 是 Throwable 的子类，用于指示合理的应用程序<strong>不应该试图捕获的严重问题</strong>。</li><li>Java 程序通常不捕获错误。错误一般发生在严重故障时，它们在Java程序处理的范畴之外。</li></ul><p>比如：举个例子，你的程序在运行，内存爆了，你的程序能解决吗？并不能。通常由JVM处理</p><h4 id="_1-outofmemoryerror-内存溢出错误" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-outofmemoryerror-内存溢出错误">#</a> （1）OutOfMemoryError 内存溢出错误</h4><p>我们为了演示可以直接将堆内存设置成1M</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">-Xms1M -Xmx1M<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-type">byte</span>[] bytes = <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">1024</span>*<span class="hljs-number">1024</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">Exception in thread &quot;main&quot; java.lang.OutOfMemoryError: Java heap space<br>    at com.ydlclass.date.SystemTest.main(SystemTest.java:5)<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_2-stackoverflowerror-栈内存溢出错误" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-stackoverflowerror-栈内存溢出错误">#</a> （2）StackOverflowError 栈内存溢出错误</h4><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    fun();<br>&#125;<br><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fun</span><span class="hljs-params">()</span>&#123;<br>    fun();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">Exception in thread &quot;main&quot; java.lang.StackOverflowError<br>    at cn.itnanls.Demo.fun(Demo.java:16)<br>    at cn.itnanls.Demo.fun(Demo.java:16)<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_3-noclassdeffounderror-找不到class定义的错误" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3-noclassdeffounderror-找不到class定义的错误">#</a> （3）NoClassDefFoundError 找不到class定义的错误</h4><p>用notepad++,写两个类：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">eat</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;I am eating&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>        <span class="hljs-type">Dog</span> <span class="hljs-variable">dog</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dog</span>();<br>        dog.eat();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>先编译，Test.java，会出现两个class文件，你把Dog.calss删掉，再执行。就会出现这个错误。</p><figure><img alt="image-20210715173612840" loading="lazy" src="https://upyun.thatcdn.cn/public/img/ydldoc/YDLImages/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5/javase/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/image-20210715173612840-60a16601.png" tabindex="0"/><figcaption>image-20210715173612840</figcaption></figure><p>这个错误产生的原因大致可以描述如下：</p><p>​ 要查找的类在编译的时候是存在的，运行的时候却找不到了。这个时候就会导致NoClassDefFoundError。造成该问题的原因可能是打包过程漏掉了部分类，或者jar包出现损坏或者篡改。</p><h3 id="_2、-exception" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、-exception">#</a> 2、 Exception</h3><p><strong>异常</strong>：java语言中，将程序执行中发生的不正常情况称之为异常，就是程序执行的时候出现了你不想看到的情况。</p><ul><li>Exception 异常主要分为两类 <ul><li>一类是 受查异常（检查性异常） ，checkedException。可检查异常在源代码里必须显式地进行捕获处理，这是编译期检查的一部分。Checked Exception的假设是我们捕获了异常，然后恢复程序。但是，其实我们大多数情况下，根本就不可能恢复。这也是为什么有些资料说 Checked Exception 是多余的原因。</li><li>一类是 运行时异常（非受查异常），RuntimeException。通常是可以编码避免的逻辑错误，具体根据需要来判断是否需要捕获，并不会在编译期强制要求。</li></ul></li></ul><p>举个例子：你要去机场和你的领导去出差，导致你最后无法坐上飞机的因素有哪些？</p><p>1、可以自行解决的：比如没带身份证，比如起床起晚了。 这叫运行时异常，通常是自己导致的。你可以提前做好准备。</p><p>2、不能自行解决的：比如在你去的路途中地震了，突然下雨飞机不能起飞了。 这叫错误，通常是上帝导致的。</p><p>​ 中途堵车了，你领导没来。 这叫检查性异常，通常是别人导致的，你必须提前做好措施。</p><h4 id="_1-常见的检查性异常" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1-常见的检查性异常">#</a> （1）常见的检查性异常</h4><table><thead><tr><th>名字</th><th>问题</th></tr></thead><tbody><tr><td>IOException</td><td>IO异常，在对流操作时有可能会出现的异常，学流时用到</td></tr><tr><td>SQLException</td><td>SQL异常，学数据库时会用到</td></tr><tr><td>ClassNotFoundException</td><td>找不到某个类时，会抛出该异常，反射时会用到</td></tr><tr><td>InterruptedException</td><td>当阻塞方法收到中断请求的时候就会抛出中断异常</td></tr></tbody></table><blockquote><p>ClassNotFoundException</p></blockquote><p>​ Java支持使用Class.forName方法来动态地加载类，任意一个类的类名如果被作为参数传递给这个方法都将导致该类被加载到JVM内存中，如果这个类在类路径中没有被找到，那么此时就会在运行时抛出ClassNotFoundException异常。</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Class.forName(<span class="hljs-string">&quot;com.ydlclass.Dog&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><blockquote><p>InterruptedException</p></blockquote><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span> &#123;<br>    Thread.sleep(<span class="hljs-number">123</span>);<br>&#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>    e.printStackTrace();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>​ 如果我们有一个运行中的软件，例如是杀毒软件正在全盘查杀病毒，此时我们不想让它杀毒，这时候点击取消，那么就是正在中断一个运行的线程。</p><p>​ 其实这段代码的大致意思就是我睡的好好的，有人把我吵醒了。一般是一个程序在睡觉，另一个线程将它打断。</p><h4 id="_2-常见的非检查性异常" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2-常见的非检查性异常">#</a> （2）常见的非检查性异常：</h4><table><thead><tr><th>名字</th><th>问题</th></tr></thead><tbody><tr><td>NullPointerException</td><td>空指针引用异常，视图调用空对象的方法或者属性时，抛出该异常</td></tr><tr><td>ArithmeticException</td><td>算术运算异常</td></tr><tr><td>ClassCastException</td><td>类型转换异常，当试图将对象强制转换为不是实例的子类时，抛出该异常</td></tr><tr><td>IndexOutOfBoundsException</td><td>下标越界异常</td></tr><tr><td>NumberFormatException</td><td>数字格式异常</td></tr></tbody></table><p>解决此类异常通常通过简单的逻辑判断就可以，一般不需要捕获处理：</p><blockquote><p>NullPointerException</p></blockquote><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br><span class="hljs-type">byte</span>[] bytes = str.getBytes();<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><p>解决方法：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br><span class="hljs-keyword">if</span>(Objects.nonNull(str))&#123;<br>    <span class="hljs-type">byte</span>[] bytes = str.getBytes();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><p>ArithmeticException</p></blockquote><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">int i = 0;<br>int num = 1/i;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><p>解决方法：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><span class="hljs-keyword">if</span>(i != <span class="hljs-number">0</span>)&#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>/i;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><p>ClassCastException</p></blockquote><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">Animal aniaml = new Dog();<br>Cat cat = (Cat)animal;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div></div></div><p>解决方法：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Animal</span> <span class="hljs-variable">aniaml</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Dog</span>();<br><span class="hljs-keyword">if</span>(animal <span class="hljs-keyword">instanceof</span> Cat)&#123;<br>    <span class="hljs-type">Cat</span> <span class="hljs-variable">cat</span> <span class="hljs-operator">=</span> (Cat)animal;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><p>IndexOutOfBoundsException</p></blockquote><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">int[] nums = new int[3];<br>int i = 3;<br>nums[i] = 4;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>解决方法：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">3</span>];<br><span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;<br><span class="hljs-keyword">if</span>(i &amp;gt; -<span class="hljs-number">1</span> &amp;amp;&amp;amp; i &amp;lt; nums.length)&#123;<br>    nums[i] = <span class="hljs-number">4</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote><p>NumberFormatException</p></blockquote><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> Integer.parseInt(<span class="hljs-string">&quot;abc&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;abc&quot;</span>;<br><span class="hljs-type">Pattern</span> <span class="hljs-variable">pattern</span> <span class="hljs-operator">=</span> Pattern.compile(<span class="hljs-string">&quot;^[-\\+]?[\\d]*$&quot;</span>);<br><span class="hljs-keyword">if</span>(pattern.matcher(str).matches())&#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> Integer.parseInt(str);<br>    System.out.println(num);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_3-自定义异常类型" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3-自定义异常类型">#</a> （3）自定义异常类型</h4><p>​ Java 的异常机制中所定义的所有异常不可能预见所有可能出现的错误，某些特定的情境下，则需要我们自定义异常类型来向上报告某些错误信息。</p><p>在 Java 中你可以自定义异常。编写自己的异常类时需要记住下面的几点。</p><ul><li>所有异常都必须是 Throwable 的子类。</li><li>如果希望写一个检查性异常类，则需要继承 Exception 类。</li><li>如果你想写一个运行时异常类，那么需要继承 RuntimeException 类。</li></ul><p>一个异常怎么抛出</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">throw new RuntimeException(&quot;您输入的数字不合法&quot;);<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs text">public class Test1 &#123;<br>    public static void main(String[] args) &#123;<br>        while (true)&#123;<br>            fun2();<br>        &#125;<br>    &#125;<br><br><br>    public static void fun2()&#123;<br>        try &#123;<br>            fun();<br>        &#125; catch (IndexOutOfBoundsException e)&#123;<br><br>        &#125;<br>    &#125;<br><br>    public static void fun()&#123;<br>        Scanner scanner = new Scanner(System.in);<br>        int i = scanner.nextInt();<br>        if(i &amp;gt; 5)&#123;<br>            System.out.println(&quot;我们可以继续玩游戏！&quot;);<br>        &#125; else &#123;<br>            throw new RuntimeException(&quot;我的数组下标越界了！&quot;);<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>工作中我们使用最多的还是自定义运行时异常：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ServiceException</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">RuntimeException</span>&#123;<br>    <span class="hljs-comment">// 错误码</span><br>    <span class="hljs-keyword">private</span> Integer code;<br><br>    <span class="hljs-comment">// 错误信息</span><br>    <span class="hljs-keyword">private</span> String message;<br><br>    <span class="hljs-comment">// 空构造</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ServiceException</span><span class="hljs-params">()</span>&#123;&#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ServiceException</span><span class="hljs-params">(String message, Integer code)</span><br>    &#123;<br>        <span class="hljs-built_in">this</span>.message = message;<br>        <span class="hljs-built_in">this</span>.code = code;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> Integer <span class="hljs-title function_">getCode</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> code;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setCode</span><span class="hljs-params">(Integer code)</span> &#123;<br>        <span class="hljs-built_in">this</span>.code = code;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getMessage</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> message;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setMessage</span><span class="hljs-params">(String message)</span> &#123;<br>        <span class="hljs-built_in">this</span>.message = message;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在需要抛出这个异常的地方，我们可以这样：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ServiceException</span>(<span class="hljs-number">102</span>,<span class="hljs-string">&quot;业务出问题了&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><h3 id="_3、异常链" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3、异常链">#</a> 3、<strong>异常链</strong></h3><p>一个异常被抛出去后会继续被调用这个方法的方法捕获或抛出，也就是异常会扩散。</p><p>我们举一个例子：</p><div class="language-text line-numbers-mode" data-ext="text"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight text"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">你女朋友要找你约会——》半路遇上了债主——》债主打了你一顿——》结果约会迟到了——》你女朋友说你不爱他——》然后分手了<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div></div></div><p>一次很正常的约会，因为出现了债主，导致最后两人分手，虽然这确实不可思议。一个异常的出现可能会导致整个方法调用链的问题。</p><p>​ 方法在栈空间被调用，多个方法互相调用形成了调用链条，会生成一个StackTrace，也叫栈轨迹，或堆栈信息，或调用链。JVM抛出异常时会打印这个堆栈信息，也就是我们经常在idea中看到的红色的错误的信息。但是事实上，我们在捕获异常后也要主动打印堆栈信息，这样才能争取的找到问题、解决问题。</p><p>​ 为了打印这个堆栈信息，Java每实例化一个Exception，都会对当时的栈进行快照，这是一个相对比较重的操作。如果发生的非常频繁，这个开销可就不能被忽略了。以建议仅捕获有必要的代码段，尽量不要一个大的try包住整段的代码。</p><p>我们写以下几个例子：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">a</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ServiceException</span>(<span class="hljs-number">501</span>,<span class="hljs-string">&quot;业务出问题了&quot;</span>);<br>    &#125;   <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">b</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">A</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">A</span>();<br>        a.a();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">c</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">B</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">B</span>();<br>        b.b();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">C</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">C</span>();<br>        c.c();<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">Exception in thread <span class="hljs-string">&quot;main&quot;</span> com.ydlclass.date.ServiceException: 业务出问题了<br>    at com.ydlclass.date.A.a(A.java:<span class="hljs-number">6</span>)<br>    at com.ydlclass.date.B.b(B.java:<span class="hljs-number">6</span>)<br>    at com.ydlclass.date.C.c(C.java:<span class="hljs-number">6</span>)<br>    at com.ydlclass.date.SystemTest.main(SystemTest.java:<span class="hljs-number">6</span>)<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>​ 我们可以清楚的看到，异常是从第二行的方法中抛出，然后一层一层传递给B、C和main方法，这就形成了一个方法的调用链，中间任意一层我们去处理一下都可以避免有JVM直接抛出至客户端。</p><p>​ 有时我们甚至有这样的需求：捕获一个异常后需要抛出另外一个异常，并且希望把异常原始信息保存下来，这样的多个异常组成的链条被称为【异常链】。</p><ol><li>在JDK1.4以前，程序员必须自己编写代码来保存原始异常信息，</li><li>现在所有Throwable的子类子构造器中都可以接受一个cause对象作为参数，这个cause就异常原由，代表着原始异常，即使在当前位置创建并抛出行的异常，也可以通过这个cause追踪到异常最初发生的位置。</li><li>Throwable类及其所有的子类都提供了带cause参数的构造器，其他的异常类就只有通过initCause()来设置cause了。</li></ol><p>我们修改B的代码：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">b</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-type">A</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">A</span>();<br>            a.a();<br>        &#125;<span class="hljs-keyword">catch</span> (ServiceException s)&#123;<br>            <span class="hljs-type">ServiceException2</span> <span class="hljs-variable">serviceException2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ServiceException2</span>(<span class="hljs-number">508</span>,<span class="hljs-string">&quot;业务发生了巨大问题&quot;</span>);<br>            serviceException2.initCause(s);<br>            <span class="hljs-keyword">throw</span> serviceException2;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>运行结果</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java">Exception in thread <span class="hljs-string">&quot;main&quot;</span> com.ydlclass.date.ServiceException2: 业务发生了巨大问题<br>    at com.ydlclass.date.B.b(B.java:<span class="hljs-number">9</span>)<br>    at com.ydlclass.date.C.c(C.java:<span class="hljs-number">6</span>)<br>    at com.ydlclass.date.SystemTest.main(SystemTest.java:<span class="hljs-number">7</span>)<br>Caused by: com.ydlclass.date.ServiceException: 业务出问题了<br>    at com.ydlclass.date.A.a(A.java:<span class="hljs-number">6</span>)<br>    at com.ydlclass.date.B.b(B.java:<span class="hljs-number">7</span>)<br>    ... <span class="hljs-number">2</span> more<br><br>Process finished with exit code <span class="hljs-number">1</span><br><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们会发现多个异常形成了异常信息链。</p><h2 id="三、异常的处理方式" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#三、异常的处理方式">#</a> 三、异常的处理方式</h2><h3 id="_1、try-catch关键字" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、try-catch关键字">#</a> 1、try...catch关键字</h3><ul><li>使用 try 和 catch 关键字可以捕获异常。</li><li>try/catch 代码块放在异常可能发生的地方。</li></ul><p>try/catch代码块中的代码称为保护代码，使用 try/catch 的语法如下：</p><div class="language-cpp line-numbers-mode" data-ext="cpp"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight cpp"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">try</span> &#123;<br>   <span class="hljs-comment">// 程序代码</span><br>&#125; <span class="hljs-built_in">catch</span>(ExceptionName e1) &#123;<br>   <span class="hljs-comment">//Catch 块</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul><li>catch 语句包含要捕获异常类型的声明。当保护代码块中发生一个异常时，try 后面的 catch 块就会被检查。如果发生的异常包含在 catch 块中，异常会被传递到该 catch 块，这和传递一个参数到方法是一样。</li><li>一个 try 代码块后面跟随多个 catch 代码块的情况就叫<strong>多重捕获</strong>。</li><li>多重捕获块的语法如下所示：</li></ul><div class="language-cpp line-numbers-mode" data-ext="cpp"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight cpp"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">try</span>&#123;<br>   <span class="hljs-comment">// 程序代码</span><br>&#125;<span class="hljs-built_in">catch</span>(异常类型<span class="hljs-number">1</span> 异常的变量名<span class="hljs-number">1</span>)&#123;<br>  <span class="hljs-comment">// 程序代码</span><br>&#125;<span class="hljs-built_in">catch</span>(异常类型<span class="hljs-number">2</span> 异常的变量名<span class="hljs-number">2</span>)&#123;<br>  <span class="hljs-comment">// 程序代码</span><br>&#125;<span class="hljs-built_in">catch</span>(异常类型<span class="hljs-number">2</span> 异常的变量名<span class="hljs-number">2</span>)&#123;<br>  <span class="hljs-comment">// 程序代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2、throws-throw-关键字" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、throws-throw-关键字">#</a> 2、throws/throw 关键字</h3><ul><li>如果一个方法<strong>没有捕获一个检查性异常</strong>，那么该方法<strong>必须使用 throws 关键字来声明</strong>。throws 关键字放在方法签名的尾部。<strong>也可以使用 throw 关键字抛出一个异常</strong>，无论它是新实例化的还是刚捕获到的。</li><li>下面方法的声明抛出一个 RemoteException 异常：</li></ul><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException &#123;<br>    Thread.sleep(<span class="hljs-number">123</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>一个方法可以声明抛出多个异常，多个异常之间用逗号隔开。</p><h3 id="_3、finally关键字" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3、finally关键字">#</a> 3、finally关键字</h3><ul><li>finally 关键字用来创建在 try 代码块后面执行的代码块。</li><li><strong>无论是否发生异常，finally 代码块中的代码总会被执行</strong>。在 finally 代码块中，可以运行清理类型等收尾善后性质的语句。</li><li>finally 代码块出现在 catch 代码块最后，语法如下：</li></ul><div class="language-csharp line-numbers-mode" data-ext="cs"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight csharp"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">try</span>&#123;<br>  <span class="hljs-comment">// 程序代码</span><br>&#125;<span class="hljs-keyword">catch</span>(异常类型<span class="hljs-number">1</span> 异常的变量名<span class="hljs-number">1</span>)&#123;<br>  <span class="hljs-comment">// 程序代码</span><br>&#125;<span class="hljs-keyword">catch</span>(异常类型<span class="hljs-number">2</span> 异常的变量名<span class="hljs-number">2</span>)&#123;<br>  <span class="hljs-comment">// 程序代码</span><br>&#125;<span class="hljs-keyword">finally</span>&#123;<br>  <span class="hljs-comment">// 程序代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="四、try-catch-finally-的执行顺序" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#四、try-catch-finally-的执行顺序">#</a> 四、try-catch-finally 的执行顺序</h2><p>try-catch-finally 执行顺序的相关问题可以说是各种面试中的「常客」了，尤其是 finally 块中带有 return 语句的情况。我们直接看几道面试题：</p><h3 id="_1、面试题一" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_1、面试题一">#</a> 1、面试题一</h3><div class="language-csharp line-numbers-mode" data-ext="cs"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight csharp"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] <span class="hljs-keyword">args</span></span>)</span>&#123;<br>    <span class="hljs-built_in">int</span> result = test1();<br>    System.<span class="hljs-keyword">out</span>.println(result);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">int</span> <span class="hljs-title">test1</span>()</span>&#123;<br>    <span class="hljs-built_in">int</span> i = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">try</span>&#123;<br>        i++;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;try block, i = &quot;</span>+i);<br>    &#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;<br>        i--;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;catch block i = &quot;</span>+i);<br>    &#125;<span class="hljs-keyword">finally</span>&#123;<br>        i = <span class="hljs-number">10</span>;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;finally block i = &quot;</span>+i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> i;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>输出结果如下：</p><div class="language-csharp line-numbers-mode" data-ext="cs"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight csharp"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">try</span> block, i = <span class="hljs-number">2</span><br><span class="hljs-keyword">finally</span> block i = <span class="hljs-number">10</span><br><span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这算一个相当简单的问题了，没有坑，下面我们稍微改动一下：</p><div class="language-java line-numbers-mode" data-ext="java"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight java"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">test2</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">try</span>&#123;<br>        i++;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Exception</span>();<br>    &#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;<br>        i--;<br>        System.out.println(<span class="hljs-string">&quot;catch block i = &quot;</span>+i);<br>    &#125;<span class="hljs-keyword">finally</span>&#123;<br>        i = <span class="hljs-number">10</span>;<br>        System.out.println(<span class="hljs-string">&quot;finally block i = &quot;</span>+i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> i;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>输出结果如下：</p><div class="language-csharp line-numbers-mode" data-ext="cs"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight csharp"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">catch</span> block i = <span class="hljs-number">1</span><br><span class="hljs-keyword">finally</span> block i = <span class="hljs-number">10</span><br><span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2、面试题二" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_2、面试题二">#</a> 2、面试题二</h3><div class="language-csharp line-numbers-mode" data-ext="cs"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight csharp"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] <span class="hljs-keyword">args</span></span>)</span>&#123;<br>    <span class="hljs-built_in">int</span> result = test3();<br>    System.<span class="hljs-keyword">out</span>.println(result);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">int</span> <span class="hljs-title">test3</span>()</span>&#123;<br>    <span class="hljs-comment">//try 语句块中有 return 语句时的整体执行顺序</span><br>    <span class="hljs-built_in">int</span> i = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">try</span>&#123;<br>        i++;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;try block, i = &quot;</span>+i);<br>        <span class="hljs-keyword">return</span> i;<br>    &#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;<br>        i ++;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;catch block i = &quot;</span>+i);<br>        <span class="hljs-keyword">return</span> i;<br>    &#125;<span class="hljs-keyword">finally</span>&#123;<br>        i = <span class="hljs-number">10</span>;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;finally block i = &quot;</span>+i);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>输出结果如下：</p><div class="language-csharp line-numbers-mode" data-ext="cs"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight csharp"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">try</span> block, i = <span class="hljs-number">2</span><br><span class="hljs-keyword">finally</span> block i = <span class="hljs-number">10</span><br><span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>​ 可能有人会所疑惑，原本我们的 i 就被存储在局部变量表 0 位置，而最后 finally 中的代码也的确将 slot 0 位置填充了数值 10，可为什么最后程序依然返回的数值 2 呢？</p><h3 id="_3、面试题三" tabindex="-1"><a aria-hidden="true" class="header-anchor" href="#_3、面试题三">#</a> 3、面试题三</h3><div class="language-csharp line-numbers-mode" data-ext="cs"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight csharp"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">int</span> <span class="hljs-title">test4</span>()</span>&#123;<br>    <span class="hljs-comment">//finally 语句块中有 return 语句</span><br>    <span class="hljs-built_in">int</span> i = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">try</span>&#123;<br>        i++;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;try block, i = &quot;</span>+i);<br>        <span class="hljs-keyword">return</span> i;<br>    &#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;<br>        i++;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;catch block i = &quot;</span>+i);<br>        <span class="hljs-keyword">return</span> i;<br>    &#125;<span class="hljs-keyword">finally</span>&#123;<br>        i++;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;finally block i = &quot;</span>+i);<br>        <span class="hljs-keyword">return</span> i;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>运行结果：</p><div class="language-csharp line-numbers-mode" data-ext="cs"><button aria-label="复制代码" class="copy-code-button" data-copied="已复制"><div class="copy-icon"></div></button>
+
+<figure class="highlight csharp"><figcaption><span>From: 元动力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">try</span> block, i = <span class="hljs-number">2</span><br><span class="hljs-keyword">finally</span> block i = <span class="hljs-number">3</span><br><span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+<div aria-hidden="true" class="line-numbers"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>你会发现程序<strong>最终会采用 finally 代码块中的 return 语句进行返回，而直接忽略 try 语句块中的 return 指令</strong>。</p><ul><li><p>对于异常的使用有一个不成文的约定：尽量在某个集中的位置进行统一处理，不要到处的使用 try-catch，否则会使得代码结构混乱不堪。</p></li><li><p>按照我们程序员的惯性认知：当遇到return语句的时候，执行函数会立刻返回。但是，在Java语言中，如果存在finally就会有例外。除了return语句，try代码块中的break或continue语句也可能使控制权进入finally代码块。</p></li><li><p>请勿在try代码块中调用return、break或continue语句。万一无法避免，一定要确保finally的存在不会改变方法的返回值。</p></li><li><p><strong>方法返回值有两种类型：值类型与对象引用。对于对象引用，要特别小心，如果在finally代码块中对返回的对象成员属性进行了修改，即使不在finally块中显式调用return语句，这个修改也会作用于返回值上。</strong></p></li></ul><p>我们已经学完了异常知识，最后再给大家几个忠告：</p><p>第一，尽量不要捕获类似Exception这样的通用异常，而是应该捕获特定异常。这是因为在日常的开发和合作中，我们读代码的机会往往超过写代码，软件工程是门协作的艺术，所以我们有义务让自己的代码能够直观地体现出尽量多的信息，而泛泛的Exception之类，恰恰隐藏了我们的目的。另外，我们也要保证程序不会捕获到我们不希望捕获的异常。比如，你可能更希望RuntimeException被扩散出来，而不是被捕获。</p><p>第二，不要生吞（swallow）异常。这是异常处理中要特别注意的事情，因为很可能会导致非常难以诊断的诡异情况。生吞异常，往往是基于假设这段代码可能不会发生，或者感觉忽略异常是无所谓的，但是千万不要在产品代码做这种假设！如果我们不把异常抛出来，程序可能在后续代码以不可控的方式结束。没人能够轻易判断究竟是哪里抛出了异常，以及是什么原因产生了异常。</p></div></article>
+<div class="article-footer">
+
+</div>
+
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">回顾上一篇</div><a href="/wiki/YDLDoc1/javase/%E5%8F%8D%E5%B0%84/%E5%8F%8D%E5%B0%84/">反射</a></div><div class="item" id="next"><div class="note">接下来阅读</div><a href="/wiki/YDLDoc1/javase/%E6%A0%91/%E6%A0%91/">树</a></div></section></div>
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p style="text-align:center" >
+本站由 <a style="font-weight: bold;" href="/author/ThatCoder/">钟意</a> 使用 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1">Stellar 1.33.1</a> 主题创建。
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">又拍云</a> 提供CDN加速/云存储服务
+<br>
+由 <a style="font-weight: bold;" target="_blank" rel="noopener" href="https://vercel.com/">vercel</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.netlify.com/">netlify</a>、<a style="font-weight: bold;" target="_blank" rel="noopener" href="https://www.cloudflare.com/">cloudflare</a> 提供托管服务
+<br>
+<a href="https://beian.miit.gov.cn/" target="_blank">湘ICP备2023019799号-1</a>
+<br>
+<!--不蒜子计数器-->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!--添加一个访问量-->
+<span>总访问 <span id="busuanzi_value_site_pv" style="font-weight: bold;"></span> 次 
+<!--本页访问 <span id="busuanzi_value_page_pv" style="font-weight: bold;"></span> 次</span>-->
+<div id="siteruntime"></div>
+</p>
+<script>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2020,4,30,08,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("siteruntime").innerHTML="<p style=\"text-align:center\">小破站已颠沛流离 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒</p>"
+}
+siteTime();
+</script>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="auto"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%9B%B6%E5%BC%95%E5%8F%91%E7%9A%84%E8%A1%80%E6%A1%88"><span class="toc-text"> 一、零引发的血案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81%E7%9C%8B%E9%97%AE%E9%A2%98"><span class="toc-text"> 1、看问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text"> 2、解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-%E8%BF%90%E8%A1%8C%E5%89%8D%E5%AF%B9%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%A0%A1%E9%AA%8C"><span class="toc-text"> （1）运行前对参数进行校验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_2-%E5%87%BA%E4%BA%86%E9%97%AE%E9%A2%98%E6%83%B3%E5%8A%9E%E6%B3%95%E8%A7%A3%E5%86%B3"><span class="toc-text"> （2）出了问题想办法解决</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%BC%82%E5%B8%B8%E7%9A%84%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-text"> 二、异常的继承体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81error"><span class="toc-text"> 1、Error</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-outofmemoryerror-%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E9%94%99%E8%AF%AF"><span class="toc-text"> （1）OutOfMemoryError 内存溢出错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_2-stackoverflowerror-%E6%A0%88%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E9%94%99%E8%AF%AF"><span class="toc-text"> （2）StackOverflowError 栈内存溢出错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_3-noclassdeffounderror-%E6%89%BE%E4%B8%8D%E5%88%B0class%E5%AE%9A%E4%B9%89%E7%9A%84%E9%94%99%E8%AF%AF"><span class="toc-text"> （3）NoClassDefFoundError 找不到class定义的错误</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81-exception"><span class="toc-text"> 2、 Exception</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#_1-%E5%B8%B8%E8%A7%81%E7%9A%84%E6%A3%80%E6%9F%A5%E6%80%A7%E5%BC%82%E5%B8%B8"><span class="toc-text"> （1）常见的检查性异常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_2-%E5%B8%B8%E8%A7%81%E7%9A%84%E9%9D%9E%E6%A3%80%E6%9F%A5%E6%80%A7%E5%BC%82%E5%B8%B8"><span class="toc-text"> （2）常见的非检查性异常：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#_3-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%9E%8B"><span class="toc-text"> （3）自定义异常类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3%E3%80%81%E5%BC%82%E5%B8%B8%E9%93%BE"><span class="toc-text"> 3、异常链</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%BC%82%E5%B8%B8%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text"> 三、异常的处理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81try-catch%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text"> 1、try...catch关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81throws-throw-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text"> 2、throws&#x2F;throw 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3%E3%80%81finally%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text"> 3、finally关键字</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81try-catch-finally-%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-text"> 四、try-catch-finally 的执行顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#_1%E3%80%81%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B8%80"><span class="toc-text"> 1、面试题一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_2%E3%80%81%E9%9D%A2%E8%AF%95%E9%A2%98%E4%BA%8C"><span class="toc-text"> 2、面试题二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#_3%E3%80%81%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B8%89"><span class="toc-text"> 3、面试题三</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+
+
+<script type="text/javascript">
+  window.canonical = {"originalHost":"blog.thatcoder.cn","officialHosts":["localhost","en.blog.thatcoder.cn","hexo.thatcoder.cn","thatcoder.vercel.app","thatcoder.netlify.app","cn-coder.vercel.app","thatcoders.github.io","thatcoder.pages.dev","cncoder.pages.dev"],"encoded":"YmxvZy50aGF0Y29kZXIuY24="};
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+    tag_plugins: {
+      chat: Object.assign({"api":"https://siteinfo.listentothewind.cn/api/v1"}),
+    }
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"post, page, docs","path":"/search.json","content":true,"skip_search":null,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+    loading: `https://api.iconify.design/eos-icons:three-dots-loading.svg?color=%231cd0fd`,
+  };
+  const deps = {
+    jquery: `https://gcore.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js`,
+    marked: `https://gcore.jsdelivr.net/npm/marked@13.0/lib/marked.umd.min.js`,
+    lazyload: `/%5Bobject%20Object%5D`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          utils.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')) {
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function () {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      const maxRetry = 3;
+      let retryCount = 0;
+
+      return new Promise((resolve, reject) => {
+        const load = () => {
+          utils.onLoading?.(el);
+
+          let timedOut = false;
+          const timeout = setTimeout(() => {
+            timedOut = true;
+            console.warn('[request] 超时:', url);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject('请求超时');
+            } else {
+              setTimeout(load, 1000);
+            }
+          }, 5000);
+
+          fetch(url).then(resp => {
+            if (timedOut) return;
+            clearTimeout(timeout);
+
+            if (!resp.ok) throw new Error('响应失败');
+            return resp;
+          }).then(data => {
+            if (timedOut) return;
+            utils.onLoadSuccess?.(el);
+            callback(data);
+            resolve(data);
+          }).catch(err => {
+            clearTimeout(timeout);
+            console.warn('[request] 错误:', err);
+
+            if (++retryCount >= maxRetry) {
+              utils.onLoadFailure?.(el);
+              onFailure?.();
+              reject(err);
+            } else {
+              setTimeout(load, 1000);
+            }
+          });
+        };
+
+        load();
+      });
+    },
+    requestWithoutLoading: (url, options = {}, maxRetry = 2, timeout = 5000) => {
+      return new Promise((resolve, reject) => {
+        let retryCount = 0;
+
+        const tryRequest = () => {
+          let timedOut = false;
+          const timer = setTimeout(() => {
+            timedOut = true;
+            if (++retryCount > maxRetry) reject('timeout');
+            else tryRequest();
+          }, timeout);
+
+          fetch(url, options)
+            .then(resp => {
+              clearTimeout(timer);
+              if (!resp.ok) throw new Error('bad response');
+              resolve(resp);
+            })
+            .catch(err => {
+              clearTimeout(timer);
+              if (++retryCount > maxRetry) reject(err);
+              else setTimeout(tryRequest, 500);
+            });
+        };
+
+        tryRequest();
+      });
+    },
+    /********************** requestAnimationFrame ********************************/
+    // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+    // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+    requestAnimationFrame: (fn) => {
+      if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+      }
+      window.requestAnimationFrame(fn)
+    },
+    dark: {},
+  };
+
+  // utils.dark.mode 当前模式 dark or light
+  // utils.dark.toggle() 暗黑模式触发器
+  // utils.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  utils.dark.method = {
+    toggle: new RunItem(),
+  };
+  utils.dark = Object.assign(utils.dark, {
+    push: utils.dark.method.toggle.push,
+  });
+</script>
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+<script async src="https://gcore.jsdelivr.net/npm/vanilla-lazyload@19.1/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+    callback_loaded: (el) => {
+      el.classList.add('loaded');
+      const wrapper = el.closest('.lazy-box');
+      const icon = wrapper?.querySelector('.lazy-icon');
+      if (icon) icon.remove();
+    }
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+
+  window.wrapLazyloadImages = (container) => {
+    if (typeof container === 'string') {
+      container = document.querySelector(container);
+    }
+    if (!container) return;
+    
+    const images = container.querySelectorAll('img');
+    images.forEach((img) => {
+      if (img.classList.contains('lazy')) return;
+
+      const src = img.getAttribute('src');
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'lazy-box';
+
+      const newImg = img.cloneNode();
+      newImg.removeAttribute('src');
+      newImg.setAttribute('data-src', src);
+      newImg.classList.add('lazy');
+
+      const icon = document.createElement('div');
+      icon.className = 'lazy-icon';
+      if (def.loading) {
+        icon.style.backgroundImage = `url("${def.loading}")`;
+      }
+
+      wrapper.appendChild(newImg);
+      wrapper.appendChild(icon);
+
+      img.replaceWith(wrapper);
+    });
+
+    // 通知 LazyLoad 更新
+    if (window.lazyLoadInstance?.update) {
+      window.lazyLoadInstance.update();
+    }
+  }
+  
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.33.1" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    // applyThemeToGiscus(theme)
+  }
+
+  // FIXME: 这会导致无法使用 preferred_color_scheme 以外的主题
+  const applyThemeToGiscus = (theme) => {
+    // theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+    utils.dark.mode = newTheme === 'auto' ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : newTheme;
+    utils.dark.method.toggle.start();
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    } else {
+      utils.dark.mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    utils.dark.method.toggle.start();
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  import { init } from 'https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js';
+
+  const el = document.getElementById('waline_container');
+  util.viewportLazyload(el, load_waline, false);
+
+  function load_waline(){
+    if (!el) return;
+
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css');
+    utils.css('https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css');
+
+    const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+    const waline = init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.js","css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline.css","meta_css":"https://gcore.jsdelivr.net/npm/@waline/client@3.1/dist/waline-meta.css","serverURL":"https://waline.thatapi.cn/","commentCount":true,"pageview":false,"search":false,"locale":{"placeholder":"  遇事不决, 可问春风..."},"emoji":["https://upyun.thatcdn.cn/public/web/emojis/bilibili","https://upyun.thatcdn.cn/public/web/emojis/qq","https://upyun.thatcdn.cn/public/web/emojis/tieba","https://upyun.thatcdn.cn/public/web/emojis/weibo"],"reaction":["https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_thumbsup.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_cute.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_sunglasses.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_crazy.png","https://upyun.thatcdn.cn/public/web/emojis/bilibili/bb_trollface.png"],"meta":["nick","mail","link"],"imageUploader":{"fileName":"file","tokenName":"Authorization","api":"https://lsky.thatcoder.cn/api/v1/upload","token":"Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm","resp":"data.links.url"}}, {
+      el: '#waline_container',
+      path: path,
+      
+        imageUploader: function(file) {
+          const headers = new Headers();
+          headers.set('Accept', 'application/json');
+          
+            headers.set('Authorization', 'Bearer 6|x9vHGJGHAnjqbO0PGEE5vM7r9S9hdqFA9bmdESdm')
+          
+          const formData = new FormData();
+          formData.append('file', file);
+          return fetch('https://lsky.thatcoder.cn/api/v1/upload',{
+            method: 'POST',
+            body: formData,
+            headers: headers
+            }).then((resp) => resp.json())
+              .then((resp) => resp.data.links.url)
+        },
+      
+    }));
+  }
+</script>
+
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"rating":{"js":"/js/services/rating.js","api":"https://star-vote.xaox.cc/api/rating"},"vote":{"js":"/js/services/vote.js","api":"https://star-vote.xaox.cc/api/vote"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"friends_and_posts":{"js":"/js/services/friends_and_posts.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"},"voice":{"js":"/js/plugins/voice.js"},"video":{"js":"/js/plugins/video.js"},"download-file":{"js":"/js/plugins/download-file.js"},"twikoo":{"js":"/js/services/twikoo_latest_comment.js"},"waline":{"js":"/js/services/waline_latest_comment.js"},"artalk":{"js":"/js/services/artalk_latest_comment.js"},"giscus":{"js":"/js/services/giscus_latest_comment.js"},"contributors":{"edit_this_page":{"_posts/":null,"wiki/stellar/":"https://github.com/xaoxuu/hexo-theme-stellar-docs/blob/main/"},"js":"/js/services/contributors.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else if (id == 'voice') {
+        ctx.voiceAudios = document.querySelectorAll('.voice>audio');
+        if (ctx.voiceAudios?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            createVoiceDom(ctx.voiceAudios);
+          });
+        }
+      } else if (id == 'video') {
+        ctx.videos = document.querySelectorAll('.video>video');
+        if (ctx.videos?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            videoEvents(ctx.videos);
+          });
+        }
+      } else if (id == 'download-file') {
+        ctx.files = document.querySelectorAll('.file');
+        if (ctx.files?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            downloadFileEvent(ctx.files);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+
+    // chat iphone time
+    let phoneTimes = document.querySelectorAll('.chat .status-bar .time');
+
+    if (phoneTimes.length > 0) {
+      NowTime();
+      var date = new Date();
+      var sec = date.getSeconds();
+      var firstAdjustInterval = setInterval(firstAdjustTime, 1000 * (60 - sec));
+    }
+
+    function firstAdjustTime() {
+      NowTime();
+      clearInterval(firstAdjustInterval);
+      setInterval(NowTime, 1000 * 60);
+    }
+
+    function NowTime() {
+      for (let i = 0; i < phoneTimes.length; ++i) {
+        var timeSpan = phoneTimes[i];
+        var date = new Date();
+        var hour = date.getHours();
+        var min = date.getMinutes();
+        timeSpan.innerHTML = check(hour) + ":" + check(min);
+      }
+    };
+
+    function check(val) {
+      if (val < 10) {
+        return ("0" + val);
+      }
+      return (val);
+    }
+
+    // chat quote
+    const chat_quote_obverser = new IntersectionObserver((entries, observer) => {
+      entries.filter((entry) => { return entry.isIntersecting }).sort((a, b) => a.intersectionRect.y !== b.intersectionRect.y ? a.intersectionRect.y - b.intersectionRect.y : a.intersectionRect.x - b.intersectionRect.x).forEach((entry, index) => {
+          observer.unobserve(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('quote-blink');
+            setTimeout(() => {
+              entry.target.classList.remove('quote-blink');
+            }, 1000);
+          }, Math.max(100, 16) * (index + 1));
+        });
+    });
+
+    var chatQuotes = document.querySelectorAll(".chat .talk .quote");
+    chatQuotes.forEach((quote) => {
+      quote.addEventListener('click', function () {
+        var chatCellDom = document.getElementById("quote-" + quote.getAttribute("quotedCellTag"));
+        if (chatCellDom) {
+          var chatDiv = chatCellDom.parentElement;
+          var mid = chatDiv.clientHeight / 2;
+          var offsetTop = chatCellDom.offsetTop;
+          if (offsetTop > mid - chatCellDom.clientHeight / 2) {
+            chatDiv.scrollTo({
+              top: chatCellDom.offsetTop - mid + chatCellDom.clientHeight / 2,
+              behavior: "smooth"
+            });
+          } else {
+            chatDiv.scrollTo({
+              top: 0,
+              behavior: "smooth"
+            });
+          }
+          chat_quote_obverser.observe(chatCellDom);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://gcore.jsdelivr.net/npm/flying-pages@2/flying-pages.min.js"></script><script>
+  ctx.fancybox = {
+    selector: `.swiper-slide img, .md-text.content p>img, .md-text.content li img , .wl-content img, waline_container .vcontent img, .timeline .body .image img,  .timeline .gallery img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error), .with-fancybox .atk-content img:not([atk-emoticon])';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const memos = document.getElementsByClassName('ds-memos');
+    if (memos != undefined && memos.length > 0) {
+      needFancybox = true;
+    }
+    const fancybox = document.getElementsByClassName('with-fancybox');
+    if (fancybox != undefined && fancybox.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+
+
+
+
+<!-- inject -->
+<script type="text/javascript" src="/custom/js/ZYUtil.js"></script><script type="text/javascript" src="/custom/js/ZYDark.js"></script><script type="text/javascript" src="/custom/js/ZYCategory.js"></script><script type="text/javascript" src="/custom/js/ZYCode.js"></script><script type="text/javascript" src="/custom/js/timetmpl.js"></script>
+</div></body></html>

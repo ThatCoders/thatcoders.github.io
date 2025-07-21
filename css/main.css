@@ -1383,7 +1383,7 @@ a.button.start.gradient {
 }
 .float-panel nav a:not(.active,
 .float-panel :hover) {
-  filter: drop-shadow(0 0 0 #fff) drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px rgba(255,255,255,0.5));
+  filter: drop-shadow(0 0 0 #fff) drop-shadow(0 0 4px #fff);
 }
 @media (prefers-color-scheme: dark) {
   .float-panel nav a:not(.active,
@@ -1406,12 +1406,17 @@ a.button.start.gradient {
 .float-panel:before {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.3);
+  margin: 1px;
+}
+@media (prefers-color-scheme: dark) {
+  .float-panel:before {
+    background: rgba(255,255,255,0.2);
+  }
 }
 .float-panel:after {
-  --blur-px: 8px;
-  --blur-sat: 400%;
-  background: rgba(255,255,255,0.2);
+  --blur-px: 16px;
+  --blur-sat: 300%;
   backdrop-filter: saturate(var(--blur-sat)) blur(var(--blur-px));
   -webkit-backdrop-filter: saturate(var(--blur-sat)) blur(var(--blur-px));
   mask: linear-gradient(#fff, 20%, transparent, 80%, #fff), linear-gradient(90deg, #fff, 20%, transparent, 80%, #fff);
@@ -1424,7 +1429,6 @@ a.button.start.gradient {
 }
 @media (prefers-color-scheme: dark) {
   .float-panel:after {
-    background: rgba(255,255,255,0.1);
     box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.2);
   }
 }
@@ -1723,6 +1727,9 @@ table:not([class]) {
 .md-text .highlight.matlab .code:before {
   content: "MATLAB";
 }
+.md-text .highlight.nginx .code:before {
+  content: "Nginx";
+}
 .code>pre .code:before {
   display: none;
 }
@@ -1865,11 +1872,29 @@ table:not([class]) {
   outline: none;
 }
 html {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
   font-family: KingHwaOldSong, system-ui, "Microsoft Yahei", "Segoe UI", -apple-system, Roboto, Ubuntu, "Helvetica Neue", Arial, "WenQuanYi Micro Hei", sans-serif;
   font-size: 18px;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   scroll-padding-top: 8px;
+}
+html::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+html::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--text-meta);
+  cursor: pointer;
+  border-radius: 8px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--text-p3);
 }
 body {
   background: var(--background);
@@ -2686,7 +2711,7 @@ div.toast.show {
 }
 .navbar-blur nav a:not(.active,
 .navbar-blur :hover) {
-  filter: drop-shadow(0 0 0 #fff) drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px rgba(255,255,255,0.5));
+  filter: drop-shadow(0 0 0 #fff) drop-shadow(0 0 4px #fff);
 }
 @media (prefers-color-scheme: dark) {
   .navbar-blur nav a:not(.active,
@@ -2709,12 +2734,17 @@ div.toast.show {
 .navbar-blur:before {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.3);
+  margin: 1px;
+}
+@media (prefers-color-scheme: dark) {
+  .navbar-blur:before {
+    background: rgba(255,255,255,0.2);
+  }
 }
 .navbar-blur:after {
-  --blur-px: 8px;
-  --blur-sat: 400%;
-  background: rgba(255,255,255,0.2);
+  --blur-px: 16px;
+  --blur-sat: 300%;
   backdrop-filter: saturate(var(--blur-sat)) blur(var(--blur-px));
   -webkit-backdrop-filter: saturate(var(--blur-sat)) blur(var(--blur-px));
   mask: linear-gradient(#fff, 20%, transparent, 80%, #fff), linear-gradient(90deg, #fff, 20%, transparent, 80%, #fff);
@@ -2727,7 +2757,6 @@ div.toast.show {
 }
 @media (prefers-color-scheme: dark) {
   .navbar-blur:after {
-    background: rgba(255,255,255,0.1);
     box-shadow: inset 0 0 2px 1px rgba(255,255,255,0.2);
   }
 }
@@ -2775,7 +2804,7 @@ div.toast.show {
   -o-transition: all 0.2s ease-out;
 }
 .navbar nav a:hover {
-  background: var(--bg-a100);
+  background: var(--bg-a50);
 }
 .navbar nav a.active,
 .navbar nav a:hover {
@@ -5679,30 +5708,32 @@ p>strong>span.tag-plugin.icon {
 }
 .tag-plugin.navbar {
   display: inline-flex;
-  background: var(--card);
-  border-radius: 8px;
-  z-index: inherit;
-  box-shadow: 0 0 8px rgba(0,0,0,0.04);
 }
 .tag-plugin.navbar a {
   box-sizing: border-box;
-  padding: 0.25rem 1rem;
-  margin: 2px;
+  padding: 0.25rem 0;
   color: inherit;
-  border-radius: calc(8px - 1px);
+  position: relative;
+}
+.tag-plugin.navbar a+a {
+  margin-left: 1rem;
+}
+.tag-plugin.navbar a:after {
+  content: '';
+  position: absolute;
+  border-radius: 2px;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
   transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
 }
-.tag-plugin.navbar a+a {
-  margin-left: 0;
-}
-.tag-plugin.navbar a.active {
-  background: var(--block);
-}
-.tag-plugin.navbar a:hover {
-  background: var(--block);
+.tag-plugin.navbar a.active:after,
+.tag-plugin.navbar a:hover:after {
+  background: var(--theme);
 }
 .md-text .tag-plugin.note {
   position: relative;
@@ -6377,6 +6408,9 @@ p>strong>span.tag-plugin.icon {
   position: relative;
   padding-left: 16px;
 }
+.tag-plugin.timeline p>img {
+  border-radius: 8px;
+}
 .tag-plugin.timeline:before {
   content: '';
   position: absolute;
@@ -6397,6 +6431,9 @@ p>strong>span.tag-plugin.icon {
 .l_body[type=story] .md-text.content .tag-plugin.timeline ol,
 .l_body[type=story] .md-text.content .tag-plugin.timeline ul {
   margin-left: 0;
+}
+.l_body[type=story] .md-text.content .tag-plugin.timeline p>img {
+  border-radius: 8px;
 }
 .tag-plugin.timeline .timenode {
   position: relative;
@@ -7414,6 +7451,23 @@ details.toc[open] >div.body section .header+.doc_tree {
 .widget-wrapper.user-card .widget-header+.widget-body {
   margin: 0.75rem 0;
 }
+.widget-wrapper.user-card .widget-header a {
+  display: flex;
+  align-items: center;
+  color: var(--text-p2);
+  transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+}
+.widget-wrapper.user-card .widget-header a svg {
+  margin-right: 4px;
+  width: 1em;
+  height: 1em;
+}
+.widget-wrapper.user-card .widget-header a:hover {
+  color: var(--text);
+}
 .widget-wrapper.user-card .widget-body {
   text-align: center;
   background: var(--card);
@@ -7450,7 +7504,7 @@ details.toc[open] >div.body section .header+.doc_tree {
 .widgets .widget-wrapper.user-card .follow {
   font-weight: 500;
   border-radius: 64px;
-  margin: 1rem 0 0;
+  margin-top: 1rem;
   padding: 0.5rem 1rem;
   background: var(--theme);
   color: #fff;
@@ -7475,7 +7529,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   background: var(--accent);
 }
 .widgets .widget-wrapper.user-card .buttons {
-  margin: 1rem 0;
+  margin-top: 1rem;
   align-self: stretch;
   display: grid;
   grid-gap: 2px;
@@ -7505,6 +7559,9 @@ details.toc[open] >div.body section .header+.doc_tree {
   font-size: 0.75rem;
   color: var(--text-p3);
   font-weight: 500;
+}
+.widget-wrapper.user-card .widget-header+.widget-body {
+  margin-top: 4px;
 }
 .widget-wrapper.post-list .widget-body a {
   font-size: 0.875rem;
@@ -7705,6 +7762,11 @@ details.toc[open] >div.body section .header+.doc_tree {
 @media screen and (min-width: 1180px) {
   .widget-wrapper.toc {
     background: var(--background);
+  }
+}
+@media screen and (min-width: 1180px) {
+  .l_left .widget-wrapper.toc {
+    background: none;
   }
 }
 .widget-wrapper.toc .toc {
@@ -8031,6 +8093,9 @@ details.toc[open] >div.body section .header+.doc_tree {
   .l_right .widgets .widget-wrapper.markdown .widget-body {
     background: var(--block);
   }
+}
+.leftbar-container .header+.widgets {
+  margin-top: 1rem;
 }
 .post-list #archive {
   padding: 1rem;
