@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.thatcoder.cn//daily/Jiaodong-Peninsula/</loc>
+    <lastmod>2025-10-08</lastmod>
+  </url>
+  <url>
     <loc>https://blog.thatcoder.cn//ai/hygon-vllm/</loc>
     <lastmod>2025-08-31</lastmod>
   </url>
@@ -49,11 +53,11 @@
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//dev/coze-import/</loc>
+    <loc>https://blog.thatcoder.cn//game/Genshin%20Impact/</loc>
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//game/Genshin%20Impact/</loc>
+    <loc>https://blog.thatcoder.cn//dev/coze-import/</loc>
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
@@ -61,11 +65,11 @@
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//design/Design-Chain-of-Responsibility/</loc>
+    <loc>https://blog.thatcoder.cn//daily/Deep%20Sea/</loc>
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//daily/Deep%20Sea/</loc>
+    <loc>https://blog.thatcoder.cn//design/Design-Chain-of-Responsibility/</loc>
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
