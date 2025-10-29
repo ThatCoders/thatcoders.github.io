@@ -234,7 +234,7 @@ const init = {
           <a href="${currentURL}" target="_self" rel="noopener noreferrer">
           本站为官方备用站，仅供应急。点击移步主站<br>${originalURL}
           </a>
-          ${canonical.close ? '<button id="canonical-close">'+canonical.closeText || '关闭提示'+'</button>' : '' }
+          ${canonical.closeEnable ? '<button id="canonical-close">'+canonical.closeText || '关闭提示'+'</button>' : '' }
         `;
       } else {
         notice.className = 'canonical-tip unofficial';
