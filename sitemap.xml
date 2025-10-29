@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/wiki/forgejo/start</loc>
+    <loc>https://blog.thatcoder.cn/wiki/forgejo/ssh</loc>
     
     <lastmod>2025-08-28</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/wiki/forgejo/ssh</loc>
+    <loc>https://blog.thatcoder.cn/wiki/forgejo/start</loc>
     
     <lastmod>2025-08-28</lastmod>
     
@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%89%8B%E5%86%8C/%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88Flowable%EF%BC%89%E4%BC%9A%E7%AD%BE%E3%80%81%E6%88%96%E7%AD%BE/%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88Flowable%EF%BC%89%E4%BC%9A%E7%AD%BE%E3%80%81%E6%88%96%E7%AD%BE</loc>
+    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.5.0%E3%80%912022-02-17/%E3%80%90v1.5.0%E3%80%912022-02-17</loc>
     
     <lastmod>2025-07-21</lastmod>
     
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.5.0%E3%80%912022-02-17/%E3%80%90v1.5.0%E3%80%912022-02-17</loc>
+    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%89%8B%E5%86%8C/%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88Flowable%EF%BC%89%E4%BC%9A%E7%AD%BE%E3%80%81%E6%88%96%E7%AD%BE/%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88Flowable%EF%BC%89%E4%BC%9A%E7%AD%BE%E3%80%81%E6%88%96%E7%AD%BE</loc>
     
     <lastmod>2025-07-21</lastmod>
     
@@ -1001,7 +1001,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/wiki/YDLDoc3/ELK%E5%85%A5%E9%97%A8/elk%E8%BF%9B%E9%98%B6/elk%E8%BF%9B%E9%98%B6</loc>
+    <loc>https://blog.thatcoder.cn/wiki/YDLDoc3/kafka/kafka%E5%85%A5%E9%97%A8/kafka%E5%85%A5%E9%97%A8</loc>
     
     <lastmod>2025-07-21</lastmod>
     
@@ -1010,7 +1010,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/wiki/YDLDoc3/kafka/kafka%E5%85%A5%E9%97%A8/kafka%E5%85%A5%E9%97%A8</loc>
+    <loc>https://blog.thatcoder.cn/wiki/YDLDoc3/ELK%E5%85%A5%E9%97%A8/elk%E8%BF%9B%E9%98%B6/elk%E8%BF%9B%E9%98%B6</loc>
     
     <lastmod>2025-07-21</lastmod>
     
@@ -1316,7 +1316,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.2%E3%80%912022-06-05/%E3%80%90v1.6.2%E3%80%912022-06-05</loc>
+    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.7.1%E3%80%912023-03-05/%E3%80%90v1.7.1%E3%80%912023-03-05</loc>
     
     <lastmod>2025-07-21</lastmod>
     
@@ -1325,7 +1325,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.7.1%E3%80%912023-03-05/%E3%80%90v1.7.1%E3%80%912023-03-05</loc>
+    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/%E3%80%90v1.6.2%E3%80%912022-06-05/%E3%80%90v1.6.2%E3%80%912022-06-05</loc>
     
     <lastmod>2025-07-21</lastmod>
     
@@ -1721,15 +1721,6 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1</loc>
-    
-    <lastmod>2025-07-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.thatcoder.cn/wiki/YDLDoc3/springcloud/SpringCloud/SpringCloud</loc>
     
     <lastmod>2025-07-21</lastmod>
@@ -1740,6 +1731,15 @@
   
   <url>
     <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%203/Icon%20%E5%9B%BE%E6%A0%87/Icon%20%E5%9B%BE%E6%A0%87</loc>
+    
+    <lastmod>2025-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1/%E8%8F%9C%E5%8D%95%E8%B7%AF%E7%94%B1</loc>
     
     <lastmod>2025-07-21</lastmod>
     
@@ -2261,7 +2261,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83</loc>
+    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%8A%9F%E8%83%BD%E5%BC%80%E5%90%AF/%E5%8A%9F%E8%83%BD%E5%BC%80%E5%90%AF</loc>
     
     <lastmod>2025-07-21</lastmod>
     
@@ -2270,7 +2270,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%89%8B%E5%86%8C/%E5%8A%9F%E8%83%BD%E5%BC%80%E5%90%AF/%E5%8A%9F%E8%83%BD%E5%BC%80%E5%90%AF</loc>
+    <loc>https://blog.thatcoder.cn/wiki/YuDaoBoot/%E5%89%8D%E7%AB%AF%E6%89%8B%E5%86%8C%20Vue%202/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83</loc>
     
     <lastmod>2025-07-21</lastmod>
     
@@ -2603,7 +2603,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/design/Design-Observer/</loc>
+    <loc>https://blog.thatcoder.cn/dev/coze-import/</loc>
     
     <lastmod>2025-07-19</lastmod>
     
@@ -2612,7 +2612,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/dev/coze-import/</loc>
+    <loc>https://blog.thatcoder.cn/design/Design-Observer/</loc>
     
     <lastmod>2025-07-19</lastmod>
     
@@ -2657,7 +2657,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/U-Fix/</loc>
+    <loc>https://blog.thatcoder.cn/Waline%E4%B8%8ELsky%E5%85%B0%E7%A9%BA%E5%9B%BE%E5%BA%8A/</loc>
     
     <lastmod>2025-07-19</lastmod>
     
@@ -2666,7 +2666,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/Waline%E4%B8%8ELsky%E5%85%B0%E7%A9%BA%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>https://blog.thatcoder.cn/U-Fix/</loc>
     
     <lastmod>2025-07-19</lastmod>
     
@@ -3033,7 +3033,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/%E8%B7%A8%E5%9F%9F/</loc>
+    <loc>https://blog.thatcoder.cn/tags/Linux/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3047,14 +3047,14 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Linux/</loc>
+    <loc>https://blog.thatcoder.cn/tags/%E5%9B%BE%E5%BA%8A/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>https://blog.thatcoder.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3068,7 +3068,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://blog.thatcoder.cn/tags/%E8%B7%A8%E5%9F%9F/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3089,7 +3089,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Window/</loc>
+    <loc>https://blog.thatcoder.cn/tags/Vercel/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3124,13 +3124,6 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Vercel/</loc>
-    <lastmod>2025-10-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.thatcoder.cn/tags/GalGame/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -3138,14 +3131,14 @@
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/Game/</loc>
+    <loc>https://blog.thatcoder.cn/tags/Window/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.thatcoder.cn/tags/%E9%82%AE%E4%BB%B6/</loc>
+    <loc>https://blog.thatcoder.cn/tags/Game/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3173,6 +3166,20 @@
   </url>
   
   <url>
+    <loc>https://blog.thatcoder.cn/tags/%E9%82%AE%E4%BB%B6/</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.thatcoder.cn/tags/Coze/</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.thatcoder.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -3188,13 +3195,6 @@
   
   <url>
     <loc>https://blog.thatcoder.cn/tags/%E5%BD%B1%E5%89%A7/</loc>
-    <lastmod>2025-10-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thatcoder.cn/tags/Coze/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
