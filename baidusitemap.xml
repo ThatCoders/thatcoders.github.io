@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.thatcoder.cn//stellar-1.18.5-to-latest/</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.thatcoder.cn//kykms-arm64/</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
     <loc>https://blog.thatcoder.cn//daily/Jiaodong-Peninsula/</loc>
     <lastmod>2025-10-11</lastmod>
   </url>
@@ -17,10 +25,6 @@
     <lastmod>2025-08-28</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//stellar-1.18.5-to-latest/</loc>
-    <lastmod>2025-07-20</lastmod>
-  </url>
-  <url>
     <loc>https://blog.thatcoder.cn/share/game/%E5%B0%8F%E5%B0%8F%E6%A2%A6%E9%AD%87.html</loc>
     <lastmod>2025-07-19</lastmod>
   </url>
@@ -33,11 +37,11 @@
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//hi-res/Sakamoto-Ry%C5%ABichi/</loc>
+    <loc>https://blog.thatcoder.cn//game/sky/</loc>
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//game/sky/</loc>
+    <loc>https://blog.thatcoder.cn//hi-res/Sakamoto-Ry%C5%ABichi/</loc>
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
@@ -49,11 +53,11 @@
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//dev/coze-import/</loc>
+    <loc>https://blog.thatcoder.cn//design/Design-Observer/</loc>
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//design/Design-Observer/</loc>
+    <loc>https://blog.thatcoder.cn//dev/coze-import/</loc>
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
@@ -93,11 +97,11 @@
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//Stellar-Timeline-More/</loc>
+    <loc>https://blog.thatcoder.cn//Spring-WebSocket/</loc>
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
-    <loc>https://blog.thatcoder.cn//Spring-WebSocket/</loc>
+    <loc>https://blog.thatcoder.cn//Stellar-Timeline-More/</loc>
     <lastmod>2025-07-19</lastmod>
   </url>
   <url>
